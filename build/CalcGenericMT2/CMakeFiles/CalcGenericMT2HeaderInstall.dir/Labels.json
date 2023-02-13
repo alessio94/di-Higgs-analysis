@@ -1,0 +1,19 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/include/CalcGenericMT2"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/include/CalcGenericMT2.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"CalcGenericMT2"
+		],
+		"name" : "CalcGenericMT2HeaderInstall"
+	}
+}

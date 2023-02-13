@@ -1,0 +1,8 @@
+# Target labels
+ CxAODUtils
+# Source files and their labels
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CxAODUtils/CxAODUtils/CxAODReaderAlgorithm.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CxAODUtils/Root/CxAODReaderAlgorithm.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/CxAODUtils/CMakeFiles/CxAODUtilsCintDict.cxx
+ CxAODUtils
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/CxAODUtils/CMakeFiles/CxAODUtilsCintDict.cxx.rule

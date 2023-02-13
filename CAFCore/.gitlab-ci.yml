@@ -1,0 +1,425 @@
+# ##########################################################################
+# # preamble
+# ##########################################################################
+
+variables:
+  ATLAS_LOCAL_ROOT_BASE: /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
+  ANALYSISBASE_IMAGE: atlas/analysisbase:21.2.168
+  ANALYSISBASE_IMAGE_LATEST: atlas/analysisbase:latest
+  ROOT_IMAGE: atlasamglab/stats-base
+  ROOT_TAG: root6.24.00-python3.8
+  CODE_DIR: /CAFCore
+  SKOPEO_IMAGE: matthewfeickert/skopeo-docker
+  SKOPEO_TAG: skopeo1.1.0
+
+  GITLAB_API_BASE: "https://gitlab.cern.ch/api/v4/projects/atlas-caf%2Fcafcore/registry/repositories"
+
+  # Don't clone git repositories for most jobs. Activated explicitly for build jobs.
+  GIT_STRATEGY: none
+
+stages:
+  - base
+  - build
+  - test
+  - render
+  - deploy
+  - docker
+
+##########################################################################
+# create base/helper images
+
+# standalone-base is built on top of an offical root image with
+# python3. It adds some functionality like cmake, make, boost that's
+# needed for a CAFCore standalone comilation.
+standalone_base:
+  stage: base
+  image:
+    name: gitlab-registry.cern.ch/ci-tools/docker-image-builder
+    entrypoint: [""]
+  before_script:
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+  script:
+    - /kaniko/executor --context $CI_PROJECT_DIR/docker --dockerfile Dockerfile_standalone_base --build-arg ROOT_IMAGE=${ROOT_IMAGE}:${ROOT_TAG} --destination ${CI_REGISTRY_IMAGE}/standalone-base:${ROOT_TAG}
+  variables:
+    GIT_STRATEGY: fetch
+  only:
+    changes:
+      - docker/Dockerfile_standalone_base
+      - .gitlab-ci.yml
+  retry:
+    max: 2
+
+# This image is helpful for copying and deleting images during the CI.
+skopeo-helper:
+  stage: base
+  image:
+    name: gitlab-registry.cern.ch/ci-tools/docker-image-builder
+    entrypoint: [""]
+  before_script:
+    - echo "{\"auths\":{\"$CI_REGISTRY\":{\"username\":\"$CI_REGISTRY_USER\",\"password\":\"$CI_REGISTRY_PASSWORD\"}}}" > /kaniko/.docker/config.json
+  script:
+    - /kaniko/executor --context $CI_PROJECT_DIR/docker --dockerfile Dockerfile_skopeo --build-arg SKOPEO_BASE=${SKOPEO_IMAGE}:${SKOPEO_TAG} --destination ${CI_REGISTRY_IMAGE}/skopeo-helper:${SKOPEO_TAG}
+  variables:
+    GIT_STRATEGY: fetch
+  only:
+    changes:
+      - docker/Dockerfile_skopeo
+      - .gitlab-ci.yml
+  retry:
+    max: 2
+
+##########################################################################
+# build
+
+.cmake_template:
+  stage: build
+  tags:
+    - docker-image-build
+  script:
+    - ignore
+  variables:
+    # TO: ${CI_REGISTRY_IMAGE}:sha-${CI_COMMIT_SHORT_SHA}
+    BUILD_ARG_1: ANALYSISBASE_IMAGE=${ANALYSISBASE_IMAGE}
+    BUILD_ARG_2: CODE_DIR=${CODE_DIR}
+    # BUILD_ARG_3: CMAKE_CXX_FLAGS="<put cxx flags here>"
+    DOCKER_FILE: docker/Dockerfile
+    GIT_STRATEGY: fetch
+
+# nominal build based on AnalysisBase image from cmake_template
+cmake:
+  extends:
+    - .cmake_template
+  variables:
+    TO: ${CI_REGISTRY_IMAGE}/debug:sha-${CI_COMMIT_SHORT_SHA}
+  when: always
+
+# same as above, but for tagged commits
+cmake_tag:
+  extends:
+    - cmake
+  variables:
+    TO: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_TAG}
+  only:
+    - tags
+
+# same as above, but with manual action
+cmake_manual:
+  extends:
+    - cmake
+  variables:
+    TO: ${CI_REGISTRY_IMAGE}:${CI_COMMIT_REF_SLUG}
+  when: manual
+
+# Same as above, but with most recent AnalysisBase version. Only run
+# this for master commits to ensure that nothing substantial breaks.
+cmake_latest:
+  extends:
+    - .cmake_template
+  variables:
+    TO: ${CI_REGISTRY_IMAGE}/debug:sha-${CI_COMMIT_SHORT_SHA}-latest
+    BUILD_ARG_1: ANALYSISBASE_IMAGE=${ANALYSISBASE_IMAGE_LATEST}
+  only:
+    - master
+  allow_failure: true
+
+# Same as above, but with debug flags enabled. This image is deleted later.
+.cmake_debug:
+  extends: .cmake_template
+  variables:
+    TO: ${CI_REGISTRY_IMAGE}/debug:sha-${CI_COMMIT_SHORT_SHA}-debug
+    BUILD_ARG_3: CMAKE_CXX_FLAGS="-D_DEBUG_=1"
+
+# Same as above, but aborts compilation after the first warning. This job is executed in the test stage and only if the normal compilation succeeded. The image is deleted later.
+compiler_warnings:
+  extends: .cmake_template
+  stage: test
+  needs: ["cmake"]
+  variables:
+    TO: ${CI_REGISTRY_IMAGE}/debug:sha-${CI_COMMIT_SHORT_SHA}-warning
+    # BUILD_ARG_3: CMAKE_CXX_FLAGS="-Wfatal-errors"
+    BUILD_ARG_3: CMAKE_CXX_FLAGS="-Werror"
+
+# build based on standalone-base image
+cmake_standalone:
+  extends:
+    - .cmake_template
+  variables:
+    TO: ${CI_REGISTRY_IMAGE}/debug-standalone:sha-${CI_COMMIT_SHORT_SHA}
+    BUILD_ARG_1: STANDALONE_BASE=${CI_REGISTRY_IMAGE}/standalone-base:${ROOT_TAG}
+    DOCKER_FILE: docker/Dockerfile_standalone
+
+# same as above, but for tagged commits
+cmake_standalone_tag:
+  extends:
+    - cmake_standalone
+  variables:
+    TO: ${CI_REGISTRY_IMAGE}/standalone:${CI_COMMIT_TAG}
+  only:
+    - tags
+
+##########################################################################
+# stage: test
+
+.test_template:
+  stage: test
+  artifacts:
+    name: "referencePlots_${CI_JOB_NAME}_${CI_COMMIT_REF_NAME}"
+    expire_in: 6 mos
+    when: always
+    paths:
+      - plotting-artifacts
+  before_script:
+    - source /cafsetup.sh
+    - source ${CODE_DIR}/source/QFramework/test/CAFTests.sh
+    - cd ${CODE_DIR}/build
+
+# run unit tests on nominal cmake build
+test:
+  extends: .test_template
+  image:
+    name: ${CI_REGISTRY_IMAGE}/debug:sha-${CI_COMMIT_SHORT_SHA}
+    entrypoint: [""]
+  needs: ["cmake"]
+  script:
+    - source /home/atlas/release_setup.sh
+    - CAFRunCMakeTests
+
+# same as above, but on latest AnalysisBase
+test_latest:
+  extends: test
+  image:
+    name: ${CI_REGISTRY_IMAGE}/debug:sha-${CI_COMMIT_SHORT_SHA}-latest
+    entrypoint: [""]
+  needs: ["cmake_latest"]
+  only:
+    - master
+  allow_failure: true
+
+# run unit tests on standalone build
+standalone_test:
+  extends: .test_template
+  image:
+    name: ${CI_REGISTRY_IMAGE}/debug-standalone:sha-${CI_COMMIT_SHORT_SHA}
+    entrypoint: [""]
+  needs: ["cmake_standalone"]
+  script:
+    - CAFRunCMakeStandaloneTests
+
+# ensure that debug statements are not enabled in classes
+test_debug:
+  stage: test
+  needs: ["cmake"]
+  image:
+    name: ${CI_REGISTRY_IMAGE}/debug:sha-${CI_COMMIT_SHORT_SHA}
+    entrypoint: [""]
+  script:
+    - source /home/atlas/release_setup.sh
+    - source /cafsetup.sh
+    - set +e
+    - grep "^\\s*#define _DEBUG_" */Root/*.cxx | tee debug_flags
+    - set -e
+    - if [ -s debug_flags ]; then exit 1; else exit 0; fi
+
+
+##########################################################################
+# stage: render
+
+generate_code_documentation:
+  stage: render
+  needs: ["cmake"]
+  image:
+    name: ${CI_REGISTRY_IMAGE}/debug:sha-${CI_COMMIT_SHORT_SHA}
+    entrypoint: [""]
+  script:
+    - source /release_setup.sh
+    - source /cafsetup.sh
+    - python $CAFCOREDIR/CAFDocumentation/cmt/makedoc.py --basedir $CAFCOREDIR --outputdir documentation --htmldir $CAFCOREDIR/CAFDocumentation/cmt/html --url https://atlas-caf.web.cern.ch/ --cse 004966404739141243895:6xs937vagoc
+  artifacts:
+    name: "html_${CI_COMMIT_REF_NAME}"
+    expire_in: 3 mos
+    paths:
+      - documentation
+
+generate_tag_documentation:
+  stage: render
+  needs: ["cmake"]
+  image:
+    name: ${CI_REGISTRY_IMAGE}/debug:sha-${CI_COMMIT_SHORT_SHA}
+    entrypoint: [""]
+  script:
+    - source /release_setup.sh
+    - source /cafsetup.sh
+    - python $CAFCOREDIR/CAFDocumentation/cmt/makeTagDoc.py $CAFCOREDIR/QFramework/Root/*.cxx $CAFCOREDIR/CAFxAODUtils/Root/*.cxx $CAFCOREDIR/QFramework/share/*.py $CAFCOREDIR/QFramework/python/*.py
+  artifacts:
+    name: "TagDoc_${CI_COMMIT_REF_NAME}"
+    expire_in: 3 mos
+    paths:
+      - documentation_tag.html
+      - documentation_tag.tex
+      - documentation_observable.html
+      - documentation_observable.tex
+      - documentation_env.html
+      - documentation_env.tex
+
+generate_markdown_documentation:
+  stage: render
+  needs: ["cmake"]
+  image:
+    name: ${CI_REGISTRY_IMAGE}/debug:sha-${CI_COMMIT_SHORT_SHA}
+    entrypoint: [""]
+  script:
+    - source /release_setup.sh
+    - source /cafsetup.sh
+    - pip install --user markdown2
+    - mkdir SFrameworkActions
+    - cp $CAFCOREDIR/SFramework/Root/Action*.cxx SFrameworkActions
+    - cp $CAFCOREDIR/CAFDocumentation/cmt/htaccess SFrameworkActions/.htaccess
+    - python $CAFCOREDIR/CAFDocumentation/cmt/makeMarkdownDoc.py $CAFCOREDIR/SFramework/Root/Action*.cxx --output SFrameworkActions --url http://atlas-caf.web.cern.ch/SFrameworkActions/ --repo https://gitlab.cern.ch/atlas-caf/CAFCore/tree/master/SFramework/Root
+  artifacts:
+    name: "TagDoc_${CI_COMMIT_REF_NAME}"
+    expire_in: 3 mos
+    paths:
+      - SFrameworkActions
+
+##########################################################################
+# stage: deploy
+
+pages:
+  stage: deploy
+  needs:
+    - job: generate_code_documentation
+      artifacts: true
+    - job: generate_tag_documentation
+      artifacts: true
+    - job: generate_markdown_documentation
+      artifacts: true
+  # Custom docker image providing the needed tools to deploy in DFS
+  image: gitlab-registry.cern.ch/ci-tools/ci-web-deployer:latest
+  script:
+  - mv documentation public
+  - cp documentation_tag.html public/tags.html
+  - cp documentation_observable.html public/observables.html
+  - cp documentation_env.html public/env.html
+  - mv SFrameworkActions public/
+  - deploy-dfs
+  artifacts:
+    name: "CAFDoc_${CI_COMMIT_REF_NAME}"
+    expire_in: 6 mos
+    paths:
+    - public
+  when: manual
+
+##########################################################################
+# tag docker images
+
+# template to move an image (i.e. copy and untag old image)
+.docker_move_template:
+  stage: docker
+  image: ${CI_REGISTRY_IMAGE}/skopeo-helper:${SKOPEO_TAG}
+  before_script:
+    - source /home/docker/untag.sh
+  script:
+    - echo "FROM_IMAGE ${FROM_IMAGE}"
+    - echo "FROM_TAG ${FROM_TAG}"
+    - echo "TO_IMAGE ${TO_IMAGE}"
+    - echo "TO_TAG ${TO_TAG}"
+    - skopeo copy --src-creds $CI_REGISTRY_USER:$CI_REGISTRY_PASSWORD --dest-creds $CI_REGISTRY_USER:$CI_REGISTRY_PASSWORD docker://${FROM_IMAGE}:${FROM_TAG} docker://${TO_IMAGE}:${TO_TAG}
+    - untagImage ${GITLAB_API_BASE} ${FROM_IMAGE} ${FROM_TAG} ${ATLASCAF_TOKEN}
+  retry:
+    max: 2
+
+# template to untag an image
+.docker_delete_template:
+  stage: docker
+  image: ${CI_REGISTRY_IMAGE}/skopeo-helper:${SKOPEO_TAG}
+  before_script:
+    - source /home/docker/untag.sh
+  script:
+    - echo "IMAGE ${IMAGE}"
+    - echo "TAG ${TAG}"
+    - untagImage ${GITLAB_API_BASE} ${IMAGE} ${TAG} ${ATLASCAF_TOKEN}
+  retry:
+    max: 2
+
+# delete the debug image
+.delete_debug:
+  extends: .docker_delete_template
+  needs: ["cmake_debug"]
+  variables:
+    IMAGE: ${CI_REGISTRY_IMAGE}/debug
+    TAG: sha-${CI_COMMIT_SHORT_SHA}-debug
+  when: always
+
+# delete the warning image
+delete_warning:
+  extends: .docker_delete_template
+  needs: ["compiler_warnings"]
+  variables:
+    IMAGE: ${CI_REGISTRY_IMAGE}/debug
+    TAG: sha-${CI_COMMIT_SHORT_SHA}-warning
+  when: always
+
+# keep nominal build image around as cafcore/branch:branchName
+tag:
+  extends: .docker_move_template
+  needs: ["test", "generate_code_documentation", "generate_tag_documentation", "generate_markdown_documentation"]
+  variables:
+    FROM_IMAGE: ${CI_REGISTRY_IMAGE}/debug
+    FROM_TAG: sha-${CI_COMMIT_SHORT_SHA}
+    TO_IMAGE: ${CI_REGISTRY_IMAGE}/branch
+    TO_TAG: ${CI_COMMIT_BRANCH}
+  when: always
+  except:
+    - master
+
+# if a master commit, keep nominal build image as cafcore:master
+tag_master:
+  extends: .docker_move_template
+  needs: ["test", "generate_code_documentation", "generate_tag_documentation", "generate_markdown_documentation"]
+  variables:
+    FROM_IMAGE: ${CI_REGISTRY_IMAGE}/debug
+    FROM_TAG: sha-${CI_COMMIT_SHORT_SHA}
+    TO_IMAGE: ${CI_REGISTRY_IMAGE}
+    TO_TAG: ${CI_COMMIT_BRANCH}
+  when: always
+  only:
+    - master
+
+# if a master commit, keep latest build image as cafcore:latest
+tag_latest:
+  extends: .docker_move_template
+  needs: ["test_latest"]
+  variables:
+    FROM_IMAGE: ${CI_REGISTRY_IMAGE}/debug
+    FROM_TAG: sha-${CI_COMMIT_SHORT_SHA}-latest
+    TO_IMAGE: ${CI_REGISTRY_IMAGE}
+    TO_TAG: latest
+  when: always
+  only:
+    - master
+
+# keep standalone build image around as cafcore/branch-standalone:branchName
+tag_standalone:
+  extends: .docker_move_template
+  needs: ["standalone_test"]
+  variables:
+    FROM_IMAGE: ${CI_REGISTRY_IMAGE}/debug-standalone
+    FROM_TAG: sha-${CI_COMMIT_SHORT_SHA}
+    TO_IMAGE: ${CI_REGISTRY_IMAGE}/branch-standalone
+    TO_TAG: ${CI_COMMIT_BRANCH}
+  when: always
+  except:
+    - master
+
+# if a master commit, keep standalone build image as cafcore/standalone:master
+tag_standalone_master:
+  extends: .docker_move_template
+  needs: ["standalone_test"]
+  variables:
+    FROM_IMAGE: ${CI_REGISTRY_IMAGE}/debug-standalone
+    FROM_TAG: sha-${CI_COMMIT_SHORT_SHA}
+    TO_IMAGE: ${CI_REGISTRY_IMAGE}/standalone
+    TO_TAG: ${CI_COMMIT_BRANCH}
+  when: always
+  only:
+    - master

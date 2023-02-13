@@ -1,0 +1,9 @@
+# Target labels
+ CalcGenericMT2
+# Source files and their labels
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CalcGenericMT2/CalcGenericMT2/MT2.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CalcGenericMT2/CalcGenericMT2/MT2_ATLAS.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CalcGenericMT2/CalcGenericMT2/MT2_ROOT.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CalcGenericMT2/CMakeFiles/CalcGenericMT2LibCintDict.cxx
+ CalcGenericMT2
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CalcGenericMT2/CMakeFiles/CalcGenericMT2LibCintDict.cxx.rule

@@ -1,0 +1,9 @@
+[release_metadata]
+release:1.0.0
+nightly name:master
+project name:CAFbbll
+nightly release:ac575e40
+date:2022-11-07T1411
+compiler:GNU-8.3.0
+cxxpath:/cvmfs/sft.cern.ch/lcg/releases/gcc/8.3.0-cebb0/x86_64-centos7/bin/g++
+cmake:3.18.3

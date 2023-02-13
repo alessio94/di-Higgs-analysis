@@ -1,0 +1,223 @@
+# ==============================================================================================
+# config_runChain_SimpleExample.txt
+# 
+# This is the configuration file for the statistics code of a simple example illustrating how
+# the code can be used to easily perform statistical analyses on input histograms provided by
+# means of a sample folder (TQSampleFolder). To run this example (provided all libraries and
+# executables -- see also the Readme.txt -- are available) type in your console:
+#
+# $Console> ./runHWWStats example/config_runChain_SimpleExample.txt
+#
+# This will run the full chain of a very simple statistics analysis using example input from the
+# H->WW analysis. The example includes:
+#
+# 1) Building a statistical model (from this configuration file and externally provided input
+#    histograms, here taken from the example input file "samples_example.root" in the examples/
+#    directory). [Top-level block "CreateModels.SimpleExample"]
+#
+# 2) Creating a RooFit workspace from the statistical model using HistFactory. [Top-level block
+#    "CreateWorkspaces"]
+#
+# 3) Running a simple discovery significance calculation (both expected and observed) using the
+#    workspace produced in step 2). [Top-level block "RunStatistics/Significance"]
+#
+# 4) Exporting the results of the statistical analysis performed in step 3 to an external
+#    human-readable text file (including significances as well as details of performed fits).
+#    [Top-level block "ExportResults"]
+#
+# ==============================================================================================
+
+
+# ----------------------------------------------------------------------------------------------
+# Top-level block "CreateModels.SimpleExample"
+#
+# ----------------------------------------------------------------------------------------------
++CreateModels.SimpleExample {
+
+	# The name of the model
+	<name = "SimpleExample">
+
+	# ----------------------------------------------------------------------------------------------
+	# Block "ModelConfiguration"
+	#
+	# ----------------------------------------------------------------------------------------------
+	+ModelConfiguration {
+
+		# ----------------------------------------------------------------------------------------------
+		# Block "Parameters"
+		#
+		# ----------------------------------------------------------------------------------------------
+		+Parameters {
+			<Title = "Simple Example">
+			<ExportOnly = true>
+
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			# The name of the Parameter Of Interest (here, the signal strength
+			# parameter mu)
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			<POI = "mu">
+
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			# The luminosity scale factor (here, it is one because input
+			# histograms already have been scaled to correct luminosity)
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			<Lumi = 1.0>
+
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			# The relative uncertainty on the luminosity (scale factor). We don't want
+			# to consider systematic uncertainties for now, so set this parameter to a
+			# very small value (the fit will fail if it is too small)
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			<LumiRelErr = 1E-7>
+
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			# The minimum bin content for each histogram bin
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			<MinBinContent = 1E-12>
+		}
+
+		# ----------------------------------------------------------------------------------------------
+		# Block "Samples"
+		#
+		# In the "Samples" block all samples (individual signal and background contributions as well as
+		# data) have to be listed.
+		# ----------------------------------------------------------------------------------------------
+		+Samples {
+
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			# This is the observed data. Please note that unlike all other
+			# samples the name of the data sample has to be exactly "Data"
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			+Data {
+				<Type = D, Path = "data">
+			}
+
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			# This is the signal contribution (here, individual signal
+			# contributions are summed to get the total signal contribution)
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			+sig {
+				<Type = S, Path = "sig/mh125">
+
+				# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				# This is the signal strength parameter mu (a simple normalization
+				# factor affecting the signal contribution) which will be used as
+				# Parameter Of Interest (set in the "Parameters" block, see above)
+				# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				+NormFactor.mu {
+					<Val = 1., Low = 0., High = 50., Const = true>
+				}
+
+				# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				# This is a constant normalization set to one (thus having no effect on
+				# the result) but which will allow to access individual contributions from
+				# the workspace later
+				# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				+NormFactor.ATLAS_sampleNorm_sig {
+					<Val = 1., Low = 0., High = 10., Const = true>
+				}
+			}
+
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			# This is the background contribution (here, individual background
+			# contributions are summed to get the total background contribution)
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			+bkg {
+				<Type = B, Path = "bkg">
+
+				# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				# let the background float and be constrained from the control region
+				# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				+NormFactor.ATLAS_norm_bkg {
+					<Val = 1., Low = 0., High = 50., Const = false>
+				}
+
+				# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				# Another constant normalization factor (see signal contribution)
+				# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+				+NormFactor.ATLAS_sampleNorm_bkg {
+					<Val = 1., Low = 0., High = 10., Const = true>
+				}
+			}
+			<ActivateStatError = false, NormalizeByTheory = false> @ ?;
+		}
+
+		# ----------------------------------------------------------------------------------------------
+		# Block "Channels"
+		#
+		# In the "Channels" block all channels (regions, e.g. signal and control regions) have to be
+		# listed.
+		# ----------------------------------------------------------------------------------------------
+		+Channels {
+			+SR {
+				<Histogram = "CutSR/MT_1bin">
+			}
+			+CR {
+				<Histogram = "CutCR/MT_1bin">
+			}
+		}
+
+		# ----------------------------------------------------------------------------------------------
+		# Block "Variations"
+		#
+		# ----------------------------------------------------------------------------------------------
+		+Variations {
+			+Nominal {
+				<SampleFolder = "./examples/samples_example.root:samples_Nominal">
+			}
+		}
+	}
+}
+
+
+
+# ----------------------------------------------------------------------------------------------
+# Top-level block "ExportModels" (currently commented => not executed)
+#
+# ----------------------------------------------------------------------------------------------
+#+ExportModels {
+#	<outputFile = "./output/CodeJam/models/model_$(Name).txt, ./output/CodeJam/models/model_$(Name).root">
+#	<xmlDir = "./output/CodeJam/xml/model_$(Name)">
+#}
+
+
+# ----------------------------------------------------------------------------------------------
+# Top-level block "CreateWorkspaces"
+#
+# ----------------------------------------------------------------------------------------------
++CreateWorkspaces {
+	<histogramsFile = "./output_SimpleExample/workspaces/histograms_$(Name).root">
+}
+
+
+
+# ----------------------------------------------------------------------------------------------
+# Top-level block "RunStatistics"
+#
+# ----------------------------------------------------------------------------------------------
++RunStatistics {
+	+Significance {
+		<doObserved = true, doExpected = true, doConditionalAsimov = false, fit.runHesse = true, fit.runMinos = true>
+	}
+}
+
+
+# ----------------------------------------------------------------------------------------------
+# Top-level block "ExportResults"
+#
+# ----------------------------------------------------------------------------------------------
++ExportResults {
+	<outputFile = "./output_SimpleExample/results/result_$(Name).txt">
+}
+
+
+# ----------------------------------------------------------------------------------------------
+# Top-level block "ExportWorkspaces" ##(currently commented => not executed)##
+#
+# ----------------------------------------------------------------------------------------------
++ExportWorkspaces {
+	<outputFile = "./output_SimpleExample/workspaces/workspace_$(Name).root">
+}
+
+
+

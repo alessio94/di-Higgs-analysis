@@ -1,0 +1,25 @@
+{ decls }
+template <typename T> class ConfigField;
+
+[ libCxAODTools.so ]
+# List of selected classes
+class ConfigField<bool>
+class ConfigField<double>
+class ConfigField<float>
+class ConfigField<int>
+class ConfigField<std::string>
+class ConfigField<std::vector<bool> >
+class ConfigField<std::vector<double> >
+class ConfigField<std::vector<float> >
+class ConfigField<std::vector<int> >
+class ConfigField<std::vector<std::string> >
+class ConfigField<string>
+class ConfigField<vector<bool> >
+class ConfigField<vector<double> >
+class ConfigField<vector<float> >
+class ConfigField<vector<int> >
+class ConfigField<vector<string> >
+class ConfigFieldBase
+class ConfigStore
+header CxAODTools/ConfigFieldBase.h
+header CxAODTools/ConfigStore.h

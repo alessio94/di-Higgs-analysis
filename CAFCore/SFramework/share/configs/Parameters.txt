@@ -1,0 +1,17 @@
+
++Parameters {
+
+	<Name = "HWWlvlv_mh$(.mass)">
+	<Title = "H->WW->lvlv">
+	<OutputFilePrefix = "./output/">
+	<ExportOnly = true>
+	<POI = "mu">
+	<Lumi = 1.0>
+	<LumiRelErr = 0.037>
+
+	<SysRelThreshold = 0.005, SysRelMin = 0.001, SysRelCutoff = 2.>
+	<MinBinContent = 1E-12>
+
+}
+
+

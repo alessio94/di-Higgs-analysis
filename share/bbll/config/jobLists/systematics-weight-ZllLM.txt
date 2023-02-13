@@ -1,0 +1,11 @@
+!memory=2500
+!time=240
+!maxSampleSize=8000
+/bkg/?/?/prompt/Zee/hf/lowmass/lc
+/bkg/?/?/prompt/Zee/hf/lowmass/b
+/bkg/?/?/prompt/Zmm/hf/lowmass/lc
+/bkg/?/?/prompt/Zmm/hf/lowmass/b
+/bkg/?/?/prompt/Zee/lf/lowmass/lc
+/bkg/?/?/prompt/Zee/lf/lowmass/b
+/bkg/?/?/prompt/Zmm/lf/lowmass/lc
+/bkg/?/?/prompt/Zmm/lf/lowmass/b

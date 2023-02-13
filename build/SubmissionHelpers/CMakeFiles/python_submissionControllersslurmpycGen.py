@@ -1,0 +1,1 @@
+import py_compile; py_compile.compile( '/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/SubmissionHelpers/python/submissionControllers/slurm.py', cfile = '/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/SubmissionHelpers/CMakeFiles/pythonBytecode/python/submissionControllers/slurm.pyc', doraise = True )

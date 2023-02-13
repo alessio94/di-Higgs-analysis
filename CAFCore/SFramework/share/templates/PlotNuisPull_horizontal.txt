@@ -1,0 +1,23 @@
+<labels.0 = "#sqrt{s} = 13 TeV, #lower[-0.2]{#scale[0.6]{#int}} Ldt = 3.2 fb^{-1}">
+<labels.1 = "#it{H}#rightarrow#it{WW}^{*}#rightarrow#it{e}#nu#mu#nu/#mu#nu#it{e}#nu + 0/1 jets">
+<style.title.yAxis = "Best Fit Value">
+<style.title.xAxis = "(Nuisance) Parameter">
+<style.logScale = false>
+
++Line.line0 {
+	<y = 0>
+	<level = back>
+	<style.lineColor = 2, style.lineStyle = 1>
+}
++Line.linem1 {
+	<y = -1>
+	<level = back>
+	<style.lineColor = 2, style.lineStyle = 7>
+	<yMinMax = -1.> @ ..;
+}
++Line.linep1 {
+	<y = +1>
+	<level = back>
+	<style.lineColor = 2, style.lineStyle = 7>
+	<yMaxMin = 6.> @ ..;
+}

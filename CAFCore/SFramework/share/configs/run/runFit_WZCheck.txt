@@ -1,0 +1,24 @@
++ImportWorkspaces {
+	<inputFiles = "./output/WZCheck/workspaces/workspace_*.root:*">
+}
+
++RunStatistics {
+	+Significance {
+		<doObserved = true, doExpected = false, doConditionalAsimov = false, fit.runHesse = false, fit.runMinos = true, fit.minimizerType = "Minuit", saveSnapshot = "mySnapshot">
+	}
+#	+UncertaintyBreakdown {
+#		<datasetName = "asimovData_1">
+#		<group.STATS_MC = "gamma_stat_*">
+#		<group.STATS_Data = "!*norm*">
+#		<group.SYS = "alpha_*">
+#		<group.NORM_Top1j = "*ATLAS_norm_Top1j*">
+#	}
+}
+
++ExportResults {
+	<outputFile = "./output/WZCheck/results/result_$(Name).txt, ./output/WZCheck/results/result_$(Name).root">
+}
+
++ExportWorkspaces {
+	<outputFile = "./output/WZCheck/workspaces_post/workspace_$(Name).root">
+}

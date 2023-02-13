@@ -1,0 +1,8 @@
+# Target labels
+ CxAODTools
+# Source files and their labels
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CxAODTools/CMakeFiles/CxAODToolsDictReflexDict.cxx
+ CxAODTools
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/dict/ContainerProxies.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/CxAODToolsDict.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/selection.xml

@@ -1,0 +1,10 @@
+
++Parameters {
+	<UncertaintyFiles = "uncertainties/xs_files/xs_$(.mass).txt, uncertainties/theory_constraints_other.txt, uncertainties/alpha_uncerts_top.txt, uncertainties/alpha_uncerts_ww.txt, uncertainties/top0j_uncerts.txt, uncertainties/ztautau_uncerts.txt">
+
+	+NormFiles {
+		<Ztt = "norms/ztautau_norms.txt">
+	}
+}
+
+

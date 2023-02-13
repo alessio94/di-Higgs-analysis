@@ -1,0 +1,174 @@
+$include("configs/Systematics/Systematics_Exp_Lumi_2012.txt");
+$include("configs/Systematics/Systematics_Exp_JES.txt");
+
++Variations {
+
+	# Jet Tagging Efficiencies
+	# -------------------------------
+	+_BJetWeightUp;
+	+_BJetWeightDown;
+	+_CTJetWeightUp;
+	+_CTJetWeightDown;
+	+_MisTagJetWeightUp;
+	+_MisTagWeightDown;
+
+	# Electron Resolution/Scale
+	# -------------------------------
+	+ElecResolutionUp;
+	+ElecResolutionDown;
+	+ElecScaleUp;
+	+ElecScaleDown;
+
+	# Electron ID Efficiency
+	# -------------------------------
+	+_ElecEffUp;
+	+_ElecEffDown;
+
+	# Muon ID Efficiency
+	# -------------------------------
+	+_MuonEffUp;
+	+_MuonEffDown;
+
+	# Muon Resolution/Scale
+	# -------------------------------
+	+MSUP;
+	+MSLOW;
+	+MuonScale;
+
+	# Inner Detector Resolution
+	# -------------------------------
+	+IDLOW;
+	+IDUP;
+
+	# Lepton Isolation
+	# -------------------------------
+	+_lepIsoUp;
+	+_lepIsoDown;
+
+	# Jet Energy Resolution
+	# -------------------------------
+	+JERUp;
+
+	# W+jets Lepton Fake Rate
+	# -------------------------------
+	+_FakeWeightDown;
+	+_FakeWeightUp;
+
+	# Trigger
+	# -------------------------------
+	+_lepTriggerSFup;
+	+_lepTriggerSFdown;
+
+	# Mu Rescaling
+	# -------------------------------
+	+_MuRescaleDown;
+	+_MuRescaleUp;
+
+	# Soft Terms
+	# -------------------------------
+	+ResoSoftTermsDown_ptHard;
+	+ResoSoftTermsUp_ptHard;
+	+ScaleSoftTermsDown_ptHard;
+	+ScaleSoftTermsUp_ptHard;
+
+}
+
++Systematics {
+
+	# Jet Tagging Efficiencies
+	# --------------------------------------------------------------------------------------------------------------
+	+ATLAS_BTag_BEFF {
+		<Up = "_BJetWeightUp", Down = "_BJetWeightDown", IsOverallSys = true, IsHistoSys = true>
+	}
+	+ATLAS_BTag_CEFF {
+		<Up = "_CTJetWeightUp", Down = "_CTJetWeightDown", IsOverallSys = true, IsHistoSys = true>
+	}
+	+ATLAS_BTag_LEFF {
+		<Up = "_MisTagJetWeightUp", Down = "_MisTagWeightDown", IsOverallSys = true, IsHistoSys = true>
+	}
+
+	# Electron Resolution/Scale
+	# --------------------------------------------------------------------------------------------------------------
+	+ATLAS_EL_RES {
+		<Up = "ElecResolutionUp", Down = "ElecResolutionDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_EL_ESCALE {
+		<Up = "ElecScaleUp", Down = "ElecScaleDown", IsOverallSys = true, IsHistoSys = false>
+	}
+
+
+	# Electron ID Efficiency
+	# --------------------------------------------------------------------------------------------------------------
+	+ATLAS_EL_EFF {
+		<Up = "_ElecEffUp", Down = "_ElecEffDown", IsOverallSys = true, IsHistoSys = true>
+	}
+
+	# Muon ID Efficiency
+	# --------------------------------------------------------------------------------------------------------------
+	+ATLAS_MU_EFF {
+		<Up = "_MuonEffUp", Down = "_MuonEffDown", IsOverallSys = true, IsHistoSys = true>
+	}
+
+	# Inner Detector Resolution
+	# --------------------------------------------------------------------------------------------------------------
+	+ATLAS_MU_ID_RES {
+		<Up = "IDUP", Down = "IDLOW", IsOverallSys = true, IsHistoSys = false>
+	}
+
+	# Muon Resolution/Scale
+	# --------------------------------------------------------------------------------------------------------------
+	+ATLAS_MU_MS_RES {
+		<Up = "MSUP", Down = "MSLOW", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_MU_ESCALE {
+		<Up = "MuonScale", IsOverallSys = true, IsHistoSys = false>
+	}
+
+
+	# Lepton Isolation
+	# --------------------------------------------------------------------------------------------------------------
+	+ATLAS_ISO {
+		<Up = "_lepIsoUp", Down = "_lepIsoDown", IsOverallSys = true, IsHistoSys = true>
+	}
+
+	# Jet Energy Resolution
+	# --------------------------------------------------------------------------------------------------------------
+	+ATLAS_JER {
+		<Up = "JERUp", IsOverallSys = true, IsHistoSys = false>
+	}
+
+	# W+jets Lepton Fake Rate
+	# --------------------------------------------------------------------------------------------------------------
+	+FakeRate_HWW {
+		<Up = "_FakeWeightUp", Down = "_FakeWeightDown", IsOverallSys = true, IsHistoSys = true>
+	}
+
+	# Trigger
+	# --------------------------------------------------------------------------------------------------------------
+	+ATLAS_TRIGGER_HWW {
+		<Up = "_lepTriggerSFup", Down = "_lepTriggerSFdown", IsOverallSys = true, IsHistoSys = true>
+	}
+
+	# Mu Rescaling
+	# --------------------------------------------------------------------------------------------------------------
+	+ATLAS_MU_RESCALE_lvlv_2012 {
+		<Up = "_MuRescaleUp", Down = "_MuRescaleDown", IsOverallSys = true, IsHistoSys = false>
+	}
+
+	# Soft Terms
+	# --------------------------------------------------------------------------------------------------------------
+	+ATLAS_MET_RESOSOFT {
+		<Up = "ResoSoftTermsUp_ptHard", Down = "ResoSoftTermsDown_ptHard", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_MET_SCALESOFT {
+		<Up = "ScaleSoftTermsUp_ptHard", Down = "ScaleSoftTermsDown_ptHard", IsOverallSys = true, IsHistoSys = false>
+	}
+
+	# All systematics (except "FakeRate_HWW") apply to every sample (except "Wjets")
+	<.Include = "!*:Wjets"> @ ?;
+	<.Include = "*:Wjets"> @ FakeRate_HWW;
+
+	# Experimental systematics for Top 0j are taken from d-d estimate
+	<.Exclude = "*_0j_*:ttbar, *_0j_*:singletop"> @ ?;
+
+}

@@ -1,0 +1,323 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/RooFitUtils.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/Run_Freiburg_HWW_Statistics.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSBreakdownCalculator.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSCLSignificanceEvaluator.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSContourScanner.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSFitter.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSHistogramExporter.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSHypothesisTest.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSImpactCalculator.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSIterator.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSLikelihoodScanner.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSLimitCalculator.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSModelBuilder.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSModelFactory.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSSignificanceCalculator.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSStatisticsCalculator.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSStatisticsManager.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSStatisticsPlotter.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSSystematicsManager.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/SFramework/TSUtils.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionBatchCalculate.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionBatchScan.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionCalculateBreakdown.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionCalculateImpacts.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionCalculateLimits.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionCalculateSignificance.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionCombineWorkspaces.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionConvertToExtrapolationUncertainty.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionCopyWorkspace.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionCreateModel.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionCreateWorkspace.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionEditModels.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionEditWorkspace.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionExportHistograms.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionExportModels.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionExportResults.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionExportWorkspace.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionExtractModel.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionExtractParameterTable.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionExtractPullEffects.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionExtractYieldChanges.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionFit.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionHessianBreakdown.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionImportModels.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionImportObjects.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionImportResults.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionImportSystematics.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionImportWorkspace.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionMakeAsimovDataset.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionMakeToyDatasets.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionMergeDependentParameters.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionMergeResults.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionModifyHistogramInModel.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionModifyHistogramInWorkspace.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionMultiWorkspaceLikelihoodScan.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionPlotCorrelations.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionPlotHypothesisTest.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionPlotLikelihoodScan.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionPlotLimits.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionPlotResults.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionPlotSystematicsHistograms.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionPlotSystematicsSignificance.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionPlotSystematicsStatus.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionPlotToys.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionPrintResults.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionPrintSystematicsEffects.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionPrintSystematicsImpact.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionProcessSystematics.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionPruneParameters.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionRemoveNormalizationUncertainty.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionRemoveParameters.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionRunHypothesisTest.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionRunStatistics.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionScaleMCUncertainties.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionScaleProcesses.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionScaleSystematics.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionScanContour.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionScanLikelihood.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionSmoothHistograms.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionSplitStatUncertainty.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionTakeSnapshot.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionTransferSystematics.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/ActionUnfold.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSBreakdownCalculator.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSCLSignificanceEvaluator.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSContourScanner.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSFitter.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSHistogramExporter.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSHypothesisTest.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSImpactCalculator.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSLikelihoodScanner.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSLimitCalculator.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSModelBuilder.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSModelFactory.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSSignificanceCalculator.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSStatisticsCalculator.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSStatisticsManager.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSStatisticsPlotter.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSSystematicsManager.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/Root/TSUtils.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/SFramework/CMakeFiles/SFrameworkCintDict.cxx",
+			"labels" : 
+			[
+				"SFramework"
+			]
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/SFramework/CMakeFiles/SFrameworkCintDict.cxx.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"SFramework"
+		],
+		"name" : "SFramework"
+	}
+}

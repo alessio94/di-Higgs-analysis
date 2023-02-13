@@ -1,0 +1,30 @@
+# Target labels
+ CAFbbll
+# Source files and their labels
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/__init__.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/atlas.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/bbll_analyze.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/bbll_submit.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/bukin_fit.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/latexfile.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/pdg_rounding.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/sample_folder_tools.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/textfile.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFbbll/__init__.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/python/atlas.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/python/bbll_analyze.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/python/bbll_submit.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/python/bukin_fit.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/python/latexfile.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/python/pdg_rounding.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/python/sample_folder_tools.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/python/textfile.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/__init__.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/atlas.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/bbll_analyze.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/bbll_submit.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/bukin_fit.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/latexfile.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/pdg_rounding.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/sample_folder_tools.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CAFbbll/textfile.py.rule

@@ -1,0 +1,7 @@
+image: gitlab-registry.cern.ch/cxaodframework/dockerfiles/master/centos7-atlas_external_cvmfs_test01:latest
+
+include:
+  - project: 'cxaodframework/dockerfiles'
+    file: 'centos7-atlas_external_cvmfs_test01/templates/.maker-templates.yml'
+  - project: 'cxaodframework/dockerfiles'
+    file: 'centos7-atlas_external_cvmfs_test01/templates/.reader-templates.yml'

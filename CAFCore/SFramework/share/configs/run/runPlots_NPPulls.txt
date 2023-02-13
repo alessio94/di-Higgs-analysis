@@ -1,0 +1,16 @@
++ImportResults {
+	<inputFiles = "./output_Moriond/TEST_20130426/results/result_HWWlvlv_mh125_2DFit_ExpSys.txt">
+}
+
++PlotResults {
+	+PlotFitParameter {
+		+GROUP.mu0 {
+			<parameterSet = "HWWlvlv_mh125_2DFit_ExpSys/Significance/FitResults/obsData_mu0/floatParsFinal">
+			<style.title = "#mu = 0", style.color = kRed>
+		}
+		+GROUP.muhat {
+			<parameterSet = "HWWlvlv_mh125_2DFit_ExpSys/Significance/FitResults/obsData_muhat/floatParsFinal">
+			<style.title = "#mu = #hat{#mu}", style.color = kBlack>
+		}
+	}
+}

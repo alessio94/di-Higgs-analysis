@@ -1,0 +1,14 @@
+!memory=2500
+!time=720
+!maxSampleSize=8000
+/sys/?/?/sig/kl10/herwig7/bbtautau
+/sys/?/?/sig/kl10/herwig7/bbWW
+/sys/?/?/sig/kl10/herwig7/bbZZ
+/sys/?/?/bkg/prompt/top/ttbar_fastsim
+/sys/?/?/bkg/prompt/top/ttbar_PowhegHerwig7
+/sys/?/?/bkg/prompt/top/ttbar_aMCatNLOPythia8
+/sys/?/?/bkg/prompt/top/ttbar_hdamp517p5
+/sys/?/?/bkg/prompt/top/stop_fastsim/Wt
+/sys/?/?/bkg/prompt/top/stop_PowhegHerwig7/Wt
+/sys/?/?/bkg/prompt/top/stop_aMCatNLOPythia8/Wt
+/sys/?/?/bkg/prompt/top/stop_PowhegPythia8_DS/Wt

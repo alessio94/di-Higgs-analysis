@@ -1,0 +1,22 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CxAODTools/CMakeFiles/CxAODToolsDictDictGen"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CxAODTools/CMakeFiles/CxAODToolsDictDictGen.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CxAODTools/CMakeFiles/CxAODToolsDict.dsomap.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"CxAODTools"
+		],
+		"name" : "CxAODToolsDictDictGen"
+	}
+}

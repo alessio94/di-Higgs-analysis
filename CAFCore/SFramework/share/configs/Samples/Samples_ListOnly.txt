@@ -1,0 +1,64 @@
++Samples {
+	+Data {
+		<Type = D, Path = "data/$(.lepch)", Category = ".">
+	}
+	+sig_ggf {
+		<Type = S, Path = "sig/$(.lepch)/mh$(.mass)/ggf", Category = "sig">
+		+NormFactor.mu;
+		+NormFactor.ATLAS_sampleNorm_sig_ggf {<Val = 1., Low = 0., High = 10., Const = true>}
+	}
+	+sig_vbf {
+		<Type = S, Path = "sig/$(.lepch)/mh$(.mass)/vbf", Category = "sig">
+		+NormFactor.mu;
+		+NormFactor.ATLAS_sampleNorm_sig_vbf {<Val = 1., Low = 0., High = 10., Const = true>}
+	}
+	+sig_WH {
+		<Type = S, Path = "sig/$(.lepch)/mh$(.mass)/WH", Category = "sig">
+		+NormFactor.mu;
+		+NormFactor.ATLAS_sampleNorm_sig_WH {<Val = 1., Low = 0., High = 10., Const = true>}
+	}
+	+sig_ZH {
+		<Type = S, Path = "sig/$(.lepch)/mh$(.mass)/ZH", Category = "sig">
+		+NormFactor.mu;
+		+NormFactor.ATLAS_sampleNorm_sig_ZH {<Val = 1., Low = 0., High = 10., Const = true>}
+	}
+	+ttbar {
+		<Type = B, Path = "bkg/$(.lepch)/top/ttbar", Category = "bkg/top">
+		+NormFactor.ATLAS_sampleNorm_ttbar {<Val = 1., Low = 0., High = 10., Const = true>}
+	}
+	+singletop {
+		<Type = B, Path = "bkg/$(.lepch)/top/singletop", Category = "bkg/top">
+		+NormFactor.ATLAS_sampleNorm_singletop {<Val = 1., Low = 0., High = 10., Const = true>}
+	}
+	+WW {
+		<Type = B, Path = "bkg/$(.lepch)/diboson/WW", Category = "bkg/diboson">
+		+NormFactor.ATLAS_sampleNorm_WW {<Val = 1., Low = 0., High = 10., Const = true>}
+	}
+	+WZZZ {
+		<Type = B, Path = "bkg/$(.lepch)/diboson/NonWW/ZW + bkg/$(.lepch)/diboson/NonWW/ZZ", Category = "bkg/diboson">
+		+NormFactor.ATLAS_sampleNorm_WZZZ {<Val = 1., Low = 0., High = 10., Const = true>}
+	}
+	+Wg {
+		<Type = B, Path = "bkg/$(.lepch)/diboson/NonWW/Wgamma/gammaWincl/Wgamma", Category = "bkg/diboson">
+		+NormFactor.ATLAS_sampleNorm_Wg {<Val = 1., Low = 0., High = 10., Const = true>}
+	}
+	+Wgs {
+		<Type = B, Path = "bkg/$(.lepch)/diboson/NonWW/Wgamma/gammaWincl/WgammaStar", Category = "bkg/diboson">
+		+NormFactor.ATLAS_sampleNorm_Wgs {<Val = 1., Low = 0., High = 10., Const = true>}
+		
+	}
+	+Zll {
+		<Type = B, Path = "bkg/$(.lepch)/Zjets/Nom/?/ee + bkg/$(.lepch)/Zjets/Nom/?/mm", Category = "bkg/Zjets">
+		+NormFactor.ATLAS_sampleNorm_Zll {<Val = 1., Low = 0., High = 10., Const = true>}
+	}
+	+Ztt {
+		<Type = B, Path = "bkg/$(.lepch)/Zjets/Nom/?/tt", Category = "bkg/Zjets">
+		+NormFactor.ATLAS_sampleNorm_Ztt {<Val = 1., Low = 0., High = 10., Const = true>}
+	}
+	+Wjets {
+		<Type = B, Path = "bkg/$(.lepch)/Wjets", Category = "bkg">
+		+NormFactor.ATLAS_sampleNorm_Wjets {<Val = 1., Low = 0., High = 10., Const = true>}
+	}
+	<Val = 1., Low = 0., High = 50., Const = false> @ ?/NormFactor.mu;
+	<ActivateStatError = false, NormalizeByTheory = false> @ ?;
+}

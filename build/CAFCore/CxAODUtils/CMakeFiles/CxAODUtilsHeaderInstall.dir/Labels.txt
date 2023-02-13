@@ -1,0 +1,5 @@
+# Target labels
+ CxAODUtils
+# Source files and their labels
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/include/CxAODUtils
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/include/CxAODUtils.rule

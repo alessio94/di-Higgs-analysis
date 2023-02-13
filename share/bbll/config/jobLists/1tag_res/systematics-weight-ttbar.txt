@@ -1,0 +1,6 @@
+!memory=2500
+!time=240
+!maxSampleSize=2000
+/bkg/?/?/prompt/top/ttbar/dilepton
+/bkg/?/?/prompt/top/ttbar/nonallhad
+/bkg/?/?/prompt/top/ttbar/allhad

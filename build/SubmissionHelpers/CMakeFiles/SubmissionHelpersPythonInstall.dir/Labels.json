@@ -1,0 +1,64 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/__init__.py"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/common.py"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/submissionControllerBase.py"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/submissionControllers"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/submit.py"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/task.py"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/SubmissionHelpers/python/__init__.py"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/SubmissionHelpers/python/common.py"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/SubmissionHelpers/python/submissionControllerBase.py"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/SubmissionHelpers/python/submit.py"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/SubmissionHelpers/python/task.py"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/__init__.py.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/common.py.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/submissionControllerBase.py.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/submissionControllers.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/submit.py.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/task.py.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"SubmissionHelpers"
+		],
+		"name" : "SubmissionHelpersPythonInstall"
+	}
+}

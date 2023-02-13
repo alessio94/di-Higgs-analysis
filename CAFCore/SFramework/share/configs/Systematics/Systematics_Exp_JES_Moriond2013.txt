@@ -1,0 +1,82 @@
++Variations {
+
+	+ClosebyJESDown;
+	+ClosebyJESUp;
+	+bJESDown;
+	+bJESUp;
+	+NPVJESDown;
+	+NPVJESUp;
+	+MuJESDown;
+	+MuJESUp;
+	+Eta_ModellingJESDown;
+	+Eta_ModellingJESUp;
+	+HighPtJESDown;
+	+HighPtJESUp;
+	+FlavRespJESDown;
+	+FlavRespJESUp;
+	+NP_Modelling1JESDown;
+	+NP_Modelling1JESUp;
+	+NP_Detector1JESDown;
+	+NP_Detector1JESUp;
+	+Eta_StatMethodJESDown;
+	+Eta_StatMethodJESUp;
+	+PilePtJESDown;
+	+PilePtJESUp;
+	+PileRhoJESDown;
+	+PileRhoJESUp;
+
+#	+FlavCompJESDown;
+#	+FlavCompJESUp;
+
+}
+
++Systematics {
+
+	+ATLAS_JES_CLOSEBY {
+		<Up = "ClosebyJESUp", Down = "ClosebyJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_BJET {
+		<Up = "bJESUp", Down = "bJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_NPV {
+		<Up = "NPVJESUp", Down = "NPVJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_MU {
+		<Up = "MuJESUp", Down = "MuJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_Eta_Modelling {
+		<Up = "Eta_ModellingJESUp", Down = "Eta_ModellingJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_HighPt {
+		<Up = "HighPtJESUp", Down = "HighPtJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_FlavResp {
+		<Up = "FlavRespJESUp", Down = "FlavRespJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_2012_Modelling1 {
+		<Up = "NP_Modelling1JESUp", Down = "NP_Modelling1JESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_2012_Detector1 {
+		<Up = "NP_Detector1JESUp", Down = "NP_Detector1JESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_2012_Eta_StatMethod {
+		<Up = "Eta_StatMethodJESUp", Down = "Eta_StatMethodJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_2012_PilePt {
+		<Up = "PilePtJESUp", Down = "PilePtJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_2012_PileRho_HWW {
+		<Up = "PileRhoJESUp", Down = "PileRhoJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+
+#	+ATLAS_JES_FlavComp_HWW_tt {
+#		<Up = "FlavCompJESUp", Down = "FlavCompJESDown", IsOverallSys = true, IsHistoSys = false>
+#	}
+#	+ATLAS_JES_FlavComp_HWW_WW {
+#		<Up = "FlavCompJESUp", Down = "FlavCompJESDown", IsOverallSys = true, IsHistoSys = false>
+#	}
+#	+ATLAS_JES_FlavComp_HWW_other {
+#		<Up = "FlavCompJESUp", Down = "FlavCompJESDown", IsOverallSys = true, IsHistoSys = false>
+#	}
+
+}

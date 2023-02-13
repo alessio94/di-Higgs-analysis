@@ -1,0 +1,33 @@
+<div>
+  <p class="tight">
+    From a shell, you may call
+    <div class="codeblock">
+      <div>root -l</div>
+      <div>.L &lt;PATH&gt;/libQFramework.so</div>
+    </div>
+    at any time, where <span class="codeblock">&lt;PATH&gt;</span> is a
+    placeholder for the path at which your compiled library resides. This
+    is the <span class="codeblock">lib</span> subfolder of your checkout
+    directory in a standalone setup,
+    or <span class="codeblock">$ROOTCOREBIN/obj/$ROOTCORECONFIG/QFramework/lib/</span>
+    in a <span class="codeblock">RootCore</span> setup.
+  </p>
+  <p>
+    Alternatively, you can use the
+    <a href="base/share/tqroot">tqroot</a> script, which automatically loads the
+    library for you and resides in the <i>share</i> subfolder of the package.
+  </p>
+  <p class="tight">
+    However, if you want to load the library from within a macro, you should use
+    <div class="codeblock">
+      gROOT->ProcessLine(".L &lt;PATH&gt;/libQFramework.so");
+    </div>
+  </p>
+  <p class="tight">
+    If you are trying to compile an executable (for example with <i>g++</i>) against
+    the libQFramework, you will need the flags <span class="codeblock">-L&lt;PATH&gt;</span>
+    and <span class="codeblock">-lQFramework</span>. However, a more convenient way of compiling your
+    scripts against the CAF is to use
+    the <a href="base/share/tqcompile">tqcompile</a> script.
+  </p>
+</div>

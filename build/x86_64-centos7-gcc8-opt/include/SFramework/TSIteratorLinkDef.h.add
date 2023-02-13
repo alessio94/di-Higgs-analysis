@@ -1,0 +1,3 @@
+//////////////////////-*- mode: c++ -*-////////////////////////////////
+#pragma link C++ class TQIteratorT<RooRealVar>+;
+#pragma link C++ class TQIteratorT<RooWorkspace>+;

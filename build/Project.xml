@@ -1,0 +1,73 @@
+<!-- Auto-generated file, please do not edit -->
+<Project name="CAFbbll" >
+   <SubProject name="QFramework" >
+   </SubProject>
+   <SubProject name="AtlasEigen" >
+   </SubProject>
+   <SubProject name="AsgTools" >
+   </SubProject>
+   <SubProject name="xAODCore" >
+   </SubProject>
+   <SubProject name="xAODParticleEvent" >
+   </SubProject>
+   <SubProject name="xAODTruth" >
+   </SubProject>
+   <SubProject name="xAODEventInfo" >
+   </SubProject>
+   <SubProject name="AsgAnalysisInterfaces" >
+   </SubProject>
+   <SubProject name="CAFxAODUtils" >
+      <Dependency name="QFramework" />
+      <Dependency name="AtlasEigen" />
+      <Dependency name="AsgTools" />
+      <Dependency name="xAODCore" />
+      <Dependency name="xAODParticleEvent" />
+      <Dependency name="xAODTruth" />
+      <Dependency name="xAODEventInfo" />
+      <Dependency name="AsgAnalysisInterfaces" />
+   </SubProject>
+   <SubProject name="CAFCore" >
+   </SubProject>
+   <SubProject name="CommonAnalysisHelpers" >
+   </SubProject>
+   <SubProject name="AssociationUtils" >
+   </SubProject>
+   <SubProject name="PATInterfaces" >
+   </SubProject>
+   <SubProject name="CxAODUtils" >
+      <Dependency name="QFramework" />
+      <Dependency name="AsgTools" />
+      <Dependency name="xAODCore" />
+      <Dependency name="xAODEventInfo" />
+      <Dependency name="AssociationUtils" />
+      <Dependency name="PATInterfaces" />
+   </SubProject>
+   <SubProject name="SFramework" >
+      <Dependency name="QFramework" />
+   </SubProject>
+   <SubProject name="CAFlwtnn" >
+      <Dependency name="QFramework" />
+   </SubProject>
+   <SubProject name="xAODBase" >
+   </SubProject>
+   <SubProject name="xAODMissingET" >
+   </SubProject>
+   <SubProject name="CalcGenericMT2" >
+      <Dependency name="xAODBase" />
+      <Dependency name="xAODMissingET" />
+   </SubProject>
+   <SubProject name="CxAODTools" >
+   </SubProject>
+   <SubProject name="SubmissionHelpers" >
+   </SubProject>
+   <SubProject name="PathResolver" >
+   </SubProject>
+   <SubProject name="TTbarNNLOReweighter" >
+      <Dependency name="PathResolver" />
+   </SubProject>
+   <SubProject name="hhTruthWeightTools" >
+      <Dependency name="PathResolver" />
+      <Dependency name="AsgTools" />
+      <Dependency name="xAODParticleEvent" />
+   </SubProject>
+</Project>

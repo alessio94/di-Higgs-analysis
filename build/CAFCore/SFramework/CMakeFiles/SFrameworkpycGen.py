@@ -1,0 +1,1 @@
+import py_compile; py_compile.compile( '/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/SFramework/python/SFramework.py', cfile = '/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SFramework/SFramework.pyc', doraise = True )

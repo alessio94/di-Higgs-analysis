@@ -1,0 +1,20 @@
++band1s {
+	<style.fillColor = 400, style.drawOption = '3', style.title = '#pm1#sigma', style.legendDrawOptions = 'f'>
+}
++band2s {
+	<style.fillColor = 416, style.drawOption = '3', style.title = '#pm2#sigma', style.legendDrawOptions = 'f'>
+}
++exp {
+	<style.lineStyle = 7, style.drawOption = 'l', style.lineColor = 1, style.title = 'Expected', style.legendDrawOptions = 'l'>
+}
++obs {
+	<style.lineStyle = 1, style.drawOption = 'lp', style.lineColor = 1, style.title = 'Observed', style.legendDrawOptions = 'lp'>
+	<style.markerSize = 1., style.markerStyle = 19, style.markerColor = 1>
+}
++nuis {
+	<style.lineStyle = 1, style.lineWidth = 2, style.drawOption = 'p', style.color = 1, style.legendDrawOptions = 'lp'>
+	<style.markerSize = 1.25, style.markerStyle = 19>
+}
++breakdown {
+	<style.drawOption = 'E2', style.fillStyle=1001, style.lineWidth=1, style.legendDrawOptions = 'f'>
+}

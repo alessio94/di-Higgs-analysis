@@ -1,0 +1,47 @@
+{ decls }
+class RooWorkspace;
+template <typename T> class TQIteratorT;
+class RooRealVar;
+
+[ libSFramework.so ]
+# List of selected classes
+class RooExpectedEvents
+class TQIteratorT<RooRealVar>
+class TQIteratorT<RooWorkspace>
+class TSBreakdownCalculator
+class TSCLSignificanceEvaluator
+class TSContourScanner
+class TSFitter
+class TSHistogramExporter
+class TSHypothesisTest
+class TSImpactCalculator
+class TSLikelihoodScanner
+class TSLimitCalculator
+class TSModelBuilder
+class TSModelFactory
+class TSSignificanceCalculator
+class TSStatisticsCalculator
+class TSStatisticsManager
+class TSStatisticsPlotter
+class TSSystematicsManager
+header SFramework/TSHistogramExporter.h
+header SFramework/TSBreakdownCalculator.h
+header SFramework/TSCLSignificanceEvaluator.h
+header SFramework/TSContourScanner.h
+header SFramework/TSFitter.h
+header SFramework/TSHypothesisTest.h
+header SFramework/TSImpactCalculator.h
+header SFramework/TSLikelihoodScanner.h
+header SFramework/TSLimitCalculator.h
+header SFramework/TSModelBuilder.h
+header SFramework/TSModelFactory.h
+header SFramework/TSSignificanceCalculator.h
+header SFramework/TSStatisticsCalculator.h
+header SFramework/TSStatisticsManager.h
+header SFramework/TSStatisticsPlotter.h
+header SFramework/TSSystematicsManager.h
+# List of selected namespaces
+namespace TSUtils
+# List of selected typedefs and outer classes
+typedef RooWorkspaceIterator
+typedef RooRealVarIterator

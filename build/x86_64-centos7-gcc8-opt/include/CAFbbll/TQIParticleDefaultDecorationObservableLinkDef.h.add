@@ -1,0 +1,7 @@
+#pragma link C++ class TQIParticleDefaultDecorationObservable <float>+;
+#pragma link C++ class TQIParticleDefaultDecorationObservable <double>+;
+#pragma link C++ class TQIParticleDefaultDecorationObservable <char>+;
+#pragma link C++ class TQIParticleDefaultDecorationObservable <unsigned int>+;
+#pragma link C++ class TQIParticleDefaultDecorationObservable <unsigned short>+;
+#pragma link C++ class TQIParticleDefaultDecorationObservable <unsigned long long>+;
+#pragma link C++ class TQIParticleDefaultDecorationObservable <int>+;

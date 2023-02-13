@@ -1,0 +1,42 @@
+#!/usr/bin/env python 
+# this is a -*- python -*- file
+import os
+os.environ['PYTHONINSPECT'] = 'TRUE' #interactive mode after execution of the lines below
+  
+import QFramework
+import ROOT
+
+import sys
+import re
+from os.path import isfile
+
+for argi in range(1,len(sys.argv)):
+    arg = sys.argv[argi]
+    if not isfile(arg):
+        print("no such file: {:s}".format(arg))
+        continue
+    if re.match("^.*\.root[.0-9]*",arg):
+        fileptr = ROOT.TFile.Open(arg,"READ")
+        filename = "_file{:d}".format(argi-1)
+        globals()[filename] = fileptr
+        print("adding TFile '{:s}' as '{:s}'".format(arg,filename))
+        for k in fileptr.GetListOfKeys():
+            name = str(k.GetName())
+            if name.startswith("--"): continue
+            if not name in globals().keys():
+                print("loading {:s} '{:s}'".format(k.GetClassName(),name))
+                globals()[name] = k.ReadObj()
+            else:
+                newname = name+filename
+                print("loading {:s} '{:s}' (inserting as '{:s}' to avoid name clashes)".format(k.GetClassName(),name,newname))
+                globals()[newname] = k.ReadObj()
+    if re.match("^.*\.txt",arg):
+        errMsg = ROOT.TString()
+        f = QFramework.TQFolder.loadFromTextFile(arg,errMsg)
+        if not f:
+            QFramework.BREAK(errMsg)
+        name = str(QFramework.TQStringUtils.makeValidIdentifier(f.GetName(),QFramework.TQStringUtils.alphanum))
+        print("importing TQFolder '{:s}'".format(name))
+        globals()[name] = f
+        
+

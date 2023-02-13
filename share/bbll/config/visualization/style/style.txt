@@ -1,0 +1,3 @@
+# -*- mode: tqfolder -*-
+
+<style.default.title = "Data", style.default.isHistogram = false, style.default.histLineColor = 1, style.default.histMarkerStyle = 20, style.default.histMarkerSize = 1.2, style.default.showRaw = true> @ /data/;

@@ -1,0 +1,4 @@
+[ libTTbarNNLOReweighter.so ]
+# List of selected classes
+class TTbarNNLOReweighter
+header TTbarNNLOReweighter/TTbarNNLOReweighter.h

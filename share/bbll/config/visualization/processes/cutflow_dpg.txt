@@ -1,0 +1,27 @@
+.path = "||"
+.path = "/sig/$(channel)/$(campaign)/nonres"                            , .name = "ggF HH",                 .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv1"               , .name = "VBF HH",                 .isSignal = true
+.path = "||"
+.path = "/sig/$(channel)/$(campaign)/nonres/bbWW"                       , .name = "ggF HH bbWW",            .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/nonres/bbtautau"                   , .name = "ggF HH bb\#tau\#tau",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/nonres/bbZZ"                       , .name = "ggF HH bbZZ",            .isSignal = true
+.path = "||"
+.path = "/sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv1/bbWW"          , .name = "VBF HH bbWW",            .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv1/bbtautau"      , .name = "VBF HH bb\#tau\#tau",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv1/bbZZ"          , .name = "VBF HH bbZZ",            .isSignal = true
+.path = "||"
+.path = "/bkg/$(channel)/$(campaign)/prompt/top/ttbar"                  , .name = "t\#bar{t}",              .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/prompt/top/stop"                   , .name = "Single Top",             .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/prompt/top/ttbarV"                 , .name = "TTBar+V",                .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/prompt/[Zee+Zmm]/hf"               , .name = "Z->ll (HF)",             .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/prompt/[Zee+Zmm]/lf"               , .name = "Z->ll (LF)",             .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/prompt/Ztt/hf"                     , .name = "Z->tt (HF)",             .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/prompt/Ztt/lf"                     , .name = "Z->tt (LF)",             .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/nonprompt"                         , .name = "non-prompt-Fakes",       .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/ddFakes/[data+mc/prompt]"          , .name = "SSOS Fakes",             .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/prompt/diboson"                    , .name = "Diboson",                .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/prompt/Higgs"                      , .name = "H",                      .isBackground = true
+.path = "||"
+.path = "/sig/$(channel)/$(campaign)/[nonres+vbf_novhh_l1cvv1cv1]"      , .name = "Signal (ggF+VBF) HH",    .isSignal = true
+.path = "/bkg/$(channel)/$(campaign)/[prompt+ddFakes/[data+mc/prompt]]" , .name = "Bkg (w/ SSOS Fakes)",    .isBackground = true
+.path = "/data/$(channel)/$(campaign)"                                  , .name = "Data",                   .isData = true

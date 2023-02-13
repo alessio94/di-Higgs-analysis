@@ -1,0 +1,88 @@
+# -*- mode: tqfolder -*-
+# to get proper syntax highlighting and indentation when using emacs,
+# add the following line to your .emacs file:
+#   (load-file "$TQPATH/share/tqfolder.el")
+
++CutAll {
+    <.cutExpression = "1", .title="All events (lumi norm)">
+
++CutBase {
+    <.cutExpression = "$(fitsChannel)", .weightExpression = "[MCWeight] * [PUWeight] * $(PRWFix) * [JvtSF]", .title="Base cut">
+
+    +CutSplitTTbarFakes {
+        <.cutExpression = "$(isTTbar) ? ($(isFakeTTbar) == [isFakeTTbarObs]) : 1", .title="Split ttbar fakes">
+
+    +CutSplitTauDecays {
+        <.cutExpression = "$(splitWDecays) ? ($(nWTauDecays) == [NWTauDecays]) : 1", .title="Split W decays">
+
+    +CutTriggerMatching {
+        <.cutExpression = "$(Trigger) != 0", .title="Trigger selection and matching">
+
+# CF: |
+
+## CONTROL/VALIDATION REGIONS
+
+        +CutNBJets0 {
+            <.cutExpression = "$(NBJets)==0", .title="NBJets=0", .weightExpression="[BTagSF:DL1r:FixedCutBEff_77]">
+        } # CutNBJets0
+
+        +CutNBJets1 {
+            <.cutExpression = "$(NBJets)==1", .title="NBJets=1", .weightExpression="[BTagSF:DL1r:FixedCutBEff_77]">
+        } # CutNBJets1
+
+# CF: |
+
+## SIGNAL REGION
+
+        +CutNBJets2 {
+            <.cutExpression = "$(NBJets)==2", .title="NBJets=2", .weightExpression="[BTagSF:DL1r:FixedCutBEff_77]">
+
+            +CutOS {
+                <.cutExpression = "$(Lepton0Charge) * $(Lepton1Charge) == -1", .title="Oppsite charge">
+
+                +CutMll {
+                    <.cutExpression = "15*1000 < $(DiLeptonMass) && $(DiLeptonMass) < ($(isSF) ? 75*1000 : 110*1000)", .title="15 GeV < m_{\ell\ell} < 75 (110) GeV">
+
+                    +CutMMCFitStatus {
+                        <.cutExpression = "$(MMC_fitstatus) != 0", .title="MMC fit status != 0">
+
+                    } # CutMMCFitStatus
+
+                } # CutMll
+
+                +CutZllCRMll {
+                    <.cutExpression = "$(isSF) && 80*1000 < $(DiLeptonMass) && $(DiLeptonMass) < 100*1000", .title="ZCR: 80 GeV < m_{\ell\ell} < 100 GeV, SF only">
+
+                } # CutZllCRMll
+
+            } # CutOS
+
+            +CutSS {
+                <.cutExpression = "$(Lepton0Charge) * $(Lepton1Charge) == 1", .title="Same charge">
+
+                +CutSSMll {
+                    <.cutExpression = "15*1000 < $(DiLeptonMass) && $(DiLeptonMass) < ($(isSF) ? 75*1000 : 110*1000)", .title="15 GeV < m_{\ell\ell} < 75 (110) GeV">
+
+                    +CutSSMMCFitStatus {
+                        <.cutExpression = "$(MMC_fitstatus) != 0", .title="MMC fit status != 0">
+
+                    } # CutSSMMCFitStatus
+
+                } # CutSSMll
+
+                +CutSSZllCRMll {
+                    <.cutExpression = "$(isSF) && 80*1000 < $(DiLeptonMass) && $(DiLeptonMass) < 100*1000", .title="ZCR: 80 GeV < m_{\ell\ell} < 100 GeV, SF only">
+
+                } # CutSSZllCRMll
+
+            } # CutSS
+
+        } # CutNBJets2
+
+    } # TriggerMatching
+    } # CutSplitTauDecays
+    } # CutSplitTTbarFakes
+} # CutBase
+
+# CF: ||
+} # CutAll

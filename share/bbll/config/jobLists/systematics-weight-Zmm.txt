@@ -1,0 +1,9 @@
+!memory=2500
+!time=240
+!maxSampleSize=8000
+/bkg/?/?/prompt/Zmm/hf/main/l
+/bkg/?/?/prompt/Zmm/hf/main/c
+/bkg/?/?/prompt/Zmm/hf/main/b
+/bkg/?/?/prompt/Zmm/lf/main/l
+/bkg/?/?/prompt/Zmm/lf/main/c
+/bkg/?/?/prompt/Zmm/lf/main/b

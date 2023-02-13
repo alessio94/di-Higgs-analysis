@@ -1,0 +1,8 @@
+!memory=2500
+!time=120
+!queue=nemo_vm_atlsch
+!maxSampleSize=4000
+/sig/?/?/nonres/bbtautau
+/sig/?/?/nonres/bbWW
+/sig/?/?/nonres/bbZZ
+/bkg/?/?/top/ttbar/dilepton

@@ -1,0 +1,6 @@
+.path = "||"
+.path = "/bkg/$(channel)/$(campaign)/top/ttbar"                 , .name = "Default (dilepton)", .isBackground = true
+.path = "/sys/$(channel)/$(campaign)/top/ttbar_PowhegHerwig7"   , .name = "Powheg+Herwig7",     .isBackground = true
+.path = "/sys/$(channel)/$(campaign)/top/ttbar_aMCatNLOPythia8" , .name = "aMC@NLO+Pythia8",    .isBackground = true
+.path = "/sys/$(channel)/$(campaign)/top/ttbar_hdamp517p5"      , .name = "hdamp*1.5",          .isBackground = true
+.path = "||"

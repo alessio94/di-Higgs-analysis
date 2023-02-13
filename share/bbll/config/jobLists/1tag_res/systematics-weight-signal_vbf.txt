@@ -1,0 +1,15 @@
+!memory=2500
+!time=720
+!maxSampleSize=8000
+/sig/?/?/vbf_novhh_l1cvv1cv1/bbWW
+/sig/?/?/vbf_novhh_l1cvv1cv1/bbZZ
+/sig/?/?/vbf_novhh_l1cvv1cv1/bbtautau
+/sig/?/?/vbf_novhh_l0cvv1cv1/bbWW
+/sig/?/?/vbf_novhh_l0cvv1cv1/bbZZ
+/sig/?/?/vbf_novhh_l0cvv1cv1/bbtautau
+/sig/?/?/vbf_novhh_l2cvv1cv1/bbWW
+/sig/?/?/vbf_novhh_l2cvv1cv1/bbZZ
+/sig/?/?/vbf_novhh_l2cvv1cv1/bbtautau
+/sig/?/?/vbf_novhh_l10cvv1cv1/bbWW
+/sig/?/?/vbf_novhh_l10cvv1cv1/bbZZ
+/sig/?/?/vbf_novhh_l10cvv1cv1/bbtautau

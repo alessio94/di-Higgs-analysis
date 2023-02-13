@@ -1,0 +1,470 @@
+# signal non-res NLO+FT kappa_lambda=1
+600045 /sys/$(channel)/$(campaign)/sig/nonres/herwig7/bbtautau
+600047 /sys/$(channel)/$(campaign)/sig/nonres/herwig7/bbWW
+600049 /sys/$(channel)/$(campaign)/sig/nonres/herwig7/bbZZ/2l2v
+600761 /sys/$(channel)/$(campaign)/sig/nonres/herwig7/bbZZ/2l2q
+600465 /sig/$(channel)/$(campaign)/nonres/bbWW
+600467 /sig/$(channel)/$(campaign)/nonres/bbtautau
+600469 /sig/$(channel)/$(campaign)/nonres/bbZZ/2l2v
+600863 /sig/$(channel)/$(campaign)/nonres/bbZZ/2l2q
+
+# signal non-res NLO+FT kappa_lambda=10
+600046 /sys/$(channel)/$(campaign)/sig/kl10/herwig7/bbtautau
+600048 /sys/$(channel)/$(campaign)/sig/kl10/herwig7/bbWW
+600050 /sys/$(channel)/$(campaign)/sig/kl10/herwig7/bbZZ/2l2v
+600772 /sys/$(channel)/$(campaign)/sig/kl10/herwig7/bbZZ/2l2q
+600466 /sig/$(channel)/$(campaign)/kl10/bbWW
+600468 /sig/$(channel)/$(campaign)/kl10/bbtautau
+600470 /sig/$(channel)/$(campaign)/kl10/bbZZ/2l2v
+600898 /sig/$(channel)/$(campaign)/kl10/bbZZ/2l2q
+
+# signal 2HDM
+450624 /sig/$(channel)/$(campaign)/res/251/bbWW
+450625 /sig/$(channel)/$(campaign)/res/260/bbWW
+450626 /sig/$(channel)/$(campaign)/res/300/bbWW
+450627 /sig/$(channel)/$(campaign)/res/400/bbWW
+450628 /sig/$(channel)/$(campaign)/res/500/bbWW
+450629 /sig/$(channel)/$(campaign)/res/600/bbWW
+450630 /sig/$(channel)/$(campaign)/res/800/bbWW
+450631 /sig/$(channel)/$(campaign)/res/1000/bbWW
+450652 /sig/$(channel)/$(campaign)/res/251/bbZZ
+450653 /sig/$(channel)/$(campaign)/res/260/bbZZ
+450654 /sig/$(channel)/$(campaign)/res/300/bbZZ
+450655 /sig/$(channel)/$(campaign)/res/400/bbZZ
+450656 /sig/$(channel)/$(campaign)/res/500/bbZZ
+450657 /sig/$(channel)/$(campaign)/res/600/bbZZ
+450658 /sig/$(channel)/$(campaign)/res/800/bbZZ
+450659 /sig/$(channel)/$(campaign)/res/1000/bbZZ
+451708 /sig/$(channel)/$(campaign)/res/251/bbtautau
+451709 /sig/$(channel)/$(campaign)/res/260/bbtautau
+451710 /sig/$(channel)/$(campaign)/res/300/bbtautau
+451711 /sig/$(channel)/$(campaign)/res/400/bbtautau
+451712 /sig/$(channel)/$(campaign)/res/500/bbtautau
+451713 /sig/$(channel)/$(campaign)/res/600/bbtautau
+451714 /sig/$(channel)/$(campaign)/res/800/bbtautau
+451715 /sig/$(channel)/$(campaign)/res/1000/bbtautau
+
+# signal VBF
+500002 /sig/$(channel)/$(campaign)/vbf_old/bbtautau
+500003 /sig/$(channel)/$(campaign)/vbf_old/bbWW
+500014 /sig/$(channel)/$(campaign)/vbf_old/bbZZ
+
+# signal VBF, no VHH
+503016 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv1/bbtautau
+503017 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv0cv1/bbtautau
+503018 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv0p5cv1/bbtautau
+503019 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1p5cv1/bbtautau
+503020 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv2cv1/bbtautau
+503021 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv3cv1/bbtautau
+503022 /sig/$(channel)/$(campaign)/vbf_novhh_l0cvv1cv1/bbtautau
+503023 /sig/$(channel)/$(campaign)/vbf_novhh_l2cvv1cv1/bbtautau
+503024 /sig/$(channel)/$(campaign)/vbf_novhh_l10cvv1cv1/bbtautau
+503025 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv0p5/bbtautau
+503026 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv1p5/bbtautau
+503027 /sig/$(channel)/$(campaign)/vbf_novhh_l0cvv0cv1/bbtautau
+503028 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv1/bbZZ/2l2v
+508674 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv1/bbZZ/2l2q
+503029 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv0cv1/bbZZ/2l2v
+511812 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv0cv1/bbZZ/2l2q
+503030 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv0p5cv1/bbZZ/2l2v
+511806 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv0p5cv1/bbZZ/2l2q
+503031 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1p5cv1/bbZZ/2l2v
+511801 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1p5cv1/bbZZ/2l2q
+503032 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv2cv1/bbZZ/2l2v
+511802 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv2cv1/bbZZ/2l2q
+503033 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv3cv1/bbZZ/2l2v
+511804 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv3cv1/bbZZ/2l2q
+503034 /sig/$(channel)/$(campaign)/vbf_novhh_l0cvv1cv1/bbZZ/2l2v
+511811 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv3cv1/bbZZ/2l2q
+503035 /sig/$(channel)/$(campaign)/vbf_novhh_l2cvv1cv1/bbZZ/2l2v
+511805 /sig/$(channel)/$(campaign)/vbf_novhh_l2cvv1cv1/bbZZ/2l2q
+503036 /sig/$(channel)/$(campaign)/vbf_novhh_l10cvv1cv1/bbZZ/2l2v
+511809 /sig/$(channel)/$(campaign)/vbf_novhh_l10cvv1cv1/bbZZ/2l2q
+503037 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv0p5/bbZZ/2l2v
+511807 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv0p5/bbZZ/2l2q
+503038 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv1p5/bbZZ/2l2v
+511808 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv1p5/bbZZ/2l2q
+503039 /sig/$(channel)/$(campaign)/vbf_novhh_l0cvv0cv1/bbZZ/2l2v
+511803 /sig/$(channel)/$(campaign)/vbf_novhh_l0cvv0cv1/bbZZ/2l2q
+503040 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv1/bbWW
+503041 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv0cv1/bbWW
+503042 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv0p5cv1/bbWW
+503043 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1p5cv1/bbWW
+503044 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv2cv1/bbWW
+503045 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv3cv1/bbWW
+503046 /sig/$(channel)/$(campaign)/vbf_novhh_l0cvv1cv1/bbWW
+503047 /sig/$(channel)/$(campaign)/vbf_novhh_l2cvv1cv1/bbWW
+503048 /sig/$(channel)/$(campaign)/vbf_novhh_l10cvv1cv1/bbWW
+503049 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv0p5/bbWW
+503050 /sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv1p5/bbWW
+503051 /sig/$(channel)/$(campaign)/vbf_novhh_l0cvv0cv1/bbWW
+
+# signal samples VBF SM and BSM bbZZ 2l2q herwig7
+512133 /sys/$(channel)/$(campaign)/sig/vbf_novhh_l1cvv1cv1/herwig7/bbZZ/2l2q
+512132 /sys/$(channel)/$(campaign)/sig/vbf_novhh_l1cvv0cv1/herwig7/bbZZ/2l2q
+512131 /sys/$(channel)/$(campaign)/sig/vbf_novhh_l10cvv1cv1/herwig7/bbZZ/2l2q
+
+# other signal samples for cross-checks
+450259 /oth/$(channel)/$(campaign)/HHcrosscheck
+450535 /oth/$(channel)/$(campaign)/HHcrosscheck
+600051 /oth/$(channel)/$(campaign)/HHcrosscheck
+301216 /oth/$(channel)/$(campaign)/HHcrosscheck
+301221 /oth/$(channel)/$(campaign)/HHcrosscheck
+301243 /oth/$(channel)/$(campaign)/HHcrosscheck
+301247 /oth/$(channel)/$(campaign)/HHcrosscheck
+301323 /oth/$(channel)/$(campaign)/HHcrosscheck
+301325 /oth/$(channel)/$(campaign)/HHcrosscheck
+301329 /oth/$(channel)/$(campaign)/HHcrosscheck
+301826 /oth/$(channel)/$(campaign)/HHcrosscheck
+302111 /oth/$(channel)/$(campaign)/HHcrosscheck
+302136 /oth/$(channel)/$(campaign)/HHcrosscheck
+302186 /oth/$(channel)/$(campaign)/HHcrosscheck
+302211 /oth/$(channel)/$(campaign)/HHcrosscheck
+302236 /oth/$(channel)/$(campaign)/HHcrosscheck
+302261 /oth/$(channel)/$(campaign)/HHcrosscheck
+302286 /oth/$(channel)/$(campaign)/HHcrosscheck
+302336 /oth/$(channel)/$(campaign)/HHcrosscheck
+302361 /oth/$(channel)/$(campaign)/HHcrosscheck
+302386 /oth/$(channel)/$(campaign)/HHcrosscheck
+302411 /oth/$(channel)/$(campaign)/HHcrosscheck
+302436 /oth/$(channel)/$(campaign)/HHcrosscheck
+302482 /oth/$(channel)/$(campaign)/HHcrosscheck
+302719 /oth/$(channel)/$(campaign)/HHcrosscheck
+306136 /oth/$(channel)/$(campaign)/HHcrosscheck
+307018 /oth/$(channel)/$(campaign)/HHcrosscheck
+308488 /oth/$(channel)/$(campaign)/HHcrosscheck
+
+# diboson
+363355 /bkg/$(channel)/$(campaign)/prompt/diboson/ZZ
+363356 /bkg/$(channel)/$(campaign)/prompt/diboson/ZZ
+363357 /bkg/$(channel)/$(campaign)/prompt/diboson/WZ
+363358 /bkg/$(channel)/$(campaign)/prompt/diboson/WZ
+363359 /bkg/$(channel)/$(campaign)/prompt/diboson/WW
+363360 /bkg/$(channel)/$(campaign)/prompt/diboson/WW
+363489 /bkg/$(channel)/$(campaign)/prompt/diboson/WZ
+364250 /bkg/$(channel)/$(campaign)/prompt/diboson/fulllep
+364253 /bkg/$(channel)/$(campaign)/prompt/diboson/fulllep
+364254 /bkg/$(channel)/$(campaign)/prompt/diboson/fulllep
+364255 /bkg/$(channel)/$(campaign)/prompt/diboson/fulllep
+364288 /bkg/$(channel)/$(campaign)/prompt/diboson/fulllep
+364289 /bkg/$(channel)/$(campaign)/prompt/diboson/fulllep
+364290 /bkg/$(channel)/$(campaign)/prompt/diboson/fulllep
+
+# loop induced gg->VV
+345708 /bkg/$(channel)/$(campaign)/prompt/diboson/gg
+345709 /bkg/$(channel)/$(campaign)/prompt/diboson/gg
+345714 /oth/$(channel)/$(campaign)/bkg/prompt/diboson/gg
+345715 /oth/$(channel)/$(campaign)/bkg/prompt/diboson/gg
+345718 /oth/$(channel)/$(campaign)/bkg/prompt/diboson/gg
+345723 /oth/$(channel)/$(campaign)/bkg/prompt/diboson/gg
+345716 /bkg/$(channel)/$(campaign)/prompt/diboson/gg
+345720 /bkg/$(channel)/$(campaign)/prompt/diboson/gg
+345725 /bkg/$(channel)/$(campaign)/prompt/diboson/gg
+364302 /bkg/$(channel)/$(campaign)/prompt/diboson/gg
+364303 /bkg/$(channel)/$(campaign)/prompt/diboson/gg
+364304 /bkg/$(channel)/$(campaign)/prompt/diboson/gg
+364305 /bkg/$(channel)/$(campaign)/prompt/diboson/gg
+
+# EW6 VV+jj
+366086 /bkg/$(channel)/$(campaign)/prompt/diboson/ew
+366087 /bkg/$(channel)/$(campaign)/prompt/diboson/ew
+366089 /bkg/$(channel)/$(campaign)/prompt/diboson/ew
+366088 /bkg/$(channel)/$(campaign)/prompt/diboson/ss
+
+# Z -> e e
+364114 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/main/l
+364115 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/main/c
+364116 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/main/b
+364117 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/main/l
+364118 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/main/c
+364119 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/main/b
+364120 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/main/l
+364121 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/main/c
+364122 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/main/b
+364123 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/main/l
+364124 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/main/c
+364125 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/main/b
+364126 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/main/b
+364127 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/main/b
+
+# Z -> mu mu
+364100 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/main/l
+364101 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/main/c
+364102 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/main/b
+364103 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/main/l
+364104 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/main/c
+364105 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/main/b
+364106 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/main/l
+364107 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/main/c
+364108 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/main/b
+364109 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/main/l
+364110 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/main/c
+364111 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/main/b
+364112 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/main/b
+364113 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/main/b
+
+# Z -> tau tau
+364128 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/main/l
+364129 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/main/c
+364130 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/main/b
+364131 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/main/l
+364132 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/main/c
+364133 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/main/b
+364134 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/main/l
+364135 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/main/c
+364136 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/main/b
+364137 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/main/l
+364138 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/main/c
+364139 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/main/b
+364140 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/main/b
+364141 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/main/b
+
+# Z+jets -> e e (Madgraph+Pythia8)
+363147 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/l
+363148 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/c
+363149 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/b
+363150 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/l
+363151 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/c
+363152 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/b
+363153 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/l
+363154 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/c
+363155 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/b
+363156 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/l
+363157 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/c
+363158 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/b
+363159 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/l
+363160 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/c
+363161 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/b
+363162 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/l
+363163 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/c
+363164 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/b
+363165 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/l
+363166 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/c
+363167 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/b
+363168 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/l
+363169 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/c
+363170 /sys/$(channel)/$(campaign)/bkg/prompt/Zee/MGPy8/b
+
+# Z+jets -> mu mu (Madgraph+Pythia8)
+363123 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/l
+363124 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/c
+363125 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/b
+363126 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/l
+363127 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/c
+363128 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/b
+363129 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/l
+363130 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/c
+363131 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/b
+363132 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/l
+363133 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/c
+363134 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/b
+363135 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/l
+363136 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/c
+363137 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/b
+363138 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/l
+363139 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/c
+363140 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/b
+363141 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/l
+363142 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/c
+363143 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/b
+363144 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/l
+363145 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/c
+363146 /sys/$(channel)/$(campaign)/bkg/prompt/Zmm/MGPy8/b
+
+# Z+jets lowmass
+364198 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/lowmass/lc
+364199 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/lowmass/b
+364200 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/lowmass/lc
+364201 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/lowmass/b
+364202 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/lowmass/lc
+364203 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/lowmass/b
+364204 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/lowmass/lc
+364205 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/lowmass/b
+364206 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/lowmass/lc
+364207 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/lowmass/b
+364208 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/lowmass/lc
+364209 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/lowmass/b
+364210 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/lowmass/lc
+364211 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/lowmass/b
+364212 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/lowmass/lc
+364213 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/lowmass/b
+364214 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/lowmass/lc
+364215 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/lowmass/b
+
+# Z+jets very low mass
+364358 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/verylowmass
+364359 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/verylowmass
+364360 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/verylowmass
+364361 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/verylowmass
+364362 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/verylowmass
+364363 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/verylowmass
+
+# Z+jets EW
+308092 /bkg/$(channel)/$(campaign)/prompt/Zee/hf/ew
+308093 /bkg/$(channel)/$(campaign)/prompt/Zmm/hf/ew
+308094 /bkg/$(channel)/$(campaign)/prompt/Ztt/hf/ew
+
+# W+jets
+364156 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wmunu/
+364157 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wmunu/
+364158 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wmunu/
+364159 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wmunu/
+364160 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wmunu/
+364161 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wmunu/
+364162 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wmunu/
+364163 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wmunu/
+364164 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wmunu/
+364165 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wmunu/
+364166 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wmunu/
+364167 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wmunu/
+364168 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wmunu/
+364169 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wmunu/
+364170 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wenu/
+364171 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wenu/
+364172 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wenu/
+364173 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wenu/
+364174 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wenu/
+364175 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wenu/
+364176 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wenu/
+364177 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wenu/
+364178 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wenu/
+364179 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wenu/
+364180 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wenu/
+364181 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wenu/
+364182 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wenu/
+364183 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+364184 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+364185 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+364186 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+364187 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+364188 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+364189 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+364190 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+364191 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+364192 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+364193 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+364194 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+364195 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+364196 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+364197 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+
+# W+jets EW
+308096 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wenu/
+308097 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wmunu/
+308098 /bkg/$(channel)/$(campaign)/prompt/Wjets/Wtaunu/
+
+# Sherpa 2.2.11 Z+jets + W+jets
+700320 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/ee/b
+700321 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/ee/c
+700322 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/ee/l
+700323 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/mm/b
+700324 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/mm/c
+700325 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/mm/l
+700326 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/tautau/b
+700327 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/tautau/c
+700328 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/tautau/l
+700329 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/tautau/b
+700330 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/tautau/c
+700331 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/tautau/l
+700332 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/tautau/b
+700333 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/tautau/c
+700334 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/tautau/l
+700335 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/nunu/b
+700336 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/nunu/c
+700337 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Zjets/nunu/l
+700338 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Wjets/enu/b
+700339 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Wjets/enu/c
+700340 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Wjets/enu/l
+700341 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Wjets/munu/b
+700342 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Wjets/munu/c
+700343 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Wjets/munu/l
+700344 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Wjets/taunu/b
+700345 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Wjets/taunu/l
+700346 /oth/$(channel)/$(campaign)/bkg/prompt/Sh2211/Wjets/taunu/c
+
+# ttbar
+410470*_s* /bkg/$(channel)/$(campaign)/prompt/top/ttbar/nonallhad
+410471*_s* /bkg/$(channel)/$(campaign)/prompt/top/ttbar/allhad
+410472*_s* /bkg/$(channel)/$(campaign)/prompt/top/ttbar/dilepton
+410470*_a* /sys/$(channel)/$(campaign)/bkg/prompt/top/ttbar_fastsim/nonallhad
+410471*_a* /sys/$(channel)/$(campaign)/bkg/prompt/top/ttbar_fastsim/allhad
+410472*_a* /sys/$(channel)/$(campaign)/bkg/prompt/top/ttbar_fastsim/dilepton
+410557     /sys/$(channel)/$(campaign)/bkg/prompt/top/ttbar_PowhegHerwig7/singlelep
+410558     /sys/$(channel)/$(campaign)/bkg/prompt/top/ttbar_PowhegHerwig7/dilepton
+410559     /sys/$(channel)/$(campaign)/bkg/prompt/top/ttbar_PowhegHerwig7/allhad
+410464     /sys/$(channel)/$(campaign)/bkg/prompt/top/ttbar_aMCatNLOPythia8/singlelep
+410465     /sys/$(channel)/$(campaign)/bkg/prompt/top/ttbar_aMCatNLOPythia8/dilepton
+410466     /sys/$(channel)/$(campaign)/bkg/prompt/top/ttbar_aMCatNLOPythia8/allhad
+410480     /sys/$(channel)/$(campaign)/bkg/prompt/top/ttbar_hdamp517p5/singlelep
+410481     /sys/$(channel)/$(campaign)/bkg/prompt/top/ttbar_hdamp517p5/allhad
+410482     /sys/$(channel)/$(campaign)/bkg/prompt/top/ttbar_hdamp517p5/dilepton
+
+# ttbar + V
+410155 /bkg/$(channel)/$(campaign)/prompt/top/ttbarV/W
+410156 /bkg/$(channel)/$(campaign)/prompt/top/ttbarV/Z
+410157 /bkg/$(channel)/$(campaign)/prompt/top/ttbarV/Z
+410218 /bkg/$(channel)/$(campaign)/prompt/top/ttbarV/ee
+410219 /bkg/$(channel)/$(campaign)/prompt/top/ttbarV/mm
+410220 /bkg/$(channel)/$(campaign)/prompt/top/ttbarV/tautau
+
+# single top
+410644 /bkg/$(channel)/$(campaign)/prompt/top/stop/schan
+410645 /bkg/$(channel)/$(campaign)/prompt/top/stop/schan
+410658 /bkg/$(channel)/$(campaign)/prompt/top/stop/tchan
+410659 /bkg/$(channel)/$(campaign)/prompt/top/stop/tchan
+410648*_s* /bkg/$(channel)/$(campaign)/prompt/top/stop/Wt
+410649*_s* /bkg/$(channel)/$(campaign)/prompt/top/stop/Wt
+410648*_a* /sys/$(channel)/$(campaign)/bkg/prompt/top/stop_fastsim/Wt
+410649*_a* /sys/$(channel)/$(campaign)/bkg/prompt/top/stop_fastsim/Wt
+412003 /sys/$(channel)/$(campaign)/bkg/prompt/top/stop_aMCatNLOPythia8/Wt
+411038 /sys/$(channel)/$(campaign)/bkg/prompt/top/stop_PowhegHerwig7/Wt
+411039 /sys/$(channel)/$(campaign)/bkg/prompt/top/stop_PowhegHerwig7/Wt
+410656 /sys/$(channel)/$(campaign)/bkg/prompt/top/stop_PowhegPythia8_DS/Wt
+410657 /sys/$(channel)/$(campaign)/bkg/prompt/top/stop_PowhegPythia8_DS/Wt
+
+# H -> tau tau
+345120 /bkg/$(channel)/$(campaign)/prompt/Higgs/tautau/ggf/ll
+345121 /bkg/$(channel)/$(campaign)/prompt/Higgs/tautau/ggf/lh
+345122 /bkg/$(channel)/$(campaign)/prompt/Higgs/tautau/ggf/lh
+345123 /bkg/$(channel)/$(campaign)/prompt/Higgs/tautau/ggf/hh
+346190 /bkg/$(channel)/$(campaign)/prompt/Higgs/tautau/vbf/ll
+346191 /bkg/$(channel)/$(campaign)/prompt/Higgs/tautau/vbf/lh
+346192 /bkg/$(channel)/$(campaign)/prompt/Higgs/tautau/vbf/lh
+346193 /bkg/$(channel)/$(campaign)/prompt/Higgs/tautau/vbf/hh
+345211 /bkg/$(channel)/$(campaign)/prompt/Higgs/tautau/vh/wh
+345212 /bkg/$(channel)/$(campaign)/prompt/Higgs/tautau/vh/wh
+345217 /bkg/$(channel)/$(campaign)/prompt/Higgs/tautau/vh/zh
+
+# H -> WW
+345324 /bkg/$(channel)/$(campaign)/prompt/Higgs/WW/ggf
+345948 /bkg/$(channel)/$(campaign)/prompt/Higgs/WW/vbf
+345325 /bkg/$(channel)/$(campaign)/prompt/Higgs/WW/vh/wh
+346561 /bkg/$(channel)/$(campaign)/prompt/Higgs/WW/vh/wh
+345433 /bkg/$(channel)/$(campaign)/prompt/Higgs/WW/vh/wh
+346560 /bkg/$(channel)/$(campaign)/prompt/Higgs/WW/vh/wh
+345054 /bkg/$(channel)/$(campaign)/prompt/Higgs/WW/vh/wh
+345053 /bkg/$(channel)/$(campaign)/prompt/Higgs/WW/vh/wh
+345336 /bkg/$(channel)/$(campaign)/prompt/Higgs/WW/vh/zh
+346524 /bkg/$(channel)/$(campaign)/prompt/Higgs/WW/vh/zh
+
+# H -> ZZ
+343233 /bkg/$(channel)/$(campaign)/prompt/Higgs/ZZ/ggf/
+450576 /bkg/$(channel)/$(campaign)/prompt/Higgs/ZZ/vbf
+
+# H -> bb
+345057 /bkg/$(channel)/$(campaign)/prompt/Higgs/bb/ggf/
+345949 /bkg/$(channel)/$(campaign)/prompt/Higgs/bb/vbf/
+345055 /bkg/$(channel)/$(campaign)/prompt/Higgs/bb/vh/zh/
+
+# H -> cc
+345113 /bkg/$(channel)/$(campaign)/prompt/Higgs/cc/vh/zh/
+
+# VH (inclusive)
+346311 /oth/$(channel)/$(campaign)/bkg/prompt/Higgs/vh/wh
+346312 /oth/$(channel)/$(campaign)/bkg/prompt/Higgs/vh/wh
+342285 /oth/$(channel)/$(campaign)/bkg/prompt/Higgs/vh/zh
+
+# ttH
+346343 /bkg/$(channel)/$(campaign)/prompt/Higgs/ttH
+346344 /bkg/$(channel)/$(campaign)/prompt/Higgs/ttH
+346345 /bkg/$(channel)/$(campaign)/prompt/Higgs/ttH

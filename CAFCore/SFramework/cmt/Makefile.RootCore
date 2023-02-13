@@ -1,0 +1,17 @@
+# -*- Makefile -*-
+# Author: Carsten Burgard (cburgard@cern.ch)
+# this makefile also gets parsed by shell scripts
+# therefore it does not support full make syntax and features
+# edit with care
+
+# for full documentation check:
+# https://twiki.cern.ch/twiki/bin/viewauth/Atlas/RootCore#Package_Makefile
+
+PACKAGE          = SFramework
+PACKAGE_PRELOAD  = HistPainter RooFitCore TreePlayer TMVA Minuit XMLIO MLP RooFit RooStats HistFactory
+PACKAGE_CXXFLAGS = -Wno-unused-variable -Wno-unused-parameter -Wno-type-limits --std=c++1y -Wno-comment -Werror=return-type -Wno-misleading-indentation
+PACKAGE_DEP      = QFramework
+PACKAGE_TRYDEP   = RooFitUtils
+PACKAGE_PEDANTIC = 1
+
+include $(ROOTCOREDIR)/Makefile-common

@@ -1,0 +1,16 @@
+.path = "||"
+.path = "/bkg/$(channel)/$(campaign)/[Zee+Zmm]/main/bb"             , .name = "Z->ll (B)",                .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/[Zee+Zmm]/main/cc"             , .name = "Z->ll (C)",                .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/[Zee+Zmm]/main/ll"             , .name = "Z->ll (L)",                .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/[Zee+Zmm]/lowmass/bb"          , .name = "Z->ll (lowmass, B)",       .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/[Zee+Zmm]/lowmass/llcc"        , .name = "Z->ll (lowmass, LC)",      .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/[Zee+Zmm]/ew"                  , .name = "Z->ll (EWK)",              .isBackground = true
+.path = "||"
+.path = "/bkg/$(channel)/$(campaign)/Ztt/main/bb"                   , .name = "Z->tt (B)",                .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/Ztt/main/cc"                   , .name = "Z->tt (C)",                .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/Ztt/main/ll"                   , .name = "Z->tt (L)",                .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/Ztt/lowmass/bb"                , .name = "Z->tt (lowmass, B)",       .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/Ztt/lowmass/llcc"              , .name = "Z->tt (lowmass, LC)",      .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/Ztt/ew"                        , .name = "Z->tt (EWK)",              .isBackground = true
+.path = "||"
+.path = "/data/$(channel)/$(campaign)"                              , .name = "Data",                     .isData = true

@@ -1,0 +1,23 @@
+# -*- mode: config
+
+[config]
+include: bbll/config/master/grid.cfg
+
+[grid]
+
+storage.protocol: root
+storage.endpoint: CERN-PROD_PHYS-HDBS
+
+mcSampleList.c16a: bbll/config/samples/grid/pflow-mc16a.txt
+mcSampleList.c16d: bbll/config/samples/grid/pflow-mc16d.txt
+mcSampleList.c16e: bbll/config/samples/grid/pflow-mc16e.txt
+dataSampleList.c16a: bbll/config/samples/grid/pflow-data1516.txt
+dataSampleList.c16d: bbll/config/samples/grid/pflow-data17.txt
+dataSampleList.c16e: bbll/config/samples/grid/pflow-data18.txt
+
+mcFileList.c16a: bbll/config/samples/inputFileLists/pflow-mc16a.txt
+mcFileList.c16d: bbll/config/samples/inputFileLists/pflow-mc16d.txt
+mcFileList.c16e: bbll/config/samples/inputFileLists/pflow-mc16e.txt
+dataFileList.c16a: bbll/config/samples/inputFileLists/pflow-data1516.txt
+dataFileList.c16d: bbll/config/samples/inputFileLists/pflow-data17.txt
+dataFileList.c16e: bbll/config/samples/inputFileLists/pflow-data18.txt

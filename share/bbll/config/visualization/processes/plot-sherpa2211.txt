@@ -1,0 +1,12 @@
+.path = "/sig/$(channel)/$(campaign)/nonres/bbtautau", .name = "bbtautau", .title = "bb\#tau\#tau x1e5", .isSignal = true, histLineColor = kRed , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, scale=100000
+.path = "/sig/$(channel)/$(campaign)/nonres/bbWW"    , .name = "bbww"    , .title = "bbWW x1e5"        , .isSignal = true, histLineColor = 419  , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, scale=100000
+.path = "/sig/$(channel)/$(campaign)/nonres/bbZZ"    , .name = "bbZZ"    , .title = "bbZZ x1e6"        , .isSignal = true, histLineColor = 602  , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, scale=1000000
+
+.path = "/bkg/$(channel)/$(campaign)/top"            , .name = "Top"    , .title = "Top"                      , .isBackground = true, histFillColor = kYellow, histLineColor = kBlack
+.path = "/oth/$(channel)/$(campaign)/Sh2211/Zjets/[ee+mm] + /bkg/$(channel)/$(campaign)/[Zee+Zmm]/lowmass"  , .name = "Zll"    , .title = "Z\#rightarrow{}ll (2.2.11)"        , .isBackground = true, histFillColor = kAzure , histLineColor = kBlack
+.path = "/oth/$(channel)/$(campaign)/Sh2211/Zjets/tautau + /bkg/$(channel)/$(campaign)/Ztt/lowmass"         , .name = "Ztt"    , .title = "Z\#rightarrow{}\#tau\#tau (2.2.11)", .isBackground = true, histFillColor = kCyan  , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/fakes"          , .name = "Fakes"  , .title = "Fakes"                    , .isBackground = true, histFillColor = kGreen , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/diboson"        , .name = "Diboson", .title = "Diboson"                  , .isBackground = true, histFillColor = kOrange, histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/Higgs"          , .name = "SMHiggs", .title = "H"                        , .isBackground = true, histFillColor = 622    , histLineColor = kBlack
+
+.path = "data/$(channel)/$(campaign)", .name = "data", .title = "Data", .isData = true, histMarkerColor = kBlack, histMarkerSize = 1, histMarkerStyle = 20, histLineColor = kBlack, histLineWidth = 2

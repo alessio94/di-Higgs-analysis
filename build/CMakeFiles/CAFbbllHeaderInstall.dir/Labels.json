@@ -1,0 +1,19 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/include/CAFbbll"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/include/CAFbbll.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"CAFbbll"
+		],
+		"name" : "CAFbbllHeaderInstall"
+	}
+}

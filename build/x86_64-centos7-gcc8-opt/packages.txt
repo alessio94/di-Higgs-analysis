@@ -1,0 +1,13 @@
+# Regular package(s) built in CAFbbll - 1.0.0
+CAFCore/CAFxAODUtils <unknown>
+CAFCore <unknown>
+CAFCore/CommonAnalysisHelpers <unknown>
+CAFCore/CxAODUtils <unknown>
+CAFCore/QFramework <unknown>
+CAFCore/SFramework <unknown>
+CAFlwtnn <unknown>
+CalcGenericMT2 CalcGenericMT2-00-00-01
+CxAODTools <unknown>
+SubmissionHelpers <unknown>
+TTbarNNLOReweighter <unknown>
+klambdareweighttool <unknown>

@@ -1,0 +1,25 @@
+#.path = "/sig/$(channel)/$(campaign)/nonres/bbtautau", .name = "bbtautau", .title = "bb\#tau\#tau x1e5", .isSignal = true, histLineColor = kRed , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, scale=100000
+#.path = "/sig/$(channel)/$(campaign)/nonres/bbWW"    , .name = "bbww"    , .title = "bbWW x1e5"        , .isSignal = true, histLineColor = 419  , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, scale=100000
+#.path = "/sig/$(channel)/$(campaign)/nonres/bbZZ"    , .name = "bbZZ"    , .title = "bbZZ x1e6"        , .isSignal = true, histLineColor = 602  , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, scale=1000000
+
+.path = "/sig/$(channel)/$(campaign)/nonres/bbtautau", .name = "bbtautau", .title = "bb\#tau\#tau", .isSignal = true, histLineColor = kRed , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, scale=1
+.path = "/sig/$(channel)/$(campaign)/nonres/bbWW"    , .name = "bbww"    , .title = "bbWW"        , .isSignal = true, histLineColor = 419  , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, scale=1
+.path = "/sig/$(channel)/$(campaign)/nonres/bbZZ"    , .name = "bbZZ"    , .title = "bbZZ"        , .isSignal = true, histLineColor = 602  , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, scale=1
+
+#.path = "/sig/$(channel)/$(campaign)/nonres",              .name = "ggf", .title = "ggF HH x5e4", .isSignal = true, histLineColor = 419 , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, scale=50000
+#.path = "/sig/$(channel)/$(campaign)/vbf_novhh_l1cvv1cv1", .name = "vbf", .title = "VBF HH x5e5", .isSignal = true, histLineColor = kRed , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, scale=500000
+
+.path = "/bkg/$(channel)/$(campaign)/prompt/top/ttbar"                      , .name = "TTBar"          , .title = "t\#bar{t} x0.96"                         , .isBackground = true, histFillColor = kYellow, histLineColor = kBlack, scale=0.963438
+.path = "/bkg/$(channel)/$(campaign)/prompt/top/stop/Wt"                    , .name = "Wt"             , .title = "Wt x0.78"                                , .isBackground = true, histFillColor = 390    , histLineColor = kBlack, scale=0.776831
+.path = "/bkg/$(channel)/$(campaign)/prompt/top/ttbarV"                     , .name = "TTBarV"         , .title = "t\#bar{t}+V"                             , .isBackground = true, histFillColor = 402    , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/prompt/[Zee+Zmm]/hf"                   , .name = "ZllHF"          , .title = "Z\#rightarrow{}ll (HF) x1.33"            , .isBackground = true, histFillColor = 860    , histLineColor = kBlack, scale=1.33338
+.path = "/bkg/$(channel)/$(campaign)/prompt/[Zee+Zmm]/lf"                   , .name = "ZllLF"          , .title = "Z\#rightarrow{}ll (LF)"                  , .isBackground = true, histFillColor = 866    , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/prompt/Ztt/hf"                         , .name = "ZttHF"          , .title = "Z\#rightarrow{}\#tau\#tau (HF) x1.33"    , .isBackground = true, histFillColor = 432    , histLineColor = kBlack, scale=1.33338
+.path = "/bkg/$(channel)/$(campaign)/prompt/Ztt/lf"                         , .name = "ZttLF"          , .title = "Z\#rightarrow{}\#tau\#tau (LF)"          , .isBackground = true, histFillColor = 433    , histLineColor = kBlack
+#.path = "/bkg/$(channel)/$(campaign)/nonprompt"                             , .name = "MCFakes"        , .title = "Fakes (MC)"                              , .isBackground = true, histFillColor = 416    , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/ddFakes/[data+mc/prompt]"              , .name = "DDFakes"        , .title = "Fakes (SSOS)"                            , .isBackground = true, histFillColor = 416    , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/prompt/diboson"                        , .name = "Diboson"        , .title = "Diboson"                                 , .isBackground = true, histFillColor = kOrange, histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/prompt/Higgs"                          , .name = "SMHiggs"        , .title = "Higgs"                                   , .isBackground = true, histFillColor = 622    , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/prompt/[top/stop/[schan+tchan]+Wjets]" , .name = "Other"          , .title = "Other"                                   , .isBackground = true, histFillColor = 624    , histLineColor = kBlack
+
+.path = "data/$(channel)/$(campaign)", .name = "data", .title = "Data", .isData = true, histMarkerColor = kBlack, histMarkerSize = 1, histMarkerStyle = 20, histLineColor = kBlack, histLineWidth = 2

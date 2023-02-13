@@ -1,0 +1,14 @@
+# -*- Makefile -*-
+# Author: Carsten Burgard (cburgard@cern.ch)
+# this makefile also gets parsed by shell scripts
+# therefore it does not support full make syntax and features
+# edit with care
+
+# for full documentation check:
+# https://twiki.cern.ch/twiki/bin/viewauth/Atlas/RootCore#Package_Makefile
+
+PACKAGE          = CommonAnalysisHelpers
+PACKAGE_NOCC		 = 1
+PACKAGE_PEDANTIC = 1
+
+all:

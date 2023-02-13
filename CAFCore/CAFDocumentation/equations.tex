@@ -1,0 +1,33 @@
+\documentclass{article}
+
+\usepackage{commath}
+
+\newcommand{\D}[1]{\ensuremath{\text{d}#1}}
+
+\title{Equations in CAF}
+\date{}
+
+\begin{document}
+\maketitle
+\section{TQCutflowPrinter}
+{\bf Acceptance}:\\
+The acceptance of a cut $a$ with respect to the base cut $b$ is defined as
+\begin{align}
+  A=\frac{N_a}{N_b}
+\label{eq:acceptance}
+\end{align}
+with the yields $N_b$ for the base cut and $N_a$ for the additional cut. If these yields have uncertainties $\sigma_b, \sigma_a$, then the uncertainty of the acceptance can be calculated with correlated error propagation:
+\begin{align*}
+  \sigma_A = \sqrt{\left(\frac{\D A}{\D N_a}\sigma_a\right)^2x + \left(\frac{\D A}{\D N_b}\sigma_b\right)^2 + 2 \frac{\D A}{\D N_a}\sigma_a \frac{\D A}{\D N_b}\sigma_bc_{ab}}
+\end{align*}
+The correlation $c_{ab}$ between $N_a$ and $N_b$ is equal to the acceptance $A$. Hence:
+\begin{align}
+  \sigma_A &= \sqrt{\left(\frac{\sigma_a}{N_b}\right)^2 + \left(\frac{\sigma_bN_a}{N_b^2}\right)^2 - 2\frac{1}{N_b}\frac{N_a}{N_b^2}\sigma_a\sigma_bc_{ab}}\nonumber\\
+  &=\sqrt{\frac{\sigma_a^2}{N_a^2}\frac{N_a^2}{N_b^2} + \frac{\sigma_b^2N_a^2}{N_b^4} - 2\frac{N_a}{N_a}\frac{N_a}{N_b^3}\sigma_a\sigma_b\frac{N_a}{N_b}}\nonumber\\
+  &=\sqrt{\sigma_{a\text{,rel}}^2 A^2 + \sigma_{b\text{,rel}}^2 A^2 - 2\frac{1}{N_b^2}\sigma_a\sigma_bA^3}\nonumber\\
+  &=A\sqrt{\sigma_{a\text{,rel}}^2 + \sigma_{b\text{,rel}}^2 - 2\frac{1}{N_aN_b}\sigma_a\sigma_bA}\nonumber\\
+  &=A\sqrt{\sigma_{a\text{,rel}}^2 + \sigma_{b\text{,rel}}^2 - 2\sigma_{a\text{,rel}}\sigma_{b\text{,rel}}A}
+    \label{eq:acceptance_uncertainty}
+\end{align}
+Equations \eqref{eq:acceptance} and \eqref{eq:acceptance_uncertainty} are implemented in the TQCutflowPrinter.
+\end{document}

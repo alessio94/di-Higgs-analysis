@@ -1,0 +1,125 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/Observables.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQCPConstituentVectorObservable.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQCPDecorationObservable.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQCompositorObservable.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQContainerSizeObservable.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQEventFlaggingAnalysisJob.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQEventObservable.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQIParticleDecorationObservable.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQIParticleDecorationVectorObservable.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQIParticleFourVectorObservable.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQIParticleFourVectorVectorObservable.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQSGAuxElementDecorationObservable.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQSGAuxFlagCheckingObservable.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQToolObservable.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQTruthParticleInfoObservable.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQxAODUtils.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQxAODskimmingAlgorithm.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/Observables.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQCPConstituentVectorObservable.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQCPDecorationObservable.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQCompositorObservable.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQContainerSizeObservable.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQEventFlaggingAnalysisJob.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQEventObservable.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQIParticleDecorationObservable.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQIParticleDecorationVectorObservable.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQIParticleFourVectorObservable.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQIParticleFourVectorVectorObservable.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQSGAuxElementDecorationObservable.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQSGAuxFlagCheckingObservable.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQToolObservable.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQTruthParticleInfoObservable.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQxAODUtils.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQxAODskimmingAlgorithm.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/CAFxAODUtils/CMakeFiles/CAFxAODUtilsCintDict.cxx",
+			"labels" : 
+			[
+				"CAFxAODUtils"
+			]
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/CAFxAODUtils/CMakeFiles/CAFxAODUtilsCintDict.cxx.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"CAFxAODUtils"
+		],
+		"name" : "CAFxAODUtils"
+	}
+}

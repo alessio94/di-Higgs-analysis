@@ -1,0 +1,1 @@
+raise ImportError("submit functionality was moved to SubmissionHelpers package, add gitlab.cern.ch/atlas-caf/SubmissionHelpers as a submodule to your package and replace 'from submit import ...' with 'from SubmissionHelpers import ...' in your code.")

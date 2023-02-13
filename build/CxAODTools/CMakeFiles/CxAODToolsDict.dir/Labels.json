@@ -1,0 +1,29 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CxAODTools/CMakeFiles/CxAODToolsDictReflexDict.cxx",
+			"labels" : 
+			[
+				"CxAODTools"
+			]
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/dict/ContainerProxies.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/CxAODToolsDict.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/selection.xml"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"CxAODTools"
+		],
+		"name" : "CxAODToolsDict"
+	}
+}

@@ -1,0 +1,448 @@
+{ decls }
+template <typename T> class TQCPDecorationObservable;
+template <typename Taux> class TQIParticleDecorationObservable;
+template <typename Taux> class TQIParticleDecorationVectorObservable;
+template <typename Taux> class TQSGAuxElementDecorationObservable;
+template <typename Taux> class TQSGAuxFlagCheckingObservable;
+
+[ libCAFxAODUtils.so ]
+# List of selected classes
+class TQCPConstituentVectorObservable
+class TQCPDecorationObservable<ULong64_t>
+class TQCPDecorationObservable<char>
+class TQCPDecorationObservable<double>
+class TQCPDecorationObservable<float>
+class TQCPDecorationObservable<int>
+class TQCPDecorationObservable<unsigned int>
+class TQCPDecorationObservable<unsigned short>
+class TQCompositorObservable
+class TQContainerSizeObservable
+class TQEventFlaggingAnalysisJob
+class TQEventObservable
+class TQIParticleDecorationObservable<ULong64_t>
+class TQIParticleDecorationObservable<char>
+class TQIParticleDecorationObservable<double>
+class TQIParticleDecorationObservable<float>
+class TQIParticleDecorationObservable<int>
+class TQIParticleDecorationObservable<unsigned int>
+class TQIParticleDecorationObservable<unsigned short>
+class TQIParticleDecorationVectorObservable<ULong64_t>
+class TQIParticleDecorationVectorObservable<char>
+class TQIParticleDecorationVectorObservable<double>
+class TQIParticleDecorationVectorObservable<float>
+class TQIParticleDecorationVectorObservable<int>
+class TQIParticleDecorationVectorObservable<unsigned int>
+class TQIParticleDecorationVectorObservable<unsigned short>
+class TQIParticleFourVectorObservable
+class TQIParticleFourVectorVectorObservable
+class TQSGAuxElementDecorationObservable<ULong64_t>
+class TQSGAuxElementDecorationObservable<char>
+class TQSGAuxElementDecorationObservable<double>
+class TQSGAuxElementDecorationObservable<float>
+class TQSGAuxElementDecorationObservable<int>
+class TQSGAuxElementDecorationObservable<unsigned int>
+class TQSGAuxElementDecorationObservable<unsigned short>
+class TQSGAuxFlagCheckingObservable<ULong64_t>
+class TQSGAuxFlagCheckingObservable<char>
+class TQSGAuxFlagCheckingObservable<double>
+class TQSGAuxFlagCheckingObservable<float>
+class TQSGAuxFlagCheckingObservable<int>
+class TQSGAuxFlagCheckingObservable<unsigned int>
+class TQSGAuxFlagCheckingObservable<unsigned short>
+class TQToolObservable
+class TQTruthParticleInfoObservable
+class TQxAODskimmingAlgorithm
+header CAFxAODUtils/TQCPConstituentVectorObservable.h
+header CAFxAODUtils/TQCompositorObservable.h
+header CAFxAODUtils/TQContainerSizeObservable.h
+header CAFxAODUtils/TQEventFlaggingAnalysisJob.h
+header CAFxAODUtils/TQEventObservable.h
+header CAFxAODUtils/TQIParticleFourVectorObservable.h
+header CAFxAODUtils/TQIParticleFourVectorVectorObservable.h
+header CAFxAODUtils/TQToolObservable.h
+header CAFxAODUtils/TQTruthParticleInfoObservable.h
+header CAFxAODUtils/TQxAODskimmingAlgorithm.h
+# List of selected namespaces
+namespace TQObservableFactory
+namespace asg
+namespace TQxAODUtils
+{ decls }
+namespace CxAODSelectors {  }
+
+[ libCxAODUtils.so ]
+# List of selected classes
+class CxAODReaderAlgorithm
+class CxAODSelectors::AcceptanceSelector
+class CxAODSelectors::PassThrough
+header CxAODUtils/CxAODReaderAlgorithm.h
+# List of selected typedefs and outer classes
+typedef CxAODSelectors::CharAccessor
+typedef CxAODSelectors::IntAccessor
+{ decls }
+class TObject;
+template <typename T> class TQIteratorT;
+class TQValue;
+class TQCounter;
+class TQCut;
+class TObjString;
+class TQFolder;
+class TQSampleFolder;
+class TQSample;
+class TH1;
+class TQNamedTaggable;
+class TQObservable;
+class TQAnalysisJob;
+class TGraphErrors;
+class TGraph;
+class TGraphAsymmErrors;
+class TCollection;
+class TList;
+class TLegendEntry;
+class TBranch;
+class TKey;
+class TQCounterGrid;
+class TQPCA;
+class TH2;
+class TObjArray;
+template <typename T> class TQHistogramObservable;
+class TH3;
+
+[ libQFramework.so ]
+# List of selected classes
+class TQABCDCalculator
+class TQAlgorithm
+class TQAnalysisAlgorithm
+class TQAnalysisJob
+class TQAnalysisSampleVisitor
+class TQAnalysisSampleVisitorBase
+class TQCompPlotter
+class TQConfigReader
+class TQConstObservable
+class TQCounter
+class TQCut
+class TQCutFactory
+class TQCutflowAnalysisJob
+class TQCutflowPlotter
+class TQCutflowPrinter
+class TQDefaultPlotter
+class TQEventIndexObservable
+class TQEventlistAnalysisJob
+class TQEventlistPrinter
+class TQFilterObservable
+class TQFolder
+class TQGraphMakerAnalysisJob
+class TQGridScanBound
+class TQGridScanBounds
+class TQGridScanNormalObservable
+class TQGridScanObservable
+class TQGridScanPoint
+class TQGridScanResults
+class TQGridScanSplitObservable
+class TQGridScanner
+class TQHWWPlotter
+class TQHistComparer
+class TQHistParams
+class TQHistoMakerAnalysisJob
+class TQHistogramObservable<TH1>
+class TQHistogramObservable<TH2>
+class TQHistogramObservable<TH3>
+class TQImportLink
+class TQIteratorT<TBranch>
+class TQIteratorT<TCollection>
+class TQIteratorT<TGraph>
+class TQIteratorT<TGraphAsymmErrors>
+class TQIteratorT<TGraphErrors>
+class TQIteratorT<TH1>
+class TQIteratorT<TH2>
+class TQIteratorT<TKey>
+class TQIteratorT<TLegendEntry>
+class TQIteratorT<TList>
+class TQIteratorT<TObjArray>
+class TQIteratorT<TObjString>
+class TQIteratorT<TObject>
+class TQIteratorT<TQAnalysisJob>
+class TQIteratorT<TQCompiledCut>
+class TQIteratorT<TQCounter>
+class TQIteratorT<TQCounterGrid>
+class TQIteratorT<TQCut>
+class TQIteratorT<TQFolder>
+class TQIteratorT<TQNamedTaggable>
+class TQIteratorT<TQObservable>
+class TQIteratorT<TQPCA>
+class TQIteratorT<TQSample>
+class TQIteratorT<TQSampleFolder>
+class TQIteratorT<TQValue>
+class TQLibrary
+class TQLink
+class TQMVA
+class TQMVAObservable
+class TQMessageStream
+class TQMultiChannelAnalysisSampleVisitor
+class TQMultiObservable
+class TQNFBase
+class TQNFCalculator
+class TQNFChainloader
+class TQNFCustomCalculator
+class TQNFManualSetter
+class TQNFTop0jetEstimator
+class TQNFTop1jetEstimator
+class TQNFUncertaintyScaler
+class TQNTupleDumperAnalysisJob
+class TQNamedTaggable
+class TQObservable
+class TQPCA
+class TQPCAAnalysisJob
+class TQPathManager
+class TQPlotter
+class TQPoissonSignificanceEvaluator
+class TQPresenter
+class TQROOTPlotter
+class TQSample
+class TQSampleDataReader
+class TQSampleFolder
+class TQSampleGroupingVisitor
+class TQSampleInitializer
+class TQSampleInitializerBase
+class TQSampleNormalizationObservable
+class TQSamplePurger
+class TQSampleRevisitor
+class TQSampleVisitor
+class TQSignificanceEvaluator
+class TQSignificanceEvaluatorBase
+class TQSimpleSignificanceEvaluator
+class TQSimpleSignificanceEvaluator2
+class TQSimpleSignificanceEvaluator3
+class TQSystematicsHandler
+class TQSystematicsManager
+class TQTHnBaseMakerAnalysisJob
+class TQTable
+class TQTaggable
+class TQTikZPlotter
+class TQToken
+class TQTreeFormulaObservable
+class TQTreeObservable
+class TQUniqueCut
+class TQValue
+class TQValueBool
+class TQValueDouble
+class TQValueInteger
+class TQValueString
+class TQVectorAuxObservable
+class TQXSecParser
+header QFramework/TQABCDCalculator.h
+header QFramework/TQAlgorithm.h
+header QFramework/TQAnalysisAlgorithm.h
+header QFramework/TQAnalysisJob.h
+header QFramework/TQAnalysisSampleVisitor.h
+header QFramework/TQAnalysisSampleVisitorBase.h
+header QFramework/TQCompPlotter.h
+header QFramework/TQConfigReader.h
+header QFramework/TQConstObservable.h
+header QFramework/TQCounter.h
+header QFramework/TQCut.h
+header QFramework/TQCutFactory.h
+header QFramework/TQCutflowAnalysisJob.h
+header QFramework/TQCutflowPlotter.h
+header QFramework/TQCutflowPrinter.h
+header QFramework/TQDefaultPlotter.h
+header QFramework/TQEventIndexObservable.h
+header QFramework/TQEventlistAnalysisJob.h
+header QFramework/TQEventlistPrinter.h
+header QFramework/TQFilterObservable.h
+header QFramework/TQFolder.h
+header QFramework/TQGraphMakerAnalysisJob.h
+header QFramework/TQGridScanBound.h
+header QFramework/TQGridScanObservable.h
+header QFramework/TQGridScanPoint.h
+header QFramework/TQGridScanResults.h
+header QFramework/TQGridScanner.h
+header QFramework/TQHWWPlotter.h
+header QFramework/TQHistComparer.h
+header QFramework/TQHistoMakerAnalysisJob.h
+header QFramework/TQImportLink.h
+header QFramework/TQLibrary.h
+header QFramework/TQLink.h
+header QFramework/TQMVA.h
+header QFramework/TQMVAObservable.h
+header QFramework/TQMessageStream.h
+header QFramework/TQMultiChannelAnalysisSampleVisitor.h
+header QFramework/TQMultiObservable.h
+header QFramework/TQNFBase.h
+header QFramework/TQNFCalculator.h
+header QFramework/TQNFChainloader.h
+header QFramework/TQNFCustomCalculator.h
+header QFramework/TQNFManualSetter.h
+header QFramework/TQNFTop0jetEstimator.h
+header QFramework/TQNFTop1jetEstimator.h
+header QFramework/TQNFUncertaintyScaler.h
+header QFramework/TQNTupleDumperAnalysisJob.h
+header QFramework/TQNamedTaggable.h
+header QFramework/TQObservable.h
+header QFramework/TQPCA.h
+header QFramework/TQPCAAnalysisJob.h
+header QFramework/TQPathManager.h
+header QFramework/TQPlotter.h
+header QFramework/TQSignificanceEvaluator.h
+header QFramework/TQPresenter.h
+header QFramework/TQROOTPlotter.h
+header QFramework/TQSample.h
+header QFramework/TQSampleDataReader.h
+header QFramework/TQSampleFolder.h
+header QFramework/TQSampleGroupingVisitor.h
+header QFramework/TQSampleInitializer.h
+header QFramework/TQSampleInitializerBase.h
+header QFramework/TQSampleNormalizationObservable.h
+header QFramework/TQSamplePurger.h
+header QFramework/TQSampleRevisitor.h
+header QFramework/TQSampleVisitor.h
+header QFramework/TQSystematicsHandler.h
+header QFramework/TQSystematicsManager.h
+header QFramework/TQTHnBaseMakerAnalysisJob.h
+header QFramework/TQTable.h
+header QFramework/TQTaggable.h
+header QFramework/TQTikZPlotter.h
+header QFramework/TQToken.h
+header QFramework/TQTreeFormulaObservable.h
+header QFramework/TQTreeObservable.h
+header QFramework/TQUniqueCut.h
+header QFramework/TQValue.h
+header QFramework/TQVectorAuxObservable.h
+header QFramework/TQXSecParser.h
+# List of selected namespaces
+namespace TQStringUtils
+namespace TQListUtils
+namespace TQObservableFactory
+namespace TQGridScanStyle
+namespace TQHistogramUtils
+namespace TQNTupleDumperAnalysisJobHelpers
+namespace TQSystematics
+namespace TQTHnBaseUtils
+namespace TQUtils
+# List of selected typedefs and outer classes
+typedef TQIterator
+typedef TQValueIterator
+typedef TQCounterIterator
+typedef TQCutIterator
+typedef TQStringIterator
+typedef TQFolderIterator
+typedef TQSampleFolderIterator
+typedef TQSampleIterator
+typedef TQTH1Iterator
+typedef TQTaggableIterator
+typedef TQObservableIterator
+typedef TQAnalysisJobIterator
+typedef TQGraphErrorsIterator
+typedef TQGraphIterator
+typedef TQGraphAsymmErrorsIterator
+typedef TQCollectionIterator
+typedef TQListIterator
+typedef TQLegendEntryIterator
+typedef TQBranchIterator
+typedef TQKeyIterator
+typedef TQCompiledCut
+typedef TQConstTreeObservable
+typedef TQHWWPlotter2
+typedef TQTH1Observable
+typedef TQTH2Observable
+typedef TQTH3Observable
+{ decls }
+class RooWorkspace;
+template <typename T> class TQIteratorT;
+class RooRealVar;
+
+[ libSFramework.so ]
+# List of selected classes
+class RooExpectedEvents
+class TQIteratorT<RooRealVar>
+class TQIteratorT<RooWorkspace>
+class TSBreakdownCalculator
+class TSCLSignificanceEvaluator
+class TSContourScanner
+class TSFitter
+class TSHistogramExporter
+class TSHypothesisTest
+class TSImpactCalculator
+class TSLikelihoodScanner
+class TSLimitCalculator
+class TSModelBuilder
+class TSModelFactory
+class TSSignificanceCalculator
+class TSStatisticsCalculator
+class TSStatisticsManager
+class TSStatisticsPlotter
+class TSSystematicsManager
+header SFramework/TSHistogramExporter.h
+header SFramework/TSBreakdownCalculator.h
+header SFramework/TSCLSignificanceEvaluator.h
+header SFramework/TSContourScanner.h
+header SFramework/TSFitter.h
+header SFramework/TSHypothesisTest.h
+header SFramework/TSImpactCalculator.h
+header SFramework/TSLikelihoodScanner.h
+header SFramework/TSLimitCalculator.h
+header SFramework/TSModelBuilder.h
+header SFramework/TSModelFactory.h
+header SFramework/TSSignificanceCalculator.h
+header SFramework/TSStatisticsCalculator.h
+header SFramework/TSStatisticsManager.h
+header SFramework/TSStatisticsPlotter.h
+header SFramework/TSSystematicsManager.h
+# List of selected namespaces
+namespace TSUtils
+# List of selected typedefs and outer classes
+typedef RooWorkspaceIterator
+typedef RooRealVarIterator
+[ libCAFlwtnn.so ]
+# List of selected classes
+class TQlwtnnObservable
+header CAFlwtnn/TQlwtnnObservable.h
+[ libCalcGenericMT2Lib.so ]
+# List of selected classes
+class ComputeMT2
+header CalcGenericMT2/MT2_ROOT.h
+{ decls }
+template <typename T> class ConfigField;
+
+[ libCxAODTools.so ]
+# List of selected classes
+class ConfigField<bool>
+class ConfigField<double>
+class ConfigField<float>
+class ConfigField<int>
+class ConfigField<std::string>
+class ConfigField<std::vector<bool> >
+class ConfigField<std::vector<double> >
+class ConfigField<std::vector<float> >
+class ConfigField<std::vector<int> >
+class ConfigField<std::vector<std::string> >
+class ConfigField<string>
+class ConfigField<vector<bool> >
+class ConfigField<vector<double> >
+class ConfigField<vector<float> >
+class ConfigField<vector<int> >
+class ConfigField<vector<string> >
+class ConfigFieldBase
+class ConfigStore
+header CxAODTools/ConfigFieldBase.h
+header CxAODTools/ConfigStore.h
+{ decls }
+namespace xAOD { class OverlapRegister; }
+namespace DataModel_detail { class NoBase; }
+template <typename T, typename BASE> class DataVector;
+namespace xAOD {  }
+
+[ libCxAODToolsDict.so ]
+# List of selected classes
+class DataVector<xAOD::OverlapRegister,DataModel_detail::NoBase>
+class DataVector<xAOD::OverlapRegister>
+class LumiMetaDataTool
+class xAOD::OverlapRegister
+class xAOD::OverlapRegisterAuxContainer
+class xAOD::OverlapRegisterContainer
+header LumiMetaDataTool.h
+header OverlapRegister.h
+# List of selected typedefs and outer classes
+[ libTTbarNNLOReweighter.so ]
+# List of selected classes
+class TTbarNNLOReweighter
+header TTbarNNLOReweighter/TTbarNNLOReweighter.h

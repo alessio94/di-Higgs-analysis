@@ -1,0 +1,4 @@
+[ libCalcGenericMT2Lib.so ]
+# List of selected classes
+class ComputeMT2
+header CalcGenericMT2/MT2_ROOT.h

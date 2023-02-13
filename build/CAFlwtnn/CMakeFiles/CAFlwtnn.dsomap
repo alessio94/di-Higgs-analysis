@@ -1,0 +1,4 @@
+[ libCAFlwtnn.so ]
+# List of selected classes
+class TQlwtnnObservable
+header CAFlwtnn/TQlwtnnObservable.h

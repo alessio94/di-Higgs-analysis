@@ -1,0 +1,9 @@
+!memory=2500
+!time=120
+!maxSampleSize=8000
+/sys/?/?/bkg/prompt/Zee/MGPy8/l
+/sys/?/?/bkg/prompt/Zee/MGPy8/c
+/sys/?/?/bkg/prompt/Zee/MGPy8/b
+/sys/?/?/bkg/prompt/Zmm/MGPy8/l
+/sys/?/?/bkg/prompt/Zmm/MGPy8/c
+/sys/?/?/bkg/prompt/Zmm/MGPy8/b

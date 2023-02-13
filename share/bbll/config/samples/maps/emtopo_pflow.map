@@ -1,0 +1,5 @@
+450030 /sig/$(channel)/$(campaign)/nonres/bbtautau
+346218 /sig/$(channel)/$(campaign)/nonres/bbWW
+450572 /sig/$(channel)/$(campaign)/nonres/bbZZ
+
+410470 /bkg/$(channel)/$(campaign)/fakes/top/ttbar/nonallhad

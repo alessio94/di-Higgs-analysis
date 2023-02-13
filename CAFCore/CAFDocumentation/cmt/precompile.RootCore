@@ -1,0 +1,41 @@
+#!/bin/bash
+
+DIRECTORY=${PWD%/*}
+
+TARGET=$DIRECTORY/html
+
+mkdir -p ${TARGET}
+
+if [ "$TQPATH" == "" ]; then
+    TQPATH=${PWD}/../../QFramework
+fi
+
+for file in header.html index.php tooltips.css .htaccess; do
+    if [ ! -L $TARGET/$file ]; then
+	ln -s ${PWD}/html/$file $TARGET
+    fi
+done
+
+CONTENT=$TARGET/content
+mkdir -p $CONTENT
+for file in header.html  images  res  scripts  styles; do
+    if [ ! -L $CONTENT/$file ]; then
+	ln -s ${PWD}/html/content/$file $CONTENT
+    fi
+done
+
+if [ ! -L $CONTENT/content ]; then
+    ln -s $CONTENT $CONTENT
+fi
+
+if [ ! -L $CONTENT/pdf ]; then
+    ln -s ${DIRECTORY}/pdf $CONTENT
+fi
+
+if [ ! -L $TARGET/base ]; then
+    ln -s ${TQPATH} $TARGET/base
+fi
+
+#sed -e 's/@/-SPAMN@T-/g' ${TQPATH}/Changelog > $TARGET/changelog
+
+

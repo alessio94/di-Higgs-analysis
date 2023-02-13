@@ -1,0 +1,5 @@
+ARG SKOPEO_BASE=matthewfeickert/skopeo-docker:skopeo0.1.42
+FROM ${SKOPEO_BASE}
+
+COPY --chown=docker:docker ./untag.sh /home/docker/
+RUN sudo chmod ugo+rx /home/docker/untag.sh

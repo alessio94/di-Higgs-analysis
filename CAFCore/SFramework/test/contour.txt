@@ -1,0 +1,55 @@
+# -*- mode: tqfolder -*-
+
++CopyWorkspaces {
+  +test {
+    <original="2d">
+    <saveSnapshot="SnSh_AllVars_Nominal">
+    <modelConfig="model">
+    <addPOIs={"frac","sigma_g2"}>
+    <addNPs={"sigma_g1"}>      
+    <addObs={"x"}>
+    <floatPars={"x","frac","sigma_*"}>
+  }
+}
+
++ScanContours.cont2D{
+  +test{
+    <datasetName="modelData">
+    <x="frac",y="sigma_g2">
+    <n=100>
+  }
+}
++ScanLikelihood.scan2D{
+  +test{
+    <datasetName="modelData">
+    +frac{
+      <min=0.,max=1, nbins=30>
+    }
+    +sigma_g2{
+      <min=3,max=6, nbins=30>
+    }
+  }
+}
+
++PlotLikelihoodScan {
+  +test {
+    <outputFile="likelihood.pdf">
+    +scan2D {
+      <source = "LikelihoodScans/ScanLikelihood.scan2D/Scan">
+      <style.lineColor=kBlue>
+      <style.markerColor=kBlue>
+      <style.markerStyle=34>
+      <style.showPoints = true>
+    }
+    +cont2D {
+      <source = "ContourScans/ScanContours.cont2D">
+      <style.lineColor=kRed>
+      <style.markerColor=kRed>
+      <style.markerStyle=34>
+      <style.showPoints = true>      
+    }
+    <style.title.xAxis = "frac">
+    <style.title.yAxis = "#sigma_{g2}">
+    <style.showLegend = false>
+  }
+}

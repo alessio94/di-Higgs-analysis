@@ -1,0 +1,505 @@
+SampleID, process                                                     , xsection(nb), kfactor , filtereff , generator                               , simulation
+# signal non-res NLO+FT kappa_lambda=1
+600047  , PhH7EG_PDF4LHC15_HHbbWW2L_cHHH01d0                          , 0.00003102, 1       , 0.0264216 , Powheg+Herwig7(v.7.1.6p3)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+600045  , PhH7EG_PDF4LHC15_HHbbtt2L_cHHH01d0                          , 0.00003102, 1       , 0.00905898, Powheg+Herwig7(v.7.1.6p3)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+600049  , PhH7EG_PDF4LHC15_HHbbZZ2L_cHHH01d0                          , 0.00003102, 1       , 0.00123213, Powheg+Herwig7(v.7.1.6p3)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+600761  , PhH7EG_hh_bbZZ_2l2q_cHHH01d0                                , 0.00003102, 1       , 0.004272  , Powheg+Herwig7(v.7.1.6p3)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+600465  , PhPy8EG_PDF4LHC15_HHbbWW2l_cHHH01d0                         , 0.00003102, 1       , 0.0162394 , Powheg+Pythia8(v.244p3)                 , OFLCOND-MC16-SDR-16
+600467  , PhPy8EG_PDF4LHC15_HHbbtt2l_cHHH01d0                         , 0.00003102, 1       , 0.00905898, Powheg+Pythia8(v.244p3)                 , OFLCOND-MC16-SDR-16
+600469  , PhPy8EG_PDF4LHC15_HHbbZZ2l_cHHH01d0                         , 0.00003102, 1       , 0.00087235, Powheg+Pythia8(v.244p3)                 , OFLCOND-MC16-SDR-16
+600863  , PhPy8EG_NNPDF30NLO_HHML_bbZZ2l2q_1LcHHH01d0                 , 0.00003102, 1       , 0.004272  , Powheg+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+
+# signal non-res NLO+FT kappa_lambda=10
+600048  , PhH7EG_PDF4LHC15_HHbbWW2L_cHHH10d0                          , 0.001     , 1       , 0.0264216 , Powheg+Herwig7(v.7.1.6p3)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+600046  , PhH7EG_PDF4LHC15_HHbbtt2L_cHHH10d0                          , 0.001     , 1       , 0.00905898, Powheg+Herwig7(v.7.1.6p3)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+600050  , PhH7EG_PDF4LHC15_HHbbZZ2L_cHHH10d0                          , 0.001     , 1       , 0.00123213, Powheg+Herwig7(v.7.1.6p3)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+600772  , PhH7EG_hh_bbZZ_2l2q_cHHH10d0                                , 0.001     , 1       , 0.004272  , Powheg+Herwig7(v.7.1.6p3)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+600466  , PhPy8EG_PDF4LHC15_HHbbWW2l_cHHH10d0                         , 0.001     , 1       , 0.0162394 , Powheg+Pythia8(v.244p3)                 , OFLCOND-MC16-SDR-16
+600468  , PhPy8EG_PDF4LHC15_HHbbtt2l_cHHH10d0                         , 0.001     , 1       , 0.00905898, Powheg+Pythia8(v.244p3)                 , OFLCOND-MC16-SDR-16
+600470  , PhPy8EG_PDF4LHC15_HHbbZZ2l_cHHH10d0                         , 0.001     , 1       , 0.00087235, Powheg+Pythia8(v.244p3)                 , OFLCOND-MC16-SDR-16
+600898  , PhPy8EG_NNPDF30NLO_HHML_bbZZ2l2q_1LcHHH10d0                 , 0.001     , 1       , 0.004272  , Powheg+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+
+# signal 2HDM
+450624  , MadGraphHerwig7EvtGen_NNPDF23LO_X251tohh_WWbb_2lep          , 0.001     , 1       , 0.0264216 , MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450625  , MadGraphHerwig7EvtGen_NNPDF23LO_X260tohh_WWbb_2lep          , 0.001     , 1       , 0.0264216 , MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450626  , MadGraphHerwig7EvtGen_NNPDF23LO_X300tohh_WWbb_2lep          , 0.001     , 1       , 0.0264216 , MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450627  , MadGraphHerwig7EvtGen_NNPDF23LO_X400tohh_WWbb_2lep          , 0.001     , 1       , 0.0264216 , MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450628  , MadGraphHerwig7EvtGen_NNPDF23LO_X500tohh_WWbb_2lep          , 0.001     , 1       , 0.0264216 , MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450629  , MadGraphHerwig7EvtGen_NNPDF23LO_X600tohh_WWbb_2lep          , 0.001     , 1       , 0.0264216 , MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450630  , MadGraphHerwig7EvtGen_NNPDF23LO_X800tohh_WWbb_2lep          , 0.001     , 1       , 0.0264216 , MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450631  , MadGraphHerwig7EvtGen_NNPDF23LO_X1000tohh_WWbb_2lep         , 0.001     , 1       , 0.0264216 , MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450652  , MadGraphHerwig7EvtGen_NNPDF23LO_X251tohh_bbZZllvv           , 0.001     , 1       , 0.00123213, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450653  , MadGraphHerwig7EvtGen_NNPDF23LO_X260tohh_bbZZllvv           , 0.001     , 1       , 0.00123213, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450654  , MadGraphHerwig7EvtGen_NNPDF23LO_X300tohh_bbZZllvv           , 0.001     , 1       , 0.00123213, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450655  , MadGraphHerwig7EvtGen_NNPDF23LO_X400tohh_bbZZllvv           , 0.001     , 1       , 0.00123213, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450656  , MadGraphHerwig7EvtGen_NNPDF23LO_X500tohh_bbZZllvv           , 0.001     , 1       , 0.00123213, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450657  , MadGraphHerwig7EvtGen_NNPDF23LO_X600tohh_bbZZllvv           , 0.001     , 1       , 0.00123213, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450658  , MadGraphHerwig7EvtGen_NNPDF23LO_X800tohh_bbZZllvv           , 0.001     , 1       , 0.00123213, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450659  , MadGraphHerwig7EvtGen_NNPDF23LO_X1000tohh_bbZZllvv          , 0.001     , 1       , 0.00123213, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+451708  , MadGraphHerwig7EvtGen_NNPDF23LO_X251tohh_ttbb_2lep          , 0.001     , 1       , 0.00905898, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+451709  , MadGraphHerwig7EvtGen_NNPDF23LO_X260tohh_ttbb_2lep          , 0.001     , 1       , 0.00905898, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+451710  , MadGraphHerwig7EvtGen_NNPDF23LO_X300tohh_ttbb_2lep          , 0.001     , 1       , 0.00905898, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+451711  , MadGraphHerwig7EvtGen_NNPDF23LO_X400tohh_ttbb_2lep          , 0.001     , 1       , 0.00905898, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+451712  , MadGraphHerwig7EvtGen_NNPDF23LO_X500tohh_ttbb_2lep          , 0.001     , 1       , 0.00905898, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+451713  , MadGraphHerwig7EvtGen_NNPDF23LO_X600tohh_ttbb_2lep          , 0.001     , 1       , 0.00905898, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+451714  , MadGraphHerwig7EvtGen_NNPDF23LO_X800tohh_ttbb_2lep          , 0.001     , 1       , 0.00905898, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+451715  , MadGraphHerwig7EvtGen_NNPDF23LO_X1000tohh_ttbb_2lep         , 0.001     , 1       , 0.00905898, MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+
+# signal VBF
+500002  , MGH7EG_NNPDF23LO_bbll_bbtautau_vbf                          , 0.000001726, 1       , 0.00905898, MadGraph(v.2.6.7p3.atlas4)+Herwig7(v.7.1.6p3)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+500003  , MGH7EG_NNPDF23LO_bbll_bbWW_vbf                              , 0.000001726, 1       , 0.0264216 , MadGraph(v.2.6.7p3.atlas4)+Herwig7(v.7.1.6p3)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+500014  , MGH7EG_NNPDF23LO_bbll_bbZZ_vbf                              , 0.000001726, 1       , 0.00123213, MadGraph(v.2.6.7p3.atlas4)+Herwig7(v.7.1.6p3)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+
+# signal VBF priority 1, no VHH
+503016  , MGPy8EG_hh_bbtt_ll_vbf_novhh_l1cvv1cv1                      , 0.000001726, 1       , 0.00905898, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503017  , MGPy8EG_hh_bbtt_ll_vbf_novhh_l1cvv0cv1                      , 0.000027069, 1       , 0.00905898, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503028  , MGPy8EG_hh_bbZZ_ll_vbf_novhh_l1cvv1cv1                      , 0.000001726, 1       , 0.00087235, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503029  , MGPy8EG_hh_bbZZ_ll_vbf_novhh_l1cvv0cv1                      , 0.000027069, 1       , 0.00087235, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503040  , MGPy8EG_hh_bbWW_ll_vbf_novhh_l1cvv1cv1                      , 0.000001726, 1       , 0.0162394 , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503041  , MGPy8EG_hh_bbWW_ll_vbf_novhh_l1cvv0cv1                      , 0.000027069, 1       , 0.0162394 , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+
+# signal VBF priority 2, no VHH
+503018  , MGPy8EG_hh_bbtt_ll_vbf_novhh_l1cvv0p5cv1                    , 0.000009634, 1       , 0.00905898, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503019  , MGPy8EG_hh_bbtt_ll_vbf_novhh_l1cvv1p5cv1                    , 0.000003356, 1       , 0.00905898, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503020  , MGPy8EG_hh_bbtt_ll_vbf_novhh_l1cvv2cv1                      , 0.000014515, 1       , 0.00905898, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503021  , MGPy8EG_hh_bbtt_ll_vbf_novhh_l1cvv3cv1                      , 0.000065431, 1       , 0.00905898, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503022  , MGPy8EG_hh_bbtt_ll_vbf_novhh_l0cvv1cv1                      , 0.000004608, 1       , 0.00905898, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503023  , MGPy8EG_hh_bbtt_ll_vbf_novhh_l2cvv1cv1                      , 0.000001559, 1       , 0.00905898, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503024  , MGPy8EG_hh_bbtt_ll_vbf_novhh_l10cvv1cv1                     , 0.000098059, 1       , 0.00905898, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503025  , MGPy8EG_hh_bbtt_ll_vbf_novhh_l1cvv1cv0p5                    , 0.000010958, 1       , 0.00905898, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503026  , MGPy8EG_hh_bbtt_ll_vbf_novhh_l1cvv1cv1p5                    , 0.000066071, 1       , 0.00905898, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503027  , MGPy8EG_hh_bbtt_ll_vbf_novhh_l0cvv0cv1                      , 0.000036965, 1       , 0.00905898, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+
+503030  , MGPy8EG_hh_bbZZ_ll_vbf_novhh_l1cvv0p5cv1                    , 0.000009634, 1       , 0.00087235, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503031  , MGPy8EG_hh_bbZZ_ll_vbf_novhh_l1cvv1p5cv1                    , 0.000003356, 1       , 0.00087235, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503032  , MGPy8EG_hh_bbZZ_ll_vbf_novhh_l1cvv2cv1                      , 0.000014515, 1       , 0.00087235, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503033  , MGPy8EG_hh_bbZZ_ll_vbf_novhh_l1cvv3cv1                      , 0.000065431, 1       , 0.00087235, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503034  , MGPy8EG_hh_bbZZ_ll_vbf_novhh_l0cvv1cv1                      , 0.000004608, 1       , 0.00087235, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503035  , MGPy8EG_hh_bbZZ_ll_vbf_novhh_l2cvv1cv1                      , 0.000001559, 1       , 0.00087235, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503036  , MGPy8EG_hh_bbZZ_ll_vbf_novhh_l10cvv1cv1                     , 0.000098059, 1       , 0.00087235, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503037  , MGPy8EG_hh_bbZZ_ll_vbf_novhh_l1cvv1cv0p5                    , 0.000010958, 1       , 0.00087235, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503038  , MGPy8EG_hh_bbZZ_ll_vbf_novhh_l1cvv1cv1p5                    , 0.000066071, 1       , 0.00087235, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503039  , MGPy8EG_hh_bbZZ_ll_vbf_novhh_l0cvv0cv1                      , 0.000036965, 1       , 0.00087235, MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+
+503042  , MGPy8EG_hh_bbWW_ll_vbf_novhh_l1cvv0p5cv1                    , 0.000009634, 1       , 0.0162394 , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503043  , MGPy8EG_hh_bbWW_ll_vbf_novhh_l1cvv1p5cv1                    , 0.000003356, 1       , 0.0162394 , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503044  , MGPy8EG_hh_bbWW_ll_vbf_novhh_l1cvv2cv1                      , 0.000014515, 1       , 0.0162394 , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503045  , MGPy8EG_hh_bbWW_ll_vbf_novhh_l1cvv3cv1                      , 0.000065431, 1       , 0.0162394 , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503046  , MGPy8EG_hh_bbWW_ll_vbf_novhh_l0cvv1cv1                      , 0.000004608, 1       , 0.0162394 , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503047  , MGPy8EG_hh_bbWW_ll_vbf_novhh_l2cvv1cv1                      , 0.000001559, 1       , 0.0162394 , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503048  , MGPy8EG_hh_bbWW_ll_vbf_novhh_l10cvv1cv1                     , 0.000098059, 1       , 0.0162394 , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503049  , MGPy8EG_hh_bbWW_ll_vbf_novhh_l1cvv1cv0p5                    , 0.000010958, 1       , 0.0162394 , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503050  , MGPy8EG_hh_bbWW_ll_vbf_novhh_l1cvv1cv1p5                    , 0.000066071, 1       , 0.0162394 , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+503051  , MGPy8EG_hh_bbWW_ll_vbf_novhh_l0cvv0cv1                      , 0.000036965, 1       , 0.0162394 , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+
+# signal VBF SM bbZZ 2l2q
+508674  , MGPy8EG_NNPDF30NLO_hhml_bbZZ2l2q_l1cvv1cv1                  , 0.000001726, 1       , 0.004272  , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+
+
+# signal samples  VBF BSM bbZZ 2l2q
+511801  , MGPy8EG_NNPDF30NLO_HHbbZZ2l2q_l1cvv1pt5cv1                  , 0.000003356, 1       , 0.004272  , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+511802  , MGPy8EG_NNPDF30NLO_HHbbZZ2l2q_l1cvv2cv1                     , 0.000014515, 1       , 0.004272  , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+511803  , MGPy8EG_NNPDF30NLO_HHbbZZ2l2q_l0cvv0cv1                     , 0.000036965, 1       , 0.004272  , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+511804  , MGPy8EG_NNPDF30NLO_HHbbZZ2l2q_l1cvv3cv1                     , 0.000065431, 1       , 0.004272  , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+511805  , MGPy8EG_NNPDF30NLO_HHbbZZ2l2q_l2cvv1cv1                     , 0.000001559, 1       , 0.004272  , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+511806  , MGPy8EG_NNPDF30NLO_HHbbZZ2l2q_l1cvv0pt5cv1                  , 0.000009634, 1       , 0.004272  , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+511807  , MGPy8EG_NNPDF30NLO_HHbbZZ2l2q_l1cvv1cv0pt5                  , 0.000010958, 1       , 0.004272  , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+511808  , MGPy8EG_NNPDF30NLO_HHbbZZ2l2q_l1cvv1cv1pt5                  , 0.000066071, 1       , 0.004272  , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+511809  , MGPy8EG_NNPDF30NLO_HHbbZZ2l2q_l10cvv1cv1                    , 0.000098059, 1       , 0.004272  , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+511810  , MGPy8EG_NNPDF30NLO_HHbbZZ2l2q_ln5cvv1cv0pt5                 , 0.0000044488, 1       , 0.1058547 , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+511811  , MGPy8EG_NNPDF30NLO_HHbbZZ2l2q_l0cvv1cv1                     , 0.000004608, 1       , 0.004272  , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+511812  , MGPy8EG_NNPDF30NLO_HHbbZZ2l2q_l1cvv0cv1                     , 0.000027069, 1       , 0.004272  , MadGraph(v.2.7.3p3.atlas6)+Pythia8(v.244p3.rangefix)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+
+# signal samples VBF SM and BSM bbZZ 2l2q herwig7
+512131  , MGH7EG_HHbbZZ2l2q_l10cvv1cv1                                , 0.000098059, 1       , 0.004272  , MadGraph(v.2.7.3p3.atlas6)+Herwig7(v.7.2.1p3)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+512132  , MGH7EG_HHbbZZ2l2q_l1cvv0cv1                                 , 0.000027069, 1       , 0.004272  , MadGraph(v.2.7.3p3.atlas6)+Herwig7(v.7.2.1p3)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+512133  , MGH7EG_HHbbZZ2l2q_l1cvv1cv1                                 , 0.000001726, 1       , 0.004272  , MadGraph(v.2.7.3p3.atlas6)+Herwig7(v.7.2.1p3)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+
+
+# other signal samples for cross-checks
+450259  , MadGraphHerwig7EvtGen_NNPDF23LO_X1000tohh_bbbb              , 0.001     , 1       , 0.33919   , MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+450535  , MadGraphHerwig7EvtGen_PDF23LO_X500tohh_bbyy                 , 0.001     , 1       , 0.0026441 , MadGraph.2.6.1+Herwig7.7.1.3+EvtGen.1.6.0, OFLCOND-MC16-SDR-16
+600051  , PhH7EG_PDF4LHC15_HHbbyy_cHHH01d0                            , 0.001     , 1       , 0.0026441 , Powheg+Herwig7(v.7.1.6p3)+EvtGen(v.1.7.0), OFLCOND-MC16-SDR-16
+301216  , Pythia8EvtGen_A14NNPDF23LO_Zprime_NoInt_ee_E6Chi3000        , 0.00000080483, 1       , 1         , Pythia8(v8.186)+EvtGen(v1.2.0)          , OFLCOND-MC16-SDR-25
+301221  , Pythia8EvtGen_A14NNPDF23LO_Zprime_NoInt_mumu_E6Chi3000      , 0.00000080313, 1       , 1         , Pythia8(v8.186)+EvtGen(v1.2.0)          , OFLCOND-MC16-SDR-16
+301243  , Pythia8EvtGen_A14NNPDF23LO_Wprime_enu_SSM3000               , 0.000011414, 1       , 1         , Pythia8(v8.186)+EvtGen(v1.2.0)          , OFLCOND-MC16-SDR-25
+301247  , Pythia8EvtGen_A14NNPDF23LO_Wprime_munu_SSM3000              , 0.000011432, 1       , 1         , Pythia8(v8.186)+EvtGen(v1.2.0)          , OFLCOND-MC16-SDR-16
+301323  , Pythia8EvtGen_A14NNPDF23LO_zprime500_tt                     , 0.008748  , 1       , 1         , Pythia8(v8.186)+EvtGen(v1.2.0)          , OFLCOND-MC16-SDR-25
+301325  , Pythia8EvtGen_A14NNPDF23LO_zprime1000_tt                    , 0.0011253 , 1       , 1         , Pythia8(v8.186)+EvtGen(v1.2.0)          , OFLCOND-MC16-SDR-25
+301329  , Pythia8EvtGen_A14NNPDF23LO_zprime2000_tt                    , 0.000051339, 1       , 1         , Pythia8(v8.186)+EvtGen(v1.2.0)          , OFLCOND-MC16-SDR-25
+301826  , Pythia8EvtGen_A14NNPDF23LO_Wprime_qq_3000                   , 0.00010318, 1       , 1         , Pythia8(v8.205)+EvtGen(v1.2.0)          , OFLCOND-MC16-SDR-16
+302111  , MadGraphPythia8EvtGen_A14NNPDF23LO_HVT_Agv1_VzWW_qqqq_m3000 , 0.000000296, 1       , 1         , MadGraph5_aMC@NLO(v2.2.2.p6)+Pythia8(v8.186)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-25
+302136  , MadGraphPythia8EvtGen_A14NNPDF23LO_HVT_Agv1_VzWW_lvqq_m3000 , 0.0000002949, 1       , 1         , MadGraph5_aMC@NLO(v2.2.2.p6)+Pythia8(v8.186)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-20
+302186  , MadGraphPythia8EvtGen_A14NNPDF23LO_HVT_Agv1_VcWZ_qqqq_m3000 , 0.0000006688, 1       , 1         , MadGraph5_aMC@NLO(v2.2.2.p6)+Pythia8(v8.186)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-25
+302211  , MadGraphPythia8EvtGen_A14NNPDF23LO_HVT_Agv1_VcWZ_lvqq_m3000 , 0.0000003349, 1       , 1         , MadGraph5_aMC@NLO(v2.2.3.p0)+Pythia8(v8.186)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-20
+302236  , MadGraphPythia8EvtGen_A14NNPDF23LO_HVT_Agv1_VcWZ_llqq_m3000 , 0.0000001012, 1       , 1         , MadGraph5_aMC@NLO(v2.2.2.p6)+Pythia8(v8.186)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-20
+302261  , MadGraphPythia8EvtGen_A14NNPDF23LO_HVT_Agv1_VcWZ_vvqq_m3000 , 0.0000002011, 1       , 1         , MadGraph5_aMC@NLO(v2.2.2.p6)+Pythia8(v8.186)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-20
+302286  , MadGraphPythia8EvtGen_A14NNPDF23LO_HVT_Agv1_VcWZ_lvll_m3000 , 0.00000005036, 1       , 1         , MadGraph5_aMC@NLO(v2.2.2.p6)+Pythia8(v8.186)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-20
+302336  , MadGraphPythia8EvtGen_A14NNPDF23LO_HVT_Agv1_VcWH_qqqq_m3000 , 0.000001038, 1       , 1         , MadGraph5_aMC@NLO(v2.2.2.p6)+Pythia8(v8.186)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-25
+302361  , MadGraphPythia8EvtGen_A14NNPDF23LO_HVT_Agv1_VcWH_lvqq_m3000 , 0.0000005186, 1       , 1         , MadGraph5_aMC@NLO(v2.2.2.p6)+Pythia8(v8.186)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-20
+302386  , MadGraphPythia8EvtGen_A14NNPDF23LO_HVT_Agv1_VzZH_qqqq_m3000 , 0.0000004998, 1       , 1         , MadGraph5_aMC@NLO(v2.2.2.p6)+Pythia8(v8.186)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-25
+302411  , MadGraphPythia8EvtGen_A14NNPDF23LO_HVT_Agv1_VzZH_llqq_m3000 , 0.00000007501, 1       , 1         , MadGraph5_aMC@NLO(v2.2.2.p6)+Pythia8(v8.186)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-20
+302436  , MadGraphPythia8EvtGen_A14NNPDF23LO_HVT_Agv1_VzZH_vvqq_m3000 , 0.0000001493, 1       , 1         , MadGraph5_aMC@NLO(v2.2.2.p6)+Pythia8(v8.186)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-20
+302482  , ProtosLHEFPythia8EvtGen_A14NNPDF23LO_TTS_M1400              , 0.001     , 1       , 1         , Pythia8(v8.186)+EvtGen(v1.2.0)          , OFLCOND-MC16-SDR-16
+302719  , MadGraphPythia8EvtGen_A14NNPDF23LO_WpR_tblep_M2000          , 0.00013355, 1       , 1         , MadGraph5_aMC@NLO(v2.2.3.p0)+Pythia8(v8.186)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+306136  , MadGraphPythia8EvtGen_A14NNPDF23LO_WpR_tbhad_M2000          , 0.00026724, 1       , 1         , MadGraph5_aMC@NLO(v2.2.3.p0)+Pythia8(v8.186)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+307018  , MGPy8EG_NNPDF30LO_A14NNPDF23LO_WTht2000LH01K05              , 0.0000058449, 1       , 1         , MadGraph5_aMC@NLO(v2.3.3.p1)+Pythia8(v8.212)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+308488  , Pythia8EvtGen_A14NNPDF23LO_Wprime1250_Zprime1000            , 0.00034653, 1       , 1         , Pythia8(v8.212)+EvtGen(v1.6.0)          , OFLCOND-MC16-SDR-20
+
+# diboson
+363355  , Sherpa_221_NNPDF30NNLO_ZqqZvv                               , 0.015561  , 1       , 0.28003   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+363356  , Sherpa_221_NNPDF30NNLO_ZqqZll                               , 0.015564  , 1       , 0.14158   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+363357  , Sherpa_221_NNPDF30NNLO_WqqZvv                               , 0.0067975 , 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+363358  , Sherpa_221_NNPDF30NNLO_WqqZll                               , 0.0034328 , 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+363359  , Sherpa_221_NNPDF30NNLO_WpqqWmlv                             , 0.024708  , 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+363360  , Sherpa_221_NNPDF30NNLO_WplvWmqq                             , 0.024724  , 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+363489  , Sherpa_221_NNPDF30NNLO_WlvZqq                               , 0.01142   , 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364250  , Sherpa_222_NNPDF30NNLO_llll                                 , 0.0012516 , 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+364253  , Sherpa_222_NNPDF30NNLO_lllv                                 , 0.0045724 , 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+364254  , Sherpa_222_NNPDF30NNLO_llvv                                 , 0.012501  , 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+364255  , Sherpa_222_NNPDF30NNLO_lvvv                                 , 0.0032348 , 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+364288  , Sherpa_222_NNPDF30NNLO_llll_lowMllPtComplement              , 0.0014496 , 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+364289  , Sherpa_222_NNPDF30NNLO_lllv_lowMllPtComplement              , 0.0029599 , 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+364290  , Sherpa_222_NNPDF30NNLO_llvv_lowMllPtComplement              , 0.00017154, 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+
+# loop induced gg->VV
+345708  , Sherpa_222_NNPDF30NNLO_ggllllNoHiggs_0M4l130                , 0.0000047394, 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+345709  , Sherpa_222_NNPDF30NNLO_ggllllNoHiggs_130M4l                 , 0.000010561, 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+345714  , Sherpa_222_NNPDF30NNLO_ggllvv                               , 0.00079301, 1       , 1         , Sherpa                                  , OFLCOND-MC16-SDR-16
+345715  , Sherpa_222_NNPDF30NNLO_ggllvvInt                            , 0.0002685 , 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+345718  , Sherpa_222_NNPDF30NNLO_ggllvvWW                             , 0.0004823 , 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+345723  , Sherpa_222_NNPDF30NNLO_ggllvvZZ                             , 0.0000071141, 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+345716  , Sherpa_222_NNPDF30NNLO_ggllvvIntNoHiggs                     , 0.0001219 , 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+345720  , Sherpa_222_NNPDF30NNLO_ggllvvWWNoHiggs                      , 0.00020524, 1       , 1         , Sherpa                                  , OFLCOND-MC16-SDR-16
+345725  , Sherpa_222_NNPDF30NNLO_ggllvvZZNoHiggs                      , 0.0000069827, 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+364302  , Sherpa_222_NNPDF30NNLO_ggZllZqq                             , 0.00092331, 1       , 0.14154   , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+364303  , Sherpa_222_NNPDF30NNLO_ggZvvZqq                             , 0.00092488, 1       , 0.28024   , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+364304  , Sherpa_222_NNPDF30NNLO_ggWmlvWpqq                           , 0.00062194, 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+364305  , Sherpa_222_NNPDF30NNLO_ggWplvWmqq                           , 0.00062186, 1       , 1         , Sherpa(v2.2.2)                          , OFLCOND-MC16-SDR-16
+
+# EW6 VV+jj
+366086  , Sh_222_NN30NNLO_lllljj_Min_N_TChannel                       , 0.0000059892, 1       , 1         , Sherpa                                  , OFLCOND-MC16-SDR-16
+366087  , Sh_222_NN30NNLO_lllvjj_Min_N_TChannel                       , 0.000023229, 1       , 1         , Sherpa                                  , OFLCOND-MC16-SDR-16
+366089  , Sh_222_NN30NNLO_llvvjj_Min_N_TChannel                       , 0.00011637, 1       , 1         , Sherpa                                  , OFLCOND-MC16-SDR-16
+366088  , Sh_222_NN30NNLO_llvvjj_ss_Min_N_TChannel                    , 0.000018961, 1       , 1         , Sherpa                                  , OFLCOND-MC16-SDR-16
+
+# Z -> e e
+364114  , Sherpa_221_NNPDF30NNLO_Zee_MAXHTPTV0_70_CVetoBVeto          , 1.9816    , 0.9751  , 0.82118   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364115  , Sherpa_221_NNPDF30NNLO_Zee_MAXHTPTV0_70_CFilterBVeto        , 1.9817    , 0.9751  , 0.11347   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364116  , Sherpa_221_NNPDF30NNLO_Zee_MAXHTPTV0_70_BFilter             , 1.982     , 0.9751  , 0.065756  , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364117  , Sherpa_221_NNPDF30NNLO_Zee_MAXHTPTV70_140_CVetoBVeto        , 0.11064   , 0.9751  , 0.69275   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364118  , Sherpa_221_NNPDF30NNLO_Zee_MAXHTPTV70_140_CFilterBVeto      , 0.1105    , 0.9751  , 0.18933   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364119  , Sherpa_221_NNPDF30NNLO_Zee_MAXHTPTV70_140_BFilter           , 0.11046   , 0.9751  , 0.11547   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364120  , Sherpa_221_NNPDF30NNLO_Zee_MAXHTPTV140_280_CVetoBVeto       , 0.040645  , 0.9751  , 0.61591   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364121  , Sherpa_221_NNPDF30NNLO_Zee_MAXHTPTV140_280_CFilterBVeto     , 0.040671  , 0.9751  , 0.23209   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364122  , Sherpa_221_NNPDF30NNLO_Zee_MAXHTPTV140_280_BFilter          , 0.040675  , 0.9751  , 0.15238   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364123  , Sherpa_221_NNPDF30NNLO_Zee_MAXHTPTV280_500_CVetoBVeto       , 0.0086703 , 0.9751  , 0.56349   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364124  , Sherpa_221_NNPDF30NNLO_Zee_MAXHTPTV280_500_CFilterBVeto     , 0.0086668 , 0.9751  , 0.26531   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364125  , Sherpa_221_NNPDF30NNLO_Zee_MAXHTPTV280_500_BFilter          , 0.0086799 , 0.9751  , 0.17578   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364126  , Sherpa_221_NNPDF30NNLO_Zee_MAXHTPTV500_1000                 , 0.0018087 , 0.9751  , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364127  , Sherpa_221_NNPDF30NNLO_Zee_MAXHTPTV1000_E_CMS               , 0.00014875, 0.9751  , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+
+# Z -> mu mu
+364100  , Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV0_70_CVetoBVeto        , 1.9825    , 0.9751  , 0.82142   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364101  , Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV0_70_CFilterBVeto      , 1.9822    , 0.9751  , 0.11319   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364102  , Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV0_70_BFilter           , 1.9817    , 0.9751  , 0.065069  , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364103  , Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV70_140_CVetoBVeto      , 0.10914   , 0.9751  , 0.68992   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364104  , Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV70_140_CFilterBVeto    , 0.10898   , 0.9751  , 0.19027   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364105  , Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV70_140_BFilter         , 0.10903   , 0.9751  , 0.11735   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364106  , Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV140_280_CVetoBVeto     , 0.03987   , 0.9751  , 0.61125   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364107  , Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV140_280_CFilterBVeto   , 0.039857  , 0.9751  , 0.23359   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364108  , Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV140_280_BFilter        , 0.039888  , 0.9751  , 0.1557    , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364109  , Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV280_500_CVetoBVeto     , 0.0085251 , 0.9751  , 0.56023   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364110  , Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV280_500_CFilterBVeto   , 0.0085259 , 0.9751  , 0.26577   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364111  , Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV280_500_BFilter        , 0.0085296 , 0.9751  , 0.17458   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364112  , Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV500_1000               , 0.0017872 , 0.9751  , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364113  , Sherpa_221_NNPDF30NNLO_Zmumu_MAXHTPTV1000_E_CMS             , 0.00014761, 0.9751  , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+
+# Z -> tau tau
+364128  , Sherpa_221_NNPDF30NNLO_Ztautau_MAXHTPTV0_70_CVetoBVeto      , 1.9821    , 0.9751  , 0.82128   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364129  , Sherpa_221_NNPDF30NNLO_Ztautau_MAXHTPTV0_70_CFilterBVeto    , 1.9817    , 0.9751  , 0.10954   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364130  , Sherpa_221_NNPDF30NNLO_Ztautau_MAXHTPTV0_70_BFilter         , 1.9819    , 0.9751  , 0.065752  , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364131  , Sherpa_221_NNPDF30NNLO_Ztautau_MAXHTPTV70_140_CVetoBVeto    , 0.1107    , 0.9751  , 0.69264   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364132  , Sherpa_221_NNPDF30NNLO_Ztautau_MAXHTPTV70_140_CFilterBVeto  , 0.11046   , 0.9751  , 0.18905   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364133  , Sherpa_221_NNPDF30NNLO_Ztautau_MAXHTPTV70_140_BFilter       , 0.1107    , 0.9751  , 0.11834   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364134  , Sherpa_221_NNPDF30NNLO_Ztautau_MAXHTPTV140_280_CVetoBVeto   , 0.040756  , 0.9751  , 0.61697   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364135  , Sherpa_221_NNPDF30NNLO_Ztautau_MAXHTPTV140_280_CFilterBVeto , 0.040713  , 0.9751  , 0.23427   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364136  , Sherpa_221_NNPDF30NNLO_Ztautau_MAXHTPTV140_280_BFilter      , 0.040741  , 0.9751  , 0.15595   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364137  , Sherpa_221_NNPDF30NNLO_Ztautau_MAXHTPTV280_500_CVetoBVeto   , 0.0086726 , 0.9751  , 0.56407   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364138  , Sherpa_221_NNPDF30NNLO_Ztautau_MAXHTPTV280_500_CFilterBVeto , 0.0086745 , 0.9751  , 0.26426   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364139  , Sherpa_221_NNPDF30NNLO_Ztautau_MAXHTPTV280_500_BFilter      , 0.0086792 , 0.9751  , 0.17623   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364140  , Sherpa_221_NNPDF30NNLO_Ztautau_MAXHTPTV500_1000             , 0.0018081 , 0.9751  , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364141  , Sherpa_221_NNPDF30NNLO_Ztautau_MAXHTPTV1000_E_CMS           , 0.00014824, 0.9751  , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+
+# Z+jets lowmass
+364198  , Sherpa_221_NN30NNLO_Zmm_Mll10_40_MAXHTPTV0_70_BVeto         , 2.4143    , 0.9751  , 0.96536   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364199  , Sherpa_221_NN30NNLO_Zmm_Mll10_40_MAXHTPTV0_70_BFilter       , 2.4142    , 0.9751  , 0.034445  , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364200  , Sherpa_221_NN30NNLO_Zmm_Mll10_40_MAXHTPTV70_280_BVeto       , 0.05033   , 0.9751  , 0.89306   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364201  , Sherpa_221_NN30NNLO_Zmm_Mll10_40_MAXHTPTV70_280_BFilter     , 0.050291  , 0.9751  , 0.11316   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364202  , Sherpa_221_NN30NNLO_Zmm_Mll10_40_MAXHTPTV280_E_CMS_BVeto    , 0.0032413 , 0.9751  , 0.85371   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364203  , Sherpa_221_NN30NNLO_Zmm_Mll10_40_MAXHTPTV280_E_CMS_BFilter  , 0.0032813 , 0.9751  , 0.16027   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364204  , Sherpa_221_NN30NNLO_Zee_Mll10_40_MAXHTPTV0_70_BVeto         , 2.4153    , 0.9751  , 0.9652    , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364205  , Sherpa_221_NN30NNLO_Zee_Mll10_40_MAXHTPTV0_70_BFilter       , 2.4155    , 0.9751  , 0.034696  , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364206  , Sherpa_221_NN30NNLO_Zee_Mll10_40_MAXHTPTV70_280_BVeto       , 0.050354  , 0.9751  , 0.8932    , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364207  , Sherpa_221_NN30NNLO_Zee_Mll10_40_MAXHTPTV70_280_BFilter     , 0.050499  , 0.9751  , 0.11213   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364208  , Sherpa_221_NN30NNLO_Zee_Mll10_40_MAXHTPTV280_E_CMS_BVeto    , 0.0032537 , 0.9751  , 0.85474   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364209  , Sherpa_221_NN30NNLO_Zee_Mll10_40_MAXHTPTV280_E_CMS_BFilter  , 0.003253  , 0.9751  , 0.15341   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364210  , Sherpa_221_NN30NNLO_Ztt_Mll10_40_MAXHTPTV0_70_BVeto         , 2.4149    , 0.9751  , 0.96533   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364211  , Sherpa_221_NN30NNLO_Ztt_Mll10_40_MAXHTPTV0_70_BFilter       , 2.4144    , 0.9751  , 0.034683  , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364212  , Sherpa_221_NN30NNLO_Ztt_Mll10_40_MAXHTPTV70_280_BVeto       , 0.050375  , 0.9751  , 0.8933    , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364213  , Sherpa_221_NN30NNLO_Ztt_Mll10_40_MAXHTPTV70_280_BFilter     , 0.05047   , 0.9751  , 0.11197   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364214  , Sherpa_221_NN30NNLO_Ztt_Mll10_40_MAXHTPTV280_E_CMS_BVeto    , 0.0032861 , 0.9751  , 0.85595   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364215  , Sherpa_221_NN30NNLO_Ztt_Mll10_40_MAXHTPTV280_E_CMS_BFilter  , 0.0032813 , 0.9751  , 0.15581   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+
+# Z+jets very low mass
+364358  , Sherpa_221_NNPDF30NNLO_Zee_Mll2Ml_MAXHTPTV70_140            , 0.56884   , 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364359  , Sherpa_221_NNPDF30NNLO_Zmumu_Mll2Ml_MAXHTPTV70_140          , 0.45831   , 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364360  , Sherpa_221_NNPDF30NNLO_Ztautau_Mll2Ml_MAXHTPTV70_140        , 0.14073   , 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364361  , Sherpa_221_NNPDF30NNLO_Zee_Mll2Ml_MAXHTPTV140_280           , 0.20681   , 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364362  , Sherpa_221_NNPDF30NNLO_Zmumu_Mll2Ml_MAXHTPTV140_280         , 0.16395   , 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364363  , Sherpa_221_NNPDF30NNLO_Ztautau_Mll2Ml_MAXHTPTV140_280       , 0.043265  , 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+
+# Z+jets EW
+308092  , Sherpa_221_NNPDF30NNLO_Zee2jets_Min_N_TChannel              , 0.00063197, 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+308093  , Sherpa_221_NNPDF30NNLO_Zmm2jets_Min_N_TChannel              , 0.00063433, 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+308094  , Sherpa_221_NNPDF30NNLO_Ztautau2jets_Min_N_TChannel          , 0.00063347, 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+
+# Z+jets -> e e (Madgraph+Pythia8)
+363147  , MGPy8EG_N30NLO_Zee_Ht0_70_CVetoBVeto                        , 1.7193    , 1.12639 , 0.83307   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363148  , MGPy8EG_N30NLO_Zee_Ht0_70_CFilterBVeto                      , 1.7188    , 1.12639 , 0.10865   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363149  , MGPy8EG_N30NLO_Zee_Ht0_70_BFilter                           , 1.7194    , 1.12639 , 0.060314  , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363150  , MGPy8EG_N30NLO_Zee_Ht70_140_CVetoBVeto                      , 0.085079  , 1.12639 , 0.7189    , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363151  , MGPy8EG_N30NLO_Zee_Ht70_140_CFilterBVeto                    , 0.085056  , 1.12639 , 0.17683   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363152  , MGPy8EG_N30NLO_Zee_Ht70_140_BFilter                         , 0.085164  , 1.12639 , 0.1132    , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363153  , MGPy8EG_N30NLO_Zee_Ht140_280_CVetoBVeto                     , 0.036001  , 1.12639 , 0.67412   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363154  , MGPy8EG_N30NLO_Zee_Ht140_280_CFilterBVeto                   , 0.036012  , 1.12639 , 0.20365   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363155  , MGPy8EG_N30NLO_Zee_Ht140_280_BFilter                        , 0.036053  , 1.12639 , 0.13187   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363156  , MGPy8EG_N30NLO_Zee_Ht280_500_CVetoBVeto                     , 0.0082037 , 1.12639 , 0.62992   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363157  , MGPy8EG_N30NLO_Zee_Ht280_500_CFilterBVeto                   , 0.0082139 , 1.12639 , 0.23183   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363158  , MGPy8EG_N30NLO_Zee_Ht280_500_BFilter                        , 0.0082425 , 1.12639 , 0.1479    , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363159  , MGPy8EG_N30NLO_Zee_Ht500_700_CVetoBVeto                     , 0.0012756 , 1.12639 , 0.59918   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363160  , MGPy8EG_N30NLO_Zee_Ht500_700_CFilterBVeto                   , 0.0012754 , 1.12639 , 0.25301   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363161  , MGPy8EG_N30NLO_Zee_Ht500_700_BFilter                        , 0.0012741 , 1.12639 , 0.1613    , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363162  , MGPy8EG_N30NLO_Zee_Ht700_1000_CVetoBVeto                    , 0.00044557, 1.12639 , 0.57769   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363163  , MGPy8EG_N30NLO_Zee_Ht700_1000_CFilterBVeto                  , 0.00044592, 1.12639 , 0.26649   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363164  , MGPy8EG_N30NLO_Zee_Ht700_1000_BFilter                       , 0.00044637, 1.12639 , 0.16931   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363165  , MGPy8EG_N30NLO_Zee_Ht1000_2000_CVetoBVeto                   , 0.00015224, 1.12639 , 0.56096   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363166  , MGPy8EG_N30NLO_Zee_Ht1000_2000_CFilterBVeto                 , 0.00015287, 1.12639 , 0.28674   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363167  , MGPy8EG_N30NLO_Zee_Ht1000_2000_BFilter                      , 0.00015379, 1.12639 , 0.18318   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363168  , MGPy8EG_N30NLO_Zee_Ht2000_E_CMS_CVetoBVeto                  , 0.0000056842, 1.12639 , 0.5365    , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363169  , MGPy8EG_N30NLO_Zee_Ht2000_E_CMS_CFilterBVeto                , 0.0000057315, 1.12639 , 0.303     , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363170  , MGPy8EG_N30NLO_Zee_Ht2000_E_CMS_BFilter                     , 0.0000057604, 1.12639 , 0.19217   , MadGraph5_aMC@NLO(v2.3.2.p1)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+
+# Z+jets -> mu mu (Madgraph+Pythia8)
+363123  , MGPy8EG_N30NLO_Zmumu_Ht0_70_CVetoBVeto                      , 1.7149    , 1.13129 , 0.83167   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363124  , MGPy8EG_N30NLO_Zmumu_Ht0_70_CFilterBVeto                    , 1.7152    , 1.13129 , 0.10879   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363125  , MGPy8EG_N30NLO_Zmumu_Ht0_70_BFilter                         , 1.7156    , 1.13129 , 0.059371  , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363126  , MGPy8EG_N30NLO_Zmumu_Ht70_140_CVetoBVeto                    , 0.084576  , 1.13129 , 0.71882   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363127  , MGPy8EG_N30NLO_Zmumu_Ht70_140_CFilterBVeto                  , 0.084572  , 1.13129 , 0.17409   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363128  , MGPy8EG_N30NLO_Zmumu_Ht70_140_BFilter                       , 0.084748  , 1.13129 , 0.10841   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363129  , MGPy8EG_N30NLO_Zmumu_Ht140_280_CVetoBVeto                   , 0.035886  , 1.13129 , 0.67447   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363130  , MGPy8EG_N30NLO_Zmumu_Ht140_280_CFilterBVeto                 , 0.035888  , 1.13129 , 0.20036   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363131  , MGPy8EG_N30NLO_Zmumu_Ht140_280_BFilter                      , 0.03588   , 1.13129 , 0.12631   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363132  , MGPy8EG_N30NLO_Zmumu_Ht280_500_CVetoBVeto                   , 0.0081928 , 1.13129 , 0.62869   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363133  , MGPy8EG_N30NLO_Zmumu_Ht280_500_CFilterBVeto                 , 0.0081804 , 1.13129 , 0.22876   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363134  , MGPy8EG_N30NLO_Zmumu_Ht280_500_BFilter                      , 0.0081747 , 1.13129 , 0.14307   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363135  , MGPy8EG_N30NLO_Zmumu_Ht500_700_CVetoBVeto                   , 0.0012715 , 1.13129 , 0.5967    , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363136  , MGPy8EG_N30NLO_Zmumu_Ht500_700_CFilterBVeto                 , 0.0012674 , 1.13129 , 0.24962   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363137  , MGPy8EG_N30NLO_Zmumu_Ht500_700_BFilter                      , 0.001269  , 1.13129 , 0.15385   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363138  , MGPy8EG_N30NLO_Zmumu_Ht700_1000_CVetoBVeto                  , 0.0004428 , 1.13129 , 0.57754   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363139  , MGPy8EG_N30NLO_Zmumu_Ht700_1000_CFilterBVeto                , 0.00044356, 1.13129 , 0.26195   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363140  , MGPy8EG_N30NLO_Zmumu_Ht700_1000_BFilter                     , 0.00044384, 1.13129 , 0.16178   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363141  , MGPy8EG_N30NLO_Zmumu_Ht1000_2000_CVetoBVeto                 , 0.00014715, 1.13129 , 0.55345   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363142  , MGPy8EG_N30NLO_Zmumu_Ht1000_2000_CFilterBVeto               , 0.00014733, 1.13129 , 0.27725   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363143  , MGPy8EG_N30NLO_Zmumu_Ht1000_2000_BFilter                    , 0.00014753, 1.13129 , 0.17031   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363144  , MGPy8EG_N30NLO_Zmumu_Ht2000_E_CMS_CVetoBVeto                , 0.0000055036, 1.13129 , 0.53671   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363145  , MGPy8EG_N30NLO_Zmumu_Ht2000_E_CMS_CFilterBVeto              , 0.0000055327, 1.13129 , 0.29186   , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+363146  , MGPy8EG_N30NLO_Zmumu_Ht2000_E_CMS_BFilter                   , 0.000005549, 1.13129 , 0.1746    , MadGraph5_aMC@NLO(v2.2.3.p4)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+
+# W+jets
+364156  , Sherpa_221_NNPDF30NNLO_Wmunu_MAXHTPTV0_70_CVetoBVeto        , 19.151    , 0.9702  , 0.82465   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364157  , Sherpa_221_NNPDF30NNLO_Wmunu_MAXHTPTV0_70_CFilterBVeto      , 19.145    , 0.9702  , 0.13022   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364158  , Sherpa_221_NNPDF30NNLO_Wmunu_MAXHTPTV0_70_BFilter           , 19.143    , 0.9702  , 0.045196  , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364159  , Sherpa_221_NNPDF30NNLO_Wmunu_MAXHTPTV70_140_CVetoBVeto      , 0.94599   , 0.9702  , 0.67432   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364160  , Sherpa_221_NNPDF30NNLO_Wmunu_MAXHTPTV70_140_CFilterBVeto    , 0.94612   , 0.9702  , 0.24357   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364161  , Sherpa_221_NNPDF30NNLO_Wmunu_MAXHTPTV70_140_BFilter         , 0.94491   , 0.9702  , 0.084628  , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364162  , Sherpa_221_NNPDF30NNLO_Wmunu_MAXHTPTV140_280_CVetoBVeto     , 0.33971   , 0.9702  , 0.59995   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364163  , Sherpa_221_NNPDF30NNLO_Wmunu_MAXHTPTV140_280_CFilterBVeto   , 0.3398    , 0.9702  , 0.29256   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364164  , Sherpa_221_NNPDF30NNLO_Wmunu_MAXHTPTV140_280_BFilter        , 0.33967   , 0.9702  , 0.10897   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364165  , Sherpa_221_NNPDF30NNLO_Wmunu_MAXHTPTV280_500_CVetoBVeto     , 0.07208   , 0.9702  , 0.5478    , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364166  , Sherpa_221_NNPDF30NNLO_Wmunu_MAXHTPTV280_500_CFilterBVeto   , 0.072109  , 0.9702  , 0.32014   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364167  , Sherpa_221_NNPDF30NNLO_Wmunu_MAXHTPTV280_500_BFilter        , 0.072063  , 0.9702  , 0.13137   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364168  , Sherpa_221_NNPDF30NNLO_Wmunu_MAXHTPTV500_1000               , 0.01501   , 0.9702  , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364169  , Sherpa_221_NNPDF30NNLO_Wmunu_MAXHTPTV1000_E_CMS             , 0.0012347 , 0.9702  , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364170  , Sherpa_221_NNPDF30NNLO_Wenu_MAXHTPTV0_70_CVetoBVeto         , 19.156    , 0.9702  , 0.82463   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364171  , Sherpa_221_NNPDF30NNLO_Wenu_MAXHTPTV0_70_CFilterBVeto       , 19.145    , 0.9702  , 0.13095   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364172  , Sherpa_221_NNPDF30NNLO_Wenu_MAXHTPTV0_70_BFilter            , 19.143    , 0.9702  , 0.044183  , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364173  , Sherpa_221_NNPDF30NNLO_Wenu_MAXHTPTV70_140_CVetoBVeto       , 0.94569   , 0.9702  , 0.67481   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364174  , Sherpa_221_NNPDF30NNLO_Wenu_MAXHTPTV70_140_CFilterBVeto     , 0.94608   , 0.9702  , 0.24145   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364175  , Sherpa_221_NNPDF30NNLO_Wenu_MAXHTPTV70_140_BFilter          , 0.94563   , 0.9702  , 0.083353  , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364176  , Sherpa_221_NNPDF30NNLO_Wenu_MAXHTPTV140_280_CVetoBVeto      , 0.33979   , 0.9702  , 0.59867   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364177  , Sherpa_221_NNPDF30NNLO_Wenu_MAXHTPTV140_280_CFilterBVeto    , 0.3398    , 0.9702  , 0.28805   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364178  , Sherpa_221_NNPDF30NNLO_Wenu_MAXHTPTV140_280_BFilter         , 0.33969   , 0.9702  , 0.11089   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364179  , Sherpa_221_NNPDF30NNLO_Wenu_MAXHTPTV280_500_CVetoBVeto      , 0.072073  , 0.9702  , 0.5469    , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364180  , Sherpa_221_NNPDF30NNLO_Wenu_MAXHTPTV280_500_CFilterBVeto    , 0.072104  , 0.9702  , 0.31994   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364181  , Sherpa_221_NNPDF30NNLO_Wenu_MAXHTPTV280_500_BFilter         , 0.072077  , 0.9702  , 0.13865   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364182  , Sherpa_221_NNPDF30NNLO_Wenu_MAXHTPTV500_1000                , 0.01505   , 0.9702  , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364183  , Sherpa_221_NNPDF30NNLO_Wenu_MAXHTPTV1000_E_CMS              , 0.0012344 , 0.9702  , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364184  , Sherpa_221_NNPDF30NNLO_Wtaunu_MAXHTPTV0_70_CVetoBVeto       , 19.155    , 0.9702  , 0.8246    , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364185  , Sherpa_221_NNPDF30NNLO_Wtaunu_MAXHTPTV0_70_CFilterBVeto     , 19.154    , 0.9702  , 0.12973   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364186  , Sherpa_221_NNPDF30NNLO_Wtaunu_MAXHTPTV0_70_BFilter          , 19.147    , 0.9702  , 0.0451    , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364187  , Sherpa_221_NNPDF30NNLO_Wtaunu_MAXHTPTV70_140_CVetoBVeto     , 0.94558   , 0.9702  , 0.6756    , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364188  , Sherpa_221_NNPDF30NNLO_Wtaunu_MAXHTPTV70_140_CFilterBVeto   , 0.94672   , 0.9702  , 0.24221   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364189  , Sherpa_221_NNPDF30NNLO_Wtaunu_MAXHTPTV70_140_BFilter        , 0.94587   , 0.9702  , 0.083903  , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364190  , Sherpa_221_NNPDF30NNLO_Wtaunu_MAXHTPTV140_280_CVetoBVeto    , 0.33969   , 0.9702  , 0.59884   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364191  , Sherpa_221_NNPDF30NNLO_Wtaunu_MAXHTPTV140_280_CFilterBVeto  , 0.33984   , 0.9702  , 0.28478   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364192  , Sherpa_221_NNPDF30NNLO_Wtaunu_MAXHTPTV140_280_BFilter       , 0.3396    , 0.9702  , 0.10681   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364193  , Sherpa_221_NNPDF30NNLO_Wtaunu_MAXHTPTV280_500_CVetoBVeto    , 0.072078  , 0.9702  , 0.56172   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364194  , Sherpa_221_NNPDF30NNLO_Wtaunu_MAXHTPTV280_500_CFilterBVeto  , 0.07199   , 0.9702  , 0.31863   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364195  , Sherpa_221_NNPDF30NNLO_Wtaunu_MAXHTPTV280_500_BFilter       , 0.071944  , 0.9702  , 0.13597   , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364196  , Sherpa_221_NNPDF30NNLO_Wtaunu_MAXHTPTV500_1000              , 0.015053  , 0.9702  , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+364197  , Sherpa_221_NNPDF30NNLO_Wtaunu_MAXHTPTV1000_E_CMS            , 0.0012343 , 0.9702  , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+
+# W+jets EW
+308096  , Sherpa_221_NNPDF30NNLO_Wenu2jets_Min_N_TChannel             , 0.0068063 , 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+308097  , Sherpa_221_NNPDF30NNLO_Wmunu2jets_Min_N_TChannel            , 0.0067968 , 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+308098  , Sherpa_221_NNPDF30NNLO_Wtaunu2jets_Min_N_TChannel           , 0.0067976 , 1       , 1         , Sherpa(v2.2.1)                          , OFLCOND-MC16-SDR-16
+
+# Z -> e e Sherpa 2.2.11
+700320  , Sh_2211_Zee_maxHTpTV2_BFilter                               , 2.2212E+00, 1.0     , 2.5027E-02, Sherpa                                  , OFLCOND-MC16-SDR-16
+700321  , Sh_2211_Zee_maxHTpTV2_CFilterBVeto                          , 2.2212E+00, 1.0     , 1.2894E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+700322  , Sh_2211_Zee_maxHTpTV2_CVetoBVeto                            , 2.2212E+00, 1.0     , 8.4607E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+
+# Z -> mu mu Sherpa 2.2.11
+700323  , Sh_2211_Zmumu_maxHTpTV2_BFilter                             , 2.2213E+00, 1.0     , 2.4358E-02, Sherpa                                  , OFLCOND-MC16-SDR-16
+700324  , Sh_2211_Zmumu_maxHTpTV2_CFilterBVeto                        , 2.2213E+00, 1.0     , 1.2926E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+700325  , Sh_2211_Zmumu_maxHTpTV2_CVetoBVeto                          , 2.2213E+00, 1.0     , 8.4635E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+
+# Z -> tau tau LL Sherpa 2.2.11
+700326  , Sh_2211_Ztautau_LL_maxHTpTV2_BFilter                        , 2.7533E-01, 1.0     , 2.4278E-02, Sherpa                                  , OFLCOND-MC16-SDR-16
+700327  , Sh_2211_Ztautau_LL_maxHTpTV2_CFilterBVeto                   , 2.7533E-01, 1.0     , 1.2541E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+700328  , Sh_2211_Ztautau_LL_maxHTpTV2_CVetoBVeto                     , 2.7533E-01, 1.0     , 8.5036E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+
+# Z -> tau tau LH Sherpa 2.2.11
+700329  , Sh_2211_Ztautau_LH_maxHTpTV2_BFilter                        , 1.0132E+00, 1.0     , 2.4536E-02, Sherpa                                  , OFLCOND-MC16-SDR-16
+700330  , Sh_2211_Ztautau_LH_maxHTpTV2_CFilterBVeto                   , 1.0132E+00, 1.0     , 1.2504E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+700331  , Sh_2211_Ztautau_LH_maxHTpTV2_CVetoBVeto                     , 1.0132E+00, 1.0     , 8.5022E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+
+# Z -> tau tau HH Sherpa 2.2.11
+700332  , Sh_2211_Ztautau_HH_maxHTpTV2_BFilter                        , 9.3253E-01, 1.0     , 2.4858E-02, Sherpa                                  , OFLCOND-MC16-SDR-16
+700333  , Sh_2211_Ztautau_HH_maxHTpTV2_CFilterBVeto                   , 9.3253E-01, 1.0     , 1.2552E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+700334  , Sh_2211_Ztautau_HH_maxHTpTV2_CVetoBVeto                     , 9.3253E-01, 1.0     , 8.5004E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+
+# Z -> nu nu Sherpa 2.2.11
+700335  , Sh_2211_Znunu_pTV2_BFilter                                  , 4.4713E-01, 1.0     , 8.4176E-02, Sherpa                                  , OFLCOND-MC16-SDR-16
+700336  , Sh_2211_Znunu_pTV2_CFilterBVeto                             , 4.4713E-01, 1.0     , 2.0308E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+700337  , Sh_2211_Znunu_pTV2_CVetoBVeto                               , 4.4713E-01, 1.0     , 7.1263E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+
+# W -> e nu Sherpa 2.2.11
+700338  , Sh_2211_Wenu_maxHTpTV2_BFilter                              , 2.1742E+01, 1.0     , 9.4047E-03, Sherpa                                  , OFLCOND-MC16-SDR-16
+700339  , Sh_2211_Wenu_maxHTpTV2_CFilterBVeto                         , 2.1742E+01, 1.0     , 1.4694E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+700340  , Sh_2211_Wenu_maxHTpTV2_CVetoBVeto                           , 2.1742E+01, 1.0     , 8.4366E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+
+# W -> mu nu Sherpa 2.2.11
+700341  , Sh_2211_Wmunu_maxHTpTV2_BFilter                             , 2.1806E+01, 1.0     , 9.2095E-03, Sherpa                                  , OFLCOND-MC16-SDR-16
+700342  , Sh_2211_Wmunu_maxHTpTV2_CFilterBVeto                        , 2.1806E+01, 1.0     , 1.4710E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+700343  , Sh_2211_Wmunu_maxHTpTV2_CVetoBVeto                          , 2.1806E+01, 1.0     , 8.4359E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+
+# W -> tau nu Sherpa 2.2.11
+700344  , Sh_2211_Wtaunu_L_maxHTpTV2_BFilter                          , 7.6800E+00, 1.0     , 9.0177E-03, Sherpa                                  , OFLCOND-MC16-SDR-16
+700345  , Sh_2211_Wtaunu_L_maxHTpTV2_CFilterBVeto                     , 7.6800E+00, 1.0     , 1.4355E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+700346  , Sh_2211_Wtaunu_L_maxHTpTV2_CVetoBVeto                       , 7.6800E+00, 1.0     , 8.4741E-01, Sherpa                                  , OFLCOND-MC16-SDR-16
+
+# ttbar
+410470*_a*, PhPy8EG_A14_ttbar_hdamp258p75_nonallhad                     , 0.72977   , 1.13975636159, 0.54385   , Powheg+Pythia8(v8.230)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+410470*_s*, PhPy8EG_A14_ttbar_hdamp258p75_nonallhad                     , 0.72977   , 1.13975636159, 0.54385   , Powheg+Pythia8(v8.230)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+410471*_a*, PhPy8EG_A14_ttbar_hdamp258p75_allhad                        , 0.72977   , 1.13974074379, 0.45623   , Powheg+Pythia8(v8.230)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+410471*_s*, PhPy8EG_A14_ttbar_hdamp258p75_allhad                        , 0.72977   , 1.13974074379, 0.45623   , Powheg+Pythia8(v8.230)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+410472*_a*, PhPy8EG_A14_ttbar_hdamp258p75_dil                           , 0.72977   , 1.13975636159, 0.10547   , Powheg+Pythia8(v8.230)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+410472*_s*, PhPy8EG_A14_ttbar_hdamp258p75_dil                           , 0.72977   , 1.13975636159, 0.10547   , Powheg+Pythia8(v8.230)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+410557  , PowhegHerwig7EvtGen_H7UE_tt_hdamp258p75_704_SingleLep       , 0.73014   , 1.1392  , 0.43853   , Powheg+Herwig7(v7.0.4)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+410558  , PowhegHerwig7EvtGen_H7UE_tt_hdamp258p75_704_dil             , 0.73015   , 1.1392  , 0.10547   , Powheg+Herwig7(v7.0.4)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+410559  , PowhegHerwig7EvtGen_H7UE_tt_hdamp258p75_allhad              , 0.73015   , 1.1392  , 0.45624   , Powheg+Herwig7+EvtGen                   , OFLCOND-MC16-SDR-16
+410464  , aMcAtNloPy8EvtGen_MEN30NLO_A14N23LO_ttbar_noShWe_SingleLep  , 0.71143   , 1.1691  , 0.44037   , MadGraph5_aMC@NLO(v2.3.3.p1)+Pythia8(v8.230)+EvtGen(v1.6.0), OFLCOND-MC16-SDR-16
+410465  , aMcAtNloPy8EvtGen_MEN30NLO_A14N23LO_ttbar_noShWe_dil        , 0.71202   , 1.1681  , 0.10717   , MadGraph5_aMC@NLO(v2.3.3.p1)+Pythia8(v8.230)+EvtGen(v1.6.0), OFLCOND-MC16-SDR-16
+410466  , aMcAtNloPy8EvtGen_MEN30NLO_A14N23LO_ttbar_noShWe_AllHadronic, 0.71138   , 1.1692  , 0.45261   , NULL                                    , OFLCOND-MC16-SDR-16
+410480  , PhPy8EG_A14_ttbar_hdamp517p5_SingleLep                      , 0.72974   , 1.0     , 0.43852   , Powheg+Pythia8(v8.230)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+410481  , PhPy8EG_A14_ttbar_hdamp517p5_allhad                         , 0.72974   , 1.0     , 0.45622   , Powheg+Pythia8(v8.230)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+410482  , PhPy8EG_A14_ttbar_hdamp517p5_dil                            , 0.72974   , 1.0     , 0.10546   , Powheg+Pythia8(v8.230)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+
+# ttbar + X
+410155  , aMcAtNloPythia8EvtGen_MEN30NLO_A14N23LO_ttW                 , 0.00054822, 1.096   , 1         , MadGraph5_aMC@NLO(v2.3.3.p0)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+410156  , aMcAtNloPythia8EvtGen_MEN30NLO_A14N23LO_ttZnunu             , 0.00015504, 1.11    , 1         , MadGraph5_aMC@NLO(v2.3.3.p0)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+410157  , aMcAtNloPythia8EvtGen_MEN30NLO_A14N23LO_ttZqq               , 0.00052821, 1.11    , 1         , MadGraph5_aMC@NLO(v2.3.3.p0)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+410218  , aMcAtNloPythia8EvtGen_MEN30NLO_A14N23LO_ttee                , 0.000036864, 1.12    , 1         , MadGraph5_aMC@NLO(v2.3.3.p0)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+410219  , aMcAtNloPythia8EvtGen_MEN30NLO_A14N23LO_ttmumu              , 0.000036868, 1.12    , 1         , MadGraph5_aMC@NLO(v2.3.3.p0)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+410220  , aMcAtNloPythia8EvtGen_MEN30NLO_A14N23LO_tttautau            , 0.000036555, 1.12    , 1         , MadGraph5_aMC@NLO(v2.3.3.p0)+Pythia8(v8.210)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+
+# single top
+410644  , PowhegPythia8EvtGen_A14_singletop_schan_lept_top            , 0.0020267 , 1.0170  , 1         , Powheg+EvtGen(v1.6.0)                   , OFLCOND-MC16-SDR-16
+410645  , PowhegPythia8EvtGen_A14_singletop_schan_lept_antitop        , 0.0012675 , 1.0167  , 1         , Powheg+EvtGen(v1.6.0)                   , OFLCOND-MC16-SDR-16
+410658  , PhPy8EG_A14_tchan_BW50_lept_top                             , 0.036995  , 1.1935  , 1         , Powheg+Pythia8.230+EvtGen               , OFLCOND-MC16-SDR-16
+410659  , PhPy8EG_A14_tchan_BW50_lept_antitop                         , 0.022173  , 1.1849  , 1         , Powheg+Pythia8.230+EvtGen               , OFLCOND-MC16-SDR-16
+410646*_a*, PowhegPythia8EvtGen_A14_Wt_DR_inclusive_top                 , 0.037935  , 0.9450  , 1         , Powheg+EvtGen(v1.6.0)                   , OFLCOND-MC16-SDR-16
+410646*_s*, PowhegPythia8EvtGen_A14_Wt_DR_inclusive_top                 , 0.037935  , 0.9450  , 1         , Powheg+EvtGen(v1.6.0)                   , OFLCOND-MC16-SDR-16
+410647*_a*, PowhegPythia8EvtGen_A14_Wt_DR_inclusive_antitop             , 0.037905  , 0.9457  , 1         , Powheg+EvtGen(v1.6.0)                   , OFLCOND-MC16-SDR-16
+410647*_s*, PowhegPythia8EvtGen_A14_Wt_DR_inclusive_antitop             , 0.037905  , 0.9457  , 1         , Powheg+EvtGen(v1.6.0)                   , OFLCOND-MC16-SDR-16
+410648*_a*, PowhegPythia8EvtGen_A14_Wt_DR_dilepton_top                  , 0.003997  , 0.9451  , 1         , Powheg+EvtGen(v1.6.0)                   , OFLCOND-MC16-SDR-16
+410648*_s*, PowhegPythia8EvtGen_A14_Wt_DR_dilepton_top                  , 0.003997  , 0.9451  , 1         , Powheg+EvtGen(v1.6.0)                   , OFLCOND-MC16-SDR-16
+410649*_a*, PowhegPythia8EvtGen_A14_Wt_DR_dilepton_antitop              , 0.0039939 , 0.9458  , 1         , Powheg+EvtGen(v1.6.0)                   , OFLCOND-MC16-SDR-16
+410649*_s*, PowhegPythia8EvtGen_A14_Wt_DR_dilepton_antitop              , 0.0039939 , 0.9458  , 1         , Powheg+EvtGen(v1.6.0)                   , OFLCOND-MC16-SDR-16
+412002  , aMcAtNloPythia8EvtGen_HThalfscale_tW_inclusive              , 0.07383   , 1.0     , 1         , aMcAtNlo+Pythia8+EvtGen(v.1.6.0)        , OFLCOND-MC16-SDR-16
+412003  , aMcAtNloPythia8EvtGen_HThalfscale_tW_dilepton               , 0.0079027 , 0.956002, 1         , aMcAtNlo+Pythia8+EvtGen(v.1.6.0)        , OFLCOND-MC16-SDR-16
+411036  , PowhegHerwig7EvtGen_H7UE_Wt_DR_inclusive_top                , 0.037957  , 0.9445  , 1         , Powheg+Herwig7(v7.0.4)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+411037  , PowhegHerwig7EvtGen_H7UE_Wt_DR_inclusive_antitop            , 0.037927  , 0.9452  , 1         , Powheg+Herwig7(v7.0.4)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+411038  , PowhegHerwig7EvtGen_H7UE_Wt_DR_dilepton_top                 , 0.0039993 , 0.9446  , 1         , Powheg+Herwig7(v7.0.4)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+411039  , PowhegHerwig7EvtGen_H7UE_Wt_DR_dilepton_antitop             , 0.0039961 , 0.9453  , 1         , Powheg+Herwig7(v7.0.4)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+410656  , PowhegPythia8EvtGen_A14_Wt_DS_dilepton_top                  , 0.0038751 , 0.9704  , 1         , Powheg+Pythia8.230+EvtGen               , OFLCOND-MC16-SDR-16
+410657  , PowhegPythia8EvtGen_A14_Wt_DS_dilepton_antitop              , 0.0039586 , 0.9493  , 1         , Powheg+Pythia8.230+EvtGen               , OFLCOND-MC16-SDR-16
+
+# H -> tau tau
+345120  , PowhegPy8EG_NNLOPS_nnlo_30_ggH125_tautaul13l7               , 0.0030469 , 1       , 0.053756  , Powheg+Pythia8(v8.212)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+345121  , PowhegPy8EG_NNLOPS_nnlo_30_ggH125_tautaulm15hp20            , 0.0030469 , 2       , 0.037749  , Powheg+Pythia8(v8.212)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+345122  , PowhegPy8EG_NNLOPS_nnlo_30_ggH125_tautaulp15hm20            , 0.0030469 , 2       , 0.037826  , Powheg+Pythia8(v8.212)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+345123  , PowhegPy8EG_NNLOPS_nnlo_30_ggH125_tautauh30h20              , 0.0030469 , 1       , 0.1889    , Powheg+Pythia8(v8.212)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+346190  , PowhegPy8EG_NNPDF30_AZNLOCTEQ6L1_VBFH125_tautaul13l7        , 0.00023721, 1       , 0.057926  , Powheg+Pythia8(v.230)+EvtGen            , OFLCOND-MC16-SDR-16
+346191  , PowhegPy8EG_NNPDF30_AZNLOCTEQ6L1_VBFH125_tautaulm15hp20     , 0.00023721, 2       , 0.040337  , Powheg+Pythia8(v.230)+EvtGen            , OFLCOND-MC16-SDR-16
+346192  , PowhegPy8EG_NNPDF30_AZNLOCTEQ6L1_VBFH125_tautaulp15hm20     , 0.00023721, 2       , 0.040323  , Powheg+Pythia8(v.230)+EvtGen            , OFLCOND-MC16-SDR-16
+346193  , PowhegPy8EG_NNPDF30_AZNLOCTEQ6L1_VBFH125_tautauh30h20       , 0.00023721, 1       , 0.19829   , Powheg+Pythia8(v.230)+EvtGen            , OFLCOND-MC16-SDR-16
+345211  , PowhegPy8EG_NNPDF30_AZNLO_WmH125J_Winc_MINLO_tautau         , 0.000033417, 1       , 1         , Powheg+Pythia8(v8.212)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+345212  , PowhegPy8EG_NNPDF30_AZNLO_WpH125J_Winc_MINLO_tautau         , 0.000052685, 1       , 1         , Powheg+Pythia8(v8.212)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+345217  , PowhegPy8EG_NNPDF30_AZNLO_ZH125J_Zinc_MINLO_tautau          , 0.000055438, 1       , 1         , Powheg+Pythia8(v8.212)+EvtGen(v1.6.0)   , OFLCOND-MC16-SDR-16
+
+# H -> WW
+345324  , PowhegPythia8EvtGen_NNLOPS_NN30_ggH125_WWlvlv_EF_15_5       , 0.0005437 , 1       , 1         , Powheg+Pythia8(v8.212)+EvtGen(v1.2.0)   , OFLCOND-MC16-SDR-16
+345948  , PowhegPy8EG_NNPDF30_AZNLOCTEQ6L1_VBFH125_WWlvlv             , 0.0000437 , 1       , 1         , Powheg+Pythia8(v.230)+EvtGen(v.1.6.0)   , OFLCOND-MC16-SDR-16
+345325  , PowhegPythia8EvtGen_NNPDF3_AZNLO_WpH125J_MINLO_qqWWlvlv     , 0.000019548, 1       , 1         , Powheg+Pythia8(v8.212)+EvtGen(v1.2.0)   , OFLCOND-MC16-SDR-16
+346561  , PowhegPythia8EvtGen_NNPDF3_AZNLO_WpH125J_MINLO_lvWWlvqq     , 0.000027602, 1       , 1         , Powheg+Pythia8(v.235)+EvtGen(v.1.6.0)   , OFLCOND-MC16-SDR-16
+345433  , PowhegPythia8EvtGen_NNPDF3_AZNLO_WmH125J_MINLO_qqWWlvlv     , 0.000012247, 1       , 1         , Powheg+Pythia8(v8.212)+EvtGen(v1.2.0)   , OFLCOND-MC16-SDR-16
+346560  , PowhegPythia8EvtGen_NNPDF3_AZNLO_WmH125J_MINLO_lvWWlvqq     , 0.000017370, 1       , 1         , Powheg+Pythia8(v.235)+EvtGen(v.1.6.0)   , OFLCOND-MC16-SDR-16
+345054  , PowhegPythia8EvtGen_NNPDF3_AZNLO_WpH125J_MINLO_lvbb_VpT     , 0.00028278, 1       , 0.582     , Powheg(v2_r3133)+Pythia8(v8.212)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+345053  , PowhegPythia8EvtGen_NNPDF3_AZNLO_WmH125J_MINLO_lvbb_VpT     , 0.00017949, 1       , 0.582     , Powheg(v2_r3133)+Pythia8(v8.212)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+345336  , PowhegPythia8EvtGen_NNPDF3_AZNLO_ZH125J_MINLO_qqWWlvlv      , 0.000756  , 1       , 0.0226834  , Powheg+Pythia8(v8.212)+EvtGen(v1.2.0)   , OFLCOND-MC16-SDR-16
+346524  , PowhegPythia8EvtGen_NNPDF3_AZNLO_ggZH125J_MINLO_ZinclWWlvlv , 0.000123  , 1       , 0.0226834  , Powheg+Pythia8(v.235)+EvtGen(v.1.6.0)   , OFLCOND-MC16-SDR-16
+
+# H -> ZZ
+343233  , Powheggg2vvPythia8EvtGen_ggH125p5_gg_ZZ_2l2v_13TeV          , 0.00003458, 1       , 0.66221   , Powheg+Pythia8(v8.186)+EvtGen(v1.2.0)   , OFLCOND-MC16-SDR-20
+450576  , PowhegPythia8EvtGen_NNLOPS_nnlo_30_VBFH125_ZZllbb           , 0.0000021542, 1       , 1         , Powheg+Pythia8(v.230)+EvtGen(v.1.6.0)   , OFLCOND-MC16-SDR-16
+
+# H -> bb
+345057  , PowhegPythia8EvtGen_NNPDF3_AZNLO_ggZH125_llbb               , 0.00001242, 1       , 0.5824    , Powheg(v2_r3133)+Pythia8(v8.212)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+345949  , PowhegPythia8EvtGen_NNPDF30_AZNLOCTEQ6L1_VBFH125_bb         , 0.00218242752, 1       , 1         , Powheg+Pythia8(v.230)+EvtGen            , OFLCOND-MC16-SDR-16
+345055  , PowhegPythia8EvtGen_NNPDF3_AZNLO_ZH125J_MINLO_llbb_VpT      , 0.00007704, 1       , 0.5824    , Powheg(v2_r3133)+Pythia8(v8.212)+EvtGen(v1.2.0), OFLCOND-MC16-SDR-16
+
+# H -> cc
+345113  , PowhegPythia8EvtGen_NNPDF3_AZNLO_ggZH125_llcc               , 0.00001242, 0.02891 , 1         , Powheg+Pythia8(v8.212)+EvtGen(v1.2.0)   , OFLCOND-MC16-SDR-16
+
+# VH
+346311  , PowhegPythia8EvtGen_NNPDF30_AZNLO_WpH125J_Wincl_H_incl_MINLO, 0.00086164, 1       , 1         , Powheg+Pythia8(v.230)+EvtGen(v.1.6.0)   , OFLCOND-MC16-SDR-16
+346312  , PowhegPythia8EvtGen_NNPDF30_AZNLO_WmH125J_Wincl_H_incl_MINLO, 0.00053979, 1       , 1         , Powheg+Pythia8(v.230)+EvtGen(v.1.6.0)   , OFLCOND-MC16-SDR-16
+342285  , Pythia8EvtGen_A14NNPDF23LO_ZH125_inc                        , 0.00060122, 1       , 1         , Pythia8(v8.186)+EvtGen(v1.2.0)          , OFLCOND-MC16-SDR-16
+
+# ttH
+346343  , PhPy8EG_A14NNPDF23_NNPDF30ME_ttH125_allhad                  , 0.00023844, 1       , 1         , Powheg+Pythia8(v.230)+EvtGen(v.1.6.0)   , OFLCOND-MC16-SDR-16
+346344  , PhPy8EG_A14NNPDF23_NNPDF30ME_ttH125_semilep                 , 0.00052458, 1       , 0.43844   , Powheg+Pythia8(v.230)+EvtGen(v.1.6.0)   , OFLCOND-MC16-SDR-16
+346345  , PhPy8EG_A14NNPDF23_NNPDF30ME_ttH125_dilep                   , 0.000054667, 1       , 1         , Powheg+Pythia8(v.230)+EvtGen(v.1.6.0)   , OFLCOND-MC16-SDR-16

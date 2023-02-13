@@ -1,0 +1,7 @@
+!memory=2500
+!time=120
+!queue=nemo_vm_atlsch
+!maxSampleSize=8000
+/bkg/?/?/diboson
+/bkg/?/?/fakes/diboson
+/oth/?/?/diboson

@@ -1,0 +1,22 @@
+.path = "||"
+.path = "/sig/$(channel)/$(campaign)/nonres"                , .name = "Sig",            .isSignal = true
+.path = "/bkg/$(channel)/$(campaign)-/bkg/$(channel)/$(campaign)/top/ttbar/nonallhad", .name = "Bkg", .isBackground = true
+.path = "/data/$(channel)/$(campaign)"                      , .name = "Data",           .isData = true
+.path = "||"
+.path = "/sig/$(channel)/$(campaign)/nonres/bbtautau"       , .name = "HH bb\#tau\#tau",.isSignal = true
+.path = "/sig/$(channel)/$(campaign)/nonres/bbWW"           , .name = "HH bbWW",        .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/nonres/bbZZ"           , .name = "HH bbZZ",        .isSignal = true
+.path = "||"
+.path = "/bkg/$(channel)/$(campaign)/top/ttbar/dilepton"    , .name = "TTBar",          .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/top/stop"              , .name = "Single Top",     .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/top/ttbarV"            , .name = "TTBar+V",        .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/diboson"               , .name = "Diboson",        .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/[Zee+Zmm]"             , .name = "Z->ll",            .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/Ztt"                   , .name = "Z->tt",            .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/fakes"                 , .name = "Fakes",          .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/Higgs"                 , .name = "H",        .isBackground = true
+.path = "|"
+.path = "/bkg/$(channel)/$(campaign)/Zee"                   , .name = "Z->ee",          .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/Zmm"                   , .name = "Z->mm",          .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/Ztt"                   , .name = "Z->tt",          .isBackground = true
+.path = "||"

@@ -1,0 +1,9 @@
+!memory=1000
+!time=240
+!maxSampleSize=2000
+/bkg/?/?/prompt/Higgs/tautau/vh
+/bkg/?/?/prompt/Higgs/WW/vh
+/bkg/?/?/prompt/Higgs/bb/vh
+/bkg/?/?/prompt/Higgs/cc/vh
+/oth/?/?/bkg/prompt/Higgs/vh/wh/
+/oth/?/?/bkg/prompt/Higgs/vh/zh/

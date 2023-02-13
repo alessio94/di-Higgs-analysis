@@ -1,0 +1,118 @@
+variables:
+  ATLAS_LOCAL_ROOT_BASE: /cvmfs/atlas.cern.ch/repo/ATLASLocalRootBase
+
+##################################################################################
+# setups
+##################################################################################
+
+.atlstats_base: &atlstats_base    
+  image:
+    name: atlasamglab/stats:latest
+    entrypoint: [""]
+
+.latestroot_base: &latestroot_base
+  image: rootproject/root:latest
+  tags:
+    - cvmfs
+    
+.asg_base: &asg_base
+  image: atlas/analysisbase:21.2.150
+  before_script:
+    - source /home/atlas/release_setup.sh
+
+
+##################################################################################
+# stages
+##################################################################################
+
+stages:
+  - build
+  - test
+  - deploy
+
+.build_base: &build_base
+  stage: build
+  artifacts:
+    paths:
+      - build
+  script:
+    - mkdir build
+    - cd build
+    - cmake ..
+    - make -j4
+    
+.run_base: &run_base
+  stage: test
+  before_script:
+    - source build/setup.sh
+  script:
+    - python --version
+    - cd build
+    - ctest --output-on-failure
+
+.python_install: &python_install
+  stage: build
+  script:
+    - pip install .
+    - cd /
+    - python -c "import SubmissionHelpers"
+
+##################################################################################
+# jobs
+##################################################################################
+
+
+python2_install:
+  <<: *python_install
+  image: python:2
+
+python3_install:
+  <<: *python_install
+  image: python:3
+
+latestroot_build:
+  <<: *latestroot_base
+  <<: *build_base
+  
+asg_build:
+  <<: *asg_base
+  <<: *build_base
+
+atlstats_build:
+  <<: *atlstats_base
+  <<: *build_base
+
+latestroot_test:
+  <<: *latestroot_base
+  <<: *run_base
+  before_script:
+    - ln -s $(which python3) /usr/bin/python
+    - source build/setup.sh
+  dependencies:
+    - latestroot_build
+    
+asg_test:
+  <<: *asg_base
+  <<: *run_base
+  dependencies:
+    - asg_build
+  
+atlstats_test:
+  <<: *atlstats_base
+  <<: *run_base
+  dependencies:
+    - atlstats_build
+
+pypi_deploy:
+  stage: deploy
+  image: python:3
+  only: [tags]
+  variables:
+    TWINE_PASSWORD: "${CI_JOB_TOKEN}"
+    TWINE_USERNAME: "gitlab-ci-token"
+    TWINE_REPOSITORY_URL: "${CI_SERVER_URL}/api/v4/projects/${CI_PROJECT_ID}/packages/pypi"
+  script:
+    - pip install twine
+    - python setup.py sdist bdist_wheel
+    - twine upload dist/*
+

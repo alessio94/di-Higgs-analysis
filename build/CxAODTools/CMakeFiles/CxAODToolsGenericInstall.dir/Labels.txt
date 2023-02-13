@@ -1,0 +1,9 @@
+# Target labels
+ CxAODTools
+# Source files and their labels
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/data/CxAODTools/.gitignore
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/data/CxAODTools/infos_trig.txt
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/data/.gitignore
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/data/infos_trig.txt
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/data/CxAODTools/.gitignore.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/data/CxAODTools/infos_trig.txt.rule

@@ -1,0 +1,141 @@
+# vim: filetype=tqfolder
+
+# ensure that there is no overlap between dileptonic and nonallhad samples
+# this only needs to be done for the nominal samples (both fullsim and fastsim), as the systematic samples are split into non overlapping samples
+<applyTTBarSplitting=false> @ /.;
+<applyTTBarSplitting=true>  @ bkg/?/?/prompt/top/ttbar/dilepton;
+<applyTTBarSplitting=true>  @ bkg/?/?/prompt/top/ttbar/nonallhad;
+<applyTTBarSplitting=true>  @ sys/?/?/bkg/prompt/top/ttbar_fastsim/dilepton;
+<applyTTBarSplitting=true>  @ sys/?/?/bkg/prompt/top/ttbar_fastsim/nonallhad;
+<isDiLepTTbar=false> @ /.;
+<isDiLepTTbar=true>  @ bkg/?/?/prompt/top/ttbar/dilepton;
+<isDiLepTTbar=true> @ sys/?/?/bkg/prompt/top/ttbar_fastsim/dilepton;
+
+# split Z+jets samples into heavy flavor and light flavor
+$foreach(campaign, c16a, c16d, c16e) {
+    $copy("bkg/channel/$(campaign)/prompt/Zee/hf >> bkg/channel/$(campaign)/prompt/Zee::lf");
+    $copy("bkg/channel/$(campaign)/prompt/Zmm/hf >> bkg/channel/$(campaign)/prompt/Zmm::lf");
+    $copy("bkg/channel/$(campaign)/prompt/Ztt/hf >> bkg/channel/$(campaign)/prompt/Ztt::lf");
+}
+<applyZjetsSplitting=false> @ /.;
+<isZjetsHF=false> @ /.;
+<applyZjetsSplitting=true> @ bkg/?/?/prompt/Zee;
+<applyZjetsSplitting=true> @ bkg/?/?/prompt/Zmm;
+<applyZjetsSplitting=true> @ bkg/?/?/prompt/Ztt;
+<isZjetsHF=true> @ bkg/?/?/prompt/Zee/hf;
+<isZjetsHF=true> @ bkg/?/?/prompt/Zmm/hf;
+<isZjetsHF=true> @ bkg/?/?/prompt/Ztt/hf;
+
+
+# splitting into prompt/non-prompt background
+$foreach(campaign, c16a, c16d, c16e) {
+    $copy("bkg/channel/$(campaign)/prompt >> bkg/channel/$(campaign)::nonprompt");
+    $copy("sys/channel/$(campaign)/bkg/prompt >> sys/channel/$(campaign)/bkg::nonprompt");
+}
+
+# data-driven fakes
+$foreach(campaign, c16a, c16d, c16e) {
+    # data
+    $create(path="bkg/channel/$(campaign)/ddFakes/data", type="sf");
+    $copy("data/channel/$(campaign)/? >> bkg/channel/$(campaign)/ddFakes/data");
+    # MC
+    # we need the prompt MC for the subtraction from data in the SS region
+    # and the nonprompt part for the SS nonprompt MC to determine the transfer factors
+    $create(path="bkg/channel/$(campaign)/ddFakes/mc", type="sf");
+    $copy("bkg/channel/$(campaign)/prompt >> bkg/channel/$(campaign)/ddFakes/mc");
+    $copy("bkg/channel/$(campaign)/nonprompt>> bkg/channel/$(campaign)/ddFakes/mc");
+}
+
+# create the actual channels
+$foreach(proc_class, sig, bkg, sys, oth, data) {
+    $foreach(channel, ee, mm, em, me) {
+        $copy("$(proc_class)/channel >> $(proc_class)::$(channel)");
+    }
+}
+
+# delete the placeholder channel
+$foreach(proc_class, sig, bkg, sys, oth, data) {
+    $delete("$(proc_class)/channel!");
+}
+
+
+# general settings
+
+<wildcarded=true> @ ?/?;   # we usually don't care about the channel-part of the path
+<wildcarded=true> @ ?/?/?; # we usually don't care about the campaign-parts of the path
+
+<isData=true,  isMC=false> @ data;
+<isData=false, isMC=true> @ sig,bkg,sys,oth;
+<isData=true,  isMC=false> @ bkg/?/?/ddFakes/data;
+
+<isSig=false, isBkg=false> @ /.;
+<isSig=true> @ sig;
+<isSig=true> @ sys/?/?/sig;
+<isSig=true> @ oth/?/?/sig;
+<isSig=true> @ oth/?/?/HHcrosscheck;
+<isBkg=true> @ bkg;
+<isBkg=true> @ oth/?/?/bkg;
+
+<isPromptBkg=false> @ /.;
+<isPromptBkg=true>  @ bkg/?/?/prompt;
+<isPromptBkg=false> @ bkg/?/?/nonprompt;
+<isPromptBkg=true>  @ bkg/?/?/ddFakes/mc/prompt;
+<isPromptBkg=false> @ bkg/?/?/ddFakes/mc/nonprompt;
+<isPromptBkg=true>  @ sys/?/?/bkg/prompt;
+<isPromptBkg=false> @ sys/?/?/bkg/nonprompt;
+<isPromptBkg=true>  @ oth/?/?/bkg/prompt;
+<applyPromptBkgSplitting=false> @ /.;
+<applyPromptBkgSplitting=true>  @ bkg;
+<applyPromptBkgSplitting=false> @ bkg/?/?/ddFakes/data;
+<applyPromptBkgSplitting=true>  @ sys/?/?/bkg/prompt;
+<applyPromptBkgSplitting=true>  @ sys/?/?/bkg/nonprompt;
+<applyPromptBkgSplitting=true>  @ oth/?/?/bkg/prompt;
+
+<isddFake=false> @ /.;
+<isddFake=true> @ bkg/?/?/ddFakes;
+# don't apply the DDFakeWeight to ddFakes/mc/nonprompt
+# as we need this unscaled for the calculation of the transfer factors
+<applyDDFakeWeight=false> @ /.;
+<applyDDFakeWeight=true> @ bkg/?/?/ddFakes/mc/prompt;
+<applyDDFakeWeight=true> @ bkg/?/?/ddFakes/data;
+
+# set channel specific tags
+
+<channel="mm", isMM=true,  isEE=false, isEM=false, isME=false> @ ?/mm; # mm channel
+<channel="ee", isMM=false, isEE=true,  isEM=false, isME=false> @ ?/ee; # ee channel
+<channel="em", isMM=false, isEE=false, isEM=true,  isME=false> @ ?/em; # em channel
+<channel="me", isMM=false, isEE=false, isEM=false, isME=true > @ ?/me; # me channel
+
+<isSF=true, isDF=false> @ ?/ee,?/mm;
+<isSF=false, isDF=true> @ ?/em,?/me;
+
+<isLeadE=true, isLeadM=false> @ ?/ee,?/em;
+<isLeadE=false, isLeadM=true> @ ?/mm,?/me;
+<isSubE=true, isSubM=false> @ ?/ee,?/me;
+<isSubE=false, isSubM=true> @ ?/em,?/mm;
+
+<d0CutLead = 3.0, d0CutSub = 3.0> @ ?/mm;
+<d0CutLead = 5.0, d0CutSub = 5.0> @ ?/ee;
+<d0CutLead = 5.0, d0CutSub = 3.0> @ ?/em;
+<d0CutLead = 3.0, d0CutSub = 5.0> @ ?/me;
+
+<MCTCIsoValueLead = 6, MCTCIsoValueSub= 6> @ ?/mm;
+<MCTCIsoValueLead = 2, MCTCIsoValueSub= 2> @ ?/ee;
+<MCTCIsoValueLead = 2, MCTCIsoValueSub= 6> @ ?/em;
+<MCTCIsoValueLead = 6, MCTCIsoValueSub= 2> @ ?/me;
+
+# set fastsim information
+<isAFII = false> @ /.;
+<isAFII = true>  @ /sig/?/?/res;
+<isAFII = true>  @ /bkg/?/?/?/Zee/?/verylowmass;
+<isAFII = true>  @ /bkg/?/?/?/Zmm/?/verylowmass;
+<isAFII = true>  @ /bkg/?/?/?/Ztt/?/verylowmass;
+<isAFII = true>  @ /bkg/?/?/ddFakes/mc/?/Zee/?/verylowmass;
+<isAFII = true>  @ /bkg/?/?/ddFakes/mc/?/Zmm/?/verylowmass;
+<isAFII = true>  @ /bkg/?/?/ddFakes/mc/?/Ztt/?/verylowmass;
+<isAFII = true>  @ /sys/?/?/bkg/?/top;
+<isAFII = false> @ /sys/?/?/bkg/?/top/stop_PowhegPythia8_DS;
+<isAFII = true>  @ /oth/?/?/HHcrosscheck/450535;
+<isAFII = true>  @ /oth/?/?/HHcrosscheck/301826;
+<isAFII = true>  @ /oth/?/?/HHcrosscheck/302719;
+<isAFII = true>  @ /oth/?/?/HHcrosscheck/302286;

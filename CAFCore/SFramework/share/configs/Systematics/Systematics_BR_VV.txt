@@ -1,0 +1,15 @@
++Samples {
+	+sig_ggf {
+		+OverallSys.ATLAS_BR_VV;
+	}
+	+sig_vbf {
+		+OverallSys.ATLAS_BR_VV;
+	}
+	+sig_WH {
+		+OverallSys.ATLAS_BR_VV;
+	}
+	+sig_ZH {
+		+OverallSys.ATLAS_BR_VV;
+	}
+	<High = 1.0415, Low = 0.957833> @ ?/OverallSys.ATLAS_BR_VV;
+}

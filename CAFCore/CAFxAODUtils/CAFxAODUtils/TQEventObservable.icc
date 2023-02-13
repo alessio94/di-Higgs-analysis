@@ -1,0 +1,25 @@
+//this file looks like plain C, but it's actually -*- c++ -*-
+#include <stdexcept>
+#include "AsgTools/SgTEvent.h"
+
+template< typename T > inline void TQEventObservable::retrieve( T*& pobj, const char* name ) {
+#ifdef _DEBUG_
+  if(!this->fEvent){
+    throw std::runtime_error("failed to access xAOD::TEvent member!");
+  }
+#endif
+  if(!this->fEvent->retrieve< T >( pobj , name ).isSuccess()){
+    throw std::runtime_error(TString::Format("ERROR in '%s': unable to retrieve '%s'",this->GetName(),name).Data());
+  }
+}
+
+template< typename T > inline void TQEventObservable::retrieve( const T*& pobj, const char* name ) const {
+#ifdef _DEBUG_
+  if(!this->fEvent){
+    throw std::runtime_error("failed to access xAOD::TEvent member!");
+  }
+#endif
+  if(!this->fEvent->retrieve< T >( pobj , name ).isSuccess()){
+    throw std::runtime_error(TString::Format("ERROR in '%s': unable to retrieve '%s'",this->GetName(),name).Data());
+  }
+}

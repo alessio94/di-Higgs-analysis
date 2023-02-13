@@ -1,0 +1,8 @@
+# Target labels
+ CAFlwtnn
+# Source files and their labels
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFlwtnn/CAFlwtnn/TQlwtnnObservable.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFlwtnn/Root/TQlwtnnObservable.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFlwtnn/CMakeFiles/CAFlwtnnCintDict.cxx
+ CAFlwtnn
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFlwtnn/CMakeFiles/CAFlwtnnCintDict.cxx.rule

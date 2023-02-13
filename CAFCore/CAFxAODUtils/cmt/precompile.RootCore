@@ -1,0 +1,38 @@
+#!/bin/bash
+
+RCPACKAGENAME=CAFxAODUtils
+ECHO="echo -e"
+
+TQPATH=${PWD%/*}
+
+DIRECTORY=..
+
+LINKDEF=$DIRECTORY/Root/LinkDef.h
+
+if [ ! -f $LINKDEF ]; then
+    $ECHO "//this is an automatically generated -*- c++ -*- file - EDITS WILL BE LOST!" > $LINKDEF
+    $ECHO "#ifndef __${RCPACKAGENAME}DICT__\n#define __${RCPACKAGENAME}DICT__" >> $LINKDEF
+    $ECHO "#pragma GCC diagnostic push" >> $LINKDEF
+    $ECHO '#pragma GCC diagnostic ignored "-Winconsistent-missing-override"' >> $LINKDEF
+    for FILE in $(ls $DIRECTORY/${RCPACKAGENAME}/|egrep -v "LinkDef|^_|tpp|~|#|icc"); do
+        $ECHO "#include \"${RCPACKAGENAME}/$FILE\"" >> $LINKDEF;
+    done
+    $ECHO "\n\n#ifdef __CINT__\n\n\n#pragma link off all globals;\n#pragma link off all classes;\n#pragma link off all functions;\n#pragma link C++ nestedclass;\n#pragma link C++ nestedtypedef;\n" >> $LINKDEF
+    for CLASS in $(find $DIRECTORY/${RCPACKAGENAME}/*.h | xargs egrep -h "^[ ]*class[ ]*[A-Za-z0-9]+[ ]*[:{]" | egrep -v "//[ ]*nested" | sed -e 's/.*class[ ]*\([A-Za-z0-9]*\)[ ]*.*/\1/g'); do
+        $ECHO "#pragma link C++ class $CLASS+;" >> $LINKDEF;
+    done
+    for CLASS in $(find $DIRECTORY/${RCPACKAGENAME}/*.h | xargs egrep -h "^[ ]*template[ ]*<[A-Za-z0-9 ]*>[ ]*class" | grep linkalltemplates | sed -e 's/.*class[ ]*\([A-Za-z0-9]*\)[ ]*.*/\1/g'); do
+        echo $CLASS
+        sed 's/CLASSNAME/'$CLASS'/g' ../Root/LinkDefTemplate.h >> $LINKDEF
+    done
+    for FILES in $(find $DIRECTORY/${RCPACKAGENAME} -name "*.add") ; do
+        cat $FILES | grep -v "//" >>$LINKDEF ;
+    done
+    for NAMESPACE in $(find $DIRECTORY/${RCPACKAGENAME}/*.h | xargs egrep -h "^[ ]*namespace[ ]*[A-Za-z0-9]+[ ]" | grep -v "EXCLUDE" | sed -e 's/.*namespace[ ]*\([A-Za-z0-9]*\)[ ]*.*/\1/g'); do
+        $ECHO "#pragma link C++ namespace $NAMESPACE;" >> $LINKDEF;
+    done
+    for TYPEDEF in $(find $DIRECTORY/${RCPACKAGENAME}/*.h | xargs egrep -h "^[ ]*typedef[ ]*[A-Za-z0-9]+[ ]" | sed -e 's/.*typedef[ ]*[A-Za-z0-9]*[ ]*\([A-Za-z0-9]*\)[ ]*.*/\1/g'); do
+        $ECHO  "#pragma link C++ typedef $TYPEDEF;" >> $LINKDEF;
+    done
+    $ECHO "\n#endif\n#endif\n" >> $LINKDEF
+fi

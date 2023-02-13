@@ -1,0 +1,7 @@
+# Target labels
+ SFramework
+# Source files and their labels
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/SFramework/test-bin/contour.exe
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/SFramework/test-bin/simple.exe
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/SFramework/test-bin/contour.exe.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/SFramework/test-bin/simple.exe.rule

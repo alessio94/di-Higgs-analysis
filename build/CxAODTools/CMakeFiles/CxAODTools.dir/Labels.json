@@ -1,0 +1,236 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/BTaggingTool.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/CommonProperties.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/ConfigField.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/ConfigFieldBase.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/ConfigStore.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/CutFlowCounter.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/CxAODToolsDict.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/DummyEvtSelection.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/EnumHasher.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/Enums.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/EventSelection.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/EvtSelTruthAllocator.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/EvtWeightVariations.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/FakeFactor.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/GetTMVAVars.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/ITMVAApplicationTool.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/ITMVATrainingTool.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/InvDeltaROverlapTool.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/LumiMetaDataTool.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/ObjectDecorator.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/OvCompat.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/OverlapRegister.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/OverlapRegisterAccessor.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/OverlapRemoval.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/PUReweightingTool.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/ParticleLinker.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/PhJetOverlapTool.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/PtRecoTool.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/ReturnCheck.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/TMVAApplicationTool.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/TMVATrainingTool.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/TriggerInfo.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/TriggerScaleFactorsMET.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/TriggerTool.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/Utilities.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/XSectionProvider.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/sumOfWeightsProvider.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/xAODBaseContainerStore.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/CxAODTools/xAODContainerStore.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/LinkDef.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/BTaggingTool.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/CommonProperties.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/ConfigField.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/ConfigStore.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/CutFlowCounter.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/DummyEvtSelection.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/EventSelection.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/EvtSelTruthAllocator.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/EvtWeightVariations.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/FakeFactor.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/GetTMVAVars.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/InvDeltaROverlapTool.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/LumiMetaDataTool.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/OvCompat.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/OverlapRegister.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/OverlapRegisterAccessor.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/OverlapRemoval.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/PUReweightingTool.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/ParticleLinker.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/PhJetOverlapTool.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/PtRecoTool.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/TMVAApplicationTool.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/TMVATrainingTool.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/TriggerInfo.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/TriggerScaleFactorsMET.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/TriggerTool.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/Utilities.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/XSectionProvider.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/sumOfWeightsProvider.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/xAODBaseContainerStore.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CxAODTools/Root/xAODContainerStore.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CxAODTools/CMakeFiles/CxAODToolsCintDict.cxx",
+			"labels" : 
+			[
+				"CxAODTools"
+			]
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CxAODTools/CMakeFiles/CxAODToolsCintDict.cxx.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"CxAODTools"
+		],
+		"name" : "CxAODTools"
+	}
+}

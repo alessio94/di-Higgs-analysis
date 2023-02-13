@@ -1,0 +1,218 @@
+# vim: filetype=tqfolder
+# -*- mode: tqfolder -*-
+# to get proper syntax highlighting and indentation when using emacs,
+# add the following line to your .emacs file:
+#   (load-file "$TQPATH/share/tqfolder.el")
+
++CutBase2Leptons {
+    <.cutExpression = "$(NLeptons) == 2", .title="Base cut (2 leptons)">
++CutBaseChannelSplit {
+    <.cutExpression = "$(fitsChannel)", .weightExpression = "[MCWeight] * [PUWeight] * $(PRWFix) * [LeptonSF] * [JvtSF] * [TTbarNNLOWeight]", .title="Base cut (channel split)">
+
+    +CutApplyTTBarSplitting {
+        <.cutExpression = "$(applyTTBarSplitting) ? ($(isDiLepTTbar) == $(MCTCisLeptonicTopDecay)) : 1", .title="Split ttbar">
+
+    +CutApplyPromptBkgSplitting {
+        <.cutExpression = "$(applyPromptBkgSplitting) ? ($(isPromptBkg) == ($(Lepton0FakeType) == 0 && $(Lepton1FakeType) == 0)) : 1", .title="Split prompt/non-prompt backgrounds">
+
+    +CutApplyZjetsSplitting {
+        <.cutExpression = "$(applyZjetsSplitting) ? ($(isZjetsHF) == ($(BJet0isHF) && $(BJet1isHF))) : 1", .title="Split Zjets">
+
+#    +CutSplitTauDecays {
+#        <.cutExpression = "$(splitWDecays) ? ($(nWTauDecays) == [NWTauDecays]) : 1", .title="Split W decays">
+
+    +CutTriggerMatching {
+        <.cutExpression = "$(Trigger) != 0", .weightExpression="[TriggerSF]", .title="Trigger selection and matching">
+
+    +CutOS {
+        <.cutExpression = "$(Lepton0Charge) * $(Lepton1Charge) == ($(isddFake) ? 1 : -1)", .weightExpression="[ddFakeWeight]", .title="Oppsite charge">
+
+## SIGNAL REGION
+
+            +CutNBJets2 {
+                <.cutExpression = "$(NBJets)==2", .title="NBJets=2", .weightExpression="[BTagSF:DL1r:FixedCutBEff_77]">
+
+                +Cut2TagMllSR1 {
+                    <.cutExpression = "15*1000 < $(DiLeptonMass) && $(DiLeptonMass) < ($(isSF) ? 75*1000 : 110*1000)", .title="SR1: 15 GeV < m_{\ell\ell} < 75 (110) GeV">
+
+                    +Cut2TagMllSR1SF {
+                        <.cutExpression = "$(isSF)", .title="SR1 SF">
+                    } # Cut2TagMllSR1SF
+
+                    +Cut2TagMllSR1DF {
+                        <.cutExpression = "!$(isSF)", .title="SR1 DF">
+                    } # Cut2TagMllSR1DF
+
+                    +Cut2TagMllSR1VBFVeto {
+                        <.cutExpression = "$(VBFVeto)", .title="VBF Veto">
+
+                        +Cut2TagMllSR1VBFVetoHighMET {
+                            <.cutExpression = "$(MET_met) > 60*1000", .title="MET > 60 GeV">
+                        } # Cut2TagMllSR1VBFVetoHighMET
+
+                        +Cut2TagMllSR1VBFVetoLowMET {
+                            <.cutExpression = "$(MET_met) <= 60*1000", .title="MET <= 60 GeV">
+                        } # Cut2TagMllSR1VBFVetoLowMET
+
+                        +Cut2TagMllSR1VBFVetoTopNodeLow {
+                            <.cutExpression = "$(NN_SR1_NodeTop) > 0.55 && $(NN_SR1_NodeTop) <= 0.70", .title="0.55 < Top node <= 0.70">
+                        }
+                        +Cut2TagMllSR1VBFVetoTopNodeHigh {
+                            <.cutExpression = "$(NN_SR1_NodeTop) > 0.70 && $(NN_SR1_NodeTop) <= 1.00", .title="0.70 < Top node <= 1.00">
+                        }
+
+                        +Cut2TagMllSR1VBFVetoOtherNodeLow {
+                            <.cutExpression = "$(NN_SR1_NodeOther) <= 0.2", .title="Other node <= 0.2">
+                        }
+                        +Cut2TagMllSR1VBFVetoOtherNodeHigh {
+                            <.cutExpression = "$(NN_SR1_NodeOther) > 0.2 && $(NN_SR1_NodeOther) <= 1.0", .title="0.5 < Other node <= 1.0">
+                        }
+
+                        +Cut2TagMllSR1VBFVetoNNBin1 {
+                            <.cutExpression = "0.00 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.02", .title="0.00 <= Signal node < 0.02">
+                        }
+                        +Cut2TagMllSR1VBFVetoNNBin2 {
+                            <.cutExpression = "0.02 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.05", .title="0.02 <= Signal node < 0.05">
+                        }
+                        +Cut2TagMllSR1VBFVetoNNBin3 {
+                            <.cutExpression = "0.05 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.08", .title="0.05 <= Signal node < 0.08">
+                        }
+                        +Cut2TagMllSR1VBFVetoNNBin4 {
+                            <.cutExpression = "0.08 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.12", .title="0.08 <= Signal node < 0.12">
+                        }
+                        +Cut2TagMllSR1VBFVetoNNBin5 {
+                            <.cutExpression = "0.12 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.18", .title="0.12 <= Signal node < 0.18">
+                        }
+                        +Cut2TagMllSR1VBFVetoNNBin6 {
+                            <.cutExpression = "0.18 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.26", .title="0.18 <= Signal node < 0.26">
+                        }
+                        +Cut2TagMllSR1VBFVetoNNBin7 {
+                            <.cutExpression = "0.26 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.35", .title="0.26 <= Signal node < 0.35">
+                        }
+                        +Cut2TagMllSR1VBFVetoNNBin8 {
+                            <.cutExpression = "0.35 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.46", .title="0.35 <= Signal node < 0.46">
+                        }
+                        +Cut2TagMllSR1VBFVetoNNBin9 {
+                            <.cutExpression = "0.46 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.57", .title="0.46 <= Signal node < 0.57">
+                        }
+                        +Cut2TagMllSR1VBFVetoNNBin10 {
+                            <.cutExpression = "0.57 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.67", .title="0.57 <= Signal node < 0.67">
+                        }
+                        +Cut2TagMllSR1VBFVetoNNBin11 {
+                            <.cutExpression = "0.67 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.76", .title="0.67 <= Signal node < 0.76">
+                        }
+                        +Cut2TagMllSR1VBFVetoNNBin12 {
+                            <.cutExpression = "0.76 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.83", .title="0.76 <= Signal node < 0.83">
+                        }
+                        +Cut2TagMllSR1VBFVetoNNBin13 {
+                            <.cutExpression = "0.83 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.89", .title="0.83 <= Signal node < 0.89">
+                        }
+                        +Cut2TagMllSR1VBFVetoNNBin14 {
+                            <.cutExpression = "0.89 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.93", .title="0.89 <= Signal node < 0.93">
+                        }
+                        +Cut2TagMllSR1VBFVetoNNBin15 {
+                            <.cutExpression = "0.93 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.96", .title="0.93 <= Signal node < 0.96">
+                        }
+                        +Cut2TagMllSR1VBFVetoNNBin16 {
+                            <.cutExpression = "0.96 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) <= 1.0", .title="0.96 <= Signal node <= 1.0">
+                        }
+
+                        +Cut2TagMllSR1VBFVetoSF {
+                            <.cutExpression = "$(isSF)", .title="SR1 SF">
+                        } # Cut2TagMllSR1VBFVetoSF
+
+                        +Cut2TagMllSR1VBFVetoDF {
+                            <.cutExpression = "!$(isSF)", .title="SR1 DF">
+                        } # Cut2TagMllSR1VBFVetoDF
+
+                        +Cut2TagSR1VBFVetoLTVAssoc {
+                            <.cutExpression = "fabs($(Lepton0d0sigBL)) < $(d0CutLead) && fabs($(Lepton1d0sigBL)) < $(d0CutSub) && fabs($(Lepton0z0sinTheta)) < 0.5 && fabs($(Lepton1z0sinTheta)) < 0.5", .title="LTVAssoc", .weightExpression="[TTVASF]">
+                        }
+
+                        +Cut2TagSR1VBFVetoLTVAd0 {
+                            <.cutExpression = "fabs($(Lepton0d0sigBL)) < $(d0CutLead) && fabs($(Lepton1d0sigBL)) < $(d0CutSub)", .title="d0 cut">
+                        }
+
+                        +Cut2TagSR1VBFVetoLTVAz0 {
+                            <.cutExpression = "fabs($(Lepton0z0sinTheta)) < 0.5 && fabs($(Lepton1z0sinTheta)) < 0.5", .title="z0 cut">
+                        }
+                    } # Cut2TagMllSR1VBFVeto
+                    +Cut2TagMllSR1VBF {
+                        <.cutExpression = "!$(VBFVeto)", .title="VBF Selection">
+
+                        +Cut2TagMllSR1VBFSF {
+                            <.cutExpression = "$(isSF)", .title="SR1 SF">
+                        } # Cut2TagMllSR1VBFSF
+
+                        +Cut2TagMllSR1VBFDF {
+                            <.cutExpression = "!$(isSF)", .title="SR1 DF">
+                        } # Cut2TagMllSR1VBFDF
+
+                    } # Cut2TagMllSR1VBF
+
+                } # Cut2TagMllSR1
+
+                +Cut2TagMllSR2 {
+                    <.cutExpression = "$(isSF) && 75*1000 < $(DiLeptonMass) && $(DiLeptonMass) < 110*1000", .title="75 GeV < m_{\ell\ell} < 110 GeV, SF only">
+
+                    +Cut2TagMbbSR2 {
+                        <.cutExpression = "40*1000 < $(DiBJetMass) && $(DiBJetMass) < 210*1000", .title="SR2: 40 GeV < m_{bb} < 210 GeV">
+                    }
+
+                    +Cut2TagMbbZllCR {
+                        <.cutExpression = "!(40*1000 < $(DiBJetMass) && $(DiBJetMass) < 210*1000)", .title="ZllCR: m_{bb} < 40 GeV || 210 GeV < m_{bb}">
+
+                        +Cut2TagMbbZllCRVBFVeto {
+                            <.cutExpression = "$(VBFVeto)", .title="ZllCR + VBFVeto">
+                        }
+                    }
+
+                } # Cut2TagMllSR2
+
+                +Cut2TagMllTopCR{
+                    <.cutExpression = "110*1000 < $(DiLeptonMass)", .title="TopCR: m_{\ell\ell} > 110 GeV">
+
+                    +Cut2TagMBLTTbarCR{
+                        <.cutExpression = "$(M_BL) <= 250*1000", .title="TTbarCR: m_{bl} <= 250 GeV">
+
+                        +Cut2TagMBLTTbarCRVBFVeto {
+                            <.cutExpression = "$(VBFVeto)", .title="TTbarCR + VBFVeto">
+                        }
+                    }
+
+                    +Cut2TagMBLWtCR{
+                        <.cutExpression = "$(M_BL) > 250*1000", .title="WtCR: m_{bl} > 250 GeV">
+
+                        +Cut2TagMBLWtCRVBFVeto {
+                            <.cutExpression = "$(VBFVeto)", .title="WtCR + VBFVeto">
+                        }
+                    }
+                } # Cut2TagMllTopCR
+        } # CutNBJets2
+
+        #+CutNBJets1 {
+        #    <.cutExpression = "$(NBJets)==1", .title="NBJets=1", .weightExpression="[BTagSF:DL1r:FixedCutBEff_77]">
+
+        #        +Cut1TagMllSR1 {
+        #            <.cutExpression = "15*1000 < $(DiLeptonMass) && $(DiLeptonMass) < ($(isSF) ? 75*1000 : 110*1000)", .title="SR1: 15 GeV < m_{\ell\ell} < 75 (110) GeV">
+        #        } # Cut1TagMllSR1
+
+        #        +Cut1TagMllSR2 {
+        #            <.cutExpression = "$(isSF) && 75*1000 < $(DiLeptonMass) && $(DiLeptonMass) < 110*1000", .title="SR2: 75 GeV < m_{\ell\ell} < 110 GeV, SF only">
+        #        } # Cut1TagSR2
+
+        #        +Cut1TagMllTopCR{
+        #            <.cutExpression = "110*1000 < $(DiLeptonMass)", .title="TopCR: 110 GeV < m_{\ell\ell}">
+
+        #        } # Cut1TagMllTopCR
+
+        #} # CutNBJets1
+
+    } # CutOS
+    } # CutTriggerMatching
+#    } # CutSplitTauDecays
+    } # CutApplyZjetsSplitting
+    } # CutApplyPromptBkgSplitting
+    } # CutApplyTTBarSplitting
+} # CutBaseChannelSplit
+} # CutBase2Leptons

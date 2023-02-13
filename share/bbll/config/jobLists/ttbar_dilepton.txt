@@ -1,0 +1,5 @@
+!memory=2500
+!time=120
+!queue=nemo_vm_atlsch
+!maxSampleSize=16000
+/bkg/?/?/top/ttbar/dilepton

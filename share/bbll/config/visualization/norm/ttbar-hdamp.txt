@@ -1,0 +1,59 @@
+# vim: filetype=tqfolder
+
++ TwoTag {
+    <mode = "TQNF">
+    <epsilon = 0.001>
+    <applyToCut = {Cut2TagMllSR1,Cut2TagMllSR2,Cut2TagMllTopCR}>
+    <stopAtCut = "never">
+
+    <saveLog = "logs/TQNFCalculator-ttbar-hdamp.log">
+    <saveResults = "results/ttbar-modeling/normalization/ttbar-hdamp.txt">
+
+    <defaultDataPath = "data">
+
+    <methods = {"MatrixInversion", "FAIL"}>
+
+    + samples {
+        + top {
+            <path = "/sys/[ee+mm+em+me]/[c16a+c16d+c16e]/top/ttbar_hdamp517p5">
+            <lower = 0.5>
+            <upper=3.0>
+        }
+        + othertop {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/top/[stop+ttbarV]">
+            <fixed = true>
+        }
+        + Zll {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/[Zee+Zmm]">
+            <lower = 0.5>
+            <upper=1.5>
+        }
+        + Ztt {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/Ztt">
+            <fixed = true>
+        }
+        + fakes {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/fakes">
+            <fixed = true>
+        }
+        + diboson {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/diboson">
+            <fixed = true>
+        }
+        + Higgs {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/Higgs">
+            <fixed = true>
+        }
+
+    }
+
+    + regions {
+        + topControl {
+            <name = "Cut2TagMllTopCR">
+        }
+
+        + zllControl {
+            <name = "Cut2TagMbbZllCR ">
+        }
+    }
+}

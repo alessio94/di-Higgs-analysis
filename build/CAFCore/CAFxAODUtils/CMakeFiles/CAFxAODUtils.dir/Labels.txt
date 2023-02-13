@@ -1,0 +1,40 @@
+# Target labels
+ CAFxAODUtils
+# Source files and their labels
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/Observables.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQCPConstituentVectorObservable.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQCPDecorationObservable.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQCompositorObservable.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQContainerSizeObservable.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQEventFlaggingAnalysisJob.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQEventObservable.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQIParticleDecorationObservable.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQIParticleDecorationVectorObservable.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQIParticleFourVectorObservable.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQIParticleFourVectorVectorObservable.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQSGAuxElementDecorationObservable.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQSGAuxFlagCheckingObservable.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQToolObservable.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQTruthParticleInfoObservable.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQxAODUtils.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/CAFxAODUtils/TQxAODskimmingAlgorithm.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/Observables.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQCPConstituentVectorObservable.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQCPDecorationObservable.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQCompositorObservable.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQContainerSizeObservable.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQEventFlaggingAnalysisJob.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQEventObservable.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQIParticleDecorationObservable.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQIParticleDecorationVectorObservable.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQIParticleFourVectorObservable.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQIParticleFourVectorVectorObservable.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQSGAuxElementDecorationObservable.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQSGAuxFlagCheckingObservable.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQToolObservable.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQTruthParticleInfoObservable.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQxAODUtils.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CAFxAODUtils/Root/TQxAODskimmingAlgorithm.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/CAFxAODUtils/CMakeFiles/CAFxAODUtilsCintDict.cxx
+ CAFxAODUtils
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/CAFxAODUtils/CMakeFiles/CAFxAODUtilsCintDict.cxx.rule

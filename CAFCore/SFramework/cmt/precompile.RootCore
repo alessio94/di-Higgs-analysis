@@ -1,0 +1,14 @@
+#!/bin/bash
+
+RCPACKAGENAME=SFramework
+
+TQPATH=${PWD%/*}/../QFramework
+
+DIRECTORY=${PWD%/*}
+
+DEFINITIONS=$DIRECTORY/Root/definitions.h
+
+PYCLASSES=$DIRECTORY/python/__init__.py
+LINKDEF=$DIRECTORY/Root/LinkDef.h
+
+python ${TQPATH}/share/generateBindings.py --set-working-directory $(pwd) --pkgname ${RCPACKAGENAME} --verbose --python ${PYCLASSES} --python-head  $DIRECTORY/python/SFramework.py --linkdef ${LINKDEF} --headers $DIRECTORY/${RCPACKAGENAME}/*.h

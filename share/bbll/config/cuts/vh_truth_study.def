@@ -1,0 +1,755 @@
+# vim: filetype=tqfolder
+# -*- mode: tqfolder -*-
+# to get proper syntax highlighting and indentation when using emacs,
+# add the following line to your .emacs file:
+#   (load-file "$TQPATH/share/tqfolder.el")
+
++CutBase2Leptons {
+    <.cutExpression = "$(NLeptons) == 2", .title="Base cut (2 leptons)">
++CutBaseChannelSplit {
+    <.cutExpression = "$(fitsChannel)", .weightExpression = "[MCWeight] * [PUWeight] * $(PRWFix) * [LeptonSF] * [JvtSF] * [TTbarNNLOWeight]", .title="Base cut (channel split)">
+
+    +CutApplyTTBarSplitting {
+        <.cutExpression = "$(applyTTBarSplitting) ? ($(isDiLepTTbar) == $(MCTCisLeptonicTopDecay)) : 1", .title="Split ttbar">
+
+    +CutApplyPromptBkgSplitting {
+        <.cutExpression = "$(applyPromptBkgSplitting) ? ($(isPromptBkg) == ($(Lepton0FakeType) == 0 && $(Lepton1FakeType) == 0)) : 1", .title="Split prompt/non-prompt backgrounds">
+
+    +CutApplyZjetsSplitting {
+        <.cutExpression = "$(applyZjetsSplitting) ? ($(isZjetsHF) == ($(BJet0isHF) && $(BJet1isHF))) : 1", .title="Split Zjets">
+
+#    +CutSplitTauDecays {
+#        <.cutExpression = "$(splitWDecays) ? ($(nWTauDecays) == [NWTauDecays]) : 1", .title="Split W decays">
+
+    +CutTriggerMatching {
+        <.cutExpression = "$(Trigger) != 0", .weightExpression="[TriggerSF]", .title="Trigger selection and matching">
+
+    +CutOS {
+        <.cutExpression = "$(Lepton0Charge) * $(Lepton1Charge) == ($(isddFake) ? 1 : -1)", .weightExpression="[ddFakeWeight]", .title="Oppsite charge">
+
+## SIGNAL REGION
+
+        +CutNBJets2 {
+            <.cutExpression = "$(NBJets)==2", .title="NBJets=2", .weightExpression="[BTagSF:DL1r:FixedCutBEff_77]">
+
+            +Cut2TagMllSR1 {
+                <.cutExpression = "15*1000 < $(DiLeptonMass) && $(DiLeptonMass) < ($(isSF) ? 75*1000 : 110*1000)", .title="SR1: 15 GeV < m_{\ell\ell} < 75 (110) GeV">
+
+                +Cut2TagMllSR1VBFVeto {
+                    <.cutExpression = "$(VBFVeto)", .title="VBF Veto">
+
+                    +SR1Hcc {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1: H->cc">
+                    }
+
+                    +SR1Hbb {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1: H->bb">
+                    }
+
+                    +SR1Hmm {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1: H->mm">
+                    }
+
+                    +SR1Htautau {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1: H->tautau">
+                    }
+
+                    +SR1Hgg {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1: H->gg">
+                    }
+
+                    +SR1Hyy {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1: H->yy">
+                    }
+
+                    +SR1HZy {
+                        <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1: H->Zy">
+                    }
+
+                    +SR1HZZ {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1: H->ZZ">
+                    }
+
+                    +SR1HWW {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1: H->WW">
+                    }
+
+                    +Cut2TagMllSR1VBFVetoNNBin1 {
+                        <.cutExpression = "0.00 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.02", .title="0.00 <= Signal node < 0.02">
+
+                        +SR1NNBin1Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin1: H->cc">
+                        }
+
+                        +SR1NNBin1Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin1: H->bb">
+                        }
+
+                        +SR1NNBin1Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin1: H->mm">
+                        }
+
+                        +SR1NNBin1Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin1: H->tautau">
+                        }
+
+                        +SR1NNBin1Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin1: H->gg">
+                        }
+
+                        +SR1NNBin1Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin1: H->yy">
+                        }
+
+                        +SR1NNBin1HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin1: H->Zy">
+                        }
+
+                        +SR1NNBin1HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin1: H->ZZ">
+                        }
+
+                        +SR1NNBin1HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin1: H->WW">
+                        }
+                    }
+                    +Cut2TagMllSR1VBFVetoNNBin2 {
+                        <.cutExpression = "0.02 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.05", .title="0.02 <= Signal node < 0.05">
+
+                        +SR1NNBin2Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin2: H->cc">
+                        }
+
+                        +SR1NNBin2Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin2: H->bb">
+                        }
+
+                        +SR1NNBin2Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin2: H->mm">
+                        }
+
+                        +SR1NNBin2Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin2: H->tautau">
+                        }
+
+                        +SR1NNBin2Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin2: H->gg">
+                        }
+
+                        +SR1NNBin2Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin2: H->yy">
+                        }
+
+                        +SR1NNBin2HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin2: H->Zy">
+                        }
+
+                        +SR1NNBin2HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin2: H->ZZ">
+                        }
+
+                        +SR1NNBin2HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin2: H->WW">
+                        }
+                    }
+                    +Cut2TagMllSR1VBFVetoNNBin3 {
+                        <.cutExpression = "0.05 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.08", .title="0.05 <= Signal node < 0.08">
+
+                        +SR1NNBin3Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin3: H->cc">
+                        }
+
+                        +SR1NNBin3Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin3: H->bb">
+                        }
+
+                        +SR1NNBin3Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin3: H->mm">
+                        }
+
+                        +SR1NNBin3Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin3: H->tautau">
+                        }
+
+                        +SR1NNBin3Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin3: H->gg">
+                        }
+
+                        +SR1NNBin3Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin3: H->yy">
+                        }
+
+                        +SR1NNBin3HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin3: H->Zy">
+                        }
+
+                        +SR1NNBin3HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin3: H->ZZ">
+                        }
+
+                        +SR1NNBin3HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin3: H->WW">
+                        }
+                    }
+                    +Cut2TagMllSR1VBFVetoNNBin4 {
+                        <.cutExpression = "0.08 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.12", .title="0.08 <= Signal node < 0.12">
+
+                        +SR1NNBin4Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin4: H->cc">
+                        }
+
+                        +SR1NNBin4Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin4: H->bb">
+                        }
+
+                        +SR1NNBin4Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin4: H->mm">
+                        }
+
+                        +SR1NNBin4Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin4: H->tautau">
+                        }
+
+                        +SR1NNBin4Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin4: H->gg">
+                        }
+
+                        +SR1NNBin4Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin4: H->yy">
+                        }
+
+                        +SR1NNBin4HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin4: H->Zy">
+                        }
+
+                        +SR1NNBin4HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin4: H->ZZ">
+                        }
+
+                        +SR1NNBin4HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin4: H->WW">
+                        }
+                    }
+                    +Cut2TagMllSR1VBFVetoNNBin5 {
+                        <.cutExpression = "0.12 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.18", .title="0.12 <= Signal node < 0.18">
+
+                        +SR1NNBin5Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin5: H->cc">
+                        }
+
+                        +SR1NNBin5Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin5: H->bb">
+                        }
+
+                        +SR1NNBin5Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin5: H->mm">
+                        }
+
+                        +SR1NNBin5Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin5: H->tautau">
+                        }
+
+                        +SR1NNBin5Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin5: H->gg">
+                        }
+
+                        +SR1NNBin5Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin5: H->yy">
+                        }
+
+                        +SR1NNBin5HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin5: H->Zy">
+                        }
+
+                        +SR1NNBin5HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin5: H->ZZ">
+                        }
+
+                        +SR1NNBin5HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin5: H->WW">
+                        }
+                    }
+                    +Cut2TagMllSR1VBFVetoNNBin6 {
+                        <.cutExpression = "0.18 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.26", .title="0.18 <= Signal node < 0.26">
+
+                        +SR1NNBin6Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin6: H->cc">
+                        }
+
+                        +SR1NNBin6Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin6: H->bb">
+                        }
+
+                        +SR1NNBin6Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin6: H->mm">
+                        }
+
+                        +SR1NNBin6Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin6: H->tautau">
+                        }
+
+                        +SR1NNBin6Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin6: H->gg">
+                        }
+
+                        +SR1NNBin6Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin6: H->yy">
+                        }
+
+                        +SR1NNBin6HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin6: H->Zy">
+                        }
+
+                        +SR1NNBin6HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin6: H->ZZ">
+                        }
+
+                        +SR1NNBin6HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin6: H->WW">
+                        }
+                    }
+                    +Cut2TagMllSR1VBFVetoNNBin7 {
+                        <.cutExpression = "0.26 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.35", .title="0.26 <= Signal node < 0.35">
+
+                        +SR1NNBin7Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin7: H->cc">
+                        }
+
+                        +SR1NNBin7Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin7: H->bb">
+                        }
+
+                        +SR1NNBin7Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin7: H->mm">
+                        }
+
+                        +SR1NNBin7Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin7: H->tautau">
+                        }
+
+                        +SR1NNBin7Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin7: H->gg">
+                        }
+
+                        +SR1NNBin7Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin7: H->yy">
+                        }
+
+                        +SR1NNBin7HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin7: H->Zy">
+                        }
+
+                        +SR1NNBin7HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin7: H->ZZ">
+                        }
+
+                        +SR1NNBin7HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin7: H->WW">
+                        }
+                    }
+                    +Cut2TagMllSR1VBFVetoNNBin8 {
+                        <.cutExpression = "0.35 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.46", .title="0.35 <= Signal node < 0.46">
+
+                        +SR1NNBin8Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin8: H->cc">
+                        }
+
+                        +SR1NNBin8Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin8: H->bb">
+                        }
+
+                        +SR1NNBin8Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin8: H->mm">
+                        }
+
+                        +SR1NNBin8Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin8: H->tautau">
+                        }
+
+                        +SR1NNBin8Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin8: H->gg">
+                        }
+
+                        +SR1NNBin8Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin8: H->yy">
+                        }
+
+                        +SR1NNBin8HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin8: H->Zy">
+                        }
+
+                        +SR1NNBin8HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin8: H->ZZ">
+                        }
+
+                        +SR1NNBin8HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin8: H->WW">
+                        }
+                    }
+                    +Cut2TagMllSR1VBFVetoNNBin9 {
+                        <.cutExpression = "0.46 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.57", .title="0.46 <= Signal node < 0.57">
+
+                        +SR1NNBin9Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin9: H->cc">
+                        }
+
+                        +SR1NNBin9Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin9: H->bb">
+                        }
+
+                        +SR1NNBin9Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin9: H->mm">
+                        }
+
+                        +SR1NNBin9Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin9: H->tautau">
+                        }
+
+                        +SR1NNBin9Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin9: H->gg">
+                        }
+
+                        +SR1NNBin9Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin9: H->yy">
+                        }
+
+                        +SR1NNBin9HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin9: H->Zy">
+                        }
+
+                        +SR1NNBin9HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin9: H->ZZ">
+                        }
+
+                        +SR1NNBin9HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin9: H->WW">
+                        }
+                    }
+                    +Cut2TagMllSR1VBFVetoNNBin10 {
+                        <.cutExpression = "0.57 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.67", .title="0.57 <= Signal node < 0.67">
+
+                        +SR1NNBin10Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin10: H->cc">
+                        }
+
+                        +SR1NNBin10Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin10: H->bb">
+                        }
+
+                        +SR1NNBin10Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin10: H->mm">
+                        }
+
+                        +SR1NNBin10Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin10: H->tautau">
+                        }
+
+                        +SR1NNBin10Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin10: H->gg">
+                        }
+
+                        +SR1NNBin10Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin10: H->yy">
+                        }
+
+                        +SR1NNBin10HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin10: H->Zy">
+                        }
+
+                        +SR1NNBin10HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin10: H->ZZ">
+                        }
+
+                        +SR1NNBin10HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin10: H->WW">
+                        }
+                    }
+                    +Cut2TagMllSR1VBFVetoNNBin11 {
+                        <.cutExpression = "0.67 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.76", .title="0.67 <= Signal node < 0.76">
+
+                        +SR1NNBin11Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin11: H->cc">
+                        }
+
+                        +SR1NNBin11Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin11: H->bb">
+                        }
+
+                        +SR1NNBin11Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin11: H->mm">
+                        }
+
+                        +SR1NNBin11Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin11: H->tautau">
+                        }
+
+                        +SR1NNBin11Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin11: H->gg">
+                        }
+
+                        +SR1NNBin11Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin11: H->yy">
+                        }
+
+                        +SR1NNBin11HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin11: H->Zy">
+                        }
+
+                        +SR1NNBin11HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin11: H->ZZ">
+                        }
+
+                        +SR1NNBin11HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin11: H->WW">
+                        }
+                    }
+                    +Cut2TagMllSR1VBFVetoNNBin12 {
+                        <.cutExpression = "0.76 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.83", .title="0.76 <= Signal node < 0.83">
+
+                        +SR1NNBin12Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin12: H->cc">
+                        }
+
+                        +SR1NNBin12Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin12: H->bb">
+                        }
+
+                        +SR1NNBin12Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin12: H->mm">
+                        }
+
+                        +SR1NNBin12Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin12: H->tautau">
+                        }
+
+                        +SR1NNBin12Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin12: H->gg">
+                        }
+
+                        +SR1NNBin12Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin12: H->yy">
+                        }
+
+                        +SR1NNBin12HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin12: H->Zy">
+                        }
+
+                        +SR1NNBin12HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin12: H->ZZ">
+                        }
+
+                        +SR1NNBin12HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin12: H->WW">
+                        }
+                    }
+                    +Cut2TagMllSR1VBFVetoNNBin13 {
+                        <.cutExpression = "0.83 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.89", .title="0.83 <= Signal node < 0.89">
+
+                        +SR1NNBin13Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin13: H->cc">
+                        }
+
+                        +SR1NNBin13Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin13: H->bb">
+                        }
+
+                        +SR1NNBin13Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin13: H->mm">
+                        }
+
+                        +SR1NNBin13Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin13: H->tautau">
+                        }
+
+                        +SR1NNBin13Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin13: H->gg">
+                        }
+
+                        +SR1NNBin13Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin13: H->yy">
+                        }
+
+                        +SR1NNBin13HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin13: H->Zy">
+                        }
+
+                        +SR1NNBin13HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin13: H->ZZ">
+                        }
+
+                        +SR1NNBin13HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin13: H->WW">
+                        }
+                    }
+                    +Cut2TagMllSR1VBFVetoNNBin14 {
+                        <.cutExpression = "0.89 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.93", .title="0.89 <= Signal node < 0.93">
+
+                        +SR1NNBin14Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin14: H->cc">
+                        }
+
+                        +SR1NNBin14Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin14: H->bb">
+                        }
+
+                        +SR1NNBin14Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin14: H->mm">
+                        }
+
+                        +SR1NNBin14Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin14: H->tautau">
+                        }
+
+                        +SR1NNBin14Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin14: H->gg">
+                        }
+
+                        +SR1NNBin14Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin14: H->yy">
+                        }
+
+                        +SR1NNBin14HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin14: H->Zy">
+                        }
+
+                        +SR1NNBin14HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin14: H->ZZ">
+                        }
+
+                        +SR1NNBin14HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin14: H->WW">
+                        }
+                    }
+                    +Cut2TagMllSR1VBFVetoNNBin15 {
+                        <.cutExpression = "0.93 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) < 0.96", .title="0.93 <= Signal node < 0.96">
+
+                        +SR1NNBin15Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin15: H->cc">
+                        }
+
+                        +SR1NNBin15Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin15: H->bb">
+                        }
+
+                        +SR1NNBin15Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin15: H->mm">
+                        }
+
+                        +SR1NNBin15Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin15: H->tautau">
+                        }
+
+                        +SR1NNBin15Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin15: H->gg">
+                        }
+
+                        +SR1NNBin15Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin15: H->yy">
+                        }
+
+                        +SR1NNBin15HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin15: H->Zy">
+                        }
+
+                        +SR1NNBin15HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin15: H->ZZ">
+                        }
+
+                        +SR1NNBin15HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin15: H->WW">
+                        }
+                    }
+                    +Cut2TagMllSR1VBFVetoNNBin16 {
+                        <.cutExpression = "0.96 <= $(NN_SR1_NodeSignal) && $(NN_SR1_NodeSignal) <= 1.0", .title="0.96 <= Signal node <= 1.0">
+
+                        +SR1NNBin16Hcc {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR1NNBin16: H->cc">
+                        }
+
+                        +SR1NNBin16Hbb {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR1NNBin16: H->bb">
+                        }
+
+                        +SR1NNBin16Hmm {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR1NNBin16: H->mm">
+                        }
+
+                        +SR1NNBin16Htautau {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR1NNBin16: H->tautau">
+                        }
+
+                        +SR1NNBin16Hgg {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR1NNBin16: H->gg">
+                        }
+
+                        +SR1NNBin16Hyy {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR1NNBin16: H->yy">
+                        }
+
+                        +SR1NNBin16HZy {
+                            <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR1NNBin16: H->Zy">
+                        }
+
+                        +SR1NNBin16HZZ {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR1NNBin16: H->ZZ">
+                        }
+
+                        +SR1NNBin16HWW {
+                            <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR1NNBin16: H->WW">
+                        }
+                    }
+                } # Cut2TagMllSR1VBFVeto
+            } # Cut2TagMllSR1
+
+            +Cut2TagMllSR2 {
+                <.cutExpression = "$(isSF) && 75*1000 < $(DiLeptonMass) && $(DiLeptonMass) < 110*1000", .title="75 GeV < m_{\ell\ell} < 110 GeV, SF only">
+
+                +Cut2TagMbbSR2 {
+                    <.cutExpression = "40*1000 < $(DiBJetMass) && $(DiBJetMass) < 210*1000", .title="SR2: 40 GeV < m_{bb} < 210 GeV">
+
+                    +SR2Hcc {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 4 && [TruthHiggsDecayInfo:0:1] == 4", .title="SR2: H->cc">
+                    }
+
+                    +SR2Hbb {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 5 && [TruthHiggsDecayInfo:0:1] == 5", .title="SR2: H->bb">
+                    }
+
+                    +SR2Hmm {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 13 && [TruthHiggsDecayInfo:0:1] == 13", .title="SR2: H->mm">
+                    }
+
+                    +SR2Htautau {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 15 && [TruthHiggsDecayInfo:0:1] == 15", .title="SR2: H->tautau">
+                    }
+
+                    +SR2Hgg {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 21 && [TruthHiggsDecayInfo:0:1] == 21", .title="SR2: H->gg">
+                    }
+
+                    +SR2Hyy {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 22", .title="SR2: H->yy">
+                    }
+
+                    +SR2HZy {
+                        <.cutExpression = "([TruthHiggsDecayInfo:0:0] == 22 && [TruthHiggsDecayInfo:0:1] == 23) || ([TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 22)", .title="SR2: H->Zy">
+                    }
+
+                    +SR2HZZ {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 23 && [TruthHiggsDecayInfo:0:1] == 23", .title="SR2: H->ZZ">
+                    }
+
+                    +SR2HWW {
+                        <.cutExpression = "[TruthHiggsDecayInfo:0:0] == 24 && [TruthHiggsDecayInfo:0:1] == 24", .title="SR2: H->WW">
+                    }
+
+                } # Cut2TagMbbSR2
+            } # Cut2TagMllSR2
+        } # CutNBJets2
+    } # CutOS
+    } # CutTriggerMatching
+    } # CutApplyZjetsSplitting
+    } # CutApplyPromptBkgSplitting
+    } # CutApplyTTBarSplitting
+} # CutBaseChannelSplit
+} # CutBase2Leptons

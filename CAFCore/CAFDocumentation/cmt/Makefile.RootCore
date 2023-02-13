@@ -1,0 +1,10 @@
+# -*- Makefile -*-
+# Author: Carsten Burgard (cburgard@cern.ch)
+
+PACKAGE          = CAFDocumentation
+PACKAGE_DEP      = QFramework
+PACKAGE_NOCC     = 1
+PACKAGE_CLEAN    = doc
+PACKAGE_PEDANTIC = 1
+
+include $(ROOTCOREDIR)/Makefile-common

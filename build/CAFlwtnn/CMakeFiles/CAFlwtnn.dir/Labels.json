@@ -1,0 +1,29 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFlwtnn/CAFlwtnn/TQlwtnnObservable.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFlwtnn/Root/TQlwtnnObservable.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFlwtnn/CMakeFiles/CAFlwtnnCintDict.cxx",
+			"labels" : 
+			[
+				"CAFlwtnn"
+			]
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFlwtnn/CMakeFiles/CAFlwtnnCintDict.cxx.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"CAFlwtnn"
+		],
+		"name" : "CAFlwtnn"
+	}
+}

@@ -1,0 +1,18 @@
+ARG ROOT_IMAGE=atlasamglab/stats-base:root6.20.04
+FROM ${ROOT_IMAGE}
+
+# boost needed for CAFCore build
+# curl, unzip needed for plotting unit tests
+
+RUN apt-get -qq -y update && \
+    apt-get -qq -y install \
+    curl \
+    git \
+    libboost-all-dev \
+    unzip && \
+    apt-get -y autoclean && \
+    apt-get -y autoremove && \
+    rm -rf /var/lib/apt-get/lists/*
+
+ENV BOOST_INCLUDE_DIR="/usr/include"
+ENTRYPOINT [""]

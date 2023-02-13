@@ -1,0 +1,33 @@
+# list of all weight systematics
+# for a complete list of systematics in the bbll analysis check
+# https://docs.google.com/spreadsheets/d/1IjlcEvFVLG49gxsCaKux3O7t21ddXmI5sHDqqUJXGVk/edit?usp=sharing
+
+# name                                      , type
+EL_EFF_ID_TOTAL_1NPCOR_PLUS_UNCOR           , twosided
+EL_EFF_Iso_TOTAL_1NPCOR_PLUS_UNCOR          , twosided
+EL_EFF_Reco_TOTAL_1NPCOR_PLUS_UNCOR         , twosided
+EL_EFF_Trigger_TOTAL_1NPCOR_PLUS_UNCOR      , twosided
+MUON_EFF_ISO_STAT                           , twosided
+MUON_EFF_ISO_SYS                            , twosided
+MUON_EFF_RECO_STAT                          , twosided
+MUON_EFF_RECO_SYS                           , twosided
+MUON_EFF_RECO_STAT_LOWPT                    , twosided
+MUON_EFF_RECO_SYS_LOWPT                     , twosided
+MUON_EFF_TrigStatUncertainty                , twosided
+MUON_EFF_TrigSystUncertainty                , twosided
+JET_JvtEfficiency                           , twosided
+JET_fJvtEfficiency                          , twosided
+PRW_DATASF                                  , twosided
+FT_EFF_Eigen_B_0                            , twosided
+FT_EFF_Eigen_B_1                            , twosided
+FT_EFF_Eigen_B_2                            , twosided
+FT_EFF_Eigen_C_0                            , twosided
+FT_EFF_Eigen_C_1                            , twosided
+FT_EFF_Eigen_C_2                            , twosided
+FT_EFF_Eigen_C_3                            , twosided
+FT_EFF_Eigen_Light_0                        , twosided
+FT_EFF_Eigen_Light_1                        , twosided
+FT_EFF_Eigen_Light_2                        , twosided
+FT_EFF_Eigen_Light_3                        , twosided
+FT_EFF_extrapolation                        , twosided
+FT_EFF_extrapolation_from_charm             , twosided

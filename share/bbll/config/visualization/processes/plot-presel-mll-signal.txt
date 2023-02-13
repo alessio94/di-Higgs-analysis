@@ -1,0 +1,3 @@
+.path = "/sig/$(channel)/$(campaign)/nonres/bbtautau", .name = "ggf_bbtautau", .title = "ggF HH \#rightarrow bb\#tau\#tau", .isSignal = true, histLineColor = kRed , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2
+.path = "/sig/$(channel)/$(campaign)/nonres/bbWW"    , .name = "ggf_bbww"    , .title = "ggF HH \#rightarrow bbWW"        , .isSignal = true, histLineColor = 419  , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2
+.path = "/sig/$(channel)/$(campaign)/nonres/bbZZ"    , .name = "ggf_bbzz"    , .title = "ggF HH \#rightarrow bbZZ"        , .isSignal = true, histLineColor = 602  , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2

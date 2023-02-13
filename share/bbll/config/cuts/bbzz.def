@@ -1,0 +1,74 @@
+# -*- mode: tqfolder -*-
+# to get proper syntax highlighting and indentation when using emacs,
+# add the following line to your .emacs file:
+#   (load-file "$TQPATH/share/tqfolder.el")
+
++CutBase2Leptons {
+    <.cutExpression = "$(NLeptons) == 2", .title="Base cut (2 leptons)">
++CutBaseChannelSplit {
+    <.cutExpression = "$(fitsChannel)", .weightExpression = "[MCWeight] * [PUWeight] * $(PRWFix) * [LeptonSF] * [JvtSF] * [TTbarNNLOWeight]", .title="Base cut (channel split)">
+
+    +CutSplitNonAllHadTTBar {
+        <.cutExpression = "$(isTTbarNonAllHad) ? ($(isFakeTTbar) == ([CodeTTBarDecay] < 4)) : 1", .title="Split nonallhad ttbar">
+
+    +CutTriggerMatching {
+        <.cutExpression = "$(Trigger) != 0", .weightExpression="$(TriggerSF)", .title="Trigger selection and matching">
+
+        +CutOS {
+            <.cutExpression = "$(Lepton0Charge) * $(Lepton1Charge) == -1", .title="Oppsite charge">
+
+            +CutMll {
+                <.cutExpression = "15*1000 < $(DiLeptonMass)", .title="15 GeV < m_{\ell\ell}">
+
+                +CutLTVAssoc {
+                     <.cutExpression = "$(Lepton0d0sigBL) < $(d0CutLead) && $(Lepton1d0sigBL) < $(d0CutSub) && $(Lepton0z0sinTheta) < 0.5 && $(Lepton1z0sinTheta) < 0.5", .title="LTVAssoc", .weightExpression="[TTVASF]">
+
+                    +CutNCentralJets2Plus {
+                         <.cutExpression = "$(NCentralJets)>1", .title"NCentralJets>=2">
+
+                        +Cut2JetsLowMll {
+                            <.cutExpression = "$(DiLeptonMass) < 75*1000", .title="m_{\ell\ell} < 75 GeV">
+                        } # Cut2JetsLowMll
+
+                        +Cut2JetsHighMll {
+                            <.cutExpression = "$(DiLeptonMass)  > 75*1000", .title="m_{\ell\ell} > 75 GeV">
+                        } # Cut2JetsLowMll
+
+                        +CutNBJets1Plus {
+                             <.cutExpression = "$(NBJets)>=1", .title="NBJets>=2", .weightExpression="[BTagSF:DL1r:FixedCutBEff_77]">
+
+                            +Cut1BJetsPlusLowMll {
+                                <.cutExpression = "$(DiLeptonMass) < 75*1000", .title="m_{\ell\ell} < 75 GeV">
+                            } # Cut2BJetsPlusLowMll
+
+                            +Cut1BJetsPlusHighMll {
+                                <.cutExpression = "$(DiLeptonMass)  > 75*1000", .title="m_{\ell\ell} > 75 GeV">
+                            } # Cut1BJetsPlusLowMll
+
+                        } # CutNBJets2Plus
+
+                        +CutNBJets2Plus {
+                             <.cutExpression = "$(NBJets)>=2", .title="NBJets>=2", .weightExpression="[BTagSF:DL1r:FixedCutBEff_77]">
+
+                            +Cut2BJetsPlusLowMll {
+                                <.cutExpression = "$(DiLeptonMass) < 75*1000", .title="m_{\ell\ell} < 75 GeV">
+                            } # Cut2BJetsPlusLowMll
+
+                            +Cut2BJetsPlusHighMll {
+                                <.cutExpression = "$(DiLeptonMass)  > 75*1000", .title="m_{\ell\ell} > 75 GeV">
+                            } # Cut2BJetsPlusLowMll
+
+                        } # CutNBJets2Plus
+
+                    } # CutNCentralJets2
+
+                } # CutLTVAssoc
+
+            } # CutMll
+
+        } # CutOS
+
+    } # TriggerMatching
+    } # CutSplitNonAllHadTTBar
+} # CutBaseChannelSplit
+} # CutBase2Leptons

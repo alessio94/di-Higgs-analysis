@@ -1,0 +1,27 @@
+# This dockerfile builds CAFCore on top of the root-conda image.
+# It is the equivalent of Dockerfile_standalone.CI, but it builds
+# the code itself instead of copying it from artifacts. It should
+# work out-of-the box with
+# docker build -f docker/Dockerfile_standalone -t cafcore-standalone:customtag .
+
+
+ARG STANDALONE_BASE=gitlab-registry.cern.ch/atlas-caf/cafcore/standalone-base:root6.20.04
+FROM ${STANDALONE_BASE}
+
+ARG CODE_DIR=/CAFCore
+
+# Copy the project's source code into the image
+COPY . ${CODE_DIR}/source
+
+# Build the project inside /CAFCore/build
+RUN mkdir ${CODE_DIR}/build && \
+    cd ${CODE_DIR}/build && \
+    cmake ../source/ && \
+    make -j4 && \
+    ln -s ${CODE_DIR}/build/cafsetup.sh /cafsetup.sh && \
+    ln -s ${CODE_DIR}/source/docker/docker-entrypoint.sh /docker-entrypoint.sh && \
+    cd ${CODE_DIR}/source && \
+    git remote set-url origin ssh://git@gitlab.cern.ch:7999/atlas-caf/CAFCore.git
+
+ENTRYPOINT ["/docker-entrypoint.sh"]
+CMD ["/bin/bash"]

@@ -1,0 +1,41 @@
+<div>
+<p class="tight">For a start, you need a 2D histogram holding the
+quantity you are interested in and the one you would like to use for
+the reweighting (e.g. <i>W boson p<sub>T</sub></i>). Typically, such a
+histogram can be produced by
+calling <span class="codeblock">TQHistoMakerAnalysisJob::bookHistogram("...")</span>,
+or by adding the histogram definition to an appropriate configuration
+file (i.e. <i>histograms.txt</i>) file when running the analysis
+job. Histograms can be defined by simple strings, as shown in the
+following example.
+<div class="codeblock">
+ TH2F('PT_W_vs_DPhill_WZDilep', '', 15, 0., 300., 24, 0., 3.14) &lt;&lt; (Pt_WZDilep / 1000. : '#it{p}_{T}(W) [GeV]', DPhi_WZDilep : '#it{#Delta#phi}_{ll, WZ OS} [rad]' )
+</div>
+</p>
+<p class="tight">After you have produced your two-dimensional histogram and it resides in some sort of analysis ROOT file (for example, <i>samples.root</i>) you can retrieve it from the folder structure as usual.
+<div class="codeblock">
+  <div>TString filename = "/path/to/my/file/samples.root";</div>
+  <div>TQSampleFolder * samples = TQSampleFolder::loadSampleFolder(filename + ":samples_Nominal");</div>
+  <div>TQSampleDataReader * rd = new TQSampleDataReader(samples);</div>
+  <div>TH2 * hist = rd->getHistogram("bkg/?/diboson/NonWW/[ZW+ZZ]", "CutWCandPt/PT_W_vs_DPhill_WZDilep");</div>
+</div>
+</p>
+<p class="tight">Additionally, you need the one dimensional histograms that you would like to use for the reweighting: (e.g. the W boson p<sub>T</sub> in data and Monte Carlo). Of course, you need to define them beforehand as described earlier.
+<div class="codeblock">
+  <div>TH1 * hw_bkg        = rd->getHistogram("bkg/?/diboson/NonWW/[ZW+ZZ]", "CutWCandPt/PT_WCand_Coarse");</div>
+  <div>TH1 * hw_data       = rd->getHistogram("data/?  - bkg/?/Zjets - bkg/?/top - bkg/?/diboson/WW - bkg/?/diboson/NonWW/Wgamma", "CutWCandPt/PT_WCand_Coarse");</div>
+</div>
+</p>
+<p class="tight">You might want to create a copy of the data histogram that will hold the ratio data/MC afterwards:
+<div class="codeblock">
+  <div>TH1 * hw = TQHistogramUtils::copyHistogram(hw_data);</div>
+  <div>hw->Divide(hw_bkg);</div>
+</div></p>
+<p class="tight">Now you can employ the following, very handy functionality that uses the 2D histogram and the 1D histogram with the weights and yields a 1D histogram that is reweighted. 
+<div class="codeblock">
+  TH1 * h_DPhill_bkg_rew = TQHistogramUtils::getReweightedHistogramY(h_bkg_WZ_CutWCandPt_PT_W_vs_DPhill_WZDilep , hw);
+</div>
+</p>
+</div>
+
+

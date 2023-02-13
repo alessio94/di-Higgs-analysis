@@ -1,0 +1,9 @@
+# Target labels
+ SubmissionHelpers
+# Source files and their labels
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/SubmissionHelpers/test-bin/test_local_controller.exe
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/SubmissionHelpers/test-bin/test_submission_controller.exe
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/SubmissionHelpers/test-bin/test_task.exe
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/SubmissionHelpers/test-bin/test_local_controller.exe.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/SubmissionHelpers/test-bin/test_submission_controller.exe.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/SubmissionHelpers/test-bin/test_task.exe.rule

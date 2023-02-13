@@ -1,0 +1,32 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CalcGenericMT2/CalcGenericMT2/MT2.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CalcGenericMT2/CalcGenericMT2/MT2_ATLAS.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CalcGenericMT2/CalcGenericMT2/MT2_ROOT.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CalcGenericMT2/CMakeFiles/CalcGenericMT2LibCintDict.cxx",
+			"labels" : 
+			[
+				"CalcGenericMT2"
+			]
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CalcGenericMT2/CMakeFiles/CalcGenericMT2LibCintDict.cxx.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"CalcGenericMT2"
+		],
+		"name" : "CalcGenericMT2Lib"
+	}
+}

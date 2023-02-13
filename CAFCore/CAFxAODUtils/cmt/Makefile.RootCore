@@ -1,0 +1,10 @@
+# -*- Makefile -*-
+# Author: Carsten Burgard (cburgard@cern.ch)
+#PATInterfaces
+
+PACKAGE          = CAFxAODUtils
+PACKAGE_DEP      = QFramework AsgTools xAODPrimitives xAODPFlow xAODParticleEvent xAODJet xAODMuon AsgAnalysisInterfaces
+PACKAGE_CXXFLAGS = --std=c++11 -DASG_RELEASE 
+PACKAGE_PEDANTIC = 1
+
+include $(ROOTCOREDIR)/Makefile-common

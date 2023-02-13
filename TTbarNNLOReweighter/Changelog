@@ -1,0 +1,12 @@
+19-11-19 Leonid Serkin <lserkin@cern.ch>
+        * adding NNLO QCD + NLO EW correction for Powheg+Herwig7.1 (DSID=411233 and 411234) and aMC@NLO+Herwig7.1 (DSID=412116 and 412117)
+
+03-07-19 Leonid Serkin <lserkin@cern.ch>
+        * adding NNLO QCD + NLO EW correction for Powheg_Pythia8 with different top masses; DSID=411049 and 411057 for 173 GeV and 411046 and 411054 for 172 GeV	
+
+07-03-19 Leonid Serkin <lserkin@cern.ch>
+        * adding NNLO QCD correction for dPhi(ll) taken from arXiv 1901.05407
+
+03-03-19 Leonid Serkin <lserkin@cern.ch>
+        * initial import
+        * Current support for nominal ttbar (PP8) and alternative samples for systematics (PH7, aMCP8, PP8_Rad, Sherpa)

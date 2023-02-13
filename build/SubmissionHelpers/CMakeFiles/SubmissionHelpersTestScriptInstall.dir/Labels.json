@@ -1,0 +1,31 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/SubmissionHelpers/test-bin/test_local_controller.exe"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/SubmissionHelpers/test-bin/test_submission_controller.exe"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/SubmissionHelpers/test-bin/test_task.exe"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/SubmissionHelpers/test-bin/test_local_controller.exe.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/SubmissionHelpers/test-bin/test_submission_controller.exe.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/SubmissionHelpers/test-bin/test_task.exe.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"SubmissionHelpers"
+		],
+		"name" : "SubmissionHelpersTestScriptInstall"
+	}
+}

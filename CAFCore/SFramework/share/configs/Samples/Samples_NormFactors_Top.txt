@@ -1,0 +1,22 @@
++Samples {
+	+ttbar {
+		+NormFactor.ATLAS_norm_Top1j {
+			<.AppliesToChannels = "*_1j_*">
+			<Val = 1., Low = 0., High = 50., Const = false>
+		}
+		+NormFactor.ATLAS_norm_Top2j {
+			<.AppliesToChannels = "*_2j_*">
+			<Val = 1., Low = 0., High = 50., Const = false>
+		}
+	}
+	+singletop {
+		+NormFactor.ATLAS_norm_Top1j {
+			<.AppliesToChannels = "*_1j_*">
+			<Val = 1., Low = 0., High = 50., Const = false>
+		}
+		+NormFactor.ATLAS_norm_Top2j {
+			<.AppliesToChannels = "*_2j_*">
+			<Val = 1., Low = 0., High = 50., Const = false>
+		}
+	}
+}

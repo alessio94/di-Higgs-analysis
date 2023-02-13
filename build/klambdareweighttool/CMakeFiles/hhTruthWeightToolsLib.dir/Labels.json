@@ -1,0 +1,29 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/klambdareweighttool/hhTruthWeightTools/hhWeightTool.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/klambdareweighttool/Root/hhWeightTool.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/klambdareweighttool/CMakeFiles/hhTruthWeightToolsLibCintDict.cxx",
+			"labels" : 
+			[
+				"hhTruthWeightTools"
+			]
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/klambdareweighttool/CMakeFiles/hhTruthWeightToolsLibCintDict.cxx.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"hhTruthWeightTools"
+		],
+		"name" : "hhTruthWeightToolsLib"
+	}
+}

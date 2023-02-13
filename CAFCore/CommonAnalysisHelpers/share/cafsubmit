@@ -1,0 +1,69 @@
+#!/usr/bin/env python
+
+from CommonAnalysisHelpers import common,submit
+from CommonAnalysisHelpers.task import task,taskStatus
+
+import sys
+
+
+#python 2/3 compatibility trick:
+try:
+  input = raw_input
+except NameError:
+  pass
+
+def main(args):
+    """submit a single, custom job to a batch system"""
+    
+    #the lazy way to get all the needed instructions to ensure the environment on the batch node behaves like your current analysis setup:
+    setup = submit.getSetupCommand(args) if args.doSetup else args.setup
+    #outputs=outputs,
+    tasks = []
+    if args.file_lines:
+      counter = 0
+      for payload in args.payload:
+        with open(payload,"r") as infile:
+          for line in infile:
+            t = task(identifier=args.identifier+"_"+str(counter),args=args,setup=setup,inputs=args.input,outputs=args.output,payload=line.strip(),logPath=args.logpath)
+            tasks.append(t)
+            counter = counter+1
+    else:
+      t = task(identifier=args.identifier,args=args,setup=setup,inputs=args.input,outputs=args.output,payload=" ".join(args.payload),logPath=args.logpath)
+      tasks.append(t)
+    if not args.checkmissing: 
+      for t in tasks:
+        print("The following task is about to be submitted:")
+        print(t)
+        if not args.yes:
+          dummy = input("Press return to submit or ctrl+c to cancel\n")
+    ctrl = submit.guessSubmissionController(args)
+    ctrl.submitTasks(args,tasks)
+    print("Done")
+    
+
+if __name__ == "__main__":
+
+    # create a pre-configured argument parser (some parts of the backend code rely on certain arguments being available, this does *NOT* mean that you need to specify each argument explicitly though)
+    parser = submit.MinimalArgumentParser()
+    #add a few more specific arguments to the argparser:
+    parser.add_argument("payload",type=str,nargs="+",metavar="payload",help="commands to be executed on the remote node")
+    parser.add_argument("--file-lines",action="store_true",help="interpret the payload as a text file with lines, each of which should be submitted as a separate job")
+    parser.add_argument("--input",type=str,nargs="*",metavar="input",help="input files for the job")
+    parser.add_argument("--output",type=str,nargs="*",metavar="output",help="expected output files from the job")
+    parser.add_argument("--enable-default-setup",action="store_true",dest="doSetup",help="enable default setup instructions",default=True)
+    parser.add_argument("--disable-default-setup",action="store_false",dest="doSetup",help="disable default setup instructions")    
+    parser.add_argument("-y","--yes",action="store_true",help="skip user confirmation",default=False)
+    # use the argument parser to read the command line arguments and config options from the config file
+    #from os.path import splitext
+    args = parser.parse_args()
+
+    try:
+      import ROOT
+      # ignore command line arguments since ROOT is very greedy here (and tends to choke from it!)
+      ROOT.PyConfig.IgnoreCommandLineOptions = True
+    except ImportError:
+      pass
+    
+    # call the main function
+    main(args)
+

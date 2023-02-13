@@ -1,0 +1,14 @@
+.path = "/sig/$(channel)/$(campaign)/nonres/bbtautau", .name = "bbtautau", .title = "bb\#tau\#tau x50", .isSignal = true, histLineColor = kRed , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, scale=50
+.path = "/sig/$(channel)/$(campaign)/nonres/bbWW"    , .name = "bbww"    , .title = "bbWW x50"        , .isSignal = true, histLineColor = 419  , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, scale=50
+.path = "/sig/$(channel)/$(campaign)/nonres/bbZZ"    , .name = "bbZZ"    , .title = "bbZZ x50"        , .isSignal = true, histLineColor = 602  , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, scale=50
+
+.path = "/bkg/$(channel)/$(campaign)/top/ttbar"      , .name = "TTBar"  , .title = "t\#bar{t}"                , .isBackground = true, histFillColor = kYellow, histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/top/stop"       , .name = "Wt"     , .title = "Wt"                       , .isBackground = true, histFillColor = 390    , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/top/ttbarV"     , .name = "TTBarV" , .title = "t\#bar{t}+V"              , .isBackground = true, histFillColor = 402    , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/[Zee+Zmm]"      , .name = "Zll"    , .title = "Z\#rightarrow{}ll"        , .isBackground = true, histFillColor = kAzure , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/Ztt"            , .name = "Ztt"    , .title = "Z\#rightarrow{}\#tau\#tau", .isBackground = true, histFillColor = kCyan  , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/fakes"          , .name = "Fakes"  , .title = "Fakes"                    , .isBackground = true, histFillColor = kGreen , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/diboson"        , .name = "Diboson", .title = "Diboson"                  , .isBackground = true, histFillColor = kOrange, histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/Higgs"          , .name = "SMHiggs", .title = "H"                        , .isBackground = true, histFillColor = 622    , histLineColor = kBlack
+
+.path = "data/$(channel)/$(campaign)", .name = "data", .title = "Data", .isData = true, histMarkerColor = kBlack, histMarkerSize = 1, histMarkerStyle = 20, histLineColor = kBlack, histLineWidth = 2

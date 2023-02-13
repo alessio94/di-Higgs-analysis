@@ -1,0 +1,46 @@
+<div>
+  <p class="tight">
+    First, you should load the analysis root files of both parties:
+    <div class="codeblock">
+      <div>TQSampleFolder * samples = TQSampleFolder::newSampleFolder("samples");</div>
+      <div>samples->importObject("samples_hww_analysis_MyAnalysis.root:samples_Nominal>>::MyAna")</div>
+      <div>samples->importObject("samples_hww_analysis_Nominal.root:samples_Nominal>>::Nominal")</div>
+    </div>
+    To check whether the samples are correctly loaded, you can call
+    <div class="codeblock">
+      samples->print()
+    </div>
+    which should lead to the previously imported folders to be printed of the type <i>TQSampleFolder</i>.
+  </p>
+  <p class="tight">
+    You can now check for differences in, i.e., the signal samples by calling
+    <div class="codeblock">
+      samples->validateAllCounter("MyAna/sig/","Nominal/sig","mf[CutSomeName]dc");
+    </div>
+    This command checks the numbers at <i>CutSomeName</i> and prints only the counters that:
+    <ul>
+      <li><span class="codeblock">m</span>: do not match</li>
+      <li><span class="codeblock">f</span>: filter (here for <span class="codeblock">[CutSomeName]</span>)</li>
+      <li><span class="codeblock">d</span>: additionally trace mismatch of counter that do not agree</li>
+      <li><span class="codeblock">c</span>: print the counter states in additional columns</li>
+    </ul>
+    This should lead to a detailed output on your console.
+  </p>
+  <p class="tight">
+    In case you would like to get some detailed information for one particular sample (e.g. to check the crosssection value that has been used) you can use the following commend:
+    <div class="codeblock">
+      samples->getSample("MyAna/sig/me/mh125/WH/161105")->print("td")
+    </div>
+    The arguments <span class="codeblock">td</span> ensure to print the <i>tags</i> and <i>details</i> for
+    the sample. And should lead to a detailed output of all the meta-information
+    stored for this sample. This is useful to track down problems in case different
+    cross-section values have been used or the generator is different.
+  </p>
+  <p>
+    Another useful command is to check which samples are used in a background folder (e.g. Z+jets here)
+    you can do that by typing:
+    <div class="codeblock">
+      samples->printListOfSamples("bkg/ee/Zjets/Nom/Z/*");
+    </div>
+  </p>
+</div>

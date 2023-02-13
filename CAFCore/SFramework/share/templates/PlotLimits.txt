@@ -1,0 +1,11 @@
+<style.title.xAxis = "m_{H}">
+<style.drawOption="C", style.legendDrawOptions="L", style.lineStyle=2 > @ Overlay.*.med;
+<style.drawOption="E3", style.legendDrawOptions="f", style.fillStyle=1001> @ Overlay.*.band.*;
+<style.fillColor=kGreen, style.title="\pm 1 \sigma"> @ Overlay.*.band.1s;
+<style.fillColor=kYellow, style.title="\pm 2 \sigma"> @ Overlay.*.band.2s;
+<style.drawOption="C", style.legendDrawOptions="L", style.lineStyle="2" > @ Overlay.*.med;
+<style.width = 600, style.height=400, style.margin.top=0.15, style.margin.left=0.15, style.margin.bottom=0.15>
+<style.legend.textSize = 0.02>
+<style.legend.y2 = 0.80>
+<style.yTitleSize = 0.035>
+<style.logScale=true>

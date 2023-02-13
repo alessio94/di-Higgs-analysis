@@ -1,0 +1,16 @@
+<style.title.yAxis = "2#Delta log(LH)">
+<style.title.xAxis = "POI (profiled)">
+<style.logScale = false>
+<style.showLegend = false>
+<style.addToLegend = false> @ Overlay.*.Points;
+<style.addToLegend = true, style.legendDrawOptions="PL"> @ Overlay.*.Line;
+<style.addToLegend = true, style.legendDrawOptions="*L", style.title="Point-2-point distances"> @ Overlay.*.HelperLine;
+<style.yMinMin = 0, style.yMaxMax=15, style.yMaxMin=1.5>
+<style.drawOption="P" > @ Overlay.*.Points;
+<style.drawOption="L", style.lininterpolate=5, style.lineColor=kRed> @ Overlay.*.Line;
+<style.drawOption="*L", style.lineColor=kRed, style.lineStyle=2> @ Overlay.*.HelperLine;
+<style.legend.y2=0.8>
+<style.markerStyle=20, style.markerSize=.5, style.markerColor=kBlack> @ Overlay.*;
+<style.width = 600, style.height=400, style.margin.top=0.15, style.margin.left=0.15, style.margin.bottom=0.15>
+<labels.x=0.1,labels.y=0.95, style.allowVetoFrac=false>
+

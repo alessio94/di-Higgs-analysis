@@ -1,0 +1,11 @@
+# -*- Makefile -*-
+# Author: Carsten Burgard (cburgard@cern.ch)
+# this makefile also gets parsed by shell scripts
+# therefore it does not support full make syntax and features
+# edit with care
+
+PACKAGE          = CxAODUtils
+PACKAGE_DEP      = QFramework AsgTools xAODPrimitives AssociationUtils xAODPFlow xAODParticleEvent xAODJet xAODMuon PATInterfaces
+PACKAGE_PEDANTIC = 1
+
+include $(ROOTCOREDIR)/Makefile-common

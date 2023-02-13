@@ -1,0 +1,32 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/TTbarNNLOReweighter/Root/TTbarNNLOReweighter.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/TTbarNNLOReweighter/Root/LinkDef.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/TTbarNNLOReweighter/TTbarNNLOReweighter/TTbarNNLOReweighter.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/TTbarNNLOReweighter/CMakeFiles/TTbarNNLOReweighterCintDict.cxx",
+			"labels" : 
+			[
+				"TTbarNNLOReweighter"
+			]
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/TTbarNNLOReweighter/CMakeFiles/TTbarNNLOReweighterCintDict.cxx.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"TTbarNNLOReweighter"
+		],
+		"name" : "TTbarNNLOReweighter"
+	}
+}

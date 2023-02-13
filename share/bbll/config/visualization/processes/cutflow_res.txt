@@ -1,0 +1,28 @@
+.path = "||"
+.path = "/sig/$(channel)/$(campaign)/res/251"       , .name = "bbll m_{HH}=251 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/260"       , .name = "bbll m_{HH}=260 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/300"       , .name = "bbll m_{HH}=300 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/400"       , .name = "bbll m_{HH}=400 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/500"       , .name = "bbll m_{HH}=500 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/600"       , .name = "bbll m_{HH}=600 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/800"       , .name = "bbll m_{HH}=800 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/1000"      , .name = "bbll m_{HH}=1000 GeV",   .isSignal = true
+.path = "||"
+.path = "/sig/$(channel)/$(campaign)/res/251/bbWW"  , .name = "bbWW m_{HH}=251 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/260/bbWW"  , .name = "bbWW m_{HH}=260 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/300/bbWW"  , .name = "bbWW m_{HH}=300 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/400/bbWW"  , .name = "bbWW m_{HH}=400 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/500/bbWW"  , .name = "bbWW m_{HH}=500 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/600/bbWW"  , .name = "bbWW m_{HH}=600 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/800/bbWW"  , .name = "bbWW m_{HH}=800 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/1000/bbWW" , .name = "bbWW m_{HH}=1000 GeV",   .isSignal = true
+.path = "||"
+.path = "/sig/$(channel)/$(campaign)/res/251/bbZZ"  , .name = "bbZZ m_{HH}=251 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/260/bbZZ"  , .name = "bbZZ m_{HH}=260 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/300/bbZZ"  , .name = "bbZZ m_{HH}=300 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/400/bbZZ"  , .name = "bbZZ m_{HH}=400 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/500/bbZZ"  , .name = "bbZZ m_{HH}=500 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/600/bbZZ"  , .name = "bbZZ m_{HH}=600 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/800/bbZZ"  , .name = "bbZZ m_{HH}=800 GeV",    .isSignal = true
+.path = "/sig/$(channel)/$(campaign)/res/1000/bbZZ" , .name = "bbZZ m_{HH}=1000 GeV",   .isSignal = true
+.path = "||"

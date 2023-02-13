@@ -1,0 +1,23 @@
+<p class="tight">Load the library and instantiate an instance of a <span class="codeblock">TQPlotter</span>, for example like this:
+<div class="codeblock">
+  TQHWWPlotter pl(samples_Nominal)
+</div>
+If your plotter comes with a preinitialized process list, you should clear it before proceeding.
+<div class="codeblock">
+  pl.reset()
+</div>
+Now you can add the path to your samples. In order to obtain a ratio plot, you
+should choose <i>data</i> for the numerator and <i>background</i> for the
+denominator. If the paths are identical, you might want to add a title.
+<div class="codeblock">
+  <div>pl.addData("bkg/[em+me]/diboson/NonWW/ZW","title='rescaled'")</div>
+  <div>pl.addBackground("bkg/[em+me]/diboson/NonWW/ZW","title='original'")</div>
+</div>
+Note that neither the variable name nor the cut name are specified directly in the configuration. Both are defined only when you actually produce the plot, which you can do like this:
+<div class="codeblock">
+ pl.plot("MyPlot","input.data='MyFirstCut/MyFirstVariable', input.bkg='MySecondCut/MySecondVariable', style.showRatio=true") 
+</div>
+Please note that the string <span class="codeblock">"MyPlot"</span> is just a
+label at this point and does not control your input data anymore, since that has
+been overwritten by the <span class="codeblock">input.<i>???</i></span> tags.
+</p>

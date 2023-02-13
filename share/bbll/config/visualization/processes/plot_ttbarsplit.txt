@@ -1,0 +1,7 @@
+#.path = "/bkg/$(channel)/$(campaign)/top/ttbar/nonallhad"           , .name = "nonallhad ll"    , .title = "nonallhad ll" , .isBackground = true, histFillColor = kYellow , histLineColor = kBlack
+#.path = "/bkg/$(channel)/$(campaign)/fakes/top/ttbar/nonallhad"     , .name = "nonallhad lh"    , .title = "nonallhad lh" , .isBackground = true, histFillColor = kGreen  , histLineColor = kBlack
+
+.path = "/bkg/$(channel)/$(campaign)/top2/true"                     , .name = "nonallhad ll"    , .title = "nonallhad ll" , .isBackground = true, histFillColor = kYellow , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/top2/fake"                     , .name = "nonallhad lh"    , .title = "nonallhad lh" , .isBackground = true, histFillColor = kGreen  , histLineColor = kBlack
+
+.path = "data/$(channel)/$(campaign)", .name = "data", .title = "Data", .isData = true, histMarkerColor = kBlack, histMarkerSize = 1, histMarkerStyle = 20, histLineColor = kBlack, histLineWidth = 3

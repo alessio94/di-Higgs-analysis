@@ -1,0 +1,10 @@
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/CAFxAODUtils/CMakeFiles/CAFxAODUtils.dsomap
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/CxAODUtils/CMakeFiles/CxAODUtils.dsomap
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/QFramework/CMakeFiles/QFramework.dsomap
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/SFramework/CMakeFiles/SFramework.dsomap
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFlwtnn/CMakeFiles/CAFlwtnn.dsomap
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CalcGenericMT2/CMakeFiles/CalcGenericMT2Lib.dsomap
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CxAODTools/CMakeFiles/CxAODTools.dsomap
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CxAODTools/CMakeFiles/CxAODToolsDict.dsomap
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/TTbarNNLOReweighter/CMakeFiles/TTbarNNLOReweighter.dsomap
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/klambdareweighttool/CMakeFiles/hhTruthWeightToolsLib.dsomap

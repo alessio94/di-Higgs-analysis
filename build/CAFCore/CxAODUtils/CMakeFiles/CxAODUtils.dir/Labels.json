@@ -1,0 +1,29 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CxAODUtils/CxAODUtils/CxAODReaderAlgorithm.h"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CxAODUtils/Root/CxAODReaderAlgorithm.cxx"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/CxAODUtils/CMakeFiles/CxAODUtilsCintDict.cxx",
+			"labels" : 
+			[
+				"CxAODUtils"
+			]
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/CxAODUtils/CMakeFiles/CxAODUtilsCintDict.cxx.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"CxAODUtils"
+		],
+		"name" : "CxAODUtils"
+	}
+}

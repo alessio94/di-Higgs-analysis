@@ -1,0 +1,143 @@
+Tool for applying klambda re-weighting in HH analyses.
+
+Needs to be adapted starting from what available here.
+
+Checkout with:
+---------------
+git clone ssh://git@gitlab.cern.ch:7999/atlas-physics/HDBS/DiHiggs/combination/klambdareweighttool.git
+
+Baseline Post-Production Usage for Kappa Lambda reweighting:
+------------------------------------------------------------
+
+If you already have the truth mHH stored, you can use scripts/hhReweightAnalysisLvl.C . This does not need to be compiled, and can be run with
+root hhReweightAnalysisLvl.C(<arguments>) .
+
+Arguments are:
+void hhReweightAnalysisLvl(const char* inputfile="", const char* treename="XhhMiniNtuple", const char* branchname="truth_mHH", TString target_kappa="5p0", TString binsize="10",float scale=1./1000., overflowbin=false)
+
+inputfile: the root file you would like to run on. Note that this file will be edited in place to add branches, so copy first if you want an original.
+treename: the name of the tree with the truth mHH
+branchname: the name of the truth mHH branch
+target_kappa: the target kappa lambda, using the same format as the above version of the tool
+binsize: truth_mHH bin size in GeV (5, 10, or 20)
+start_kappa: which kappa lambda to reweight from. Default "01d0" for 1.0, other option is "10d0"
+scale: factor to put truth mHH in GeV
+overflowbin: whether to include the overflow bin when normalizing the kappa lambda weights. "true" will yield more corret results, but the pre-Septemeber 2021 confiugration was "false". The difference should be at the sub-percent level.
+
+Two branches will be created: kappa_lambda_weight_"+binsize+"GeV_"+target_kappa for the weights, and kappa_lambda_weight_err"+binsize+"GeV_"+target_kappa for the weight uncertainties. If using 10.0, the branches will be kappa_lambda_from10d0_weight_"+binsize+"GeV_"+target_kappa and kappa_lambda_from10d0_weight_err"+binsize+"GeV_"+target_kappa .
+
+
+Compile with your AOD scripts using cmake/make
+----------------------------------------------
+
+DAOD Usage:
+-------------------------------
+
+// Header File
+#include "hhTruthWeightTools/hhWeightTool.h"
+xAOD::hhWeightTool* m_hhWeightTool = nullptr;
+
+// Before the Event Loop 
+m_hhWeightTool = new xAOD::hhWeightTool("hhWeights");
+//m_hhWeightTool->setProperty("ReweightFile","hhTruthWeightTools/data/"+hhReweightFile);
+//m_hhWeightTool->setProperty("TargetKappaLambda","5p0");
+m_hhWeightTool->initialize();
+
+// During the Event Loop
+
+//Preferred method:
+
+m_hhWeightTool->getWeight(truth_particle_container, initial, oneset);
+
+//kappa lambda reweighting only, for weight uncertainties or +/- 1 sigma values
+m_hhWeightTool->getWeightErr(truth_particle_container, initial, oneset);
+m_hhWeightTool->getWeightLow(truth_particle_container, initial, oneset);
+m_hhWeightTool->getWeightHigh(truth_particle_container, initial, oneset);
+
+//Note: By default, this method selects the two initial truth Higgs in the event, before corrections are made. This is closest to how the weights are derived, and as such are theoretically more accurate. Many production codes define truth_mHH using the final Higgs in the event, after corrections are made. Preliminary studies suggest these result in values <2 MeV apart, well below our binning. The two methods should thus give nearly equivalent results.
+
+//initial is a boolean, by default true. If set to false, the final truth Higgs will be used rather than the initial.
+//onset is a boolean, by default false. If you don't store the full truth info in your AODs, and instead only have two Higgs/event, set this to true. It will then use any Higgs, regardless of status/number of children/number of parents.
+
+//Alternate method
+
+const xAOD::TruthParticle* h1 = // Get one of the Higgs from the truth record ;
+const xAOD::TruthParticle* h2 = // Get otherHiggs from the truth record ;
+
+// Pass mhh in MeV 
+float mhh = (h1->p4()+h2->p4()).M();
+m_hhWeightTool->getWeight(mhh);
+//kappa lambda reweighting only, for weight uncertainties or +/- 1 sigma values
+m_hhWeightTool->getWeightErr(mhh);
+m_hhWeightTool->getWeightLow(mhh);
+m_hhWeightTool->getWeightHigh(mhh);
+
+Configuration for kappa lambda reweighting: 
+-------------------------------------------
+
+Several options for the ReweightFile are currently possible. 
+
+The default reweighting file is: weight-mHH-from-cHHHp01d0-to-cHHHpx_10GeV_Jul28.root
+  which reweights kappa lambda = 1 to any kappa lambda from -30 to 30, in increments of 0.2 (with the format xpy for x.y or nxpy for -x.y). weight-mHH-from-cHHHp01d0-to-cHHHpx_10GeV_Sept7_overflowfix.root can be used to include the overflow bin in the weight normalization.
+The default target is kappa lambda = 5.0.
+
+To configure the reweighting simply set
+
+m_hhWeightTool->setProperty("ReweightFile","hhTruthWeightTools/data/"+hhReweightFile);
+and
+hhWeightTool->setProperty("TargetKappaLambda","5p0");
+(before m_hhWeightTool->initialize();)
+
+where the hhReweightFile is one of the following:
+
+weight-mHH-from-cHHHp01d0-to-cHHHpx_5GeV_Jul28.root
+weight-mHH-from-cHHHp01d0-to-cHHHpx_10GeV_Jul28.root
+weight-mHH-from-cHHHp01d0-to-cHHHpx_20GeV_Jul28.root
+
+weight-mHH-from-cHHHp01d0-to-cHHHpx_5GeV_Sept7_overflowfix.root
+weight-mHH-from-cHHHp01d0-to-cHHHpx_10GeV_Sept7_overflowfix.root
+weight-mHH-from-cHHHp01d0-to-cHHHpx_20GeV_Sept7_overflowfix.root
+
+weight-mHH-from-cHHHp10d0-to-cHHHpx_5GeV_Jul28.root
+weight-mHH-from-cHHHp10d0-to-cHHHpx_10GeV_Jul28.root
+weight-mHH-from-cHHHp10d0-to-cHHHpx_20GeV_Jul28.root
+
+corresponding to 5, 10, and 20 GeV mhh bins respectively, starting from kappa lambda = 1 or 10.
+
+TargetKappaLambda options are:
+n30p0
+n29p8
+n29p6
+...
+n0p2
+0p0
+0p2
+...
+0p8
+1p2
+1p4
+...
+29p8
+30p0
+
+Configuration for HEFT reweighting:
+-----------------------------------
+
+The reweighting file is ../data/NLO_norm_values.txt .
+
+To configure the reweighting simply set
+
+m_hhWeightTool->setProperty("ReweightFile","../data/NLO_norm_values.txt");
+and
+hhWeightTool->setProperty("kl",2.0);
+hhWeightTool->setProperty("kt",2.0);
+hhWeightTool->setProperty("cg",2.0);
+hhWeightTool->setProperty("c2g",2.0);
+hhWeightTool->setProperty("c2",2.0);
+where the second arguments are the target values as floats.
+
+(before m_hhWeightTool->initialize();)
+
+Bins are always 20 GeV wide, from 240 GeV to 1040 GeV.
+
+Note that the HEFT reweighting does not have uncertainties included, so you cannot run getWeightErr, getWeightLow, or getWeightHigh.

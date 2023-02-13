@@ -1,0 +1,19 @@
++ImportModels {
+	<inputFiles = "./output/MTvs2DFit_METRel25/models/model_HWWlvlv_mh125_*CMSlikeShapeFit_ExpSys*.root:*">
+}
+
++CreateChannelHistograms {
+	<channels = "*">
+}
+
++PlotHistograms {
+	<outputFile = "./output/MTvs2DFit_METRel25/plots/$(.Model)/plot_$(.Channel)_$(.Variation).pdf">
+	<filter = "*Nominal*">
+	<labels.0 = '#sqrt{s} = 8 TeV, #lower[-0.2]{#scale[0.6]{#int}} Ldt = 13.0 fb^{-1}'>
+	<labels.1 = '#it{H}#rightarrow#it{WW}^{(*)}#rightarrow#it{e}#nu#mu#nu/#mu#nu#it{e}#nu + 0/1 jets'>
+
+	<sysOutputFile = "./output/MTvs2DFit_METRel25/sys_plots/$(.Model)/plot_$(.Channel)_$(.Systematic).pdf">
+	<sysLabels.0 = '#sqrt{s} = 8 TeV, #lower[-0.2]{#scale[0.6]{#int}} Ldt = 13.0 fb^{-1}'>
+	<sysLabels.1 = '#it{H}#rightarrow#it{WW}^{(*)}#rightarrow#it{e}#nu#mu#nu/#mu#nu#it{e}#nu + 0/1 jets'>
+	<sysLabels.2 = '$(.Systematic)'>
+}

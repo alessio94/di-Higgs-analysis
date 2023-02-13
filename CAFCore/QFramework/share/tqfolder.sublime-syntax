@@ -1,0 +1,242 @@
+%YAML 1.2
+---
+# See http://www.sublimetext.com/docs/3/syntax.html
+# Syntax highlighting for tqfolder files in sublime text 3
+# To install the file use Preferences -> Browse Packages... and drop the 
+# tqfolder.sublime-syntax file into the User directory. It should then be used 
+# automatically for files ending with .def and .tqfolder. You can enable the 
+# highlighting otherwise by Ctrl/Cmd-Shift-P -> "Set Syntax: tqfolder".
+
+file_extensions:
+  - tqfolder
+  - def
+scope: source.tqfolder
+
+variables:
+  ident: '[A-Za-z_.][A-Za-z_0-9.]*'
+  pattern: '[A-Za-z_.*?][A-Za-z_0-9.*?]*'
+  path: '{{pattern}}(/|/{{pattern}})*'
+  number: '\b-?\.?[0-9][0-9.]*([eE]-?[0-9]+)?\b'
+  tag: '\$\({{ident}}\)'
+
+contexts:
+  main:
+    - match: '#'
+      scope: punctuation.definition.comment.tqfolder
+      push: line_comment
+
+    - match: '\+'
+      scope: keyword.newfolder.tqfolder
+      push: new_folder
+
+    - match: '\@'
+      scope: keyword.modfolder.tqfolder
+      push: mod_folder
+
+    - match: '<'
+      push: tag
+
+    - match: '\$(delete|copy|move|escape|modify|ignore|import|for|create|include|replace|print|printline|write)'
+      scope: support.function.tqfolder
+      push: func
+
+    - match: '(TProfile|TH[A-Za-z_0-9]*)'
+      scope: support.function.tqfolder
+      push: hist
+
+    - match: '"'
+      scope: punctuation.definition.string.begin.tqfolder
+      push: double_quoted_string
+
+    - match: "'"
+      scope: punctuation.definition.string.begin.tqfolder
+      push: single_quoted_string
+
+    - match: '(}|>)'
+      scope: invalid.stray-closing-bracket.tqfolder
+
+
+  new_folder:
+    - match: ';'
+      pop: true
+
+    - match: '{{path}}'
+      scope: storage.folderpath.tqfolder
+
+    - match: '{{tag}}'
+      scope: constant.other.tag.tqfolder
+
+    - match: '{'
+      set: folder
+
+  mod_folder:
+    - match: ':'
+      set: histlist
+
+    - match: '{{path}}'
+      scope: storage.folderpath.tqfolder
+
+    - match: '{{tag}}'
+      scope: constant.other.tag.tqfolder
+
+    - match: '{'
+      set: folder
+
+    - match: ';'
+      pop: true
+
+  histlist:
+    - match: $
+      pop: true
+
+  folder:
+    - match: '}'
+      pop: true
+    - include: main
+
+  tag:
+    - match: '"'
+      scope: punctuation.definition.string.begin.tqfolder
+      push: double_quoted_string
+
+    - match: "'"
+      scope: punctuation.definition.string.begin.tqfolder
+      push: single_quoted_string
+
+    - match: '\b(true|false)\b'
+      scope: keyword.control.tqfolder
+
+    # Numbers
+    - match: '{{number}}'
+      scope: constant.numeric.tqfolder
+
+    - match: '[A-Za-z_.][A-Za-z_0-9.]*'
+      scope: entity.other.attribute-name.tqfolder
+
+    - match: '{{tag}}'
+      scope: constant.other.tag.tqfolder
+
+    - match: '>'
+      pop: true
+
+  hist:
+    - match: '\('
+      push: funcargs
+
+    - match: '<<'
+      set: histfill
+
+    - match: ';'
+      pop: true
+
+  histfill:
+    - match: '"'
+      scope: punctuation.definition.string.begin.tqfolder
+      push: double_quoted_string
+
+    - match: "'"
+      scope: punctuation.definition.string.begin.tqfolder
+      push: single_quoted_string
+
+    # Numbers
+    - match: '{{number}}'
+      scope: constant.numeric.tqfolder
+
+    - match: '{{tag}}'
+      scope: constant.other.tag.tqfolder
+
+    - match: '<<'
+      set: histopts
+
+    - match: ';'
+      pop: true
+
+  histopts:
+    - match: '"'
+      scope: punctuation.definition.string.begin.tqfolder
+      push: double_quoted_string
+
+    - match: "'"
+      scope: punctuation.definition.string.begin.tqfolder
+      push: single_quoted_string
+
+    - match: '\b(true|false)\b'
+      scope: keyword.control.tqfolder
+
+    # Numbers
+    - match: '{{number}}'
+      scope: constant.numeric.tqfolder
+
+    - match: '\b{{ident}}\b'
+      scope: variable.parameter
+
+    - match: '{{tag}}'
+      scope: constant.other.tag.tqfolder
+
+    - match: '<<'
+      set: histopts
+
+    - match: ';'
+      pop: true
+
+  func:
+    - match: '\('
+      push: funcargs
+
+    - match: '{'
+      set: funcnested
+
+    - match: ';'
+      pop: true
+
+  funcargs:
+    - match: '"'
+      scope: punctuation.definition.string.begin.tqfolder
+      push: double_quoted_string
+
+    - match: "'"
+      scope: punctuation.definition.string.begin.tqfolder
+      push: single_quoted_string
+
+    - match: '\b(true|false)\b'
+      scope: keyword.control.tqfolder
+
+    # Numbers
+    - match: '\b(-)?[0-9.]+([eE]-?[0-9]+)?\b'
+      scope: constant.numeric.tqfolder
+
+    - match: '\b{{ident}}\b'
+      scope: variable.parameter
+
+    - match: '\)'
+      pop: true
+
+  funcnested:
+    - match: '}'
+      pop: true
+
+
+    - include: main
+
+  single_quoted_string:
+    - meta_scope: string.quoted.single.tqfolder
+    - match: "'"
+      scope: punctuation.definition.string.end.tqfolder
+      pop: true
+
+    - match: '{{tag}}'
+      scope: constant.other.tag.tqfolder
+
+  double_quoted_string:
+    - meta_scope: string.quoted.double.tqfolder
+    - match: '"'
+      scope: punctuation.definition.string.end.tqfolder
+      pop: true
+
+    - match: '{{tag}}'
+      scope: constant.other.tag.tqfolder
+
+  line_comment:
+    - meta_scope: comment.line.tqfolder
+    - match: $
+      pop: true

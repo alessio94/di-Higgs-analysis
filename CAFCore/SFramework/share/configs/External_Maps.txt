@@ -1,0 +1,71 @@
+# ==============================================================================================
+# In the following a mapping between the naming scheme used in "official uncertainty files" and
+# the one commonly used in models for the Freiburg HWW Statistics Code is provided. This mapping
+# is only required if external uncertainty files are included. Four kinds of maps are expected:
+#
+# - Samples:  mapping for MC signal and background sample names
+# - Channels: mapping for lepton flavor channels
+# - Regions:  mapping for signal and control regions
+# - Jets:     mapping for jet multiplicity
+#
+# For each entry in an external file the corresponding map is searched for an entry (tag) with
+# the same name and the corresponding value is used as a string matching pattern applied to
+# samples and channels present in the model.
+#
+# It is worth mentioning that within the Freiburg HWW Statistics code there is no explicit
+# distinction between 'Channels', 'Regions', and 'Jets'. In contrast, the term "Channel" refers
+# to any combintation of 'Channel', 'Region', and 'Jet' such that the matching patterns provided
+# in those maps are all matched to Channel names.
+# ==============================================================================================
+
++Maps {
+
+	# Matching sample names
+	+Samples {
+		<all = "*">
+		<wh = "sig_WH">
+		<zh = "sig_ZH">
+		<vbf = "sig_vbf">
+		<ggf = "sig_ggf">
+		<hww = "sig_ggf">
+		<top = "ttbar, singletop">
+		<ttbar = "ttbar">
+		<st = "singletop">
+		<ww = "WW">
+		<ggww = "ggWW">
+		<qqww = "qqWW">
+		<wzzz = "WZZZ">
+		<wg = "Wg">
+		<wgs = "Wgs">
+#		<zjets = "Zll, Ztt">
+		<zleplep = "Zll">
+		<ztautau = "Ztt">
+	}
+	
+	# Matching channel names
+	+Channels {
+		<ee = "*_ee">
+		<mm = "*_mm">
+		<mumu = "*_mm">
+		<emu = "*_em, *_me, *_OF">
+		<em = "*_em, *_me, *_OF">
+		<me = "*_me">
+		<all = "*_??">
+	}
+
+	# Matching channel names (this is not a typo, see above)
+	+Regions {
+		<signalLike = "SR_*, SR?_*">
+		<mainControl = "WWCR_*">
+		<topbox = "TopCR_*">
+		<all = "SR_*, WWCR_*, TopCR_*">
+	}
+
+	# Matching channel names (this is not a typo, see above)
+	+Jets {
+		<0j = "*_0j_*">
+		<1j = "*_1j_*">
+		<2j = "*_2j_*">
+		<all = "*_?j_*">
+	}
+}

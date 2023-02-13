@@ -1,0 +1,1054 @@
+# ==============================================================================================
+# This is a configuration file for the HWWAnalysisCode statistics code and defines a set of
+# various different fit models related to the HWWlvlv analysis. This file is structured as
+# follows:
+#
+# - a model template ("CreateModels_Template") setting up the basic model configuration which
+#   most models defined here have in common
+#
+# - a list of model creation tasks ("CreateModels.*") copied from the model template and
+#   defining specifics of the models. Generally, there will be two types of models: one type
+#   using "stats only" (no systematic uncertainties) and one type including (experimental)
+#   systematic uncertainties. The latter models are created from copies of the corresponding
+#   ones without systematic uncertainties and including systematics from an additional config
+#   file (these models have a "_ExpSys" name appendix)
+#
+# - a list of "$delete(...)" operations deleting all but a few model creation tasks again (this
+#   is done to allow for swtiching models on and off by (un)commenting only one line, namely the
+#   corresponding delete operation)
+#
+# - a task to export the models created above as TXT, ROOT, and XML files ("ExportModels")
+#
+# - a task to create RooFit workspaces from the models created above using HistFactory
+#   ("CreateWorkspaces")
+#
+# - a task to export the workspaces created in the previous step to ROOT files
+#   ("ExportWorkspaces")
+#
+# ==============================================================================================
+
+
+# ----------------------------------------------------------------------------------------------
+# Model template
+# ----------------------------------------------------------------------------------------------
++CreateModels_Template {
+
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# List of mass hypotheses to run the analysis for (here, this is set to 125 GeV). You
+	# also can specify a list of masses in which case an individual model will be created
+	# for each mass hypothesis, e.g.
+	#
+	# <masses = "110, 115, 120, 125, 130, 135, 140">
+	#
+	# will create seven (7) models where in corresponding places the place holder "$(.mass)"
+	# will be replaced by the value of the corresponding mass hypotheses. [Please note here
+	# that a list of masses has to be provided as a string.]
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	<masses = 125>
+
+
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# Specify the input file containing histograms of signal, background, and data for
+	# Nominal as well as (experimental) systematic variations (file(s) are produced using
+	# the default HWW analysis code and can be found at "/afs/cern.ch/work/a/awalz/public")
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	# ----- HCP dataset (from 02-07 ntuples, 13.0 1/fb) -----
+	# <inputFile = "./../HWWlvlv_2012/samples_hww_analysis_2DSys_02-07_OF_METRel25.root">
+
+	# ----- Moriond dataset (from 02-17 ntuples, 20.7 1/fb) -----
+	<inputFile = "./../HWWlvlv_2012/samples_hww_analysis_2DSys_02-17_OF_METRel25.root">
+
+
+	+ModelConfiguration {
+		$include("configs/Parameters.txt");
+
+		$include("configs/External_Maps.txt");
+
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		# Define the list of samples as well as corresponding floating normalization factors
+		# (definitions are provided in additional config files which are simply included here)
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		$include("configs/Samples/Samples_ListOnly.txt");
+		$include("configs/Samples/Samples_NormFactors_WW.txt");
+		$include("configs/Samples/Samples_NormFactors_Top.txt");
+
+
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		# Deactivate statistical uncertainies from Monte Carlo by default for all samples
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		<ActivateStatError = false> @ Samples/?;
+
+
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		# Uncomment this line to replace in all models observed data by expectation from
+		# background + signal (similar to Asimov dataset with mu = 1)
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		# <Path = "bkg/$(.lepch) + sig/$(.lepch)/mh$(.mass)"> @ Samples/Data;
+	
+
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		# Only consider "Nominal" as input for now, systematics will be added later for some
+		# models. Make use of place holders "$(.InputFile)" (will ve replaced by input file
+		# given above) and "$(.Variation)" (will be replaced by the name of the variation) to
+		# give only a general input filename
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		+Variations {
+			<SampleFolder = "$(.InputFile):samples_$(.Variation)">
+			+Nominal;
+		}
+	}
+}
+
+
+# ----------------------------------------------------------------------------------------------
+# HCP2012-like MT fit analysis using only one Mll bin and a WWCR with Mll > 80 GeV
+# ----------------------------------------------------------------------------------------------
+$copy("CreateModels_Template >> ::CreateModels.MTFit_OldCRSR") {
+	<name = "HWWlvlv_mh$(.mass)_MTFit_OldCRSR">
+
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# List all channels (regions) used in the model
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	+ModelConfiguration/Channels {
+		# ----- 0j e/mu signal region -----
+		+SR_0j_em {
+			<Histogram = "CutTopoDPhill_0jet/MT", RemapXTo = 5>
+			<.lepch = "em">
+		}
+		# ----- 0j mu/e signal region -----
+		+SR_0j_me {
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			# use histogram "CutTopoDPhill_0jet/MT" but remapped to five (5) bins with the total
+			# background becoming as flat as possible (the fact that it will be the total background
+			# that becomes ~flat by the remapping is a consequence of the option <PathRemapFlat> set
+			# some lines below for all channels at once)
+			# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+			<Histogram = "CutTopoDPhill_0jet/MT", RemapXTo = 5>
+			<.lepch = "me">
+		}
+	
+		+WWCR_0j_OF {
+			<Histogram = "CutWWControl_0jet_old/MT", RemapXTo = 1>
+			<.lepch = "[em+me]">
+		}
+
+		+SR_1j_em {
+			<Histogram = "CutTopoDPhill_1jet/MT", RemapXTo = 3>
+			<.lepch = "em">
+		}
+		+SR_1j_me {
+			<Histogram = "CutTopoDPhill_1jet/MT", RemapXTo = 3>
+			<.lepch = "me">
+		}
+	
+		+WWCR_1j_OF {
+			<Histogram = "CutWWControl_1jet/MT", RemapXTo = 1>
+			<.lepch = "[em+me]">
+		}
+		+TopCR_1j_OF {
+			<Histogram = "CutTopControl_1jet/MT", RemapXTo = 1>
+			<.lepch = "[em+me]">
+		}
+	
+		<PathRemapFlat = "bkg/$(.lepch)"> @ ?;
+		<RemapSlices = false, StatRelErrorThreshold = 0.015, StatConstraintType = "Poisson"> @ ?;
+	}
+}
+
+
+# ----------------------------------------------------------------------------------------------
+# Moriond2013-like MT fit analysis using two Mll bins and a WWCR with 50 GeV < Mll < 100 GeV
+# (0 jet channel) and Mll > 80 GeV (1 jet channel)
+# ----------------------------------------------------------------------------------------------
+$copy("CreateModels_Template >> ::CreateModels.MTFit") {
+	<name = "HWWlvlv_mh$(.mass)_MTFit">
+
+	+ModelConfiguration/Channels {
+		+SR1_0j_em {
+			<Histogram = "Cut2DSR_0jet_DPhill/MT_vs_Mll", RemapXTo = 5, projXBinHighY = 4>
+			<.lepch = "em">
+		}
+		+SR1_0j_me {
+			<Histogram = "Cut2DSR_0jet_DPhill/MT_vs_Mll", RemapXTo = 5, projXBinHighY = 4>
+			<.lepch = "me">
+		}
+		+SR2_0j_em {
+			<Histogram = "Cut2DSR_0jet_DPhill/MT_vs_Mll", RemapXTo = 5, projXBinLowY = 5, projXBinHighY = 8>
+			<.lepch = "em">
+		}
+		+SR2_0j_me {
+			<Histogram = "Cut2DSR_0jet_DPhill/MT_vs_Mll", RemapXTo = 5, projXBinLowY = 5, projXBinHighY = 8>
+			<.lepch = "me">
+		}
+
+		+WWCR_0j_OF {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 1, projXBinLowY = 9, projXBinHighY = 18>
+			<.lepch = "[em+me]">
+		}
+
+		+SR1_1j_em {
+			<Histogram = "Cut2DZttVeto_1jet_DPhill/MT_vs_Mll", RemapXTo = 3, projXBinHighY = 4>
+			<.lepch = "em">
+		}
+		+SR1_1j_me {
+			<Histogram = "Cut2DZttVeto_1jet_DPhill/MT_vs_Mll", RemapXTo = 3, projXBinHighY = 4>
+			<.lepch = "me">
+		}
+		+SR2_1j_em {
+			<Histogram = "Cut2DZttVeto_1jet_DPhill/MT_vs_Mll", RemapXTo = 3, projXBinLowY = 5, projXBinHighY = 8>
+			<.lepch = "em">
+		}
+		+SR2_1j_me {
+			<Histogram = "Cut2DZttVeto_1jet_DPhill/MT_vs_Mll", RemapXTo = 3, projXBinLowY = 5, projXBinHighY = 8>
+			<.lepch = "me">
+		}
+
+		+WWCR_1j_OF {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 1, projXBinLowY = 15>
+			<.lepch = "[em+me]">
+		}
+		+TopCR_1j_OF {
+			<Histogram = "Cut2DTopCR_1jet_ZttVeto/MT_vs_Mll", RemapXTo = 1, projX = true>
+			<.lepch = "[em+me]">
+		}
+
+		<PathRemapFlat = "bkg/$(.lepch)"> @ ?;
+
+		<RemapSlices = false, StatRelErrorThreshold = 0.015, StatConstraintType = "Poisson"> @ ?;
+	}
+
+	<ActivateStatError = false> @ ModelConfiguration/Samples/?;
+}
+
+
+# ----------------------------------------------------------------------------------------------
+# A simple MT cut model where each signal region uses only one bin in MT after cutting
+# 92.5 GeV < MT < 125 GeV
+# ----------------------------------------------------------------------------------------------
+$copy("CreateModels.MTFit_OldCRSR >>::CreateModels.MTCut") {
+	<name = "HWWlvlv_mh$(.mass)_MTCut">
+
+	# mT cut
+	+ ModelConfiguration/Channels {
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		# Here, the signal regions are defined (using a MT-versus-Mll histogram) by
+		# 1) cutting on MT using options "cutBinLowX" and "cutBinHighX"
+		# 2) rebinning remaining 13 bins in MT to one bin using option "rebinX" (remapping is
+		#    deactivated -- remember it was set to 5 or 3 bins in the model this model is copied
+		#    from -- by setting the option "RemapXTo" back to -1)
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		<cutBinLowX = 18, cutBinHighX = 30, RemapXTo = -1, rebinX = 13> @ SR_0j_em;
+		<cutBinLowX = 18, cutBinHighX = 30, RemapXTo = -1, rebinX = 13> @ SR_0j_me;
+		<cutBinLowX = 18, cutBinHighX = 30, RemapXTo = -1, rebinX = 13> @ SR_1j_em;
+		<cutBinLowX = 18, cutBinHighX = 30, RemapXTo = -1, rebinX = 13> @ SR_1j_me;
+	}
+}
+
+
+# ----------------------------------------------------------------------------------------------
+# This model is like the Moriond2013-like MT fit but replacing the Z->tautau veto in the 1-jet-
+# channels by a Ptll > 30 GeV cut (in order to allow in the next step to define a Z/DY CR by
+# Ptll < 30 GeV
+# ----------------------------------------------------------------------------------------------
+$copy("CreateModels.MTFit >> ::CreateModels.MTFit_1jetPtll") {
+	<name = "HWWlvlv_mh$(.mass)_MTFit_1jetPtll">
+
+	+ModelConfiguration/Channels {
+		+SR1_1j_em {
+			<Histogram = "Cut2DSR_1jet_DPhill/MT_vs_Mll", RemapXTo = 3, projXBinHighY = 4>
+			<.lepch = "em">
+		}
+		+SR1_1j_me {
+			<Histogram = "Cut2DSR_1jet_DPhill/MT_vs_Mll", RemapXTo = 3, projXBinHighY = 4>
+			<.lepch = "me">
+		}
+		+SR2_1j_em {
+			<Histogram = "Cut2DSR_1jet_DPhill/MT_vs_Mll", RemapXTo = 3, projXBinLowY = 5, projXBinHighY = 8>
+			<.lepch = "em">
+		}
+		+SR2_1j_me {
+			<Histogram = "Cut2DSR_1jet_DPhill/MT_vs_Mll", RemapXTo = 3, projXBinLowY = 5, projXBinHighY = 8>
+			<.lepch = "me">
+		}
+
+		+WWCR_1j_OF {
+			<Histogram = "Cut2DSR_1jet/MT_vs_Mll", RemapXTo = 1, projXBinLowY = 15>
+			<.lepch = "[em+me]">
+		}
+		+TopCR_1j_OF {
+			<Histogram = "Cut2DTopCR_1jet_Ptll/MT_vs_Mll", RemapXTo = 1, projX = true>
+			<.lepch = "[em+me]">
+		}
+	}
+}
+
+
+# ----------------------------------------------------------------------------------------------
+# This model adds to the one with the Z->tautau veto replaced by the Ptll > 30 GeV four Z/DY CRs
+# defined by Ptll < 30 GeV (each Z/DY CR uses one bin)
+# ----------------------------------------------------------------------------------------------
+$copy("CreateModels.MTFit_1jetPtll >> ::CreateModels.MTFit_1jetPtll_ZDYCR") {
+	<name = "HWWlvlv_mh$(.mass)_MTFit_1jetPtll_ZDYCR">
+
+	+ModelConfiguration/Channels {
+		+ZDYCR_0j_em {
+			<Histogram = "Cut2DZDYCR_0jet/MT_vs_Mll", RemapXTo = 1, projX = true>
+			<.lepch = "em">
+		}
+		+ZDYCR_0j_me {
+			<Histogram = "Cut2DZDYCR_0jet/MT_vs_Mll", RemapXTo = 1, projX = true>
+			<.lepch = "me">
+		}
+
+		+ZDYCR_1j_em {
+			<Histogram = "Cut2DZDYCR_1jet/MT_vs_Mll", RemapXTo = 1, projX = true>
+			<.lepch = "em">
+		}
+		+ZDYCR_1j_me {
+			<Histogram = "Cut2DZDYCR_1jet/MT_vs_Mll", RemapXTo = 1, projX = true>
+			<.lepch = "me">
+		}
+
+		<PathRemapFlat = "bkg/$(.lepch)"> @ ?;
+		<RemapSlices = false, StatRelErrorThreshold = 0.015, StatConstraintType = "Poisson"> @ ?;
+	}
+	+ModelConfiguration {
+		# ----- adding Z/DY CRs we also release the Z/DY normalization -----
+		$include("configs/Samples/Samples_NormFactors_Zjets.txt");
+	}
+}
+
+
+$copy("CreateModels_Template >> ::CreateModels.2DFit") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit">
+
+	+ModelConfiguration/Channels {
+		+SR_0j_em {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, rebinY = 4, convertTo1D = "X:Y^">
+			<.lepch = "em">
+		}
+		+SR_0j_me {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, rebinY = 4, convertTo1D = "X:Y^">
+			<.lepch = "me">
+		}
+
+		+SR_1j_em {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, rebinY = 4, convertTo1D = "X:Y^">
+			<.lepch = "em">
+		}
+		+SR_1j_me {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, rebinY = 4, convertTo1D = "X:Y^">
+			<.lepch = "me">
+		}
+
+		+TopCR_1j_OF {
+			<Histogram = "Cut2DTopCR_1jet_ZttVeto/MT_vs_Mll", RemapXTo = 8, rebinY = 4, convertTo1D = "X:Y^">
+			<.lepch = "[em+me]">
+		}
+
+		<PathRemapFlat = "bkg/$(.lepch)"> @ ?;
+		<RemapSlices = false, StatRelErrorThreshold = 0.015, StatConstraintType = "Poisson"> @ ?;
+	}
+	+ModelConfiguration {
+		$include("configs/Samples/Samples_NormFactors_Zjets.txt");
+	}
+}
+
+
+$copy("CreateModels_Template >> ::CreateModels.2DFit_MergeToOF") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_MergeToOF">
+
+	+ModelConfiguration/Channels {
+		+SR_0j_OF {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, rebinY = 4, convertTo1D = "X:Y^">
+			<.lepch = "[em+me]">
+		}
+
+		+SR_1j_OF {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, rebinY = 4, convertTo1D = "X:Y^">
+			<.lepch = "[em+me]">
+		}
+
+		+TopCR_1j_OF {
+			<Histogram = "Cut2DTopCR_1jet_ZttVeto/MT_vs_Mll", RemapXTo = 8, rebinY = 4, convertTo1D = "X:Y^">
+			<.lepch = "[em+me]">
+		}
+
+		<PathRemapFlat = "bkg/$(.lepch)"> @ ?;
+		<RemapSlices = false, StatRelErrorThreshold = 0.015, StatConstraintType = "Poisson"> @ ?;
+	}
+	+ModelConfiguration {
+		$include("configs/Samples/Samples_NormFactors_Zjets.txt");
+	}
+}
+
+
+$copy("CreateModels.2DFit >> ::CreateModels.2DFit_RemapSlices") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_RemapSlices">
+
+	<RemapSlices = true> @ ModelConfiguration/Channels/?;
+}
+
+
+$copy("CreateModels_Template >> ::CreateModels.2DFit_Channels") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_Channels">
+
+	+ModelConfiguration/Channels {
+		+SR1_0j_em {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 1, projXBinHighY = 4>
+		}
+		+SR2_0j_em {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 5, projXBinHighY = 8>
+		}
+		+SR3_0j_em {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 9, projXBinHighY = 12>
+		}
+		+SR4_0j_em {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 13, projXBinHighY = 16>
+		}
+		+SR5_0j_em {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 17, projXBinHighY = 20>
+		}
+		+SR6_0j_em {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 21, projXBinHighY = 24>
+		}
+		+SR7_0j_em {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 25, projXBinHighY = 28>
+		}
+		+SR8_0j_em {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 29, projXBinHighY = 32>
+		}
+		+SR9_0j_em {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 33, projXBinHighY = 36>
+		}
+		+SROV_0j_em {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 37>
+		}
+
+		+SR1_0j_me {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 1, projXBinHighY = 4>
+		}
+		+SR2_0j_me {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 5, projXBinHighY = 8>
+		}
+		+SR3_0j_me {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 9, projXBinHighY = 12>
+		}
+		+SR4_0j_me {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 13, projXBinHighY = 16>
+		}
+		+SR5_0j_me {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 17, projXBinHighY = 20>
+		}
+		+SR6_0j_me {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 21, projXBinHighY = 24>
+		}
+		+SR7_0j_me {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 25, projXBinHighY = 28>
+		}
+		+SR8_0j_me {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 29, projXBinHighY = 32>
+		}
+		+SR9_0j_me {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 33, projXBinHighY = 36>
+		}
+		+SROV_0j_me {
+			<Histogram = "Cut2DSR_0jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 37>
+		}
+
+		+SR1_1j_em {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 1, projXBinHighY = 4>
+		}
+		+SR2_1j_em {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 5, projXBinHighY = 8>
+		}
+		+SR3_1j_em {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 9, projXBinHighY = 12>
+		}
+		+SR4_1j_em {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 13, projXBinHighY = 16>
+		}
+		+SR5_1j_em {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 17, projXBinHighY = 20>
+		}
+		+SR6_1j_em {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 21, projXBinHighY = 24>
+		}
+		+SR7_1j_em {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 25, projXBinHighY = 28>
+		}
+		+SR8_1j_em {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 29, projXBinHighY = 32>
+		}
+		+SR9_1j_em {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 33, projXBinHighY = 36>
+		}
+		+SROV_1j_em {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "em", projXBinLowY = 37>
+		}
+
+		+SR1_1j_me {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 1, projXBinHighY = 4>
+		}
+		+SR2_1j_me {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 5, projXBinHighY = 8>
+		}
+		+SR3_1j_me {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 9, projXBinHighY = 12>
+		}
+		+SR4_1j_me {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 13, projXBinHighY = 16>
+		}
+		+SR5_1j_me {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 17, projXBinHighY = 20>
+		}
+		+SR6_1j_me {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 21, projXBinHighY = 24>
+		}
+		+SR7_1j_me {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 25, projXBinHighY = 28>
+		}
+		+SR8_1j_me {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 29, projXBinHighY = 32>
+		}
+		+SR9_1j_me {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 33, projXBinHighY = 36>
+		}
+		+SROV_1j_me {
+			<Histogram = "Cut2DZttVeto_1jet/MT_vs_Mll", RemapXTo = 8, .lepch = "me", projXBinLowY = 37>
+		}
+
+		+TopCR1_1j_OF {
+			<Histogram = "Cut2DTopCR_1jet_ZttVeto/MT_vs_Mll", RemapXTo = 8, .lepch = "[em+me]", projXBinLowY = 1, projXBinHighY = 4>
+		}
+		+TopCR2_1j_OF {
+			<Histogram = "Cut2DTopCR_1jet_ZttVeto/MT_vs_Mll", RemapXTo = 8, .lepch = "[em+me]", projXBinLowY = 5, projXBinHighY = 8>
+		}
+		+TopCR3_1j_OF {
+			<Histogram = "Cut2DTopCR_1jet_ZttVeto/MT_vs_Mll", RemapXTo = 8, .lepch = "[em+me]", projXBinLowY = 9, projXBinHighY = 12>
+		}
+		+TopCR4_1j_OF {
+			<Histogram = "Cut2DTopCR_1jet_ZttVeto/MT_vs_Mll", RemapXTo = 8, .lepch = "[em+me]", projXBinLowY = 13, projXBinHighY = 16>
+		}
+		+TopCR5_1j_OF {
+			<Histogram = "Cut2DTopCR_1jet_ZttVeto/MT_vs_Mll", RemapXTo = 8, .lepch = "[em+me]", projXBinLowY = 17, projXBinHighY = 20>
+		}
+		+TopCR6_1j_OF {
+			<Histogram = "Cut2DTopCR_1jet_ZttVeto/MT_vs_Mll", RemapXTo = 8, .lepch = "[em+me]", projXBinLowY = 21, projXBinHighY = 24>
+		}
+		+TopCR7_1j_OF {
+			<Histogram = "Cut2DTopCR_1jet_ZttVeto/MT_vs_Mll", RemapXTo = 8, .lepch = "[em+me]", projXBinLowY = 25, projXBinHighY = 28>
+		}
+		+TopCR8_1j_OF {
+			<Histogram = "Cut2DTopCR_1jet_ZttVeto/MT_vs_Mll", RemapXTo = 8, .lepch = "[em+me]", projXBinLowY = 29, projXBinHighY = 32>
+		}
+		+TopCR9_1j_OF {
+			<Histogram = "Cut2DTopCR_1jet_ZttVeto/MT_vs_Mll", RemapXTo = 8, .lepch = "[em+me]", projXBinLowY = 33, projXBinHighY = 36>
+		}
+		+TopCROV_1j_OF {
+			<Histogram = "Cut2DTopCR_1jet_ZttVeto/MT_vs_Mll", RemapXTo = 8, .lepch = "[em+me]", projXBinLowY = 37>
+		}
+
+		<PathRemapFlat = "bkg/$(.lepch)"> @ ?;
+		<RemapSlices = false, StatRelErrorThreshold = 0.015, StatConstraintType = "Poisson"> @ ?;
+	}
+	+ModelConfiguration {
+		$include("configs/Samples/Samples_NormFactors_Zjets.txt");
+	}
+}
+
+
+$copy("CreateModels.2DFit >> ::CreateModels.2DFit_AltBinning") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_AltBinning">
+
+	# remove Top 1 jet CR
+	#$delete("ModelConfiguration/Channels/TopCR_1j_OF!");
+	
+	# make Top 1jet CR a 1-bin CR
+	#<RemapXTo = 1, rebinY = -2, projX = true> @ ModelConfiguration/Channels/TopCR_1j_OF;
+
+	# remove Mll > 110 GeV in definition of SRs
+	<cutBinHighY = 20> @ ModelConfiguration/Channels/SR_0j_em;
+	<cutBinHighY = 20> @ ModelConfiguration/Channels/SR_0j_me;
+	<cutBinHighY = 20> @ ModelConfiguration/Channels/SR_1j_em;
+	<cutBinHighY = 20> @ ModelConfiguration/Channels/SR_1j_me;
+
+}
+
+
+$copy("CreateModels.2DFit >>:: CreateModels.2DFit_1jetPtll") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_1jetPtll">
+
+	+ModelConfiguration/Channels {
+		+SR_1j_em {
+			<Histogram = "Cut2DSR_1jet/MT_vs_Mll">
+			<.lepch = "em">
+		}
+		+SR_1j_me {
+			<Histogram = "Cut2DSR_1jet/MT_vs_Mll">
+			<.lepch = "me">
+		}
+
+		+TopCR_1j_OF {
+			<Histogram = "Cut2DTopCR_1jet_Ptll/MT_vs_Mll">
+			<.lepch = "[em+me]">
+		}
+	}
+}
+
+
+$copy("CreateModels.2DFit_1jetPtll >>:: CreateModels.2DFit_1jetPtll_ZDYCR") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_1jetPtll_ZDYCR">
+
+	+ModelConfiguration/Channels {
+		+ZDYCR_0j_em {
+			<Histogram = "Cut2DZDYCR_0jet/MT_vs_Mll", RemapXTo = 8, rebinY = 4, convertTo1D = "X:Y^">
+			<.lepch = "em">
+		}
+		+ZDYCR_0j_me {
+			<Histogram = "Cut2DZDYCR_0jet/MT_vs_Mll", RemapXTo = 8, rebinY = 4, convertTo1D = "X:Y^">
+			<.lepch = "me">
+		}
+
+		+ZDYCR_1j_em {
+			<Histogram = "Cut2DZDYCR_1jet/MT_vs_Mll", RemapXTo = 8, rebinY = 4, convertTo1D = "X:Y^">
+			<.lepch = "em">
+		}
+		+ZDYCR_1j_me {
+			<Histogram = "Cut2DZDYCR_1jet/MT_vs_Mll", RemapXTo = 8, rebinY = 4, convertTo1D = "X:Y^">
+			<.lepch = "me">
+		}
+
+		<PathRemapFlat = "bkg/$(.lepch)"> @ ?;
+		<RemapSlices = false, StatRelErrorThreshold = 0.015, StatConstraintType = "Poisson"> @ ?;
+	}
+	+ModelConfiguration {
+		$include("configs/Samples/Samples_NormFactors_Zjets.txt");
+	}
+}
+
+
+$copy("CreateModels.MTFit_OldCRSR >>::CreateModels.MTFit_OldCRSR_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_MTFit_OldCRSR_ExpSys">
+	+ModelConfiguration {
+		$include("configs/Systematics/Systematics_Exp_All.txt");
+		<.Include = "!*:Wjets"> @ Systematics/?;
+		<.Include = "*:Wjets"> @ Systematics/FakeRate_HWW;
+  <.Exclude = "", InterpCode = 4> @ Systematics/?;
+	}
+}
+
+
+$copy("CreateModels.MTFit_OldCRSR_ExpSys >>::CreateModels.MTFit_OldCRSR_Full") {
+	<name = "HWWlvlv_mh$(.mass)_MTFit_OldCRSR_Full">
+	+ModelConfiguration {
+		$include("configs/Systematics/Systematics_BR_VV.txt");
+		$include("configs/External.txt");
+	}
+}
+
+
+$copy("CreateModels.MTFit >>::CreateModels.MTFit_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_MTFit_ExpSys">
+	+ModelConfiguration {
+		$include("configs/Systematics/Systematics_Exp_All.txt");
+		<.Include = "!*:Wjets"> @ Systematics/?;
+		<.Include = "*:Wjets"> @ Systematics/FakeRate_HWW;
+  <.Exclude = "", InterpCode = 4> @ Systematics/?;
+	}
+}
+
+
+$copy("CreateModels.MTFit_1jetPtll >>::CreateModels.MTFit_1jetPtll_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_MTFit_1jetPtll_ExpSys">
+	+ModelConfiguration {
+		$include("configs/Systematics/Systematics_Exp_All.txt");
+		<.Include = "!*:Wjets"> @ Systematics/?;
+		<.Include = "*:Wjets"> @ Systematics/FakeRate_HWW;
+  <.Exclude = "", InterpCode = 4> @ Systematics/?;
+	}
+}
+
+
+$copy("CreateModels.MTFit_1jetPtll_ZDYCR >>::CreateModels.MTFit_1jetPtll_ZDYCR_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_MTFit_1jetPtll_ZDYCR_ExpSys">
+	+ModelConfiguration {
+		$include("configs/Systematics/Systematics_Exp_All.txt");
+		<.Include = "!*:Wjets"> @ Systematics/?;
+		<.Include = "*:Wjets"> @ Systematics/FakeRate_HWW;
+  <.Exclude = "", InterpCode = 4> @ Systematics/?;
+	}
+}
+
+
+$copy("CreateModels.MTCut >>::CreateModels.MTCut_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_MTCut_ExpSys">
+	+ModelConfiguration {
+		$include("configs/Systematics/Systematics_Exp_All.txt");
+		<.Include = "!*:Wjets"> @ Systematics/?;
+		<.Include = "*:Wjets"> @ Systematics/FakeRate_HWW;
+  <.Exclude = "", InterpCode = 4> @ Systematics/?;
+	}
+}
+
+
+$copy("CreateModels.2DFit >>::CreateModels.2DFit_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_ExpSys">
+	+ModelConfiguration {
+		$include("configs/Systematics/Systematics_Exp_All.txt");
+		<.Include = "!*:Wjets"> @ Systematics/?;
+		<.Include = "*:Wjets"> @ Systematics/FakeRate_HWW;
+  <.Exclude = "", InterpCode = 4> @ Systematics/?;
+	}
+}
+
+
+$copy("CreateModels.2DFit_MergeToOF >>::CreateModels.2DFit_MergeToOF_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_MergeToOF_ExpSys">
+	+ModelConfiguration {
+		$include("configs/Systematics/Systematics_Exp_All.txt");
+		<.Include = "!*:Wjets"> @ Systematics/?;
+		<.Include = "*:Wjets"> @ Systematics/FakeRate_HWW;
+  <.Exclude = "", InterpCode = 4> @ Systematics/?;
+	}
+}
+
+
+$copy("CreateModels.2DFit_RemapSlices >>::CreateModels.2DFit_RemapSlices_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_RemapSlices_ExpSys">
+	+ModelConfiguration {
+		$include("configs/Systematics/Systematics_Exp_All.txt");
+		<.Include = "!*:Wjets"> @ Systematics/?;
+		<.Include = "*:Wjets"> @ Systematics/FakeRate_HWW;
+		<.Exclude = "", InterpCode = 4> @ Systematics/?;
+	}
+}
+
+
+$copy("CreateModels.2DFit_Channels >>::CreateModels.2DFit_Channels_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_Channels_ExpSys">
+	+ModelConfiguration {
+		$include("configs/Systematics/Systematics_Exp_All.txt");
+		<.Include = "!*:Wjets"> @ Systematics/?;
+		<.Include = "*:Wjets"> @ Systematics/FakeRate_HWW;
+		<.Exclude = "", InterpCode = 4> @ Systematics/?;
+
+		+Systematics {
+			+ATLAS_JES_FLAV_SR1_0j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR1_0j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR2_0j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR2_0j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR3_0j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR3_0j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR4_0j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR4_0j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR5_0j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR5_0j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR6_0j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR6_0j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR7_0j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR7_0j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR8_0j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR8_0j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR9_0j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR9_0j_em:*">
+			}
+			+ATLAS_JES_FLAV_SROV_0j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SROV_0j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR1_0j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR1_0j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR2_0j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR2_0j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR3_0j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR3_0j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR4_0j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR4_0j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR5_0j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR5_0j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR6_0j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR6_0j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR7_0j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR7_0j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR8_0j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR8_0j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR9_0j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR9_0j_me:*">
+			}
+			+ATLAS_JES_FLAV_SROV_0j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SROV_0j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR1_1j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR1_1j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR2_1j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR2_1j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR3_1j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR3_1j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR4_1j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR4_1j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR5_1j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR5_1j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR6_1j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR6_1j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR7_1j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR7_1j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR8_1j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR8_1j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR9_1j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR9_1j_em:*">
+			}
+			+ATLAS_JES_FLAV_SROV_1j_em {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SROV_1j_em:*">
+			}
+			+ATLAS_JES_FLAV_SR1_1j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR1_1j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR2_1j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR2_1j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR3_1j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR3_1j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR4_1j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR4_1j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR5_1j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR5_1j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR6_1j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR6_1j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR7_1j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR7_1j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR8_1j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR8_1j_me:*">
+			}
+			+ATLAS_JES_FLAV_SR9_1j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SR9_1j_me:*">
+			}
+			+ATLAS_JES_FLAV_SROV_1j_me {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!SROV_1j_me:*">
+			}
+			+ATLAS_JES_FLAV_TopCR1_1j_OF {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!TopCR1_1j_OF:*">
+			}
+			+ATLAS_JES_FLAV_TopCR2_1j_OF {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!TopCR2_1j_OF:*">
+			}
+			+ATLAS_JES_FLAV_TopCR3_1j_OF {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!TopCR3_1j_OF:*">
+			}
+			+ATLAS_JES_FLAV_TopCR4_1j_OF {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!TopCR4_1j_OF:*">
+			}
+			+ATLAS_JES_FLAV_TopCR5_1j_OF {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!TopCR5_1j_OF:*">
+			}
+			+ATLAS_JES_FLAV_TopCR6_1j_OF {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!TopCR6_1j_OF:*">
+			}
+			+ATLAS_JES_FLAV_TopCR7_1j_OF {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!TopCR7_1j_OF:*">
+			}
+			+ATLAS_JES_FLAV_TopCR8_1j_OF {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!TopCR8_1j_OF:*">
+			}
+			+ATLAS_JES_FLAV_TopCR9_1j_OF {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!TopCR9_1j_OF:*">
+			}
+			+ATLAS_JES_FLAV_TopCROV_1j_OF {
+				<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false, .Include = "!*:Wjets", InterpCode = 4, .Exclude = "!TopCROV_1j_OF:*">
+			}
+			$delete("ATLAS_JES_FLAV");
+		}
+	}
+}
+
+
+$copy("CreateModels.2DFit_ExpSys >> ::CreateModels.2DFit_MCStats_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_MCStats_ExpSys">
+
+	<ActivateStatError = true> @ ModelConfiguration/Samples/?;
+}
+
+
+$copy("CreateModels.2DFit_AltBinning >>::CreateModels.2DFit_AltBinning_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_AltBinning_ExpSys">
+	+ModelConfiguration {
+		$include("configs/Systematics/Systematics_Exp_All.txt");
+		<.Include = "!*:Wjets"> @ Systematics/?;
+		<.Include = "*:Wjets"> @ Systematics/FakeRate_HWW;
+  <.Exclude = "", InterpCode = 4> @ Systematics/?;
+	}
+}
+
+
+$copy("CreateModels.2DFit_1jetPtll >>::CreateModels.2DFit_1jetPtll_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_1jetPtll_ExpSys">
+	+ModelConfiguration {
+		$include("configs/Systematics/Systematics_Exp_All.txt");
+		<.Include = "!*:Wjets"> @ Systematics/?;
+		<.Include = "*:Wjets"> @ Systematics/FakeRate_HWW;
+  <.Exclude = "", InterpCode = 4> @ Systematics/?;
+	}
+}
+
+
+$copy("CreateModels.2DFit_1jetPtll_ExpSys >>:: CreateModels.2DFit_1jetPtll_NoZjetsNF_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_1jetPtll_NoZjetsNF_ExpSys">
+
+	$delete("ModelConfiguration/Samples/Zll/NormFactor.ATLAS_norm_Zjets0j!");
+	$delete("ModelConfiguration/Samples/Zll/NormFactor.ATLAS_norm_Zjets1j!");
+	$delete("ModelConfiguration/Samples/Ztt/NormFactor.ATLAS_norm_Zjets0j!");
+	$delete("ModelConfiguration/Samples/Ztt/NormFactor.ATLAS_norm_Zjets1j!");
+}
+
+
+$copy("CreateModels.2DFit_1jetPtll_ZDYCR >>::CreateModels.2DFit_1jetPtll_ZDYCR_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_1jetPtll_ZDYCR_ExpSys">
+	+ModelConfiguration {
+		$include("configs/Systematics/Systematics_Exp_All.txt");
+		<.Include = "!*:Wjets"> @ Systematics/?;
+		<.Include = "*:Wjets"> @ Systematics/FakeRate_HWW;
+  <.Exclude = "", InterpCode = 4> @ Systematics/?;
+	}
+}
+
+$ignore() {
+$copy("CreateModels.2DFit_1jetPtll_ZDYCR_ExpSys >>::CreateModels.2DFit_1jetPtll_NoZDYCR_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_1jetPtll_NoZDYCR_ExpSys">
+
+	$delete("ModelConfiguration/Channels/ZDYCR_0j_em!");
+	$delete("ModelConfiguration/Channels/ZDYCR_0j_me!");
+	$delete("ModelConfiguration/Channels/ZDYCR_1j_em!");
+	$delete("ModelConfiguration/Channels/ZDYCR_1j_me!");
+}
+
+$copy("CreateModels.2DFit_1jetPtll_ZDYCR_ExpSys >>::CreateModels.2DFit_1jetPtll_ZDYCR_0jOnly_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_1jetPtll_ZDYCR_0jOnly_ExpSys">
+
+	$delete("ModelConfiguration/Channels/SR_1j_em!");
+	$delete("ModelConfiguration/Channels/SR_1j_me!");
+	$delete("ModelConfiguration/Channels/TopCR_1j_OF!");
+	$delete("ModelConfiguration/Channels/ZDYCR_1j_em!");
+	$delete("ModelConfiguration/Channels/ZDYCR_1j_me!");
+}
+
+$copy("CreateModels.2DFit_1jetPtll_ZDYCR_ExpSys >>::CreateModels.2DFit_1jetPtll_ZDYCR_1jOnly_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_1jetPtll_ZDYCR_1jOnly_ExpSys">
+
+	$delete("ModelConfiguration/Channels/SR_0j_em!");
+	$delete("ModelConfiguration/Channels/SR_0j_me!");
+	$delete("ModelConfiguration/Channels/ZDYCR_0j_em!");
+	$delete("ModelConfiguration/Channels/ZDYCR_0j_me!");
+}
+
+$copy("CreateModels.2DFit_1jetPtll_NoZDYCR_ExpSys >>::CreateModels.2DFit_1jetPtll_NoZDYCR_0jOnly_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_1jetPtll_NoZDYCR_0jOnly_ExpSys">
+
+	$delete("ModelConfiguration/Channels/SR_1j_em!");
+	$delete("ModelConfiguration/Channels/SR_1j_me!");
+	$delete("ModelConfiguration/Channels/TopCR_1j_OF!");
+}
+
+$copy("CreateModels.2DFit_1jetPtll_NoZDYCR_ExpSys >>::CreateModels.2DFit_1jetPtll_NoZDYCR_1jOnly_ExpSys") {
+	<name = "HWWlvlv_mh$(.mass)_2DFit_1jetPtll_NoZDYCR_1jOnly_ExpSys">
+
+	$delete("ModelConfiguration/Channels/SR_0j_em!");
+	$delete("ModelConfiguration/Channels/SR_0j_me!");
+}
+}
+
+# ============== List of all models ==============
+$delete("CreateModels.MTFit_OldCRSR!");
+$delete("CreateModels.MTCut!");
+#$delete("CreateModels.MTFit!");
+$delete("CreateModels.MTFit_1jetPtll!");
+$delete("CreateModels.MTFit_1jetPtll_ZDYCR!");
+$delete("CreateModels.2DFit!");
+$delete("CreateModels.2DFit_MergeToOF!");
+$delete("CreateModels.2DFit_RemapSlices!");
+$delete("CreateModels.2DFit_Channels!");
+$delete("CreateModels.2DFit_AltBinning!");
+$delete("CreateModels.2DFit_1jetPtll!");
+$delete("CreateModels.2DFit_1jetPtll_ZDYCR!");
+
+$delete("CreateModels.MTFit_OldCRSR_ExpSys!");
+$delete("CreateModels.MTFit_OldCRSR_Full!");
+$delete("CreateModels.MTCut_ExpSys!");
+$delete("CreateModels.MTFit_ExpSys!");
+$delete("CreateModels.MTFit_1jetPtll_ExpSys!");
+$delete("CreateModels.MTFit_1jetPtll_ZDYCR_ExpSys!");
+$delete("CreateModels.2DFit_ExpSys!");
+$delete("CreateModels.2DFit_MergeToOF_ExpSys!");
+$delete("CreateModels.2DFit_RemapSlices_ExpSys!");
+$delete("CreateModels.2DFit_Channels_ExpSys!");
+$delete("CreateModels.2DFit_AltBinning_ExpSys!");
+$delete("CreateModels.2DFit_1jetPtll_ExpSys!");
+$delete("CreateModels.2DFit_1jetPtll_ZDYCR_ExpSys!");
+
+$delete("CreateModels.2DFit_MCStats_ExpSys!");
+$delete("CreateModels.2DFit_1jetPtll_NoZjetsNF_ExpSys!");
+# ================================================
+
+
+
+$ignore() {
+	+CreateChannelHistograms {
+		<channels = "*">
+	}
+	+PlotHistograms {
+		<outputFile = "./output/TEST_20130503/plots/$(.Model)/plot_$(.Channel)_$(.Variation).pdf">
+		<sysOutputFile = "./output/TEST_20130503/sys_plots/$(.Model)/plot_$(.Channel)_$(.Systematic).pdf">
+		<sysLabels.0 = '#sqrt{s} = 8 TeV, #lower[-0.2]{#scale[0.6]{#int}} Ldt = 13.0 fb^{-1}'>
+		<sysLabels.1 = '#it{H}#rightarrow#it{WW}^{(*)}#rightarrow#it{e}#nu#mu#nu/#mu#nu#it{e}#nu + 0/1 jets'>
+		<sysLabels.2 = '$(.Systematic)'>
+	}
+}
++ExportModels {
+	<outputFile = "./output/TEST_20130503/models/model_$(Name).txt, ./output/TEST_20130503/models/model_$(Name).root">
+	<xmlDir = "./output/TEST_20130503/xml/model_$(Name)">
+}
++CreateWorkspaces {
+	<histogramsFile = "./output/TEST_20130503/workspaces/histograms_$(Name).root">
+}
+$ignore() {
+	+RunStatistics {
+		<doObserved = false, doExpected = true, doConditionalAsimov = false, fit.runHesse = true, fit.runMinos = true>
+	}
+	+ExportResults {
+		<outputFile = "./output/TEST_20130503/results/result_$(Name).txt">
+	}
+}
++ExportWorkspaces {
+	<outputFile = "./output/TEST_20130503/workspaces/workspace_$(Name).root">
+}
+
+
+

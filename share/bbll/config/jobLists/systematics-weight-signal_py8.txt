@@ -1,0 +1,9 @@
+!memory=2500
+!time=240
+!maxSampleSize=8000
+/sig/?/?/nonres/bbtautau
+/sig/?/?/nonres/bbWW
+/sig/?/?/nonres/bbZZ
+/sig/?/?/kl10/bbtautau
+/sig/?/?/kl10/bbWW
+/sig/?/?/kl10/bbZZ

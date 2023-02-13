@@ -1,0 +1,57 @@
+# split nonallhad ttbar sample into lep-lep and lep-had events
+
+<isTTbarNonAllHad=false> @ /.;
+<isTTbarNonAllHad=true> @ bkg/?/?/fakes/top/ttbar/nonallhad;
+<isFakeTTbar=false> @ /.;
+# copy the nonallhad sample to the real background part to validate the splitting
+# this should give the same yield than bkg/?/?/top/ttbar/dilepton
+$create(path="bkg/channel/c16a/top/ttbar", type="sf");
+$create(path="bkg/channel/c16d/top/ttbar", type="sf");
+$create(path="bkg/channel/c16e/top/ttbar", type="sf");
+$copy("bkg/channel/c16a/fakes/top/ttbar/nonallhad >> bkg/channel/c16a/top/ttbar");
+$copy("bkg/channel/c16d/fakes/top/ttbar/nonallhad >> bkg/channel/c16d/top/ttbar");
+$copy("bkg/channel/c16e/fakes/top/ttbar/nonallhad >> bkg/channel/c16e/top/ttbar");
+<isFakeTTbar=true> @ bkg/?/?/fakes/top/ttbar/nonallhad;
+
+
+# create the actual channels
+$copy("sig/channel >> sig::ee");
+$copy("sig/channel >> sig::mm");
+$copy("sig/channel >> sig::em");
+$copy("sig/channel >> sig::me");
+$copy("bkg/channel >> bkg::ee");
+$copy("bkg/channel >> bkg::mm");
+$copy("bkg/channel >> bkg::em");
+$copy("bkg/channel >> bkg::me");
+$copy("data/channel >> data::ee");
+$copy("data/channel >> data::mm");
+$copy("data/channel >> data::em");
+$copy("data/channel >> data::me");
+
+# delete the placeholder channel
+$delete("sig/channel!");
+$delete("bkg/channel!");
+$delete("data/channel!");
+
+
+# general settings
+<wildcarded=true> @ ?/?;   # we usually don't care about the channel-part of the path
+<wildcarded=true> @ ?/?/?; # we usually don't care about the campaign-parts of the path
+<isData=true,  isMC=false, variation="Nominal"> @ data;
+<isData=false, isMC=true,  variation="Nominal"> @ sig,bkg;
+
+
+# set channel specific tags
+
+<channel="mm", isMM=true,  isEE=false, isEM=false, isME=false> @ ?/mm;
+<channel="ee", isMM=false, isEE=true,  isEM=false, isME=false> @ ?/ee;
+<channel="em", isMM=false, isEE=false, isEM=true,  isME=false> @ ?/em;
+<channel="me", isMM=false, isEE=false, isEM=false, isME=true > @ ?/me;
+
+<isSF=true, isDF=false> @ ?/ee,?/mm;
+<isSF=false, isDF=true> @ ?/em,?/me;
+
+<isLeadE=true, isLeadM=false> @ ?/ee,?/em;
+<isLeadE=false, isLeadM=true> @ ?/mm,?/me;
+<isSubE=true, isSubM=false> @ ?/ee,?/me;
+<isSubE=false, isSubM=true> @ ?/em,?/mm;

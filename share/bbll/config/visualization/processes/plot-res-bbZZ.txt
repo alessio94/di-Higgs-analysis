@@ -1,0 +1,19 @@
+.path = "/sig/$(channel)/$(campaign)/res/251/bbZZ"  , .name = "bbww_res_251"  , .title = "bbZZ m_{HH}=251 GeV" , .isSignal = true, histLineColor = 416 , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, normalizeToTotalBkg=true
+.path = "/sig/$(channel)/$(campaign)/res/260/bbZZ"  , .name = "bbww_res_260"  , .title = "bbZZ m_{HH}=260 GeV" , .isSignal = true, histLineColor = 413 , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, normalizeToTotalBkg=true
+.path = "/sig/$(channel)/$(campaign)/res/300/bbZZ"  , .name = "bbww_res_300"  , .title = "bbZZ m_{HH}=300 GeV" , .isSignal = true, histLineColor = 419 , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, normalizeToTotalBkg=true
+.path = "/sig/$(channel)/$(campaign)/res/400/bbZZ"  , .name = "bbww_res_400"  , .title = "bbZZ m_{HH}=400 GeV" , .isSignal = true, histLineColor = 632 , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, normalizeToTotalBkg=true
+.path = "/sig/$(channel)/$(campaign)/res/500/bbZZ"  , .name = "bbww_res_500"  , .title = "bbZZ m_{HH}=500 GeV" , .isSignal = true, histLineColor = 629 , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, normalizeToTotalBkg=true
+.path = "/sig/$(channel)/$(campaign)/res/600/bbZZ"  , .name = "bbww_res_600"  , .title = "bbZZ m_{HH}=600 GeV" , .isSignal = true, histLineColor = 635 , histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, normalizeToTotalBkg=true
+.path = "/sig/$(channel)/$(campaign)/res/800/bbZZ"  , .name = "bbww_res_800"  , .title = "bbZZ m_{HH}=800 GeV" , .isSignal = true, histLineColor = 600, histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, normalizeToTotalBkg=true
+.path = "/sig/$(channel)/$(campaign)/res/1000/bbZZ" , .name = "bbww_res_1000" , .title = "bbZZ m_{HH}=1000 GeV", .isSignal = true, histLineColor = 603, histFillStyle = 0, histLineStyle = 1, histLineWidth = 2, normalizeToTotalBkg=true
+
+.path = "/bkg/$(channel)/$(campaign)/top/[ttbar/nonallhad+stop+ttbarV]"  , .name = "Top"    , .title = "Top"                      , .isBackground = true, histFillColor = kYellow, histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/[Zee+Zmm]"                          , .name = "Zll"    , .title = "Z\#rightarrow{}ll"        , .isBackground = true, histFillColor = 861 , histLineColor = kBlack
+#.path = "/bkg/$(channel)/$(campaign)/Zee"                                , .name = "Zee"    , .title = "Z\#rightarrow{}ee"        , .isBackground = true, histFillColor = 861    , histLineColor = kBlack
+#.path = "/bkg/$(channel)/$(campaign)/Zmm"                                , .name = "Zmm"    , .title = "Z\#rightarrow{}\#mu\#mu"  , .isBackground = true, histFillColor = 866    , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/Ztt"                                , .name = "Ztt"    , .title = "Z\#rightarrow{}\#tau\#tau", .isBackground = true, histFillColor = kCyan  , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/fakes"                              , .name = "Fakes"  , .title = "Fakes"                    , .isBackground = true, histFillColor = kGreen , histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/diboson"                            , .name = "Diboson", .title = "Diboson"                  , .isBackground = true, histFillColor = kOrange, histLineColor = kBlack
+.path = "/bkg/$(channel)/$(campaign)/Higgs"                              , .name = "SMHiggs", .title = "H"                        , .isBackground = true, histFillColor = 622    , histLineColor = kBlack
+
+.path = "data/$(channel)/$(campaign)", .name = "data", .title = "Data", .isData = true, histMarkerColor = kBlack, histMarkerSize = 1, histMarkerStyle = 20, histLineColor = kBlack, histLineWidth = 2

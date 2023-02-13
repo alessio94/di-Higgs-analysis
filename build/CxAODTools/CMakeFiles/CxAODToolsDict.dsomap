@@ -1,0 +1,17 @@
+{ decls }
+namespace xAOD { class OverlapRegister; }
+namespace DataModel_detail { class NoBase; }
+template <typename T, typename BASE> class DataVector;
+namespace xAOD {  }
+
+[ libCxAODToolsDict.so ]
+# List of selected classes
+class DataVector<xAOD::OverlapRegister,DataModel_detail::NoBase>
+class DataVector<xAOD::OverlapRegister>
+class LumiMetaDataTool
+class xAOD::OverlapRegister
+class xAOD::OverlapRegisterAuxContainer
+class xAOD::OverlapRegisterContainer
+header LumiMetaDataTool.h
+header OverlapRegister.h
+# List of selected typedefs and outer classes

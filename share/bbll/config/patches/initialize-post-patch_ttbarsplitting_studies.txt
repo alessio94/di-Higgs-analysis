@@ -1,0 +1,14 @@
+$create(path="bkg/channel/c16a/top2", type="sf");
+$create(path="bkg/channel/c16d/top2", type="sf");
+$create(path="bkg/channel/c16e/top2", type="sf");
+$copy("bkg/channel/c16a/fakes/top/ttbar/nonallhad >> bkg/channel/c16a/top2::true");
+$copy("bkg/channel/c16d/fakes/top/ttbar/nonallhad >> bkg/channel/c16d/top2::true");
+$copy("bkg/channel/c16e/fakes/top/ttbar/nonallhad >> bkg/channel/c16e/top2::true");
+$copy("bkg/channel/c16a/fakes/top/ttbar/nonallhad >> bkg/channel/c16a/top2::fake");
+$copy("bkg/channel/c16d/fakes/top/ttbar/nonallhad >> bkg/channel/c16d/top2::fake");
+$copy("bkg/channel/c16e/fakes/top/ttbar/nonallhad >> bkg/channel/c16e/top2::fake");
+<isTTbarNonAllHad=false> @ bkg/?/?/top2/?;
+<isTTbar2=false> @ /.;
+<isTTbar2=true> @ bkg/?/?/top2;
+<isFakeTTbar=false> @ bkg/?/?/top2/true;
+<isFakeTTbar=true> @ bkg/?/?/top2/fake;

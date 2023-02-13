@@ -1,0 +1,75 @@
+# vim: filetype=tqfolder
+
++ TwoTag {
+    <mode = "TQNF">
+    <epsilon = 0.001>
+    <applyToCut = {Cut2TagMllSR1,Cut2TagMllSR2,Cut2TagMllTopCR}>
+    <stopAtCut = "never">
+
+    <saveLog = "logs/TQNFCalculator-default.log">
+    <saveResults = "results/normalization/default.txt">
+
+    <defaultDataPath = "data">
+
+    <methods = {"MatrixInversion", "FAIL"}>
+
+    + samples {
+        + ttbar {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/top/ttbar">
+            <lower = 0.5>
+            <upper = 2.0>
+        }
+        + Wt {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/top/stop">
+            <lower = 0.5>
+            <upper = 2.0>
+        }
+        + ttbarV {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/top/ttbarV">
+            <fixed = true>
+        }
+        + ZllHF {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/[Zee+Zmm]/main/[bb+cc]">
+            <lower = 0.5>
+            <upper = 2.0>
+        }
+        + ZllLF {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/[Zee+Zmm]/main/ll">
+            <fixed = true>
+        }
+        + ZllOther {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/[Zee+Zmm]/[lowmass+ew]">
+            <fixed = true>
+        }
+        + Ztt {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/Ztt">
+            <fixed = true>
+        }
+        + fakes {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/fakes">
+            <fixed = true>
+        }
+        + diboson {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/diboson">
+            <fixed = true>
+        }
+        + Higgs {
+            <path = "/bkg/[ee+mm+em+me]/[c16a+c16d+c16e]/Higgs">
+            <fixed = true>
+        }
+    }
+
+    + regions {
+        + ttbarControl {
+            <name = "Cut2TagMBLTTbarCR">
+        }
+
+        + wtControl {
+            <name = "Cut2TagMBLWtCR">
+        }
+
+        + zllControl {
+            <name = "Cut2TagMbbZllCR ">
+        }
+    }
+}

@@ -1,0 +1,17 @@
+!memory=2500
+!time=240
+!maxSampleSize=8000
+/bkg/?/?/prompt/Zee/hf/main/l
+/bkg/?/?/prompt/Zee/hf/main/c
+/bkg/?/?/prompt/Zee/hf/main/b
+/bkg/?/?/prompt/Zee/hf/verylowmass
+/bkg/?/?/prompt/Zee/hf/ew
+/bkg/?/?/prompt/Zmm/hf/verylowmass
+/bkg/?/?/prompt/Zmm/hf/ew
+/bkg/?/?/prompt/Zee/lf/main/l
+/bkg/?/?/prompt/Zee/lf/main/c
+/bkg/?/?/prompt/Zee/lf/main/b
+/bkg/?/?/prompt/Zee/lf/verylowmass
+/bkg/?/?/prompt/Zee/lf/ew
+/bkg/?/?/prompt/Zmm/lf/verylowmass
+/bkg/?/?/prompt/Zmm/lf/ew

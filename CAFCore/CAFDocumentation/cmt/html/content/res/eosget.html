@@ -1,0 +1,12 @@
+<div><p class="tight">
+Usually, it should be sufficient to prefix any paths you use
+with <span class="codeblock">root://eosatlas/</span> to access any files
+residing on EOS. The corresponding sections of the code will recognize the prefix and act accordingly.</p>
+<p></p>
+<p class="tight">
+However, you might wish to download the nTuples to your local machine - either because this allows faster and offline file access, or because you might want to replace or modify files. Since downloading extensive folder structures from EOS can be cumbersome, a script by the name <a href="base/share/eosget">eosget</a> residing in the <i>share</i> subfolder will do the job for you. Just type
+<div class="codeblock">
+share/eosget eos/atlas/some/path my/local/target
+</div>
+and you are good to go. If you forget the syntax, the script will echo usage information when invoked <span class="codeblock">eosget help</span>.
+</p></div>

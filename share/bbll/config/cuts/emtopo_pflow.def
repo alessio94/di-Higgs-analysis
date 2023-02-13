@@ -1,0 +1,62 @@
+# -*- mode: tqfolder -*-
+# to get proper syntax highlighting and indentation when using emacs,
+# add the following line to your .emacs file:
+#   (load-file "$TQPATH/share/tqfolder.el")
+
++CutBase2Leptons {
+    <.cutExpression = "$(NLeptons) == 2", .title="Base cut (2 leptons)">
++CutBaseChannelSplit {
+    <.cutExpression = "$(fitsChannel)", .weightExpression = "[MCWeight] * [PUWeight] * $(PRWFix) * [LeptonSF] * [JvtSF] * [TTbarNNLOWeight]", .title="Base cut (channel split)">
+
+    +CutSplitNonAllHadTTBar {
+        <.cutExpression = "$(isTTbarNonAllHad) ? ($(isFakeTTbar) == ([CodeTTBarDecay] < 4)) : 1", .title="Split nonallhad ttbar">
+
+#    +CutSplitTauDecays {
+#        <.cutExpression = "$(splitWDecays) ? ($(nWTauDecays) == [NWTauDecays]) : 1", .title="Split W decays">
+
+    +CutTriggerMatching {
+        <.cutExpression = "$(Trigger) != 0", .weightExpression="$(TriggerSF)", .title="Trigger selection and matching">
+
+## SIGNAL REGION
+
+        +CutNBJets2 {
+            <.cutExpression = "$(NBJets)==2", .title="NBJets=2", .weightExpression="[BTagSF:DL1r:FixedCutBEff_77]">
+
+            +CutOS {
+                <.cutExpression = "$(Lepton0Charge) * $(Lepton1Charge) == -1", .title="Oppsite charge">
+
+                +CutMllSR1 {
+                    <.cutExpression = "15*1000 < $(DiLeptonMass) && $(DiLeptonMass) < ($(isSF) ? 75*1000 : 110*1000)", .title="SR1: 15 GeV < m_{\ell\ell} < 75 (110) GeV">
+
+                    +CutMColl {
+                        <.cutExpression = "($(MColl) > 0) && ($(MColl) < 400e3)", .title="m^{coll} > 0">
+                    } # CutMColl
+
+                    +CutLTVAssoc {
+                        <.cutExpression = "$(Lepton0d0sigBL) < $(d0CutLead) && $(Lepton1d0sigBL) < $(d0CutSub) && $(Lepton0z0sinTheta) < 0.5 && $(Lepton1z0sinTheta) < 0.5", .title="LTVAssoc", .weightExpression="[TTVASF]">
+                    }
+
+                } # CutMllSR1
+
+                +CutMllSR2 {
+                    <.cutExpression = "$(isSF) && 75*1000 < $(DiLeptonMass) && $(DiLeptonMass) < 110*1000", .title="SR2: 75 GeV < m_{\ell\ell} < 110 GeV, SF only">
+
+                    +CutLTVAssocSR2 {
+                        <.cutExpression = "$(Lepton0d0sigBL) < $(d0CutLead) && $(Lepton1d0sigBL) < $(d0CutSub) && $(Lepton0z0sinTheta) < 0.5 && $(Lepton1z0sinTheta) < 0.5", .title="LTVAssoc" .weightExpression="[TTVASF]">
+                    }
+
+                } # CutSR2
+
+                +CutMllTopCR{
+                    <.cutExpression = "110*1000 < $(DiLeptonMass)", .title="TopCR: 110 GeV < m_{\ell\ell}">
+
+                } # CutMllTopCR
+
+            } # CutOS
+        } # CutNBJets2
+
+    } # TriggerMatching
+#    } # CutSplitTauDecays
+    } # CutSplitNonAllHadTTBar
+} # CutBaseChannelSplit
+} # CutBase2Leptons

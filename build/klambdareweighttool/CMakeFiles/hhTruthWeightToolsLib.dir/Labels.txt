@@ -1,0 +1,8 @@
+# Target labels
+ hhTruthWeightTools
+# Source files and their labels
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/klambdareweighttool/hhTruthWeightTools/hhWeightTool.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/klambdareweighttool/Root/hhWeightTool.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/klambdareweighttool/CMakeFiles/hhTruthWeightToolsLibCintDict.cxx
+ hhTruthWeightTools
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/klambdareweighttool/CMakeFiles/hhTruthWeightToolsLibCintDict.cxx.rule

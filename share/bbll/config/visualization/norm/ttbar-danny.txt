@@ -1,0 +1,23 @@
+# vim: filetype=tqfolder
+
+ + NFSET {
+     <mode="MANUAL">
+# https://indico.cern.ch/event/846670/contributions/3556439/attachments/1904410/3144833/di-higgs-0909.pdf
+     + Zll {
+         <path="/bkg/?/?/[Zee+Zmm]">
+         <applyToCut = {CutMll}>
+         <stopAtCut = "never">
+         <overwrite=true>
+         <value = 1.233>
+         <uncertainty = 0.028>
+     }
+
+     + Top {
+         <path = "/bkg/?/?/top/[ttbar/dilepton+stop+ttbarV]">
+         <applyToCut = {CutMll}>
+         <stopAtCut = "never">
+         <overwrite=true>
+         <value = 0.734>
+         <uncertainty = 0>
+     }
+}

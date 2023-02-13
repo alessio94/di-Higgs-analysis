@@ -1,0 +1,188 @@
+# -*- mode: tqfolder -*-
++CreateModels {
+  # The name of the model
+  +Test{
+    +Parameters {
+      <Title = "Test Model">
+      <POI = "mu">
+      # The luminosity scale factor (here, it is one because input
+      # histograms already have been scaled to correct luminosity)
+      <Lumi = 1.0>
+      # The relative uncertainty on the luminosity (scale factor). We don't want
+      # to consider systematic uncertainties for now, so set this parameter to a
+      # very small value (the fit will fail if it is too small)
+      <LumiRelErr = 0.0001>
+      # The minimum bin content for each histogram bin
+      <MinBinContent = 1E-12>
+    }
+    # In the "Samples" block all samples (individual signal and background contributions as well as
+    # data) have to be listed.
+    +Samples {
+      # This is the observed data. Please note that unlike all other
+      # samples the name of the data sample has to be exactly "Data"
+      +Data {
+      	<Type = D, Path = "data">
+      }
+      # This is the signal contribution (here, individual signal
+      # contributions are summed to get the total signal contribution)
+      +sig {
+  	    <Type = S, Path = "sig">
+  	    +NormFactor.mu {
+  	      <Val = 1., Low = -50, High = 50., Const = false>
+  	    }
+#        <StatErrorStackLabel = "XXXXXX">
+      }
+      +bkg {
+  	    <Type = B, Path = "bkg">
+  	    +NormFactor.norm_bkg {
+  	      <Val = 1., Low = -50, High = 50., Const = false>
+  	    }
+#        <StatErrorStackLabel = "XXXXXX">        
+      }
+      <ActivateStatError = true> @ ?;
+    }
+    # In the "Channels" block all channels (regions, e.g. signal and control regions) have to be listed.
+    +Channels {
+      +SR {
+  	    <Histogram = "CutSR/MyVar">
+  	    #<StatConstraintType="Gaussian">
+      }
+      +CR {
+  	    <Counter = "CutCR">
+  	    #<StatConstraintType="Gaussian">
+      }
+    }
+    +Variations {
+      +Nominal {
+        <variation="">
+      }
+    }
+  }
+}
+
++ExportModels {
+  +Test {
+    <outputFile = "model.root", writeXML="xml">
+  }
+}
+
++CreateWorkspaces {
+  +Test {
+    <histogramsFile = "histograms.root">
+    <constPars={"Lumi"}>
+    <removeNPs={"Lumi"}>
+    <floatPars={"gamma_stat*"}>
+    <addNPs={"gamma_stat*"}>
+    <logToFile="./buildWorkspace.log">        
+  }
+}
+
++ScaleMCUncertainties {
+  +Test {
+    <scale=1 , sqrt=true, invert=true> #reduce MC stat. errors by factor sqrt(1) (x -> x fb-1)
+  }
+}
+
++ExportWorkspaces {
+  +Test {
+    <outputFile = "workspace.root">
+  }
+}
+
+# calculate the significance
++CalculateSignificance {
+  +Test{
+    +asimov {
+      <dataset="asimovData">
+      <fit.logToFile="./signif_asimov.log">
+    }    
+#    +observed {
+#      <blinded=false>
+#      <dataset="obsData">
+#		  <fit.logToFile="./signif_observed.log">
+    #    }
+    <fit.floatPars={"gamma_stat_*"}> @ ?;
+    <fit.runHesse = true> @ ?;
+    <fit.verbose=true> @ ?;
+#    <fit.reuseNll=true> @ ?;  
+    <fit.initParam.norm_bkg=0.5>
+    <fit.initParam.mu=0.5>
+    
+    <fit.startingStrategy=1,fit.printLevel=1,fit.numRetry=3, fit.numCPU = 1, fit.offset=true, fit.verbose=1, fit.constOptimize=0> @ ?;
+  }
+}
+
++ScanLikelihood.mu{
+	+Test{
+		<fit.logToFile="./scan.log">
+#    <recycle=true>
+		<datasetName="asimovData">
+		+mu{
+			<min=-5,max=5, nbins=60>
+		}
+	}
+}
+
++CalculateBreakdown {
+ +Test {
+    # compute breakdown for the fit to asimov
+    +asimov { 
+      <datasetName="asimovData">
+      <invert=false>
+    }   
+    @ ? {
+			<singles.all = "*">
+    }
+    <fit.startingStrategy=1,fit.printLevel=1,fit.numRetry=3, fit.offset=true, fit.verbose=1> @ ?;
+  }
+}
+
++ExportResults {
+  +Test {
+    <outputFile = "result.root">
+  }
+}
+
++PlotResultsTikZ.asimov.full {
+	+Test{
+		+PlotFitParameter {
+			<outputFile="ranking.tex">
+			+BREAKDOWN.asimov {
+				<parameterSet = "Breakdowns/asimov/Breakdown/mu">
+				<style.title = "Asimov breakdown", style.fillColor = kMagenta-7>
+				<style.drawOption = 'E2'>
+				<master=true>		
+			}
+		}
+	}
+}
+
++PlotLikelihoodScan {
+  +Test {
+    <arrangement="$TQPATH/../SFramework/share/templates/PlotLikelihoodScanSignificance.txt">
+    <outputFile="likelihood.pdf">
+    +mu {
+      <source = "LikelihoodScans/ScanLikelihood.mu/Scan">
+      <style.lineColor=kRed, style.title="#mu">
+    }    
+    <style.title.xAxis = "#mu">
+  }
+}  
+
++PlotCorrelations.down {
+  +Test {
+    <orientation="down">    
+    <fromCovariance=false>
+    <fitresult = "LikelihoodScans/ScanLikelihood.mu/Scan/*/.fit">
+    <outputFile="correlations-down.pdf">
+  }
+}
+
++PlotCorrelations.up {
+  +Test {
+    <orientation="up">
+    <fromCovariance=false>
+    <fitresult = "LikelihoodScans/ScanLikelihood.mu/Scan/*/.fit">
+    <outputFile="correlations-up.pdf">
+  }
+}

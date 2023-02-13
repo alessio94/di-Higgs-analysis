@@ -1,0 +1,26 @@
+# Target labels
+ CommonAnalysisHelpers
+# Source files and their labels
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/__init__.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/analyze.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/analyzeAux
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/common.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/initialize.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/prepare.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/submit.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/visualize.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CommonAnalysisHelpers/python/__init__.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CommonAnalysisHelpers/python/analyze.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CommonAnalysisHelpers/python/common.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CommonAnalysisHelpers/python/initialize.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CommonAnalysisHelpers/python/prepare.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CommonAnalysisHelpers/python/submit.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/CAFCore/CommonAnalysisHelpers/python/visualize.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/__init__.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/analyze.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/analyzeAux.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/common.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/initialize.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/prepare.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/submit.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/CommonAnalysisHelpers/visualize.py.rule

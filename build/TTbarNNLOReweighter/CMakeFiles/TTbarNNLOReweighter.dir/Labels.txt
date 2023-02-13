@@ -1,0 +1,9 @@
+# Target labels
+ TTbarNNLOReweighter
+# Source files and their labels
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/TTbarNNLOReweighter/Root/TTbarNNLOReweighter.cxx
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/TTbarNNLOReweighter/Root/LinkDef.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/TTbarNNLOReweighter/TTbarNNLOReweighter/TTbarNNLOReweighter.h
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/TTbarNNLOReweighter/CMakeFiles/TTbarNNLOReweighterCintDict.cxx
+ TTbarNNLOReweighter
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/TTbarNNLOReweighter/CMakeFiles/TTbarNNLOReweighterCintDict.cxx.rule

@@ -1,0 +1,62 @@
+# vim: filetype=tqfolder
+# -*- mode: tqfolder -*-
+# to get proper syntax highlighting and indentation when using emacs,
+# add the following line to your .emacs file:
+#   (load-file "$TQPATH/share/tqfolder.el")
+
++CutBase2Leptons {
+    <.cutExpression = "$(NLeptons) == 2", .title="Base cut (2 leptons)">
++CutBaseChannelSplit {
+    <.cutExpression = "$(fitsChannel)", .weightExpression = "[MCWeight] * [PUWeight] * $(PRWFix) * [LeptonSF] * [JvtSF] * [TTbarNNLOWeight]", .title="Base cut (channel split)">
+
+    +CutApplyTTBarSplitting {
+        <.cutExpression = "$(applyTTBarSplitting) ? ($(isDiLepTTbar) == $(MCTCisLeptonicTopDecay)) : 1", .title="Split ttbar">
+
+    +CutApplyPromptBkgSplitting {
+        <.cutExpression = "$(applyPromptBkgSplitting) ? ($(isPromptBkg) == ($(Lepton0FakeType) == 0 && $(Lepton1FakeType) == 0)) : 1", .title="Split prompt/non-prompt backgrounds">
+
+    +CutApplyZjetsSplitting {
+        <.cutExpression = "$(applyZjetsSplitting) ? ($(isZjetsHF) == ($(BJet0isHF) && $(BJet1isHF))) : 1", .title="Split Zjets">
+
+    +CutTriggerMatching {
+        <.cutExpression = "$(Trigger) != 0", .weightExpression="$(TriggerSF)", .title="Trigger selection and matching">
+
+    +CutOS {
+        <.cutExpression = "$(Lepton0Charge) * $(Lepton1Charge) == ($(isddFake) ? 1 : -1)", .weightExpression="[ddFakeWeight]", .title="Oppsite charge">
+
+        +CutNBJets2 {
+            <.cutExpression = "$(NBJets)==2", .title="NBJets=2", .weightExpression="[BTagSF:DL1r:FixedCutBEff_77]">
+
+            +Cut2TagMllSR1 {
+                <.cutExpression = "15*1000 < $(DiLeptonMass) && $(DiLeptonMass) < ($(isSF) ? 75*1000 : 110*1000)", .title="SR1: 15 GeV < m_{\ell\ell} < 75 (110) GeV">
+
+                +Cut2TagMllSR1VBFVeto {
+                    <.cutExpression = "$(VBFVeto)", .title="VBF Veto">
+
+                } # Cut2TagMllSR1VBFVeto
+            } # Cut2TagMllSR1
+
+            +Cut2TagMllHighMassSF {
+                <.cutExpression = "$(isSF) && 75*1000 < $(DiLeptonMass) && $(DiLeptonMass) < 110*1000", .title="75 GeV < m_{\ell\ell} < 110 GeV, SF only">
+                +Cut2TagMbbSR2 {
+                    <.cutExpression = "40*1000 < $(DiBJetMass) && $(DiBJetMass) < 210*1000", .title="SR2: 40 GeV < m_{bb} < 210 GeV">
+                }
+
+                +Cut2TagMbbZllCR {
+                    <.cutExpression = "!(40*1000 < $(DiBJetMass) && $(DiBJetMass) < 210*1000)", .title="ZllCR: m_{bb} < 40 GeV || 210 GeV < m_{bb}">
+                }
+            } # Cut2TagMllSR2
+
+            +Cut2TagMllTopCR{
+                <.cutExpression = "110*1000 < $(DiLeptonMass)", .title="TopCR: 110 GeV < m_{\ell\ell}">
+            } # Cut2TagMllTopCR
+
+        } # CutNBJets2
+
+    } # CutOS
+    } # TriggerMatching
+    } # CutApplyZjetsSplitting
+    } # CutApplyPromptBkgSplitting
+    } # CutApplyTTBarSplitting
+} # CutBaseChannelSplit
+} # CutBase2Leptons

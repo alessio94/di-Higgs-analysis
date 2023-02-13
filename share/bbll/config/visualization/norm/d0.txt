@@ -1,0 +1,159 @@
+# vim: filetype=tqfolder
+
+ + NFSET {
+     <mode="MANUAL">
+# https://indico.cern.ch/event/846670/contributions/3556439/attachments/1904410/3144833/di-higgs-0909.pdf
+     + Zll {
+         <path="/bkg/?/?/[Zee+Zmm]">
+         <applyToCut = {Cut2TagMllSR1,Cut2TagMllSR2,Cut2TagMllTopCR}>
+         <stopAtCut = "never">
+         <overwrite=true>
+         <value = 1.233>
+         <uncertainty = 0.028>
+     }
+}
+
++ TwoTaga {
+    <mode = "TQNF">
+    <epsilon = 0.001>
+    <applyToCut = {Cut2TagMllSR1,Cut2TagMllSR2,Cut2TagMllTopCR}>
+    <stopAtCut = "never">
+
+    <saveLog = "logs/TQNFCalculator-ttbar-c16a.log">
+    <saveResults = "results/normalization/ttbar-c16a.txt">
+
+    <defaultDataPath = "/data/[ee+mm+em+me]/c16a">
+
+    <methods = {"MatrixInversion", "FAIL"}>
+
+    + samples {
+        + top {
+            <path = "/bkg/[ee+mm+em+me]/c16a/top/[ttbar/dilepton+stop+ttbarV]">
+            <lower = 0.1>
+            <upper = 10>
+        }
+        + Zll {
+            <path = "/bkg/[ee+mm+em+me]/c16a/[Zee+Zmm]">
+            <fixed = true>
+        }
+        + Ztt {
+            <path = "/bkg/[ee+mm+em+me]/c16a/Ztt">
+            <fixed = true>
+        }
+        + fakes {
+            <path = "/bkg/[ee+mm+em+me]/c16a/fakes/[diboson+Wenu+Wmunu+Wtaunu+top/stop+top/ttbar/allhad+top/ttbar/nonallhad]">
+            <fixed = true>
+        }
+        + diboson {
+            <path = "/bkg/[ee+mm+em+me]/c16a/diboson">
+            <fixed = true>
+        }
+        + Higgs {
+            <path = "/bkg/[ee+mm+em+me]/c16a/Higgs">
+            <fixed = true>
+        }
+    }
+
+    + regions {
+        + topControl {
+            <name = "Cut2TagMllTopCR">
+        }
+    }
+}
+
++ TwoTagd {
+    <mode = "TQNF">
+    <epsilon = 0.001>
+    <applyToCut = {Cut2TagMllSR1,Cut2TagMllSR2,Cut2TagMllTopCR}>
+    <stopAtCut = "never">
+
+    <saveLog = "logs/TQNFCalculator-ttbar-c16d.log">
+    <saveResults = "results/normalization/ttbar-c16d.txt">
+
+    <defaultDataPath = "/data/[ee+mm+em+me]/c16d">
+
+    <methods = {"MatrixInversion", "FAIL"}>
+
+    + samples {
+        + top {
+            <path = "/bkg/[ee+mm+em+me]/c16d/top/[ttbar/dilepton+stop+ttbarV]">
+            <lower = 0.01>
+            <upper = 10>
+        }
+        + Zll {
+            <path = "/bkg/[ee+mm+em+me]/c16d/[Zee+Zmm]">
+            <fixed = true>
+        }
+        + Ztt {
+            <path = "/bkg/[ee+mm+em+me]/c16d/Ztt">
+            <fixed = true>
+        }
+        + fakes {
+            <path = "/bkg/[ee+mm+em+me]/c16d/fakes/[diboson+Wenu+Wmunu+Wtaunu+top/stop+top/ttbar/allhad+top/ttbar/nonallhad]">
+            <fixed = true>
+        }
+        + diboson {
+            <path = "/bkg/[ee+mm+em+me]/c16d/diboson">
+            <fixed = true>
+        }
+        + Higgs {
+            <path = "/bkg/[ee+mm+em+me]/c16d/Higgs">
+            <fixed = true>
+        }
+    }
+
+    + regions {
+        + topControl {
+            <name = "Cut2TagMllTopCR">
+        }
+    }
+}
+
++ TwoTage {
+    <mode = "TQNF">
+    <epsilon = 0.001>
+    <applyToCut = {Cut2TagMllSR1,Cut2TagMllSR2,Cut2TagMllTopCR}>
+    <stopAtCut = "never">
+
+    <saveLog = "logs/TQNFCalculator-ttbar-c16e.log">
+    <saveResults = "results/normalization/ttbar-c16e.txt">
+
+    <defaultDataPath = "/data/[ee+mm+em+me]/c16e">
+
+    <methods = {"MatrixInversion", "FAIL"}>
+
+    + samples {
+        + top {
+            <path = "/bkg/[ee+mm+em+me]/c16e/top/[ttbar/dilepton+stop+ttbarV]">
+            <lower = 0.1>
+            <upper = 10>
+        }
+        + Zll {
+            <path = "/bkg/[ee+mm+em+me]/c16e/[Zee+Zmm]">
+            <fixed = true>
+        }
+        + Ztt {
+            <path = "/bkg/[ee+mm+em+me]/c16e/Ztt">
+            <fixed = true>
+        }
+        + fakes {
+            <path = "/bkg/[ee+mm+em+me]/c16e/fakes/[diboson+Wenu+Wmunu+Wtaunu+top/stop+top/ttbar/allhad+top/ttbar/nonallhad]">
+            <fixed = true>
+        }
+        + diboson {
+            <path = "/bkg/[ee+mm+em+me]/c16e/diboson">
+            <fixed = true>
+        }
+        + Higgs {
+            <path = "/bkg/[ee+mm+em+me]/c16e/Higgs">
+            <fixed = true>
+        }
+
+    }
+
+    + regions {
+        + topControl {
+            <name = "Cut2TagMllTopCR">
+        }
+    }
+}

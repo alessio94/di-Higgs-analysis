@@ -1,0 +1,13 @@
++ImportWorkspaces {
+	<inputFiles = "./output_SimpleExample/workspaces/workspace_SimpleExample3.root:*">
+}
+
++RunStatistics {
+	+Fit {
+		<datasetName = "obsData", fit.runMinos = true>
+	}
+}
+
++ExportResults {
+	<outputFile = "./output_SimpleExample/results/fit_$(Name).txt, ./output_SimpleExample/results/fit_$(Name).root">
+}

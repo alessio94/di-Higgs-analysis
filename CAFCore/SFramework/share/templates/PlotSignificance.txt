@@ -1,0 +1,34 @@
+<style.title.xAxis = "Hypothesized Higgs mass #it{m}_{H} [GeV]">
+<style.title.yAxis = "Local p_{0}">
+<style.logScale = true>
+
++Line.line1 {
+	<y = 1>
+	<level = back>
+	<style.lineColor = 1, style.lineStyle = 7>
+	<yMaxMin = 1> @ ..;
+}
++Line.0s {
+	<y = 0.5, yLabel = "#color[2]{0#sigma}", style.lineColor = 2, style.lineStyle = 7>
+}
++Line.1s {
+	<y = 0.158655, yLabel = "#color[2]{1#sigma}", style.lineColor = 2, style.lineStyle = 7>
+}
++Line.2s {
+	<y = 0.0227501, yLabel = "#color[2]{2#sigma}", style.lineColor = 2, style.lineStyle = 7>
+}
++Line.3s {
+	<y = 0.0013499, yLabel = "#color[2]{3#sigma}", style.lineColor = 2, style.lineStyle = 7>
+}
++Line.4s {
+	<y = 3.16712e-05, yLabel = "#color[2]{4#sigma}", style.lineColor = 2, style.lineStyle = 7>
+}
++Line.5s {
+	<y = 2.86652e-07, yLabel = "#color[2]{5#sigma}", style.lineColor = 2, style.lineStyle = 7>
+}
++Line.6s {
+	<y = 9.86588e-10, yLabel = "#color[2]{6#sigma}", style.lineColor = 2, style.lineStyle = 7>
+}
++Line.7s {
+	<y = 1.27987e-12, yLabel = "#color[2]{7#sigma}", style.lineColor = 2, style.lineStyle = 7>
+}

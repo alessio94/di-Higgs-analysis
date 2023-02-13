@@ -1,0 +1,9 @@
+!memory=2500
+!time=240
+!maxSampleSize=8000
+/sys/?/?/sig/nonres/herwig7/bbtautau
+/sys/?/?/sig/nonres/herwig7/bbWW
+/sys/?/?/sig/nonres/herwig7/bbZZ
+/sys/?/?/sig/kl10/herwig7/bbtautau
+/sys/?/?/sig/kl10/herwig7/bbWW
+/sys/?/?/sig/kl10/herwig7/bbZZ

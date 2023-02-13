@@ -1,0 +1,101 @@
+# -*- mode: tqfolder -*-
+# to get proper syntax highlighting and indentation when using emacs,
+# add the following line to your .emacs file:
+#   (load-file "$TQPATH/share/tqfolder.el")
+
++CutBase2Leptons {
+    <.cutExpression = "$(NLeptons) == 2", .title="Base cut (2 leptons)">
++CutBaseChannelSplit {
+    <.cutExpression = "$(fitsChannel)", .weightExpression = "[MCWeight] * [PUWeight] * $(PRWFix) * [LeptonSF] * [JvtSF] * [TTbarNNLOWeight]", .title="Base cut (channel split)">
+
+    +CutSplitNonAllHadTTBar {
+        <.cutExpression = "$(isTTbarNonAllHad) ? ($(isFakeTTbar) == ([CodeTTBarDecay] < 4)) : 1", .title="Split nonallhad ttbar">
+
+    +CutTriggerMatching {
+        <.cutExpression = "$(Trigger) != 0", .weightExpression="$(TriggerSF)", .title="Trigger selection and matching">
+
+## SIGNAL REGION
+
+        +Cut2TagOS {
+            <.cutExpression = "$(Lepton0Charge) * $(Lepton1Charge) == -1", .title="Oppsite charge">
+
+            +Cut2TagMllSR1 {
+                <.cutExpression = "15*1000 < $(DiLeptonMass) && $(DiLeptonMass) < ($(isSF) ? 75*1000 : 110*1000)", .title="SR1: 15 GeV < m_{\ell\ell} < 75 (110) GeV">
+
+                +Cut2TagMllSR1PtRecoNo {
+                    <.cutExpression = "$(NBJets) == 2", .title="No PtReco">
+                }
+
+                +Cut2TagMllSR1MuInJet {
+                    <.cutExpression = "$(NBJetsMuInJet) == 2", .title="mu-in-jet (w/o e-loss)">
+                }
+
+                +Cut2TagMllSR1MuInJetELoss {
+                    <.cutExpression = "$(NBJetsMuInJetELoss) == 2", .title="mu-in-jet (w/ e-loss)">
+                }
+
+                +Cut2TagMllSR1PtRecoOld {
+                    <.cutExpression = "$(NBJetsPtRecoOld) == 2", .title="Old PtReco">
+                }
+
+                +Cut2TagMllSR1PtRecoNew {
+                    <.cutExpression = "$(NBJetsPtRecoNew) == 2", .title="New PtReco">
+                }
+
+            } # Cut2TagMllSR1
+
+            +Cut2TagMllSR2 {
+                <.cutExpression = "$(isSF) && 75*1000 < $(DiLeptonMass) && $(DiLeptonMass) < 110*1000", .title="SR2: 75 GeV < m_{\ell\ell} < 110 GeV, SF only">
+
+                +Cut2TagMllSR2PtRecoNo {
+                    <.cutExpression = "$(NBJets) == 2", .title="No PtReco">
+                }
+
+                +Cut2TagMllSR2MuInJet {
+                    <.cutExpression = "$(NBJetsMuInJet) == 2", .title="mu-in-jet (w/o e-loss)">
+                }
+
+                +Cut2TagMllSR2MuInJetELoss {
+                    <.cutExpression = "$(NBJetsMuInJetELoss) == 2", .title="mu-in-jet (w/ e-loss)">
+                }
+
+                +Cut2TagMllSR2PtRecoOld {
+                    <.cutExpression = "$(NBJetsPtRecoOld) == 2", .title="Old PtReco">
+                }
+
+                +Cut2TagMllSR2PtRecoNew {
+                    <.cutExpression = "$(NBJetsPtRecoNew) == 2", .title="New PtReco">
+                }
+
+            } # Cut2TagMllSR2
+
+            +Cut2TagMllTopCR{
+                <.cutExpression = "110*1000 < $(DiLeptonMass)", .title="TopCR: 110 GeV < m_{\ell\ell}">
+
+                +Cut2TagMllTopCRPtRecoNo {
+                    <.cutExpression = "$(NBJets) == 2", .title="No PtReco">
+                }
+
+                +Cut2TagMllTopCRMuInJet {
+                    <.cutExpression = "$(NBJetsMuInJet) == 2", .title="mu-in-jet (w/o e-loss)">
+                }
+
+                +Cut2TagMllTopCRMuInJetELoss {
+                    <.cutExpression = "$(NBJetsMuInJetELoss) == 2", .title="mu-in-jet (w/ e-loss)">
+                }
+
+                +Cut2TagMllTopCRPtRecoOld {
+                    <.cutExpression = "$(NBJetsPtRecoOld) == 2", .title="Old PtReco">
+                }
+
+                +Cut2TagMllTopCRPtRecoNew {
+                    <.cutExpression = "$(NBJetsPtRecoNew) == 2", .title="New PtReco">
+                }
+
+            } # Cut2TagMllTopCR
+
+        } # Cut2TagOS
+    } # TriggerMatching
+    } # CutSplitNonAllHadTTBar
+} # CutBaseChannelSplit
+} # CutBase2Leptons

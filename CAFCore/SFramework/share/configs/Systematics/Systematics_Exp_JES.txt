@@ -1,0 +1,44 @@
++Variations {
+	# Jet Energy Scale
+	# -------------------------------
+	+BaseJESDown;
+	+BaseJESUp;
+	+ClosebyJESDown;
+	+ClosebyJESUp;
+	+FlavJESDown;
+	+FlavJESUp;
+	+bJESDown;
+	+bJESUp;
+	+FWDJESDown;
+	+FWDJESUp;
+	+NPVJESDown;
+	+NPVJESUp;
+	+MuJESDown;
+	+MuJESUp;
+}
+
++Systematics {
+	# Jet Energy Scale
+	# --------------------------------------------------------------------------------------------------------------
+	+ATLAS_JES_BASE {
+		<Up = "BaseJESUp", Down = "BaseJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_CLOSEBY {
+		<Up = "ClosebyJESUp", Down = "ClosebyJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_FLAV {
+		<Up = "FlavJESUp", Down = "FlavJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_BJET {
+		<Up = "bJESUp", Down = "bJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_FWD {
+		<Up = "FWDJESUp", Down = "FWDJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_NPV {
+		<Up = "NPVJESUp", Down = "NPVJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+	+ATLAS_JES_MU {
+		<Up = "MuJESUp", Down = "MuJESDown", IsOverallSys = true, IsHistoSys = false>
+	}
+}

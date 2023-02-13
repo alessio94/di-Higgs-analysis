@@ -1,0 +1,107 @@
+#!/bin/bash
+
+# Script to iteratively merge samplefolders.
+# This is useful when running into memory issues when trying
+# to merge a large number of files.
+
+if [[ $1 == '--help' || $1 == '-h'  ]]; then
+    echo "==>> Usage: "
+    echo "tqsafemerge dir/with/files/to/merge/* --output mergedFileName.root --tmp tmp/output/dir -n chunksSizeInteger --options \"arbitrary further options, e.g. '--downmerge generalize --patches onfig/patches/common/downmerge.txt' \""
+    echo "==>> Example command:"
+    echo "tqsafemerge batchOutput/unmerged_myAwesomeSFs/* --output merged.root -n 20 --options --downmerge generalize --patch config/patches/common/downmerge.txt --patch config/patches/common/trimmingAfterPooling.txt"
+    echo "==>> Please note: "
+    echo "- The argument '--options' must come in the end"
+    echo "- Please put an asterisk at the end of the path pointing to your files to be merged"
+    echo "- The argument '--output' is optional"
+    echo "- To just printout the commands and not actually executing them specify an additonal argument '--dummy'"
+    echo "==>> Now it's your time to try, enjoy the ride..."
+    exit 1
+else
+    echo "==>> Starting tqsafemerge"
+    echo "-->> Execute 'tqsafemerge --help' to find out how to use this script"
+fi
+
+FILES=()
+DATE=$(date +%Y-%m-%d-%H-%M-%S)
+TMPDIR=/tmp/$(whoami)/tqsafemerge/$DATE
+OUTPUT="samples_merged.root"
+
+while [[ $# -gt 1 ]]; do
+    key="$1"
+    case $key in
+	--options)
+	    shift
+	    OPTIONS="$@"
+	    break
+	    ;;
+	-o|--output)
+	    OUTPUT="$2"
+	    shift
+	    ;;
+	-n)
+	    CHUNKS="$2"
+	    shift 
+	    ;;
+        --dummy)
+            DUMMY=1
+            ;;
+	--tmp)
+	    TMPDIR="$2"
+	    shift 
+	    ;;
+	*)
+	    if [ -f $1 ]; then
+		FILES+=($1)
+	    else
+		echo "WARN: unknown option: $1"
+		exit
+	    fi
+	    ;;
+    esac
+    shift # past argument or value
+done
+
+echo "-->> You specified the following output name for the final merged output file: ${OUTPUT}"
+echo "-->> You specified the following chunk size for merging: ${CHUNKS}"
+echo "-->> You specified the following temporary output dir: ${TMPDIR}"
+if [[ ${OPTIONS} ]]; then
+    echo "-->> You specified the following additional options for merging: '${OPTIONS}'"
+fi
+if [[ ${DUMMY} ]]; then
+    echo "-->> You are running in dummy mode"
+fi
+
+# create output dir if it is not already available
+mkdir -p ${TMPDIR}
+nFiles=$(ls ${TMPDIR} | wc -l)
+if [ ${nFiles} -gt 0 ]; then
+    echo "WARN: Your temporary directory - where the partially merged sample folders are saved - does not seem to be empty. Are you sure you want to proceed? (y/n)"
+    read answer
+    if [ "$answer" == "n" ]; then
+        echo "Exiting..."
+        exit 1
+    fi
+fi
+
+echo "==>> Starting merging procedure..."
+while [ ${#FILES[@]} -gt 1 ]; do
+    echo "-->> Number of left files to be merged: ${#FILES[@]}"
+    TMPOUT=$TMPDIR/tmp.${#FILES[@]}.root
+    part=( "${FILES[@]:0:CHUNKS}" )
+    if [[ ${DUMMY} ]]; then
+        echo "-->> You are running in dummy mode; this is the command that would be executed for this partial merge:"
+        echo $TQPATH/share/tqmerge -t analyze -o $TMPOUT ${part[*]} ${OPTIONS} 
+    else
+        if [ -f ${TMPOUT} ]; then
+            echo "file $TMPOUT already found, skipping this partial merging step..."
+        else
+            echo "-->> Start partial merge with the following command: "
+            echo $TQPATH/share/tqmerge -t analyze -o $TMPOUT ${OPTIONS} ${part[*]} 
+            $TQPATH/share/tqmerge -t analyze -o $TMPOUT ${OPTIONS} ${part[*]} 
+        fi
+    fi
+    FILES=("${FILES[@]:CHUNKS}" $TMPOUT) 
+done
+
+echo "-->> Copying file to specified output name!: 'cp ${FILES[0]} $OUTPUT'"
+cp ${FILES[0]} $OUTPUT

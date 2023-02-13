@@ -1,0 +1,21 @@
+# ==============================================================================================
+# config_runChain_SimpleExample2.txt
+#
+# ==============================================================================================
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Load the configuration file of the first simple example
+# ("config_runChain_SimpleExample.txt")
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$include("examples/config_runChain_SimpleExample.txt");
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Change the name of the model (from "SimpleExample") to "SimpleExample2"
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<name = "SimpleExample2"> @ CreateModels.SimpleExample;
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Change the histogram in signal region used in the model from the 1-bin
+# version "CutSR/MT_1bin" used before to the 2-bin version "CutSR/MT_2bin"
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<Histogram = "CutSR/MT_2bin"> @ CreateModels.SimpleExample/ModelConfiguration/Channels/SR;

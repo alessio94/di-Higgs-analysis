@@ -1,0 +1,20 @@
+# Target labels
+ SubmissionHelpers
+# Source files and their labels
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/__init__.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/common.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/submissionControllerBase.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/submissionControllers
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/submit.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/task.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/SubmissionHelpers/python/__init__.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/SubmissionHelpers/python/common.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/SubmissionHelpers/python/submissionControllerBase.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/SubmissionHelpers/python/submit.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/SubmissionHelpers/python/task.py
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/__init__.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/common.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/submissionControllerBase.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/submissionControllers.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/submit.py.rule
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/python/SubmissionHelpers/task.py.rule

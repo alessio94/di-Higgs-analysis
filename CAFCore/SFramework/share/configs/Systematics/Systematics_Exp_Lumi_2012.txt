@@ -1,0 +1,56 @@
++Samples {
+	+sig_ggf {
+		+OverallSys.LUMI_2012;
+	}
+	+sig_vbf {
+		+OverallSys.LUMI_2012;
+	}
+	+sig_WH {
+		+OverallSys.LUMI_2012;
+	}
+	+sig_ZH {
+		+OverallSys.LUMI_2012;
+	}
+	+WZZZ {
+		+OverallSys.LUMI_2012;
+	}
+	+Wg {
+		+OverallSys.LUMI_2012;
+	}
+	+Wgs {
+		+OverallSys.LUMI_2012;
+	}
+	<Low = 0.965251, High = 1.036> @ ?/OverallSys.LUMI_2012;
+}
+
+
+# Don't include Luminosity uncertainty for Z->ll samples
+$escape();
+
++Samples {
+	+Zll {
+		+OverallSys.LUMI_2012;
+	}
+	+Ztt {
+		+OverallSys.LUMI_2012;
+	}
+	<Low = 0.965251, High = 1.036> @ ?/OverallSys.LUMI_2012;
+}
+
+
+# Dont't include Luminosity uncertainty for samples with data-driven estimate
+$escape();
+
++Samples {
+	+ttbar {
+		+OverallSys.LUMI_2012;
+	}
+	+singletop {
+		+OverallSys.LUMI_2012;
+	}
+	+Wjets {
+		+OverallSys.LUMI_2012;
+	}
+	<Low = 0.965251, High = 1.036> @ ?/OverallSys.LUMI_2012;
+}
+

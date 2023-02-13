@@ -1,0 +1,7 @@
+!memory=2500
+!time=240
+!maxSampleSize=8000
+/sys/?/?/sig/vbf_novhh_l1cvv1cv1/herwig7/bbZZ
+/sys/?/?/sig/vbf_novhh_l1cvv0cv1/herwig7/bbZZ
+/sys/?/?/sig/vbf_novhh_l10cvv1cv1/herwig7/bbZZ
+

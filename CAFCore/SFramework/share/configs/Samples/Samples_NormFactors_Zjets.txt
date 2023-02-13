@@ -1,0 +1,22 @@
++Samples {
+	+Zll {
+		+NormFactor.ATLAS_norm_Zjets0j {
+			<.AppliesToChannels = "*_0j_*">
+			<Val = 1., Low = 0., High = 50., Const = false>
+		}
+		+NormFactor.ATLAS_norm_Zjets1j {
+			<.AppliesToChannels = "*_1j_*">
+			<Val = 1., Low = 0., High = 50., Const = false>
+		}
+	}
+	+Ztt {
+		+NormFactor.ATLAS_norm_Zjets0j {
+			<.AppliesToChannels = "*_0j_*">
+			<Val = 1., Low = 0., High = 50., Const = false>
+		}
+		+NormFactor.ATLAS_norm_Zjets1j {
+			<.AppliesToChannels = "*_1j_*">
+			<Val = 1., Low = 0., High = 50., Const = false>
+		}
+	}
+}

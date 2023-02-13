@@ -1,0 +1,25 @@
+{
+	"sources" : 
+	[
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/CommonAnalysisHelpers/test-bin/test_analyze.exe"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/CommonAnalysisHelpers/test-bin/test_pyCut.exe"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/CommonAnalysisHelpers/test-bin/test_analyze.exe.rule"
+		},
+		{
+			"file" : "/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/CAFCore/CommonAnalysisHelpers/test-bin/test_pyCut.exe.rule"
+		}
+	],
+	"target" : 
+	{
+		"labels" : 
+		[
+			"CommonAnalysisHelpers"
+		],
+		"name" : "CommonAnalysisHelpersTestScriptInstall"
+	}
+}

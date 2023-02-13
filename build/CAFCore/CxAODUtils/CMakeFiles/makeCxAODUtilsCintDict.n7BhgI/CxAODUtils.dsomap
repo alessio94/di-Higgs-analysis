@@ -1,0 +1,12 @@
+{ decls }
+namespace CxAODSelectors {  }
+
+[ libCxAODUtils.so ]
+# List of selected classes
+class CxAODReaderAlgorithm
+class CxAODSelectors::AcceptanceSelector
+class CxAODSelectors::PassThrough
+header CxAODUtils/CxAODReaderAlgorithm.h
+# List of selected typedefs and outer classes
+typedef CxAODSelectors::CharAccessor
+typedef CxAODSelectors::IntAccessor

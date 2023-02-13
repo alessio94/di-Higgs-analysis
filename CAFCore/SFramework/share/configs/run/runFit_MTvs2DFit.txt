@@ -1,0 +1,27 @@
++ImportWorkspaces {
+	<inputFiles = "./output/METRel25_NPPullCheck/workspaces/workspace_*.root:*">
+}
+
++RunStatistics {
+#	+Significance {
+#		<doObserved = false, doExpected = true, doConditionalAsimov = false, fit.runHesse = false, fit.runMinos = true, fit.minimizerType = "Minuit">
+#	}
+#	+UncertaintyBreakdown {
+#		<datasetName = "asimovData_1">
+#		<group.STATS_MC = "gamma_stat_*">
+#		<group.STATS_Data = "!*norm*">
+#		<group.SYS = "alpha_*">
+#		<group.NORM_Top1j = "*ATLAS_norm_Top1j*">
+#	}
+        +ErrorProfile{
+                <profiledParameters="alpha_ATLAS_JES_FLAV, alpha_ATLAS_JES_BASE", fit.runHesse = false, fit.runMinos = true, fit.minimizerType = "Minuit">
+        }
+}
+
++ExportResults {
+	<outputFile = "./output/METRel25_NPPullCheck/results/result_$(Name)_alpha0.txt, ./output/METRel25_NPPullCheck/results/result_$(Name)_alpha0.root">
+}
+
+#+ExportWorkspaces {
+#	<outputFile = "./output/METRel25_NPPullCheck/workspaces_post/workspace_$(Name).root">
+#}

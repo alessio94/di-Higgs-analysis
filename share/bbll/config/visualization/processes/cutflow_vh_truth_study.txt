@@ -1,0 +1,14 @@
+.path = "||"
+.path = "/bkg/$(channel)/$(campaign)/prompt/Higgs/tautau/vh/wh"            , .name = "WH H->TauTau",       .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/prompt/Higgs/tautau/vh/zh"            , .name = "ZH H->TauTau",       .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/prompt/Higgs/WW/vh/wh"                , .name = "WH H->WW",           .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/prompt/Higgs/WW/vh/zh"                , .name = "ZH H->WW",           .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/prompt/Higgs/bb/vh/zh"                , .name = "ZH H->bb",           .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/prompt/Higgs/cc/vh/zh"                , .name = "ZH H->cc",           .isBackground = true
+.path = "|"
+.path = "/bkg/$(channel)/$(campaign)/prompt/Higgs/?/vh/wh"                 , .name = "WH (indiv.)",        .isBackground = true
+.path = "/bkg/$(channel)/$(campaign)/prompt/Higgs/?/vh/zh"                 , .name = "ZH (indiv.)",        .isBackground = true
+.path = "|"
+.path = "/oth/$(channel)/$(campaign)/bkg/prompt/Higgs/vh/wh"               , .name = "WH (incl.)",         .isBackground = true
+.path = "/oth/$(channel)/$(campaign)/bkg/prompt/Higgs/vh/zh"               , .name = "ZH (incl.)",         .isBackground = true
+.path = "||"

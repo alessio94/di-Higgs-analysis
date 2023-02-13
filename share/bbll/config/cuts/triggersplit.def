@@ -1,0 +1,75 @@
+# -*- mode: tqfolder -*-
+# to get proper syntax highlighting and indentation when using emacs,
+# add the following line to your .emacs file:
+#   (load-file "$TQPATH/share/tqfolder.el")
+
++CutBase2Leptons {
+    <.cutExpression = "$(NLeptons) == 2", .title="Base cut (2 leptons)">
++CutBaseChannelSplit {
+    <.cutExpression = "$(fitsChannel)", .weightExpression = "[MCWeight] * [PUWeight] * $(PRWFix) * [LeptonSF] * [JvtSF] * [TTbarNNLOWeight]", .title="Base cut (channel split)">
+
+    +CutSplitTTbarFakes {
+        <.cutExpression = "$(isTTbarNonAllHad) ? ($(isFakeTTbar) == [isFakeTTbarObs]) : 1", .title="Split ttbar fakes">
+
+    +CutSplitTauDecays {
+        <.cutExpression = "$(splitWDecays) ? ($(nWTauDecays) == [NWTauDecays]) : 1", .title="Split W decays">
+
+    +CutTriggerMatching {
+        <.cutExpression = "$(Trigger) != 0", .weightExpression="$(TriggerSF)", .title="Trigger selection and matching">
+
+        +CutRRN0 {
+            <.cutExpression = "$(runNumber)==0", .title="RunNumber=0">
+        }
+
+        +CutTrig_SET {
+            <.cutExpression = "$(TrigSET)", .title="TrigSET">
+        }
+
+        +CutTrig_SMT {
+            <.cutExpression = "$(TrigSMT)", .title="TrigSMT">
+        }
+
+        +CutTrig_DET {
+            <.cutExpression = "$(TrigDET)", .title="TrigDET">
+        }
+
+        +CutTrig_DMT {
+            <.cutExpression = "$(TrigDMT)", .title="TrigDMT">
+        }
+
+        +CutTrig_EMT {
+            <.cutExpression = "$(TrigEMT)", .title="TrigEMT">
+        }
+
+    } # CutTriggerMatching
+    } # CutSplitTauDecays
+    } # CutSplitTTbarFakes
+} # CutBaseChannelSplit
+} # CutBase2Leptons
+
+@*/CutTrig_*{
+    +CutYear2015 {
+        <.name="CutTrig$(TRIG)2015", .cutExpression="$(is2015)", .title="Trig$(TRIG) 2015">
+    }
+    +CutYear2016 {
+        <.name="CutTrig$(TRIG)2016", .cutExpression="$(is2016)", .title="Trig$(TRIG) 2016">
+    }
+    +CutYear2017 {
+        <.name="CutTrig$(TRIG)2017", .cutExpression="$(is2017)", .title="Trig$(TRIG) 2017">
+    }
+    +CutYear2018 {
+        <.name="CutTrig$(TRIG)2018", .cutExpression="$(is2018)", .title="Trig$(TRIG) 2018">
+    }
+}
+
+$replace("*/CutTrig_SET/*:.name,.title", TRIG="SET");
+$replace("*/CutTrig_SMT/*:.name,.title", TRIG="SMT");
+$replace("*/CutTrig_DET/*:.name,.title", TRIG="DET");
+$replace("*/CutTrig_DMT/*:.name,.title", TRIG="DMT");
+$replace("*/CutTrig_EMT/*:.name,.title", TRIG="EMT");
+
+#$replace("*/CutTrig_SET/*:.title", TRIG="SET");
+#$replace("*/CutTrig_SMT/*:.title", TRIG="SMT");
+#$replace("*/CutTrig_DET/*:.title", TRIG="DET");
+#$replace("*/CutTrig_DMT/*:.title", TRIG="DMT");
+#$replace("*/CutTrig_EMT/*:.title", TRIG="EMT");

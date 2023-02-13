@@ -1,0 +1,12 @@
++Samples {
+	+WW {
+		+NormFactor.ATLAS_norm_WW0j {
+			<.AppliesToChannels = "*_0j_*">
+			<Val = 1., Low = 0., High = 50., Const = false>
+		}
+		+NormFactor.ATLAS_norm_WW1j {
+			<.AppliesToChannels = "*_1j_*">
+			<Val = 1., Low = 0., High = 50., Const = false>
+		}
+	}
+}

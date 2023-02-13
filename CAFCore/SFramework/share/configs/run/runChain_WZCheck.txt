@@ -1,0 +1,253 @@
+# ==============================================================================================
+# This is a configuration file for the HWWAnalysisCode statistics code and defines a set of
+# various different fit models related to the HWWlvlv analysis. This file is structured as
+# follows:
+#
+# - a model template ("CreateModels_Template") setting up the basic model configuration which
+#   most models defined here have in common
+#
+# - a list of model creation tasks ("CreateModels.*") copied from the model template and
+#   defining specifics of the models. Generally, there will be two types of models: one type
+#   using "stats only" (no systematic uncertainties) and one type including (experimental)
+#   systematic uncertainties. The latter models are created from copies of the corresponding
+#   ones without systematic uncertainties and including systematics from an additional config
+#   file (these models have a "_ExpSys" name appendix)
+#
+# - a list of "$delete(...)" operations deleting all but a few model creation tasks again (this
+#   is done to allow for swtiching models on and off by (un)commenting only one line, namely the
+#   corresponding delete operation)
+#
+# - a task to export the models created above as TXT, ROOT, and XML files ("ExportModels")
+#
+# - a task to create RooFit workspaces from the models created above using HistFactory
+#   ("CreateWorkspaces")
+#
+# - a task to export the workspaces created in the previous step to ROOT files
+#   ("ExportWorkspaces")
+#
+# ==============================================================================================
+
+
+# ----------------------------------------------------------------------------------------------
+# Model template
+# ----------------------------------------------------------------------------------------------
++CreateModels_Template {
+
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# List of mass hypotheses to run the analysis for (here, this is set to 125 GeV). You
+	# also can specify a list of masses in which case an individual model will be created
+	# for each mass hypothesis, e.g.
+	#
+	# <masses = "110, 115, 120, 125, 130, 135, 140">
+	#
+	# will create seven (7) models where in corresponding places the place holder "$(.mass)"
+	# will be replaced by the value of the corresponding mass hypotheses. [Please note here
+	# that a list of masses has to be provided as a string.]
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	<masses = 125>
+
+
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# Specify the input file containing histograms of signal, background, and data for
+	# Nominal as well as (experimental) systematic variations (file(s) are produced using
+	# the default HWW analysis code and can be found at "/afs/cern.ch/work/a/awalz/public")
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	# ----- dataset (from 02-25vtlh ntuples, 20.7 1/fb) -----
+	<inputFile = "./../HWWlvlv_2012/samples_hww_analysis_00-02-25vtlh_Blinded_TEST_CF4.root">
+
+
+	+ModelConfiguration {
+		$include("configs/Parameters.txt");
+
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		# Load mapping between naming schemes in official uncertainty files and the models
+		# defined herein
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		$include("configs/External_Maps.txt");
+
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		# Define the list of samples as well as corresponding floating normalization factors
+		# (definitions are provided in additional config files which are simply included here)
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		$include("configs/Samples/Samples_ListOnly.txt");
+		$include("configs/Samples/Samples_NormFactors_WW.txt");
+		$include("configs/Samples/Samples_NormFactors_Top.txt");
+
+		$ignore() {
+		
+		# create qqWW and ggWW samples
+		+Samples {
+			+qqWW {
+				<Type = B, Path = "bkg/$(.lepch)/diboson/WW/qqWW", Category = "bkg/diboson/WW">
+				+NormFactor.ATLAS_sampleNorm_qqWW {<Val = 1., Low = 0., High = 10., Const = true>}
+			}
+			+ggWW {
+				<Type = B, Path = "bkg/$(.lepch)/diboson/WW/ggWW", Category = "bkg/diboson/WW">
+				+NormFactor.ATLAS_sampleNorm_ggWW {<Val = 1., Low = 0., High = 10., Const = true>}
+			}
+		}
+
+		# copy floating normalization factor definitions from WW to qqWW and ggWW samples
+		$copy("Samples/WW/NormFactor.ATLAS_norm_WW0j >> Samples/qqWW");
+		$copy("Samples/WW/NormFactor.ATLAS_norm_WW1j >> Samples/qqWW");
+		$copy("Samples/WW/NormFactor.ATLAS_norm_WW0j >> Samples/ggWW");
+		$copy("Samples/WW/NormFactor.ATLAS_norm_WW1j >> Samples/ggWW");
+		
+		# remove WW sample
+		$delete("Samples/WW!");
+		
+		}
+
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		# Deactivate statistical uncertainies from Monte Carlo by default for all samples
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		<ActivateStatError = false> @ Samples/?;
+
+
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		# Use background + signal (similar to Asimov dataset with mu = 1) as data
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		<Path = "bkg/$(.lepch) + sig/$(.lepch)/mh$(.mass)", applyPoissonErrors = true> @ Samples/Data;
+	
+
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		# Only consider "Nominal" as input for now, systematics will be added later for some
+		# models. Make use of place holders "$(.InputFile)" (will be replaced by input file
+		# given above) and "$(.Variation)" (will be replaced by the name of the variation) to
+		# avoid the need to list input file for each variation
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		+Variations {
+			<SampleFolder = "$(.InputFile):samples_$(.Variation)">
+			+Nominal;
+		}
+		
+		
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		# Import theoretical uncertainties (might contain experimental uncertainties as well)
+		# from external uncertainty file and incorporate in model (more than one file may be
+		# added by providing filenames as comma-separated list)
+		# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+		<UncertaintyFiles = "uncertainties/alpha_uncerts_ww.txt"> @ Parameters;
+	}
+}
+
+
+# ----------------------------------------------------------------------------------------------
+# Simple MT fit
+# ----------------------------------------------------------------------------------------------
+$copy("CreateModels_Template >> ::CreateModels.MTFit") {
+	<name = "HWWlvlv_mh$(.mass)_MTFit">
+
+	+ModelConfiguration/Channels {
+		+SR1_0j_em {
+			<Histogram = "CutSR1_0jet/MT", RemapXTo = 5>
+			<.lepch = "em">
+		}
+		+SR1_0j_me {
+			<Histogram = "CutSR1_0jet/MT", RemapXTo = 5>
+			<.lepch = "me">
+		}
+		+SR2_0j_em {
+			<Histogram = "CutSR2_0jet/MT", RemapXTo = 5>
+			<.lepch = "em">
+		}
+		+SR2_0j_me {
+			<Histogram = "CutSR2_0jet/MT", RemapXTo = 5>
+			<.lepch = "me">
+		}
+
+		+WWCR_0j_OF {
+			<Histogram = "CutWWControl_0jet/MT", RemapXTo = 1>
+			<.lepch = "[em+me]">
+		}
+
+#		+SR1_1j_em {
+#			<Histogram = "CutSR1_1jet/MT", RemapXTo = 3>
+#			<.lepch = "em">
+#		}
+#		+SR1_1j_me {
+#			<Histogram = "CutSR1_1jet/MT", RemapXTo = 3>
+#			<.lepch = "me">
+#		}
+#		+SR2_1j_em {
+#			<Histogram = "CutSR2_1jet/MT", RemapXTo = 3>
+#			<.lepch = "em">
+#		}
+#		+SR2_1j_me {
+#			<Histogram = "CutSR2_1jet/MT", RemapXTo = 3>
+#			<.lepch = "me">
+#		}
+
+#		+WWCR_1j_OF {
+#			<Histogram = "CutWWControl_1jet/MT", RemapXTo = 1>
+#			<.lepch = "[em+me]">
+#		}
+#		+TopCR_1j_OF {
+#			<Histogram = "CutTopControl_1jet/MT", RemapXTo = 1>
+#			<.lepch = "[em+me]">
+#		}
+
+		<PathRemapFlat = "bkg/$(.lepch)"> @ ?;
+
+		<RemapSlices = false, StatRelErrorThreshold = 0.015, StatConstraintType = "Poisson"> @ ?;
+	}
+
+	<ActivateStatError = true> @ ModelConfiguration/Samples/?;
+}
+
+
+$copy("CreateModels.MTFit >> ::CreateModels.MTFit_WWDataStats") {
+	<name = "HWWlvlv_mh$(.mass)_MTFit_WWDataStats">
+
+	<forChannel.SR1_0j_em.applyPoissonErrors = true> @ ModelConfiguration/Samples/WW;
+	<forChannel.SR1_0j_me.applyPoissonErrors = true> @ ModelConfiguration/Samples/WW;
+	<forChannel.SR2_0j_em.applyPoissonErrors = true> @ ModelConfiguration/Samples/WW;
+	<forChannel.SR2_0j_me.applyPoissonErrors = true> @ ModelConfiguration/Samples/WW;
+}
+
+
+$copy("CreateModels.MTFit_WWDataStats >> ::CreateModels.MTFit_WWDataStats_NoTheorySys") {
+	<name = "HWWlvlv_mh$(.mass)_MTFit_WWDataStats_NoTheorySys">
+
+	<UncertaintyFiles = ""> @ ModelConfiguration/Parameters;
+}
+
+
+$copy("CreateModels.MTFit >> ::CreateModels.MTFit_NoTheorySys") {
+	<name = "HWWlvlv_mh$(.mass)_MTFit_NoTheorySys">
+
+	<UncertaintyFiles = ""> @ ModelConfiguration/Parameters;
+}
+
+
+#$copy("CreateModels.MTFit >>::CreateModels.MTFit_ExpSys") {
+#	<name = "HWWlvlv_mh$(.mass)_MTFit_ExpSys">
+#	+ModelConfiguration {
+#		$include("configs/Systematics/Systematics_Exp_All.txt");
+#		<.Include = "!*:Wjets"> @ Systematics/?;
+#		<.Include = "*:Wjets"> @ Systematics/FakeRate_HWW;
+#		<.Exclude = "", InterpCode = 4> @ Systematics/?;
+#	}
+#}
+
+
+# ============== List of all models ==============
+#$delete("CreateModels.MTFit!");
+#$delete("CreateModels.MTFit_WWDataStats!");
+#$delete("CreateModels.MTFit_ExpSys!");
+# ================================================
+
++ExportModels {
+	<outputFile = "./output/WZCheck/models/model_$(Name).txt, ./output/WZCheck/models/model_$(Name).root">
+	<xmlDir = "./output/WZCheck/xml/model_$(Name)">
+}
++CreateWorkspaces {
+	<histogramsFile = "./output/WZCheck/workspaces/histograms_$(Name).root">
+}
++ExportWorkspaces {
+	<outputFile = "./output/WZCheck/workspaces/workspace_$(Name).root">
+}
+
+
+

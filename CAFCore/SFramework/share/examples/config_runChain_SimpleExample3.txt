@@ -1,0 +1,66 @@
+# ==============================================================================================
+# config_runChain_SimpleExample3.txt
+#
+# This configuration file corresponds to a simple example illustrating the incorporation of
+# (experimental) systematic uncertainties in the model.
+#
+#
+# ==============================================================================================
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Load the configuration file of the first simple example
+# ("config_runChain_SimpleExample.txt")
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+$include("examples/config_runChain_SimpleExample.txt");
+
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+# Change the name of the model (from "SimpleExample") to "SimpleExample3"
+# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+<name = "SimpleExample3"> @ CreateModels.SimpleExample;
+
+
++CreateModels.SimpleExample/ModelConfiguration {
+
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# This is the list of independent variations of the input histograms and
+	# or counter to be used to infer the response to sources of systematic
+	# uncertainties. Please note: in this block you have to provide at least
+	# the "Nominal" variation. The reason why it is not listed here is that it
+	# is already present from including the first example config file and only
+	# new elements have to be added:
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	+Variations {
+		+BaseJESDown {
+			<SampleFolder = "./examples/samples_example.root:samples_BaseJESDown">
+		}
+		+BaseJESUp {
+			<SampleFolder = "./examples/samples_example.root:samples_BaseJESUp">
+		}
+	}
+
+	# ... this is the short version of the block above doing exactly the same
+	# thing but using the name of the sample folders inside the ROOT file to
+	# read from as the name for each variation and using a placeholder to
+	# obtain from a general name a specific one by replacing "$(.Variation)"
+	# by the name of the variation (name of corresponding block):
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	#+Variations {
+	#	<SampleFolder = "./examples/samples_example.root:samples_$(.Variation)">
+	#	+BaseJESDown;
+	#	+BaseJESUp;
+	#}
+
+
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	# Here, the sources of systematic uncertainties are listed (in this case
+	# we only use the BaseJES as an example). For each systematic uncertainty
+	# a "Up" and/or "Down" variation has to be provided which has/have to
+	# refer to the corresponding entry in the "Variations" block.
+	# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+	+Systematics {
+		+ATLAS_BASE_JES {
+			<Up = "BaseJESUp", Down = "BaseJESDown", IsOverallSys = true, Title = "Jet Energy Scale">
+		}
+	}
+
+}

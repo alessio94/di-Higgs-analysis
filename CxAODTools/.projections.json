@@ -1,0 +1,10 @@
+{
+    "Root/*.cxx": {
+        "alternate": "CxAODTools/{}.h",
+        "type": "source"
+    },
+    "CxAODTools/*.h": {
+        "alternate": "Root/{}.cxx",
+        "type": "header"
+    }
+}

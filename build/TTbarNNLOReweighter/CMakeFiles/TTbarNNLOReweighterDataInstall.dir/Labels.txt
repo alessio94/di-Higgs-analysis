@@ -1,0 +1,6 @@
+# Target labels
+ TTbarNNLOReweighter
+# Source files and their labels
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/data/TTbarNNLOReweighter/TTbar_NNLO_QCD_NLO_EW_weights.root
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/TTbarNNLOReweighter/data/TTbar_NNLO_QCD_NLO_EW_weights.root
+/afs/cern.ch/work/a/apizzini/private/2022/nov/CAFbbll/build/x86_64-centos7-gcc8-opt/data/TTbarNNLOReweighter/TTbar_NNLO_QCD_NLO_EW_weights.root.rule

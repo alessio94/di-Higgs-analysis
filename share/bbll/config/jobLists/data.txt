@@ -1,0 +1,8 @@
+!memory=2500
+!time=120
+!queue=nemo_vm_atlsch
+!maxSampleCount=40
+/data/?/c16a
+/data/?/c16d
+!maxSampleCount=25
+/data/?/c16e

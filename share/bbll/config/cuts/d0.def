@@ -1,0 +1,66 @@
+# -*- mode: tqfolder -*-
+# to get proper syntax highlighting and indentation when using emacs,
+# add the following line to your .emacs file:
+#   (load-file "$TQPATH/share/tqfolder.el")
+
++CutBase2Leptons {
+    <.cutExpression = "$(NLeptons) == 2", .title="Base cut (2 leptons)">
++CutBaseChannelSplit {
+    <.cutExpression = "$(fitsChannel)", .weightExpression = "[MCWeight] * [PUWeight] * $(PRWFix) * [LeptonSF] * [JvtSF] * [TTbarNNLOWeight]", .title="Base cut (channel split)">
+
++CutApplyTTBarSplitting {
+    <.cutExpression = "$(applyTTBarSplitting) ? ($(isFakeTTbar) != $(MCTCisLeptonicTopDecay)) : 1", .title="Split ttbar">
+
++CutTriggerMatching {
+    <.cutExpression = "$(Trigger) != 0", .weightExpression="$(TriggerSF)", .title="Trigger selection and matching">
+
+    +CutNBJets2 {
+        <.cutExpression = "$(NBJets)==2", .title="NBJets=2", .weightExpression="[BTagSF:DL1r:FixedCutBEff_77]">
+
+        +Cut2TagOS {
+            <.cutExpression = "$(Lepton0Charge) * $(Lepton1Charge) == -1", .title="Oppsite charge">
+
+            +Cut2TagMllSR1 {
+                <.cutExpression = "15*1000 < $(DiLeptonMass) && $(DiLeptonMass) < ($(isSF) ? 75*1000 : 110*1000)", .title="SR1: 15 GeV < m_{\ell\ell} < 75 (110) GeV">
+
+                +Cut2TagSR1Period2015 {
+                    <.cutExpression = "$(is2015)", .title="2015">
+                } # Cut2TagSR1Period2015
+
+                +Cut2TagSR1Period2016PreTS1 {
+                    <.cutExpression = "$(is2016PreTS1)", .title="2016 pre TS1">
+                } # Cut2TagSR1Period2016PreTS1
+
+                +Cut2TagSR1Period2016PostTS1 {
+                    <.cutExpression = "$(is2016PostTS1)", .title="2016 pre TS1">
+                } # Cut2TagSR1Period2016PostTS1
+
+            } # Cut2TagMllSR1
+
+            +Cut2TagMllSR2 {
+                <.cutExpression = "$(isSF) && 75*1000 < $(DiLeptonMass) && $(DiLeptonMass) < 110*1000", .title="SR2: 75 GeV < m_{\ell\ell} < 110 GeV, SF only">
+
+                +Cut2TagSR2Period2015 {
+                    <.cutExpression = "$(is2015)", .title="2015">
+                } # Cut2TagSR2Period2015
+
+                +Cut2TagSR2Period2016PreTS1 {
+                    <.cutExpression = "$(is2016PreTS1)", .title="2016 pre TS1">
+                } # Cut2TagSR2Period2016PreTS1
+
+                +Cut2TagSR2Period2016PostTS1 {
+                    <.cutExpression = "$(is2016PostTS1)", .title="2016 pre TS1">
+                } # Cut2TagSR2Period2016PostTS1
+
+            } # Cut2TagMllSR2
+
+            +Cut2TagMllTopCR{
+                <.cutExpression = "110*1000 < $(DiLeptonMass)", .title="TopCR: 110 GeV < m_{\ell\ell}">
+            } # Cut2TagMllTopCR
+
+        } # Cut2TagOS
+    } # CutNBJets2
+} # TriggerMatching
+} # CutApplyTTBarSplitting
+} # CutBaseChannelSplit
+} # CutBase2Leptons

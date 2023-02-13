@@ -1,0 +1,37 @@
+#<labels.0 = "#sqrt{s} = 13 TeV, #lower[-0.2]{#scale[0.6]{#int}} Ldt = 3.2 fb^{-1}">
+#<labels.1 = "#it{H}#rightarrow#it{WW}^{(*)}#rightarrow#it{e}#nu#mu#nu/#mu#nu#it{e}#nu + 0/1 jets">
+<style.title.xAxis = "(#hat{#theta}-#theta_{0})/#Delta#theta">
+<style.title.yAxis = "Parameter">
+<style.logScale = false>
+
+<style.width = 768, style.height=1920, style.margin.top=0.15, style.margin.left=0.15, style.margin.bottom=0.1>
+<labels.x=0.1,labels.y=0.95, style.allowVetoFrac=true>
+<style.legend.x1=0.1,style.legend.x2=0.9,style.legend.y1=0.87,style.legend.y2=0.92>
+
+<style.xMaxMin=4>
+
+<style.drawOption="P", style.legendDrawOptions="EPL", style.markerStyle=20> @ Overlay.Pulls.*;
+<style.drawOption = 'E2', style.fillStyle=1001, style.lineWidth=1, style.legendDrawOptions = 'f'> @ Overlay.Breakdown.**;
+
++Line.line0 {
+	<x = 0>
+	<level = back>
+	<style.lineColor = 2, style.lineStyle = 1>
+}
++Line.linem1 {
+	<x = -1>
+	<level = back>
+	<style.lineColor = 2, style.lineStyle = 7>
+	<xMinMax = -1.> @ ..;
+}
++Line.linep1 {
+	<x = +1>
+	<level = back>
+	<style.lineColor = 2, style.lineStyle = 7>
+	<xMaxMin = 5.> @ ..;
+}
+
+
++Axis* {
+  <style.textSize=0.015, style.titleOffset=.8, style.lineWidth=1>
+}

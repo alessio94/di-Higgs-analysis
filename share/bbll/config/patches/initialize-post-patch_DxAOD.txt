@@ -1,0 +1,28 @@
+$copy("bkg/channel >> bkg::ee");
+$copy("bkg/channel >> bkg::mm");
+$copy("bkg/channel >> bkg::em");
+$copy("bkg/channel >> bkg::me");
+
+$delete("bkg/channel!");
+
+
+<wildcarded=true> @ ?/?;   # we usually don't care about the channel-part of the path
+<wildcarded=true> @ ?/?/?; # we usually don't care about the campaign-parts of the path
+
+<isData=false, isMC=true,  variation="Nominal"> @ sig,bkg;
+
+
+# set channel specific tags
+
+<channel="mm", isMM=true,  isEE=false, isEM=false, isME=false> @ ?/mm; # mm channel for data,bkg,sig
+<channel="ee", isMM=false, isEE=true,  isEM=false, isME=false> @ ?/ee; # ee channel for data,bkg,sig
+<channel="em", isMM=false, isEE=false, isEM=true,  isME=false> @ ?/em; # em channel for data,bkg,sig
+<channel="me", isMM=false, isEE=false, isEM=false, isME=true > @ ?/me; # me channel for data,bkg,sig
+
+<isSF=true, isDF=false> @ ?/ee,?/mm;
+<isSF=false, isDF=true> @ ?/em,?/me;
+
+<isLeadE=true, isLeadM=false> @ ?/ee,?/em;
+<isLeadE=false, isLeadM=true> @ ?/mm,?/me;
+<isSubE=true, isSubM=false> @ ?/ee,?/me;
+<isSubE=false, isSubM=true> @ ?/em,?/mm;
